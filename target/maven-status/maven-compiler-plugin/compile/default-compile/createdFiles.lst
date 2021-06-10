@@ -1,11 +1,7 @@
-TheLostHotel\GUI\GameGUI$9.class
 TheLostHotel\GUI\MenuGUI$2.class
 TheLostHotel\Type\GameItemContainer.class
-TheLostHotel\GUI\GameGUI$11.class
 TheLostHotel\Other\TheLostHotel$1.class
 TheLostHotel\GUI\InventoryGUI$1.class
-TheLostHotel\GUI\GameGUI$4.class
-TheLostHotel\GUI\GameGUI$6.class
 TheLostHotel\Other\TheLostHotel.class
 TheLostHotel\Type\Inventory.class
 TheLostHotel\GUI\MenuGUI$5.class
@@ -16,10 +12,8 @@ TheLostHotel\Type\GameItem.class
 TheLostHotel\Type\Room.class
 TheLostHotel\GUI\GameGUI$1.class
 TheLostHotel\Parser\ParserOutput.class
-TheLostHotel\GUI\GameGUI$10.class
 TheLostHotel\Other\RoomsID.class
 TheLostHotel\GUI\GameGUI.class
-TheLostHotel\GUI\GameGUI$3.class
 TheLostHotel\Other\Main.class
 TheLostHotel\GUI\MenuGUI$1.class
 TheLostHotel\Other\GameManager.class
@@ -27,14 +21,9 @@ TheLostHotel\Parser\Parser.class
 TheLostHotel\Type\CommandType.class
 TheLostHotel\GUI\InventoryGUI.class
 TheLostHotel\GUI\MenuGUI$3.class
-TheLostHotel\GUI\GameGUI$8.class
-TheLostHotel\GUI\GameGUI$12.class
 TheLostHotel\Type\Command.class
 TheLostHotel\Other\GameDescription.class
-TheLostHotel\GUI\GameGUI$7.class
-TheLostHotel\GUI\GameGUI$5.class
 TheLostHotel\File\File.class
 TheLostHotel\Other\MenuManager.class
 TheLostHotel\GUI\MenuGUI$4.class
 TheLostHotel\Other\GameInteraction.class
-TheLostHotel\GUI\GameGUI$2.class

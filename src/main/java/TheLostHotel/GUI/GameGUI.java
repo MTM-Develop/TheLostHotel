@@ -39,8 +39,8 @@ public class GameGUI extends javax.swing.JFrame {
     private StringBuilder s = new StringBuilder();
     private int counter = 0;
 
-    private Font font, font1;
-    private Font fontMenu, fontMenu1;
+    private Font font;
+    private Font fontGameButton,fontGameLabel, fontGameBar;
 
     private boolean savedGame = true;
     private boolean fastText = false;
@@ -128,13 +128,13 @@ public class GameGUI extends javax.swing.JFrame {
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jbNorth, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jbNorth, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jbWest, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jbWest, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jbSouth, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(jbSouth, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jbEast, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jbEast, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(87, 87, 87))
         );
         jPanel1Layout.setVerticalGroup(
@@ -155,41 +155,19 @@ public class GameGUI extends javax.swing.JFrame {
 
         jbNorth.setText("Nord");
         jbNorth.setMnemonic(KeyEvent.VK_N);
-        jbNorth.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                jbNorthActionPerformed();
-            }
-        });
+        jbNorth.addActionListener(e -> sendCommandByButton("nord"));
 
         jbEast.setText("Est");
         jbEast.setMnemonic(KeyEvent.VK_E);
-        jbEast.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                /*provaComando(jtpReadingArea,"Prova testo Prova testo Prova testo Prova testo Prova testo Prova testo Prova testo" +
-                        "Prova testo Prova testo Prova testo Prova testo\n", "\n>> " + "COMANDO EST" + "\n", Color.red);*/
-                jbEastActionPerformed();
-            }
-        });
+        jbEast.addActionListener(e -> sendCommandByButton("est"));
 
         jbSouth.setText("Sud");
         jbSouth.setMnemonic(KeyEvent.VK_S);
-        jbSouth.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                jbSouthActionPerformed();
-            }
-        });
+        jbSouth.addActionListener(e -> sendCommandByButton("sud"));
 
         jbWest.setText("Ovest");
         jbWest.setMnemonic(KeyEvent.VK_O);
-        jbWest.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                jbWestActionPerformed();
-            }
-        });
+        jbWest.addActionListener(e -> sendCommandByButton("ovest"));
 
         jlCommand.setBackground(new java.awt.Color(43, 52, 43));
         jlCommand.setOpaque(true);
@@ -211,36 +189,21 @@ public class GameGUI extends javax.swing.JFrame {
         jlCurrentRoom.setForeground(new java.awt.Color(255, 255, 255));
         jlCurrentRoom.setText("  STANZA CORRENTE: ");
         getContentPane().add(jlCurrentRoom);
-        jlCurrentRoom.setBounds(580, 60, 150, 40);
+        jlCurrentRoom.setBounds(560, 60, 160, 40);
 
         jbSaveGame.setText("SALVA (CTRL-S)");
-        jbSaveGame.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                saveGame();
-            }
-        });
+        jbSaveGame.addActionListener(e -> saveGame());
         getContentPane().add(jbSaveGame);
         jbSaveGame.setBounds(1010, 520, 170, 40);
 
         jbQuitGame.setText("ESCI (CTRL-Q)");
-        //jbQuitGame.setMnemonic(KeyEvent.VK_C);
-        jbQuitGame.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                jmiQuitActionPerformed();
-            }
-        });
+        jbQuitGame.addActionListener(e -> jmiQuitActionPerformed());
         getContentPane().add(jbQuitGame);
         jbQuitGame.setBounds(1010, 580, 170, 40);
 
         jbSendCommand.setText("INVIA");
         jbSendCommand.setMnemonic(KeyEvent.VK_I); //Provare con INVIO
-        jbSendCommand.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sendCommand();
-            }
-        });
+        jbSendCommand.addActionListener(evt -> sendCommandByTextField());
         getContentPane().add(jbSendCommand);
         jbSendCommand.setBounds(430, 580, 100, 40);
 
@@ -249,12 +212,8 @@ public class GameGUI extends javax.swing.JFrame {
         jbInventory.setIcon(new ImageIcon("resources//img//inventory.png"));
         jbInventory.setToolTipText("Inventario");
         jbInventory.setBackground(new Color(0, 0, 0));
-        jbInventory.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //showInventory();
-                new InventoryGUI(gInteraction.getGameManager().getGame().getInventory()).setVisible(true);
-            }
+        jbInventory.addActionListener(e -> {
+            new InventoryGUI(gInteraction.getGameManager().getGame().getInventory()).setVisible(true);
         });
         getContentPane().add(jbInventory);
         jbInventory.setBounds(1000, 45, 70, 70);
@@ -274,7 +233,7 @@ public class GameGUI extends javax.swing.JFrame {
         getContentPane().add(jlRoomImage);
         jlRoomImage.setBounds(560, 140, 620, 350);
 
-        jtpReadingArea.setEditable(false); //////
+        jtpReadingArea.setEditable(false);
         jtpReadingArea.setBackground(new java.awt.Color(0, 0, 0));
         jtpReadingArea.setForeground(new java.awt.Color(255, 255, 255));
         jtpReadingArea.setMaximumSize(new java.awt.Dimension(900, 450));
@@ -300,22 +259,12 @@ public class GameGUI extends javax.swing.JFrame {
         jmiSave.setText("Salva");
         KeyStroke keyStrokeSave = KeyStroke.getKeyStroke(KeyEvent.VK_S, KeyEvent.CTRL_DOWN_MASK);
         jmiSave.setAccelerator(keyStrokeSave);
-        jmiSave.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                saveGame();
-            }
-        });
+        jmiSave.addActionListener(e -> saveGame());
 
         jmiQuit.setText("Torna al menu principale");
         KeyStroke keyStrokeQuit = KeyStroke.getKeyStroke(KeyEvent.VK_Q, KeyEvent.CTRL_DOWN_MASK);
         jmiQuit.setAccelerator(keyStrokeQuit);
-        jmiQuit.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                jmiQuitActionPerformed();
-            }
-        });
+        jmiQuit.addActionListener(e -> jmiQuitActionPerformed());
 
         jmOptions.add(jmiSave);
         jmOptions.addSeparator();
@@ -325,14 +274,7 @@ public class GameGUI extends javax.swing.JFrame {
         jmText.setText("Text");
 
         jmiFastText.setText("Fast text");
-        //KeyStroke keyStrokeQuit = KeyStroke.getKeyStroke(KeyEvent.VK_Q, KeyEvent.CTRL_DOWN_MASK);
-        //jmiQuit.setAccelerator(keyStrokeQuit);
-        jmiFastText.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                jmiFastTextActionPerformed();
-            }
-        });
+        jmiFastText.addActionListener(e -> jmiFastTextActionPerformed());
 
         jmText.add(jmiFastText);
 
@@ -372,59 +314,27 @@ public class GameGUI extends javax.swing.JFrame {
     private void GameCommandFieldKeyReleased(java.awt.event.KeyEvent evt)
     {
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            sendCommand();
-            savedGame = false;
+            sendCommandByTextField();
         }
     }
 
-    private void showInventory()
+    private void sendCommandByButton(String command)
     {
-        tm.start();
-        s = new StringBuilder("\n");
-        appendToPane(jtpReadingArea,"\n>> inventario\n", Color.red);
-        jtpReadingArea.setCaretPosition(0);
-        jtpReadingArea.setCaretPosition(jtpReadingArea.getDocument().getLength());
 
-        s.append("\n" + gInteraction.inputPlayer("inventario") + "\n");
-    }
-
-    private void jbNorthActionPerformed()
-    {
-        /*jtCommand.setText("");
-        tm.start();
-        s = new StringBuilder("\n");
-        appendToPane(jtpReadingArea,"\n>> nord\n", Color.red);
-        jtpReadingArea.setCaretPosition(0);
-        jtpReadingArea.setCaretPosition(jtpReadingArea.getDocument().getLength());
-        if (fast) {
-            GameTextArea.append(game.nextMove(p));
-        } else {
-            s.append(theLostHotel.nextMove(p));
-        //}
-        jtpReadingArea.setCaretPosition(jtpReadingArea.getDocument().getLength());
-
-        jlRoomName.setText(theLostHotel.getCurrentRoom().getName());
-        //updateInventory();
-        savedGame = false;
-        //checkEnd();*/
-
-        // L'utente si muove verso nord
         jtCommand.setText("");
 
         tm.start();
         s = new StringBuilder("\n");
-        appendToPane(jtpReadingArea,"\n>> nord\n", Color.red);
+        appendToPane(jtpReadingArea,"\n>> " + command + "\n", Color.red);
         jtpReadingArea.setCaretPosition(0);
         jtpReadingArea.setCaretPosition(jtpReadingArea.getDocument().getLength());
 
-        s.append("\n" + gInteraction.inputPlayer("nord") + "\n");
+        if(fastText)
+            appendToPane(jtpReadingArea, "\n" + gInteraction.inputPlayer(command) + "\n", Color.white);
+        else
+            s.append("\n" + gInteraction.inputPlayer(command) + "\n");
 
         savedGame = false;
-
-        // Se il comando ha fatto terminare il gioco ( ovvero se il tempo di completamento si è bloccato )
-        /*if (!gInteraction.getGameManager().getGame().getGameTime().isActive()) {
-            this.insertScore();
-        }*/
 
         //Aggiorna l'immagine della Room e il suo tooltip
         jlRoomImage.setIcon(gInteraction.getGameManager().getGame().getCurrentRoom().getRoomImage());
@@ -432,80 +342,45 @@ public class GameGUI extends javax.swing.JFrame {
         jlRoomName.setText("  " + gInteraction.getGameManager().getGame().getCurrentRoom().getName() + "        ");
     }
 
-    private void jbSouthActionPerformed()
+    private void sendCommandByTextField()
     {
+        if (!jtCommand.getText().matches("\\s+")) {
 
-        // L'utente si muove verso sud
-        jtCommand.setText("");
+            tm.start();
+            s = new StringBuilder("\n");
 
-        tm.start();
-        s = new StringBuilder("\n");
-        appendToPane(jtpReadingArea,"\n>> sud\n", Color.red);
-        jtpReadingArea.setCaretPosition(0);
-        jtpReadingArea.setCaretPosition(jtpReadingArea.getDocument().getLength());
+            // Prende il testo scritto dall'utente e lo stampa sul jTextPane
+            String command = jtCommand.getText();
 
-        s.append("\n" + gInteraction.inputPlayer("sud") + "\n");
+            appendToPane(jtpReadingArea, "\n>> " + command + "\n", Color.red);
 
-        savedGame = false;
+            jtpReadingArea.setCaretPosition(0);
+            jtpReadingArea.setCaretPosition(jtpReadingArea.getDocument().getLength());
 
-        // Se il comando ha fatto terminare il gioco ( ovvero se il tempo di completamento si è bloccato )
-        /*if (!gInteraction.getGameManager().getGame().getGameTime().isActive()) {
-            this.insertScore();
-        }*/
+            jtCommand.setText("");
 
-        //Aggiorna l'immagine della Room e il suo tooltip
-        jlRoomImage.setIcon(gInteraction.getGameManager().getGame().getCurrentRoom().getRoomImage());
-        jlRoomImage.setToolTipText(gInteraction.getGameManager().getGame().getCurrentRoom().getName());
-        jlRoomName.setText("  " + gInteraction.getGameManager().getGame().getCurrentRoom().getName() + "        ");
-    }
+            // Una volta inviato il comando al gestore di interazione, ne stampa la risposta sul jTextPane
+            if(fastText) {
+                if(command.length() > 0)
+                    appendToPane(jtpReadingArea, "\n" + gInteraction.inputPlayer(command) + "\n", Color.white);
+                else
+                    appendToPane(jtpReadingArea, "\nUn comando vuoto. Interessante...\n\n", Color.white);
+            }
+            else {
+                if(command.length() > 0)
+                    s.append("\n" + gInteraction.inputPlayer(command) + "\n");
+                else
+                    s.append("\nUn comando vuoto. Interessante...\n\n");
+            }
 
-    private void jbEastActionPerformed()
-    {
+            savedGame = false;
 
-        // L'utente si muove verso sud
-        jtCommand.setText("");
+            // Se il comando ha fatto terminare il gioco ( ovvero se il tempo di completamento si è bloccato )
+            /*if (!gInteraction.getGameManager().getGame().getGameTime().isActive()) {
+                this.insertScore();
+            }*/
 
-        tm.start();
-        s = new StringBuilder("\n");
-        appendToPane(jtpReadingArea,"\n>> est\n", Color.red);
-        jtpReadingArea.setCaretPosition(0);
-        jtpReadingArea.setCaretPosition(jtpReadingArea.getDocument().getLength());
-
-        s.append("\n" + gInteraction.inputPlayer("est") + "\n");
-
-        savedGame = false;
-
-        // Se il comando ha fatto terminare il gioco ( ovvero se il tempo di completamento si è bloccato )
-        /*if (!gInteraction.getGameManager().getGame().getGameTime().isActive()) {
-            this.insertScore();
-        }*/
-
-        //Aggiorna l'immagine della Room e il suo tooltip
-        jlRoomImage.setIcon(gInteraction.getGameManager().getGame().getCurrentRoom().getRoomImage());
-        jlRoomImage.setToolTipText(gInteraction.getGameManager().getGame().getCurrentRoom().getName());
-        jlRoomName.setText("  " + gInteraction.getGameManager().getGame().getCurrentRoom().getName() + "        ");
-    }
-
-    private void jbWestActionPerformed()
-    {
-
-        // L'utente si muove verso sud
-        jtCommand.setText("");
-
-        tm.start();
-        s = new StringBuilder("\n");
-        appendToPane(jtpReadingArea,"\n>> ovest\n", Color.red);
-        jtpReadingArea.setCaretPosition(0);
-        jtpReadingArea.setCaretPosition(jtpReadingArea.getDocument().getLength());
-
-        s.append("\n" + gInteraction.inputPlayer("ovest") + "\n");
-
-        savedGame = false;
-
-        // Se il comando ha fatto terminare il gioco ( ovvero se il tempo di completamento si è bloccato )
-        /*if (!gInteraction.getGameManager().getGame().getGameTime().isActive()) {
-            this.insertScore();
-        }*/
+        }
 
         //Aggiorna l'immagine della Room e il suo tooltip
         jlRoomImage.setIcon(gInteraction.getGameManager().getGame().getCurrentRoom().getRoomImage());
@@ -527,7 +402,7 @@ public class GameGUI extends javax.swing.JFrame {
                 gInteraction.getGameManager().getGame().saveGame(fChooser.getSelectedFile().getPath());
                 savedGame = true;
 
-                appendToPane(jtpReadingArea,"\n\nSalvataggio partita completato.", Color.cyan);
+                appendToPane(jtpReadingArea,"\nSalvataggio partita completato.\n\n", Color.cyan);
                 jtpReadingArea.setCaretPosition(jtpReadingArea.getDocument().getLength());
             }
 
@@ -538,45 +413,6 @@ public class GameGUI extends javax.swing.JFrame {
         }
     }
 
-    private void sendCommand()
-    {
-        if(jtCommand.getText().length() > 0) {
-
-            if (!jtCommand.getText().matches("\\s+")) {
-
-                tm.start();
-                s = new StringBuilder("\n");
-
-                // Prende il testo scritto dall'utente e lo stampa sul jTextPane
-                String command = jtCommand.getText();
-                appendToPane(jtpReadingArea, "\n> " + command + "\n", new Color(104, 140, 189));
-
-                jtpReadingArea.setCaretPosition(0);
-                jtpReadingArea.setCaretPosition(jtpReadingArea.getDocument().getLength());
-
-                jtCommand.setText("");
-
-                // Una volta inviato il comando al gestore di interazione, ne stampa la risposta sul jTextPane
-                if(fastText)
-                    appendToPane(jtpReadingArea, "\n" + gInteraction.inputPlayer(command) + "\n", Color.white);
-                else
-                    s.append("\n" + gInteraction.inputPlayer(command) + "\n");
-
-                savedGame = false;
-
-                // Se il comando ha fatto terminare il gioco ( ovvero se il tempo di completamento si è bloccato )
-                /*if (!gInteraction.getGameManager().getGame().getGameTime().isActive()) {
-                    this.insertScore();
-                }*/
-
-            }
-
-            //Aggiorna l'immagine della Room e il suo tooltip
-            jlRoomImage.setIcon(gInteraction.getGameManager().getGame().getCurrentRoom().getRoomImage());
-            jlRoomImage.setToolTipText(gInteraction.getGameManager().getGame().getCurrentRoom().getName());
-            jlRoomName.setText("  " + gInteraction.getGameManager().getGame().getCurrentRoom().getName() + "        ");
-        }
-    }
     private void enableComponents(boolean enable) {
         //if (!game.isEnd()) {
         jtCommand.setEditable(enable);
@@ -600,9 +436,11 @@ public class GameGUI extends javax.swing.JFrame {
         // Fa iniziare l'avventura stampando la descrizione della stanza iniziale
         appendToPane(jtpReadingArea, "Trovi la guida ai comandi in \"?\" o puoi richiamarla durante il "
                 + "gioco con il comando \"guida\" oppure \"aiuto\" \n"
-                + "==========================================\n", new Color(108, 202, 224));
-        appendToPane(jtpReadingArea, "\n" + "/////" + gInteraction.getGameManager().getGame().getCurrentRoom().getName() + "/////" + "\n\n"
-                + gInteraction.getGameManager().getGame().getCurrentRoom().getDescription() + "\n" + "\n", Color.white);
+                + "==========================================\n\n", new Color(108, 202, 224));
+        appendToPane(jtpReadingArea, "\n" + "-- " + gInteraction.getGameManager().getGame().getCurrentRoom().getName() + " --"
+                + "\n\n" + gInteraction.getGameManager().getGame().getCurrentRoom().getDescription() + "\n\n", Color.white);
+
+        //new Color(104, 140, 189));
 
         jlRoomImage.setIcon(gInteraction.getGameManager().getGame().getCurrentRoom().getRoomImage());
         jlRoomImage.setToolTipText(gInteraction.getGameManager().getGame().getCurrentRoom().getName());
@@ -613,26 +451,33 @@ public class GameGUI extends javax.swing.JFrame {
 
         // La risorsa del try with resource si chiuderà da sola poiché implementa l'interfaccia AutoCloseable
         try {
-
-            InputStream is = new BufferedInputStream(new FileInputStream("resources//font//atwriter.ttf"));
-            InputStream is1 = new BufferedInputStream(new FileInputStream("resources//font//regular.otf"));
+            InputStream is = new BufferedInputStream(new FileInputStream("resources//font//melted.ttf"));
 
             font = Font.createFont(Font.TRUETYPE_FONT, is);
-            fontMenu = font.deriveFont(Font.PLAIN, 12);
+            fontGameLabel = font.deriveFont(Font.PLAIN, 17);
+            fontGameButton = font.deriveFont(Font.PLAIN, 15);
+            fontGameBar = font.deriveFont(Font.PLAIN, 13);
 
-            font1 = Font.createFont(Font.TRUETYPE_FONT, is1);
-            fontMenu1 = font1.deriveFont(Font.PLAIN, 17);
+            jlCommand.setFont(fontGameLabel);
+            jlRoomName.setFont(fontGameLabel);
+            jlCurrentRoom.setFont(fontGameLabel);
 
-            this.setFont(fontMenu1);
-            jtpReadingArea.setFont(fontMenu1);
-            jlCommand.setFont(fontMenu);
-            jlRoomName.setFont(fontMenu);
-            jlCurrentRoom.setFont(fontMenu);
-            /*jLabel4.setFont(fontMenu);
-            jbQuitGame.setFont(fontMenu);
-            jMenuBar.setFont(fontMenu);
-            jmFile.setFont(fontMenu);
-            jmEdit.setFont(fontMenu);*/
+            jbSendCommand.setFont(fontGameButton);
+            jbNorth.setFont(fontGameButton);
+            jbEast.setFont(fontGameButton);
+            jbSouth.setFont(fontGameButton);
+            jbWest.setFont(fontGameButton);
+            jbSaveGame.setFont(fontGameButton);
+            jbQuitGame.setFont(fontGameButton);
+            jtpReadingArea.setFont(fontGameButton);
+            jtCommand.setFont(fontGameButton);
+
+            jmOptions.setFont(fontGameBar);
+            jmText.setFont(fontGameBar);
+            jmiSave.setFont(fontGameBar);
+            jmiQuit.setFont(fontGameBar);
+            jmiFastText.setFont(fontGameBar);
+
         } catch (FontFormatException | IOException ex) {
             JOptionPane.showMessageDialog(this, "Errore: " + ex.getMessage(), "Font non caricato correttamente; e'stato impostato un font di default.", JOptionPane.ERROR_MESSAGE);
         }
@@ -665,20 +510,6 @@ public class GameGUI extends javax.swing.JFrame {
 
     }
 
-    private void provaComando(JTextPane tp, String msg, String comando, Color color) //Cambiare ordine dei parametri msg e comando
-    {
-        tm.start();
-        s = new StringBuilder("\n");
-
-        appendToPane(tp, comando, color);
-        tp.setCaretPosition(0);
-        tp.setCaretPosition(tp.getDocument().getLength());
-
-        s.append(msg);
-
-        tp.setCaretPosition(tp.getDocument().getLength());
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
@@ -705,4 +536,5 @@ public class GameGUI extends javax.swing.JFrame {
     private javax.swing.JTextField jtCommand;
     public javax.swing.JTextPane jtpReadingArea;
     // End of variables declaration//GEN-END:variables
+
 }

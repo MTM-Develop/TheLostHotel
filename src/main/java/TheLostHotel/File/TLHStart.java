@@ -52,7 +52,7 @@ public class TLHStart {
         look.setAlias(new String[]{"osserva", "vedi", "trova", "cerca", "descrivi", "controlla"});
         g.getCommands().add(look);
         Command help = new Command("help", CommandType.HELP);
-        help.setAlias(new String[]{"aiuto"});
+        help.setAlias(new String[]{"aiuto", "guida"});
         g.getCommands().add(help);
         Command inventory = new Command("inventario", CommandType.INVENTORY);
         inventory.setAlias(new String[]{"zaino"});

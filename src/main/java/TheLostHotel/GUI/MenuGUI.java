@@ -37,7 +37,7 @@ public class MenuGUI extends javax.swing.JFrame {
     ResultSet resultSet;*/
 
     private Font font;
-    private Font fontMenu;
+    private Font fontMenuButton, fontMenuBar;
     /**
      * Creates new form Menu
      */
@@ -174,19 +174,23 @@ public class MenuGUI extends javax.swing.JFrame {
     private void initFont() {
 
         // La risorsa del try with resource si chiuderà da sola poiché implementa l'interfaccia AutoCloseable
-        try (InputStream is = new BufferedInputStream(new FileInputStream("resources//font//font.ttf"))) {
-            font = Font.createFont(Font.TRUETYPE_FONT, is);
-            fontMenu = font.deriveFont(Font.PLAIN, 19);
+        try {
+            InputStream is = new BufferedInputStream(new FileInputStream("resources//font//melted.ttf"));
 
-            this.setFont(fontMenu);
-            jbNewGame.setFont(fontMenu);
-            jbLoadGame.setFont(fontMenu);
-            jbQuitGame.setFont(fontMenu);
-            jMenuBar1.setFont(fontMenu);
-            jmOptions.setFont(fontMenu);
-            //jmiNewGame.setFont(fontMenu);
-            //jmiLoadGame.setFont(fontMenu);
-            jmMusic.setFont(fontMenu);
+            font = Font.createFont(Font.TRUETYPE_FONT, is);
+            fontMenuButton = font.deriveFont(Font.PLAIN, 16);
+            fontMenuBar = font.deriveFont(Font.PLAIN, 13);
+
+            //this.setFont(fontMenuButton);
+            jbNewGame.setFont(fontMenuButton);
+            jbLoadGame.setFont(fontMenuButton);
+            jbQuitGame.setFont(fontMenuButton);
+
+            jMenuBar1.setFont(fontMenuBar);
+            jmOptions.setFont(fontMenuBar);
+            jmMusic.setFont(fontMenuBar);
+            jmiNewGame.setFont(fontMenuBar);
+            jmiLoadGame.setFont(fontMenuBar);
         } catch (FontFormatException | IOException ex) {
             JOptionPane.showMessageDialog(this, "Errore: " + ex.getMessage(), "Font non caricato correttamente; e'stato impostato un font di default.", JOptionPane.ERROR_MESSAGE);
         }
@@ -237,9 +241,7 @@ public class MenuGUI extends javax.swing.JFrame {
                 g.setVisible(true);
                 this.dispose();
 
-
-
-                g.appendToPane(g.jtpReadingArea,"\n\nCaricamento partita completato.", Color.cyan);
+                g.appendToPane(g.jtpReadingArea,"\nCaricamento partita completato.\n\n", Color.cyan);
                 g.jtpReadingArea.setCaretPosition(g.jtpReadingArea.getDocument().getLength());
             }
 

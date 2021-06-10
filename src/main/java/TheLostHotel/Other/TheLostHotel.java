@@ -1,5 +1,6 @@
 package TheLostHotel.Other;
 
+import TheLostHotel.GUI.GameGUI;
 import TheLostHotel.Parser.WordType;
 import TheLostHotel.Type.CommandType;
 import TheLostHotel.Parser.ParserOutput;
@@ -7,6 +8,7 @@ import TheLostHotel.Type.GameItem;
 import TheLostHotel.Type.GameItemContainer;
 import TheLostHotel.Type.Room;
 
+import java.awt.*;
 import java.util.Objects;
 
 public class TheLostHotel extends GameManager {
@@ -39,7 +41,7 @@ public class TheLostHotel extends GameManager {
                     // Controlla se ci si può spostare in quella direzione o meno
                     if (Objects.isNull(room = this.move(command))) {
 
-                        output.append("Non puoi andare lì!");
+                        output.append("Non puoi andare lì!\n");
 
                     } // Controlla che non sia bloccata
                     else if (room.getLockedBy().equals("")) {
@@ -50,14 +52,13 @@ public class TheLostHotel extends GameManager {
                         // Controlla se si è finito il gioco in maniera "lecita"
                         //this.advancePlot();
 
-                        output.append(//"===========================================\n"
-                                "/////" + this.getGame().getCurrentRoom().getName() + "/////" + "\n\n"
-                                + this.getGame().getCurrentRoom().getDescription());
+                        output.append("-- " + this.getGame().getCurrentRoom().getName() + " --" + "\n\n"
+                                + this.getGame().getCurrentRoom().getDescription() + "\n");
 
                     } else {
 
                         // Nel caso la stanza sia bloccata
-                        output.append("Questa stanza è chiusa!");
+                        output.append("Questa stanza è chiusa!"); //Quando viene visualizzto?
                     }
                     break;
 
@@ -75,7 +76,7 @@ public class TheLostHotel extends GameManager {
 
                     } else if (pOutput.size() > 2) { // Se si vogliono guardare troppi oggetti alla volta
 
-                        output.append("Uno alla volta, ho una certa età.");
+                        output.append("Uno alla volta, ho una certa età.\n");
 
                     }
                     break;
@@ -85,12 +86,12 @@ public class TheLostHotel extends GameManager {
                     break;
 
                 case INVENTORY:
-                    output.append("Oggetti presenti nell'inventario: " + this.getGame().getInventory().toString());
+                    output.append("Oggetti presenti nell'inventario: " + this.getGame().getInventory().toString() + "\n");
                     break;
             }
         } catch (NullPointerException e) {
 
-            output.append("Sembra esserci qualcosa di strano in questa richiesta...");
+            output.append("Sembra esserci qualcosa di strano in questa richiesta...\n");
 
         } finally {
 
@@ -191,7 +192,7 @@ public class TheLostHotel extends GameManager {
                 + "E' importante inserire solo un'azione alla volta!\n"
                 + "Esempio di frase NON accettata:\n"
                 + "- Prendi la bottiglia e prendi l'ombrello \n"
-                + "===========================================";
+                + "===========================================\n";
     }
 
     /**
