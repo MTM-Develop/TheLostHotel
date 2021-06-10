@@ -52,8 +52,13 @@ public class TheLostHotel extends GameManager {
                         // Controlla se si è finito il gioco in maniera "lecita"
                         //this.advancePlot();
 
-                        output.append("-- " + this.getGame().getCurrentRoom().getName() + " --" + "\n\n"
-                                + this.getGame().getCurrentRoom().getDescription() + "\n");
+                        output.append("-- " + this.getGame().getCurrentRoom().getName() + " --" + "\n\n");
+                        if(!room.isVisited())
+                            output.append(this.getGame().getCurrentRoom().getDescription() + "\n");
+                        else
+                            output.append(this.getGame().getCurrentRoom().getVisitedDescription() + "\n");
+
+                        room.setVisited(true);
 
                     } else {
 

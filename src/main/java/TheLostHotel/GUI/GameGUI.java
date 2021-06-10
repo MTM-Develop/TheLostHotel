@@ -431,7 +431,7 @@ public class GameGUI extends javax.swing.JFrame {
 
     private void initGame()
     {
-        //gInteraction.getGameManager().getGame().setPlayer(JOptionPane.showInputDialog(this, "Inserisci il tuo nome:"));
+        //gInteraction.getGameManager().getGame().setPlayer(JOptionPane.showInputDialog(this, "Inserisci il tuo nome:"))
 
         // Fa iniziare l'avventura stampando la descrizione della stanza iniziale
         appendToPane(jtpReadingArea, "Trovi la guida ai comandi in \"?\" o puoi richiamarla durante il "
@@ -440,7 +440,9 @@ public class GameGUI extends javax.swing.JFrame {
         appendToPane(jtpReadingArea, "\n" + "-- " + gInteraction.getGameManager().getGame().getCurrentRoom().getName() + " --"
                 + "\n\n" + gInteraction.getGameManager().getGame().getCurrentRoom().getDescription() + "\n\n", Color.white);
 
-        //new Color(104, 140, 189));
+        //new Color(104, 140, 189))
+
+        gInteraction.getGameManager().getGame().getCurrentRoom().setVisited(true);
 
         jlRoomImage.setIcon(gInteraction.getGameManager().getGame().getCurrentRoom().getRoomImage());
         jlRoomImage.setToolTipText(gInteraction.getGameManager().getGame().getCurrentRoom().getName());
