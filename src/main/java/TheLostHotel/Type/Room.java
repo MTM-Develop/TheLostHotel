@@ -11,9 +11,7 @@ public class Room implements Serializable {
     private String description;
     private String lookDescription;     //fornisce una decrizione più dettagliata della stanza
     private String visitedDescription;     //decrizione della stanza già visitata
-    private String lockedDescription = null;
     private boolean visited = false;
-    private boolean locked = false;
 
     private Room north = null;
     private Room south = null;
@@ -27,19 +25,10 @@ public class Room implements Serializable {
     private ImageIcon roomImage;   // immagine raffigurante la stanza che verrà visualizzata nell'interfaccia grafica
 
     // Costruttori
-    public Room(int id, String name, boolean locked) {
-        this.id = id;
-        this.name = name;
-        this.locked = locked;
-        itemList = new Inventory();
-    }
-
-    public Room(int id, String name, String description, String lookDescription, boolean locked) {
+    public Room(int id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.lookDescription = lookDescription;
-        this.locked = locked;
         itemList = new Inventory();
     }
 
@@ -77,14 +66,6 @@ public class Room implements Serializable {
         this.visitedDescription = visitedDescription;
     }
 
-    public String getLockedDescription() {
-        return lockedDescription;
-    }
-
-    public void setLockedDescription(String lockedDescription) {
-        this.lockedDescription = lockedDescription;
-    }
-
     public String getLockedBy() {
         return lockedBy;
     }
@@ -99,14 +80,6 @@ public class Room implements Serializable {
 
     public void setVisited(boolean visited) {
         this.visited = visited;
-    }
-
-    public boolean isLocked() {
-        return locked;
-    }
-
-    public void setLocked(boolean locked) {
-        this.locked = locked;
     }
 
     public Room getNorth() {

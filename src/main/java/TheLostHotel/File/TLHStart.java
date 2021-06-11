@@ -1,10 +1,9 @@
 package TheLostHotel.File;
 
+import TheLostHotel.GUI.GameGUI;
 import TheLostHotel.Other.GameDescription;
-import TheLostHotel.Type.Command;
-import TheLostHotel.Type.CommandType;
-import TheLostHotel.Type.GameItem;
-import TheLostHotel.Type.Room;
+import TheLostHotel.Other.RoomsID;
+import TheLostHotel.Type.*;
 
 import javax.swing.*;
 
@@ -19,50 +18,64 @@ public class TLHStart {
     private void init() {
 
         //Items dell'inventario
-        GameItem cellulare = new GameItem(50, "Cellulare", "Descrizione cellulare!");
+        GameItem cellulare = new GameItem(50, "cellulare", "Descrizione cellulare!");
         cellulare.setAlias(new String[]{"telefono", "telefonino"});
         ImageIcon imgCellulare = new ImageIcon("resources//img//phone.png");
         cellulare.setItemImage(imgCellulare);
         g.getInventory().add(cellulare);
 
-        GameItem portafoglio = new GameItem(12, "Portafoglio", "Descrizione portafoglio!");
+        GameItem portafoglio = new GameItem(12, "portafoglio", "Descrizione portafoglio!");
         portafoglio.setAlias(new String[]{"portafogli", "portamonete"});
         ImageIcon imgPortafoglio = new ImageIcon("resources//img//portafoglio.png");
         portafoglio.setItemImage(imgPortafoglio);
         g.getInventory().add(portafoglio);
 
-        GameItem accendino = new GameItem(20, "Accendino", "Descrizione accendino!");
+        GameItem accendino = new GameItem(20, "accendino", "Descrizione accendino!");
         accendino.setAlias(new String[]{"accenditore", "accendigas"});
         ImageIcon imgAccendino = new ImageIcon("resources//img//lighter.png");
         accendino.setItemImage(imgAccendino);
+        accendino.setConsumable((byte) 1); /////////////
         g.getInventory().add(accendino);
 
-        GameItem foglio = new GameItem(33, "Foglio", "Descrizione foglio di carta!");
+        GameItem foglio = new GameItem(33, "foglio", "Descrizione foglio di carta!");
         foglio.setAlias(new String[]{"nota", "carta", "note", "appunti"});
         ImageIcon imgFoglio = new ImageIcon("resources//img//note.png");
         foglio.setItemImage(imgFoglio);
         g.getInventory().add(foglio);
 
-        GameItem bibita = new GameItem(23, "Bibita", "Descrizione bibita!");
+        GameItem bibita = new GameItem(23, "bibita", "Descrizione bibita!");
         bibita.setAlias(new String[]{"fanta", "drink"});
         ImageIcon imgBibita = new ImageIcon("resources//img//drink.png");
         bibita.setItemImage(imgBibita);
         g.getInventory().add(bibita);
 
+
+        /*GameItemContainer wardrobe = new GameItemContainer(80, "mobile", "Il mobile è chiuso a chiave. "
+                + "La serratura è argentata con dei simboli verdi.");
+        wardrobe.setAlias(new String[]{"guardaroba", "armadio"});
+        wardrobe.add(accendino);
+        wardrobe.setLockedBy(foglio.getName());*/
+
         //Stanze
-        Room myRoom = new Room(42, "La tua stanza", "Descrizione stanza", "Osserva stanza", false);
+        Room myRoom = new Room(69, "Stanza 69", RoomsID.DESCRIPTION_ROOM_69);
+        myRoom.setLookDescription("Osserva stanza");
         myRoom.setRoomImage(new ImageIcon("resources//img//immagine_def.png"));
         myRoom.setVisitedDescription("Descrizione stanza gia visitata");
 
         //myRoom.addItem(taralli);
 
-        Room corridoio = new Room(4, "Corridoio", "Descrizione corridoio", "Osserva corridoio", false);
+        Room corridoio = new Room(4, "Corridoio", "Descrizione corridoio");
+        corridoio.setLookDescription("Osserva corridoio");
         corridoio.setRoomImage(new ImageIcon("resources//img//corridoio.png"));
         corridoio.setVisitedDescription("Descrizione corridoio gia visitato");
+        //corridoio.setLockedBy("accendino"); //////////
 
-        Room bagnoMyRoom = new Room(79, "Bagno della tua stanza", "Descrizione bagnoo della tua stanza", "Osserva bagno della tua stanza", false);
-        bagnoMyRoom.setRoomImage(new ImageIcon("resources//img//background2.jpg"));
+        Room bagnoMyRoom = new Room(79, "Bagno della tua stanza", "Descrizione bagno della tua stanza");
+        bagnoMyRoom.setLookDescription("Osserva bagno della tua stanza");
+        bagnoMyRoom.setRoomImage(new ImageIcon("resources//img//bagno_soffitto.png"));
         bagnoMyRoom.setVisitedDescription("Descrizione bagno gia visitato");
+        //bagnoMyRoom.setLockedBy("cellulare"); /////////
+        //bagnoMyRoom.addItem(wardrobe); /////////
 
         g.setCurrentRoom(myRoom);
         myRoom.setNorth(corridoio);
@@ -99,6 +112,11 @@ public class TLHStart {
         inventory.setAlias(new String[]{"zaino", "sacca"});
         g.getCommands().add(inventory);
 
+        Command open = new Command("apri", CommandType.OPEN);
+        g.getCommands().add(open);
+
+        Command use = new Command("usa", CommandType.USE);
+        g.getCommands().add(use);
 
     }
 

@@ -9,6 +9,7 @@ import TheLostHotel.Type.GameItemContainer;
 import TheLostHotel.Type.Room;
 
 import java.awt.*;
+import java.util.Iterator;
 import java.util.Objects;
 
 public class TheLostHotel extends GameManager {
@@ -61,9 +62,8 @@ public class TheLostHotel extends GameManager {
                         room.setVisited(true);
 
                     } else {
-
                         // Nel caso la stanza sia bloccata
-                        output.append("Questa stanza è chiusa!"); //Quando viene visualizzto?
+                        output.append("Questa stanza è chiusa!\n");
                     }
                     break;
 
@@ -92,6 +92,102 @@ public class TheLostHotel extends GameManager {
 
                 case INVENTORY:
                     output.append("Oggetti presenti nell'inventario: " + this.getGame().getInventory().toString() + "\n");
+                    break;
+
+                // Comandi per sbloccare stanze o contenitori
+                case USE:
+                case OPEN:
+
+                    // Se si vuole aprire una stanza con un oggetto dell'inventario
+                    if (pOutput.size() == 2 && pOutput.containsWordType(WordType.INVENTORY_OBJ)) {
+
+                        //Apertura stanza
+                        if (!gameItem.isConsumed() && this.unlockRoom(gameItem.getName())) {
+                            output.append("Hai sbloccato la stanza!\n");
+
+                            gameItem.consume();
+
+                            // Se l'oggetto è stato consumato, lo rimuove dall'inventario
+                            if (gameItem.isConsumed()) {
+
+                                this.getGame().getInventory().remove(gameItem);
+                                output.append("\nL'oggetto " + gameItem.getName() + " è stato rimosso.\n");
+
+                            }
+
+                        } else {
+                            output.append("Non puoi aprire con questo oggetto!\n");
+                        }
+
+                    } else if (pOutput.containsWordType(WordType.ROOM_OBJ)) { // Apertura di un contenitore da sbloccare
+
+                        GameItem iC = null; //contenitore
+                        gameItem = null;
+                        byte index = 0;
+
+                        // Iteratore per ciclare sul ParserOutput
+                        Iterator<WordType> it = pOutput.iterator();
+                        it.next(); // Salta il comando iniziale, già conosciuto
+
+                        // Salva gli oggetti che devono interagire nell'ordine prestabilito (e.g. "Apri baule con chiave")
+                        while (it.hasNext()) {
+
+                            //itemContainer. obbligatoriamente un oggetto della Room
+                            if (index == 1 && it.next().equals(WordType.ROOM_OBJ)) {
+
+                                iC = this.getGame().getCurrentRoom().getItemList().searchItem(pOutput.getString(WordType.ROOM_OBJ));
+
+                            } //Chiave. obbligatoriamente un oggetto dell'inv
+                            else if (index == 2 && it.next().equals(WordType.INVENTORY_OBJ)) {
+
+                                gameItem = this.getGame().getInventory().searchItem(pOutput.getString(WordType.INVENTORY_OBJ));
+
+                            }
+
+                            index++;
+                        }
+
+                        // Se l'oggetto è effettivamente un contenitore
+                        if (iC instanceof GameItemContainer) {
+
+                            // Se trova l'oggetto per aprirlo ed è corretto oppure se il contenitore non è bloccato lo apre
+                            if ((gameItem != null && !gameItem.isConsumed() && ((GameItemContainer)iC).unlockContainer(gameItem.getName()))
+                                    || (((GameItemContainer)iC).getLockedBy().equals(""))) {
+
+                                if (((GameItemContainer)iC).getcItemList().getInventoryList().isEmpty()) {
+
+                                    output.append("L'oggetto è stato aperto, ma è vuoto!");
+
+                                } else {
+
+                                    output.append("Hai aperto l'oggetto " + iC.getName()
+                                            + "! Ecco il suo contenuto:" + iC.toString());
+
+                                }
+
+                                if (gameItem != null) {
+
+                                    gameItem.consume();
+
+                                    // Se l'oggetto è stato consumato, lo rimuove dall'inventario
+                                    if (gameItem.isConsumed()) {
+                                        this.getGame().getInventory().remove(gameItem);
+                                        output.append("\nL'oggetto " + gameItem.getName() + " è stato rimosso.");
+                                    }
+                                }
+
+                            } else {
+                                output.append("Non puoi aprire quest'oggetto così!\n");
+                            }
+
+                        } else {
+                            output.append("Non puoi aprire quest'oggetto così!\n");
+                        }
+
+                    } else {
+                        output.append("Non puoi aprire con quest'oggetto!\n");
+                    }
+
                     break;
             }
         } catch (NullPointerException e) {
@@ -168,6 +264,63 @@ public class TheLostHotel extends GameManager {
         }
 
         return item;
+    }
+
+    /**
+     * Funzione per sbloccare le stanze chiuse, cerca tra tutte le stanze
+     * adiacenti alla stanza attuale.
+     *
+     * @param iName nome dell'oggetto "chiave"
+     * @return booleano, true se la stanza è stata sbloccata dall'item, false
+     * altrimenti
+     */
+    private boolean unlockRoom(String iName) {
+
+        boolean flag = false;
+
+        /* Controlla se esiste una stanza in quella direzione, per ogni direzione
+         * e controlla se è bloccata dall'item passato in input.
+         * In caso affermativo, la sblocca e imposta il flag a true.
+         */
+        if (!Objects.isNull(this.getGame().getCurrentRoom().getSouth())
+                && this.getGame().getCurrentRoom().getSouth().getLockedBy().equals(iName)) {
+
+            this.getGame().getCurrentRoom().getSouth().setLockedBy("");
+            flag = true;
+
+        } else if (!Objects.isNull(this.getGame().getCurrentRoom().getNorth())
+                && this.getGame().getCurrentRoom().getNorth().getLockedBy().equals(iName)) {
+
+            this.getGame().getCurrentRoom().getNorth().setLockedBy("");
+            flag = true;
+
+        } else if (!Objects.isNull(this.getGame().getCurrentRoom().getEast())
+                && this.getGame().getCurrentRoom().getEast().getLockedBy().equals(iName)) {
+
+            this.getGame().getCurrentRoom().getEast().setLockedBy("");
+            flag = true;
+
+        } else if (!Objects.isNull(this.getGame().getCurrentRoom().getWest())
+                && this.getGame().getCurrentRoom().getWest().getLockedBy().equals(iName)) {
+
+            this.getGame().getCurrentRoom().getWest().setLockedBy("");
+            flag = true;
+
+        } /*else if (!Objects.isNull(this.getGame().getCurrentRoom().getUp())
+                && this.getGame().getCurrentRoom().getUp().getLockedBy().equals(iName)) {
+
+            this.getGame().getCurrentRoom().getUp().setLockedBy("");
+            flag = true;
+
+        } else if (!Objects.isNull(this.getGame().getCurrentRoom().getDown())
+                && this.getGame().getCurrentRoom().getDown().getLockedBy().equals(iName)) {
+
+            this.getGame().getCurrentRoom().getDown().setLockedBy("");
+            flag = true;
+
+        }*/
+
+        return flag;
     }
 
     @Override

@@ -434,9 +434,13 @@ public class GameGUI extends javax.swing.JFrame {
         //gInteraction.getGameManager().getGame().setPlayer(JOptionPane.showInputDialog(this, "Inserisci il tuo nome:"))
 
         // Fa iniziare l'avventura stampando la descrizione della stanza iniziale
-        appendToPane(jtpReadingArea, "Trovi la guida ai comandi in \"?\" o puoi richiamarla durante il "
+        /*appendToPane(jtpReadingArea, "Trovi la guida ai comandi in \"?\" o puoi richiamarla durante il "
                 + "gioco con il comando \"guida\" oppure \"aiuto\" \n"
-                + "==========================================\n\n", new Color(108, 202, 224));
+                + "==========================================\n\n", new Color(108, 202, 224));*/
+
+        appendToPane(jtpReadingArea, "Benvenuto! Prima di iniziare...\n\nDescrizione trama gioco\n\nLista comandi" +
+                "\n\nIniziamo!\n\n", new Color(108, 202, 224));
+
         appendToPane(jtpReadingArea, "\n" + "-- " + gInteraction.getGameManager().getGame().getCurrentRoom().getName() + " --"
                 + "\n\n" + gInteraction.getGameManager().getGame().getCurrentRoom().getDescription() + "\n\n", Color.white);
 

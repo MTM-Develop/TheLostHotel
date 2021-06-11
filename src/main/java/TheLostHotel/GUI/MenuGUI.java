@@ -71,6 +71,7 @@ public class MenuGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("The Lost Hotel");
         setPreferredSize(new java.awt.Dimension(900, 600));
+        //setIconImage(new ImageIcon("resources//img//logo.png").getImage());
         setResizable(false);
 
         jpMenu.setLayout(null);
