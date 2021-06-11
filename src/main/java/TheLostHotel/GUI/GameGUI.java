@@ -15,6 +15,7 @@ import javax.swing.plaf.basic.BasicRadioButtonMenuItemUI;
 import javax.swing.plaf.basic.BasicRadioButtonUI;
 import javax.swing.plaf.basic.BasicToggleButtonUI;
 import javax.swing.plaf.synth.SynthButtonUI;
+import javax.swing.text.DefaultCaret;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
@@ -39,8 +40,8 @@ public class GameGUI extends javax.swing.JFrame {
     private StringBuilder s = new StringBuilder();
     private int counter = 0;
 
-    private Font font;
-    private Font fontGameButton,fontGameLabel, fontGameBar;
+    private Font font, font1;
+    private Font fontGameButton,fontGameLabel, fontGameBar, fontGameText;
 
     private boolean savedGame = true;
     private boolean fastText = false;
@@ -431,15 +432,60 @@ public class GameGUI extends javax.swing.JFrame {
 
     private void initGame()
     {
-        //gInteraction.getGameManager().getGame().setPlayer(JOptionPane.showInputDialog(this, "Inserisci il tuo nome:"))
+        //Utilizzato per bloccare lo scorrimento al fine di visualizzare correttamente la trama del gioco
+        DefaultCaret caret = (DefaultCaret)jtpReadingArea.getCaret();
+        caret.setUpdatePolicy(DefaultCaret.NEVER_UPDATE);
 
-        // Fa iniziare l'avventura stampando la descrizione della stanza iniziale
-        /*appendToPane(jtpReadingArea, "Trovi la guida ai comandi in \"?\" o puoi richiamarla durante il "
-                + "gioco con il comando \"guida\" oppure \"aiuto\" \n"
-                + "==========================================\n\n", new Color(108, 202, 224));*/
+        appendToPane(jtpReadingArea, "11 gennaio 2000, " , new Color(127, 255, 0));
+        appendToPane(jtpReadingArea, "21:32\n" , Color.red);
+        appendToPane(jtpReadingArea,"\n" +
+                "L'appuntamento importante è alle porte e decidi di riuniriti con gli amici di sempre (Mangia e Impedovo)\n" +
+                "per organizzare il tutto...\n" +
+                "È un occasione che state aspettando da sempre e lo avete sempre voluto.\n" +
+                "Finalmente passerete una settimana insieme in America...\n" +
+                "Lo aspettavate dalle scuole medie!\n\n", Color.white);
 
-        appendToPane(jtpReadingArea, "Benvenuto! Prima di iniziare...\n\nDescrizione trama gioco\n\nLista comandi" +
-                "\n\nIniziamo!\n\n", new Color(108, 202, 224));
+        appendToPane(jtpReadingArea, "12 gennaio 2000,  ", new Color(127, 255, 0));
+        appendToPane(jtpReadingArea, "22:04\n" , Color.red);
+        appendToPane(jtpReadingArea,"\n" +
+                "Poichè il viaggio è lungo e stancante, decidete di partire \"presto\" per non perdere il volo.\n" +
+                "Si sa, l'uomo mira sempre al risparmio... e anche questa volta non ci siamo lasciati sfuggire\n" +
+                "questo super volo low-cost presso un'agenzia britannica privata.\n" +
+                "Quindi questo estenuante viaggio in macchina sarà il prezzo da pagare...\n\n", Color.white);
+
+        appendToPane(jtpReadingArea, "12 gennaio 2000,  ", new Color(127, 255, 0));
+        appendToPane(jtpReadingArea, "23:56\n" , Color.red);
+        appendToPane(jtpReadingArea,"\n" +
+                "Sono passate circa due ore ma sembra che il viaggio duri il doppio.\n" +
+                "Siamo in una strada di periferia, quando all'improvviso\n" +
+                "Mangia impreca... Spia rossa del motore. \"Cazzo, ci voleva solo questa!\"\n" +
+                "Impedovo: \"Speriamo che la macchina regga fino a destinazione\"\n" +
+                "Io: \"Speriamo di si acciderbolina!\".\n" +
+                "Passati esattamente 5 minuti, ecco che si intravede del fumo bianco dal motore.\n" +
+                "Forse sarebbe stato meglio non continuare il viaggio e fermarsi subito.\n" +
+                "Presi dalla rabbia e disperazione cerchi subito soccorso.\n" +
+                "Il telefono, come da previsione per ogni zona di periferia che si rispetti, non dà segni di vita.\n" +
+                "Beep - Beep - Beep! \"Non prende zio porco\", esclami.\n\n", Color.white);
+
+        appendToPane(jtpReadingArea, "13 gennaio 2000,  ", new Color(127, 255, 0));
+        appendToPane(jtpReadingArea, "00:34\n" , Color.red);
+        appendToPane(jtpReadingArea, "\nÈ ormai mezzanotte inoltrata, è iniziato a piovere, il freddo e la stanchezza si fanno sentire..\n" +
+                "Sembra che il viaggio che aspettavate da una vita stia andando a puttane!\n" +
+                "Quando in lontananza Impedovo vede una struttura mezza illuminata e decidete di avvicinarvi...\n" +
+                "Non vi è rimasta altra scelta! Decidi, prima di abbandonare quel rottame di macchina di Mangia,\n" +
+                "di riempire il tuo zaino con un paio di oggetti che potrebbero esserti utili...\n\n", Color.white);
+
+        caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
+
+        Font firstFont = new Font("Times New Roman", Font.PLAIN, 18);
+
+        //Utilizzato per cambiare dinamicamente il font nella jtp
+        StyledDocument doc = jtpReadingArea.getStyledDocument();
+        SimpleAttributeSet aSet = new SimpleAttributeSet();
+
+        StyleConstants.setFontFamily(aSet, firstFont.getFamily());
+        StyleConstants.setFontSize(aSet, firstFont.getSize());
+        doc.setParagraphAttributes(1900, 0, aSet, false);
 
         appendToPane(jtpReadingArea, "\n" + "-- " + gInteraction.getGameManager().getGame().getCurrentRoom().getName() + " --"
                 + "\n\n" + gInteraction.getGameManager().getGame().getCurrentRoom().getDescription() + "\n\n", Color.white);
@@ -457,12 +503,16 @@ public class GameGUI extends javax.swing.JFrame {
 
         // La risorsa del try with resource si chiuderà da sola poiché implementa l'interfaccia AutoCloseable
         try {
-            InputStream is = new BufferedInputStream(new FileInputStream("resources//font//melted.ttf"));
+            InputStream is = new BufferedInputStream(new FileInputStream("resources//font//regular.otf"));
+            InputStream is1 = new BufferedInputStream(new FileInputStream("resources//font//melted.ttf"));
 
             font = Font.createFont(Font.TRUETYPE_FONT, is);
-            fontGameLabel = font.deriveFont(Font.PLAIN, 17);
-            fontGameButton = font.deriveFont(Font.PLAIN, 15);
-            fontGameBar = font.deriveFont(Font.PLAIN, 13);
+            font1 = Font.createFont(Font.TRUETYPE_FONT, is1);
+
+            fontGameText = font.deriveFont(Font.PLAIN, 18);
+            fontGameLabel = font1.deriveFont(Font.PLAIN, 17);
+            fontGameButton = font1.deriveFont(Font.PLAIN, 15);
+            fontGameBar = font1.deriveFont(Font.PLAIN, 13);
 
             jlCommand.setFont(fontGameLabel);
             jlRoomName.setFont(fontGameLabel);
@@ -475,8 +525,9 @@ public class GameGUI extends javax.swing.JFrame {
             jbWest.setFont(fontGameButton);
             jbSaveGame.setFont(fontGameButton);
             jbQuitGame.setFont(fontGameButton);
-            jtpReadingArea.setFont(fontGameButton);
             jtCommand.setFont(fontGameButton);
+
+            jtpReadingArea.setFont(fontGameText);
 
             jmOptions.setFont(fontGameBar);
             jmText.setFont(fontGameBar);
