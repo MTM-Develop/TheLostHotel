@@ -73,11 +73,11 @@ public class TheLostHotel extends GameManager {
                     // Se si vuole guardare un oggetto
                     if (pOutput.size() == 2) {
 
-                        output.append(gameItem.getDescription());
+                        output.append(gameItem.getDescription() + "\n");
 
                     } else if (pOutput.size() == 1) { // Se si vuole guardare la stanza
 
-                        output.append(this.getGame().getCurrentRoom().getLookDescription());
+                        output.append(this.getGame().getCurrentRoom().getLookDescription() + "\n");
 
                     } else if (pOutput.size() > 2) { // Se si vogliono guardare troppi oggetti alla volta
 
@@ -188,6 +188,9 @@ public class TheLostHotel extends GameManager {
                         output.append("Non puoi aprire con quest'oggetto!\n");
                     }
 
+                    break;
+
+                default:
                     break;
             }
         } catch (NullPointerException e) {

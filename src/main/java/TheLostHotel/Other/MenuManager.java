@@ -1,5 +1,6 @@
 package TheLostHotel.Other;
 
+import javax.swing.*;
 import java.io.IOException;
 
 public class MenuManager {
@@ -35,7 +36,7 @@ public class MenuManager {
      * Esce dal gioco
      */
     public void quitGame() {
-        System.exit(0);
+        Runtime.getRuntime().exit(0);
     }
 
     // Metodi di get e set

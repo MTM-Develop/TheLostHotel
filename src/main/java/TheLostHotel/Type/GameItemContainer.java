@@ -1,6 +1,7 @@
 package TheLostHotel.Type;
 
 import java.io.Serializable;
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -92,5 +93,19 @@ public class GameItemContainer extends GameItem implements Serializable {
     @Override
     public String toString() {
         return cItemList.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        GameItemContainer that = (GameItemContainer) o;
+        return Objects.equals(cItemList, that.cItemList) && Objects.equals(lockedBy, that.lockedBy);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), cItemList, lockedBy);
     }
 }
