@@ -210,7 +210,7 @@ public class GameGUI extends javax.swing.JFrame {
 
         jbInventory.setText("");
         jbInventory.setOpaque(true);
-        jbInventory.setIcon(new ImageIcon("resources//img//inventory.png"));
+        jbInventory.setIcon(new ImageIcon("resources//img//other//inventory.png"));
         jbInventory.setToolTipText("Inventario");
         jbInventory.setBackground(new Color(0, 0, 0));
         jbInventory.addActionListener(e -> {
@@ -252,7 +252,7 @@ public class GameGUI extends javax.swing.JFrame {
         getContentPane().add(jspReadingArea);
         jspReadingArea.setBounds(40, 30, 500, 460);
         getContentPane().add(jlBackground);
-        jlBackground.setIcon(new ImageIcon("resources//img//background2.jpg"));
+        jlBackground.setIcon(new ImageIcon("resources//img//background//gameBackground.jpg"));
         jlBackground.setBounds(0, -20, 1220, 700);
 
         jmOptions.setText("Opzioni");
@@ -477,15 +477,7 @@ public class GameGUI extends javax.swing.JFrame {
 
         caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
 
-        Font firstFont = new Font("Times New Roman", Font.PLAIN, 18);
-
-        //Utilizzato per cambiare dinamicamente il font nella jtp
-        StyledDocument doc = jtpReadingArea.getStyledDocument();
-        SimpleAttributeSet aSet = new SimpleAttributeSet();
-
-        StyleConstants.setFontFamily(aSet, firstFont.getFamily());
-        StyleConstants.setFontSize(aSet, firstFont.getSize());
-        doc.setParagraphAttributes(1900, 0, aSet, false);
+        changeJtpFont();
 
         appendToPane(jtpReadingArea, "\n" + "-- " + gInteraction.getGameManager().getGame().getCurrentRoom().getName() + " --"
                 + "\n\n" + gInteraction.getGameManager().getGame().getCurrentRoom().getDescription() + "\n\n", Color.white);
@@ -497,6 +489,19 @@ public class GameGUI extends javax.swing.JFrame {
         jlRoomImage.setIcon(gInteraction.getGameManager().getGame().getCurrentRoom().getRoomImage());
         jlRoomImage.setToolTipText(gInteraction.getGameManager().getGame().getCurrentRoom().getName());
         jlRoomName.setText("  " + gInteraction.getGameManager().getGame().getCurrentRoom().getName() + "        ");
+    }
+
+    private void changeJtpFont()
+    {
+        Font timesNewRoman = new Font("Times New Roman", Font.PLAIN, 18);
+
+        //Utilizzato per cambiare dinamicamente il font nella jtp
+        StyledDocument doc = jtpReadingArea.getStyledDocument();
+        SimpleAttributeSet aSet = new SimpleAttributeSet();
+
+        StyleConstants.setFontFamily(aSet, timesNewRoman.getFamily());
+        StyleConstants.setFontSize(aSet, timesNewRoman.getSize());
+        doc.setParagraphAttributes(1900, 0, aSet, false);
     }
 
     private void initFont() {

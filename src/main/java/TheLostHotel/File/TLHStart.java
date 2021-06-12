@@ -20,32 +20,32 @@ public class TLHStart {
         //Items dell'inventario
         GameItem cellulare = new GameItem(50, "cellulare", "Descrizione cellulare!");
         cellulare.setAlias(new String[]{"telefono", "telefonino"});
-        ImageIcon imgCellulare = new ImageIcon("resources//img//phone.png");
+        ImageIcon imgCellulare = new ImageIcon("resources//img//gameItem//phone.png");
         cellulare.setItemImage(imgCellulare);
         g.getInventory().add(cellulare);
 
         GameItem portafoglio = new GameItem(12, "portafoglio", "Descrizione portafoglio!");
         portafoglio.setAlias(new String[]{"portafogli", "portamonete"});
-        ImageIcon imgPortafoglio = new ImageIcon("resources//img//portafoglio.png");
+        ImageIcon imgPortafoglio = new ImageIcon("resources//img//gameItem//portafoglio.png");
         portafoglio.setItemImage(imgPortafoglio);
         g.getInventory().add(portafoglio);
 
         GameItem accendino = new GameItem(20, "accendino", "Descrizione accendino!");
         accendino.setAlias(new String[]{"accenditore", "accendigas"});
-        ImageIcon imgAccendino = new ImageIcon("resources//img//lighter.png");
+        ImageIcon imgAccendino = new ImageIcon("resources//img//gameItem//lighter.png");
         accendino.setItemImage(imgAccendino);
         accendino.setConsumable((byte) 1); /////////////
         g.getInventory().add(accendino);
 
         GameItem foglio = new GameItem(33, "foglio", "Descrizione foglio di carta!");
         foglio.setAlias(new String[]{"nota", "carta", "note", "appunti"});
-        ImageIcon imgFoglio = new ImageIcon("resources//img//note.png");
+        ImageIcon imgFoglio = new ImageIcon("resources//img//gameItem//note.png");
         foglio.setItemImage(imgFoglio);
         g.getInventory().add(foglio);
 
         GameItem bibita = new GameItem(23, "bibita", "Descrizione bibita!");
-        bibita.setAlias(new String[]{"fanta", "drink"});
-        ImageIcon imgBibita = new ImageIcon("resources//img//drink.png");
+        bibita.setAlias(new String[]{"drink"});
+        ImageIcon imgBibita = new ImageIcon("resources//img//gameItem//drink.png");
         bibita.setItemImage(imgBibita);
         g.getInventory().add(bibita);
 
@@ -59,20 +59,20 @@ public class TLHStart {
         //Stanze
         Room myRoom = new Room(69, "Stanza 69", RoomsID.DESCRIPTION_ROOM_69);
         myRoom.setLookDescription("Osserva stanza");
-        myRoom.setRoomImage(new ImageIcon("resources//img//immagine_def.png"));
+        myRoom.setRoomImage(new ImageIcon("resources//img//room//stanza69.png"));
         myRoom.setVisitedDescription("Descrizione stanza gia visitata");
 
         //myRoom.addItem(taralli);
 
         Room corridoio = new Room(4, "Corridoio", "Descrizione corridoio");
         corridoio.setLookDescription("Osserva corridoio");
-        corridoio.setRoomImage(new ImageIcon("resources//img//corridoio.png"));
+        corridoio.setRoomImage(new ImageIcon("resources//img//room//corridoio.png"));
         corridoio.setVisitedDescription("Descrizione corridoio gia visitato");
         //corridoio.setLockedBy("accendino"); //////////
 
         Room bagnoMyRoom = new Room(79, "Bagno della tua stanza", "Descrizione bagno della tua stanza");
         bagnoMyRoom.setLookDescription("Osserva bagno della tua stanza");
-        bagnoMyRoom.setRoomImage(new ImageIcon("resources//img//bagno_soffitto.png"));
+        bagnoMyRoom.setRoomImage(new ImageIcon("resources//img//room//bagno69.png"));
         bagnoMyRoom.setVisitedDescription("Descrizione bagno gia visitato");
         //bagnoMyRoom.setLockedBy("cellulare"); /////////
         //bagnoMyRoom.addItem(wardrobe); /////////

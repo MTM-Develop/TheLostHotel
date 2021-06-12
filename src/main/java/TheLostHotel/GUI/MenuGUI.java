@@ -115,7 +115,7 @@ public class MenuGUI extends javax.swing.JFrame {
         jpMenu.add(jbQuitGame);
         jbQuitGame.setBounds(550, 370, 248, 35);
 
-        jlBackgroundMenu.setIcon(new ImageIcon("resources//img//door_13.jpg"));
+        jlBackgroundMenu.setIcon(new ImageIcon("resources//img//background//menuBackground.jpg"));
         jlBackgroundMenu.setBounds(-150, 0, 1050, 560);
         jpMenu.add(jlBackgroundMenu);
 
