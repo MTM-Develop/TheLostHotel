@@ -114,6 +114,7 @@ public class GameGUI extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1220, 700));
         setTitle("The Lost Hotel");
         setBackground(new java.awt.Color(0, 0, 0));
+        setIconImage(new ImageIcon("resources//img//other//logo.jpeg").getImage());
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setForeground(java.awt.Color.white);
         setLocation(new java.awt.Point(0, 0));
@@ -304,7 +305,32 @@ public class GameGUI extends javax.swing.JFrame {
 
     private void jmiCommandsActionPerformed()
     {
-        JOptionPane.showMessageDialog(this, "CIAO", "Lista comandi", JOptionPane.PLAIN_MESSAGE);
+        JOptionPane.showMessageDialog(this, "\t\t-- Come giocare a The Lost Hotel --\n"
+                + "\n"
+                + "E' possibile usare questi comandi testuali anche senza premere i relativi pulsanti:\n"
+                + "\n"
+                + ">> nord - Spostati in direzione nord\n"
+                + ">> est - Spostati in direzione est\n"
+                + ">> sud - Spostati in direzione sud\n"
+                + ">> ovest - Spostati in direzione ovest\n"
+                + ">> salva - Salva la partita corrente\n"
+                + ">> esci - Permette di ritornare al menù principale ed eventualmente salvare una partita\n"
+                + ">> inventario - Consente di visualizzare l'inventario con i relativi oggetti\n"
+                + "\n"
+                + "Altri comandi:\n"
+                + "\n"
+                + ">> aiuto - Consente di visualizzare l'elenco dei comando riconosciuti\n"
+                + ">> osserva - Permette di guardarti intorno ed esaminare l'ambiente circostante\n"
+                + ">> osserva [oggetto/oggetto contenitore] - Permette di esaminare un oggetto dell'inventario o della stanza corrente\n"
+                + ">> usa [oggetto] -  Usa oggetti del tuo inventario\n"
+                + ">> apri [oggetto contenitore] - Apri un oggetto contenitore\n"
+                + ">> apri [oggetto contenitore] con [oggetto] - Apri un oggetto contenitore bloccato con un oggetto\n"
+                + ">> prendi [oggetto] - Prendi un oggetto a terra nella stanza o in un contenitore\n"
+                + ">> lascia [oggetto] - Lascia un oggetto in una stanza\n"
+                + ">> metti [oggetto] in [oggetto contenitore] - Metti un oggetto in un contenitore valido\n\n" //da vedere se inserire o meno
+                + "Altri comandi più specifici dovranno essere trovati dal giocatore.\n"
+                + "\n"
+                + "Per salvare o caricare una partita, sovrascrivere il file TheLostHotel.dat\n", "Lista comandi", JOptionPane.PLAIN_MESSAGE);
     }
 
     private void jmiQuitActionPerformed() {

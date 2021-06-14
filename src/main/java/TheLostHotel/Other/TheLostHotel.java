@@ -72,6 +72,14 @@ public class TheLostHotel extends GameManager {
                     break;
 
                 // Comando per guardare
+                case HELP:
+                    if(!pOutput.containsWordType(WordType.ERROR)) {
+                        output.append(showHelp());
+                    }
+                    else
+                        output.append("Forse intendevi \"aiuto\"?\n");
+                    break;
+
                 case LOOK:
 
                     // Se si vuole guardare un oggetto
@@ -105,20 +113,12 @@ public class TheLostHotel extends GameManager {
                     }
                     break;
 
-                case HELP:
-                    if(!pOutput.containsWordType(WordType.ERROR)) {
-                        output.append(showHelp());
-                    }
-                    else
-                        output.append("Errata chiamata comando aiuto\n"); //CAMBIARE
-                    break;
-
                 case INVENTORY:
                     if(!pOutput.containsWordType(WordType.ERROR)) {
                         output.append("Oggetti presenti nell'inventario: " + this.getGame().getInventory().toString() + "\n");
                     }
                     else
-                        output.append("Errata chiamata comando inventario\n"); //CAMBIARE
+                        output.append("Forse intendevi \"inventario\"?\n");
                     break;
 
                 // Comandi per sbloccare stanze o contenitori
@@ -142,7 +142,7 @@ public class TheLostHotel extends GameManager {
                             }
 
                         } else {
-                            output.append("Non puoi usare questo oggetto ora/così!\n"); //Cambiare
+                            output.append("Non puoi usare questo oggetto ora/così!\n");
                         }
 
                     }
@@ -399,33 +399,32 @@ public class TheLostHotel extends GameManager {
     }
 
     @Override
-    public String showHelp() {
-        return "===========================================\n"
-                + "GUIDA\n"
-                + "\n"
-                + "* Inserisci un comando nel rettangolo in basso e premi \"Invia\" o il tasto Invio.\n"
-                + "\n"
-                + "* Per spostarti, puoi premere le frecce o \"su\", \"giù\", oppure scriverlo nel rettangolo.\n"
-                + "\n"
-                + "* Per visualizzare il contenuto dell'inventario, premi l'icona dello zaino, oppure digita comandi come \"inventario\", \"inv\", \"borsa\"...\n"
-                + "\n"
-                + "* Quelli descritti in questa guida sono solo alcuni dei comandi disponibili, scommetto che sarai capace di scoprire gli altri senza ulteriori aiuti...\n"
-                + "\n"
-                + "* Sei in difficoltà? Prova a guardarti intorno con il comando \"guarda\" e fa' attenzione agli indizi che ti vengono suggeriti!\n"
-                + "\n"
-                + "Esempi di frasi accettate:\n"
-                + "- Raccogli la bottiglia / Prendi bottiglia\n"
-                + "- Guarda\n"
-                + "- Osserva la bottiglia\n"
-                + "- Nord\n"
-                + "- Apri con chiave / Usa la chiave \n"
-                + "- Apri il baule con la chiave dorata \n"
-                + "- Premi il pulsante \n"
-                + "\n"
-                + "E' importante inserire solo un'azione alla volta!\n"
-                + "Esempio di frase NON accettata:\n"
-                + "- Prendi la bottiglia e prendi l'ombrello \n"
-                + "===========================================\n";
+    public String showHelp() { return "\t     -- Come giocare a The Lost Hotel --\n"
+            + "\n"
+            + "E' possibile usare questi comandi testuali anche senza premere i relativi pulsanti:\n"
+            + "\n"
+            + ">> nord - Spostati in direzione nord\n"
+            + ">> est - Spostati in direzione est\n"
+            + ">> sud - Spostati in direzione sud\n"
+            + ">> ovest - Spostati in direzione ovest\n"
+            + ">> salva - Salva la partita corrente\n"
+            + ">> esci - Permette di ritornare al menù principale ed eventualmente salvare una partita\n"
+            + ">> inventario - Consente di visualizzare l'inventario con i relativi oggetti\n"
+            + "\n"
+            + "Altri comandi:\n"
+            + "\n"
+            + ">> aiuto - Consente di visualizzare l'elenco dei comando riconosciuti\n"
+            + ">> osserva - Permette di guardarti intorno ed esaminare l'ambiente circostante\n"
+            + ">> osserva [oggetto/oggetto contenitore] - Permette di esaminare un oggetto dell'inventario o della stanza corrente\n"
+            + ">> usa [oggetto] -  Usa oggetti del tuo inventario\n"
+            + ">> apri [oggetto contenitore] - Apri un oggetto contenitore\n"
+            + ">> apri [oggetto contenitore] con [oggetto] - Apri un oggetto contenitore bloccato con un oggetto\n"
+            + ">> prendi [oggetto] - Prendi un oggetto a terra nella stanza o in un contenitore\n"
+            + ">> lascia [oggetto] - Lascia un oggetto in una stanza\n"
+            + ">> metti [oggetto] in [oggetto contenitore] - Metti un oggetto in un contenitore valido\n\n" //da vedere se inserire o meno
+            + "Altri comandi più specifici dovranno essere trovati dal giocatore.\n"
+            + "\n"
+            + "Per salvare o caricare una partita, sovrascrivere il file TheLostHotel.dat\n";
     }
 
     /**

@@ -29,7 +29,7 @@ public class TLHStart {
         ImageIcon imgPortafoglio = new ImageIcon("resources//img//gameItem//portafoglio.png");
         portafoglio.setItemImage(imgPortafoglio);
         portafoglio.setPickupable(true);
-        //g.getInventory().add(portafoglio);
+        g.getInventory().add(portafoglio);
 
         GameItem accendino = new GameItem(20, "accendino", "Il tuo fidato accendino. Non puoi farne a meno!");
         accendino.setAlias(new String[]{"accenditore", "accendigas"});
@@ -37,20 +37,26 @@ public class TLHStart {
         accendino.setItemImage(imgAccendino);
         accendino.setConsumable((byte) 1); /////////////
         accendino.setPickupable(true);
-        //g.getInventory().add(accendino);
+        g.getInventory().add(accendino);
 
         GameItem foglio = new GameItem(33, "foglio", "Descrizione foglio di carta!");
         foglio.setAlias(new String[]{"nota", "carta", "note", "appunti"});
         ImageIcon imgFoglio = new ImageIcon("resources//img//gameItem//note.png");
         foglio.setItemImage(imgFoglio);
-        g.getInventory().add(foglio);
+        //g.getInventory().add(foglio);
 
         GameItem bibita = new GameItem(23, "bibita", "La tua bibita preferita. Chissà se ti sarà utile...");
         bibita.setAlias(new String[]{"drink"});
         ImageIcon imgBibita = new ImageIcon("resources//img//gameItem//drink.png");
         bibita.setItemImage(imgBibita);
         bibita.setPickupable(true);
-        //g.getInventory().add(bibita);
+        g.getInventory().add(bibita);
+
+        GameItem coltellino = new GameItem(35, "coltellino", "Il tuo coltellino preferito. Chissà se ti sarà utile...");
+        coltellino.setAlias(new String[]{"coltello"});
+        ImageIcon imgColtellino = new ImageIcon("resources//img//gameItem//coltellino.png");
+        coltellino.setItemImage(imgColtellino);
+        g.getInventory().add(coltellino);
 
         //ItemContainer
         GameItemContainer wardrobe = new GameItemContainer(80, "mobile", "Il mobile è chiuso a chiave. "

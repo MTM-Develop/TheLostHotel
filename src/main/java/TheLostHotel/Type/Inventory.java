@@ -58,6 +58,7 @@ public class Inventory implements Serializable {
         StringBuilder invList = new StringBuilder();
 
         for (GameItem i : inventoryList) {
+
             invList.append("\n- ").append(i.getName());
         }
 
