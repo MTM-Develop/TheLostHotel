@@ -107,6 +107,8 @@ public class GameGUI extends javax.swing.JFrame {
         jmiQuit = new javax.swing.JMenuItem();
         jmText = new javax.swing.JMenu();
         jmiFastText = new JCheckBoxMenuItem();
+        jmCommands = new javax.swing.JMenu();
+        jmiCommands = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(1220, 700));
@@ -155,18 +157,22 @@ public class GameGUI extends javax.swing.JFrame {
         jPanel1.setBounds(680, 510, 250, 160);
 
         jbNorth.setText("Nord");
+        jbNorth.setToolTipText("Vai a Nord");
         jbNorth.setMnemonic(KeyEvent.VK_N);
         jbNorth.addActionListener(e -> sendCommandByButton("nord"));
 
         jbEast.setText("Est");
+        jbEast.setToolTipText("Vai a Est");
         jbEast.setMnemonic(KeyEvent.VK_E);
         jbEast.addActionListener(e -> sendCommandByButton("est"));
 
         jbSouth.setText("Sud");
+        jbSouth.setToolTipText("Vai a Sud");
         jbSouth.setMnemonic(KeyEvent.VK_S);
         jbSouth.addActionListener(e -> sendCommandByButton("sud"));
 
         jbWest.setText("Ovest");
+        jbWest.setToolTipText("Vai a Ovest");
         jbWest.setMnemonic(KeyEvent.VK_O);
         jbWest.addActionListener(e -> sendCommandByButton("ovest"));
 
@@ -219,6 +225,7 @@ public class GameGUI extends javax.swing.JFrame {
         getContentPane().add(jbInventory);
         jbInventory.setBounds(1000, 45, 70, 70);
 
+        jtCommand.setToolTipText("Inserisci un comando");
         jtCommand.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 GameCommandFieldKeyReleased(evt);
@@ -273,13 +280,18 @@ public class GameGUI extends javax.swing.JFrame {
         jMenuBar1.add(jmOptions);
 
         jmText.setText("Text");
-
         jmiFastText.setText("Fast text");
         jmiFastText.addActionListener(e -> jmiFastTextActionPerformed());
-
         jmText.add(jmiFastText);
-
         jMenuBar1.add(jmText);
+
+        jmCommands.setText("Comandi");
+        jmiCommands.setText("Lista comandi");
+        KeyStroke keyStrokeCommands = KeyStroke.getKeyStroke(KeyEvent.VK_L, KeyEvent.CTRL_DOWN_MASK);
+        jmiCommands.setAccelerator(keyStrokeCommands);
+        jmiCommands.addActionListener(e -> jmiCommandsActionPerformed());
+        jmCommands.add(jmiCommands);
+        jMenuBar1.add(jmCommands);
 
         setJMenuBar(jMenuBar1);
 
@@ -288,6 +300,11 @@ public class GameGUI extends javax.swing.JFrame {
 
     private void jmiFastTextActionPerformed() {
         fastText = !fastText;
+    }
+
+    private void jmiCommandsActionPerformed()
+    {
+        JOptionPane.showMessageDialog(this, "CIAO", "Lista comandi", JOptionPane.PLAIN_MESSAGE);
     }
 
     private void jmiQuitActionPerformed() {
@@ -314,7 +331,7 @@ public class GameGUI extends javax.swing.JFrame {
 
     private void GameCommandFieldKeyReleased(java.awt.event.KeyEvent evt)
     {
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+        if ((evt.getKeyCode() == KeyEvent.VK_ENTER) && jbSendCommand.isEnabled()) {
             sendCommandByTextField();
         }
     }
@@ -353,7 +370,7 @@ public class GameGUI extends javax.swing.JFrame {
             // Prende il testo scritto dall'utente e lo stampa sul jTextPane
             String command = jtCommand.getText();
 
-            appendToPane(jtpReadingArea, "\n>> " + command + "\n", Color.red);
+            appendToPane(jtpReadingArea, "\n>> " + command.toLowerCase() + "\n", Color.red);
 
             jtpReadingArea.setCaretPosition(0);
             jtpReadingArea.setCaretPosition(jtpReadingArea.getDocument().getLength());
@@ -536,9 +553,11 @@ public class GameGUI extends javax.swing.JFrame {
 
             jmOptions.setFont(fontGameBar);
             jmText.setFont(fontGameBar);
+            jmCommands.setFont(fontGameBar);
             jmiSave.setFont(fontGameBar);
             jmiQuit.setFont(fontGameBar);
             jmiFastText.setFont(fontGameBar);
+            jmiCommands.setFont(fontGameBar);
 
         } catch (FontFormatException | IOException ex) {
             JOptionPane.showMessageDialog(this, "Errore: " + ex.getMessage(), "Font non caricato correttamente; e'stato impostato un font di default.", JOptionPane.ERROR_MESSAGE);
@@ -593,6 +612,8 @@ public class GameGUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmiQuit;
     private javax.swing.JMenu jmText;
     private javax.swing.JCheckBoxMenuItem jmiFastText;
+    private javax.swing.JMenu jmCommands;
+    private javax.swing.JMenuItem jmiCommands;
     private javax.swing.JScrollPane jspCommand;
     private javax.swing.JScrollPane jspReadingArea;
     private javax.swing.JTextField jtCommand;

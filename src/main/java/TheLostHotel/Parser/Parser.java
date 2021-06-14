@@ -50,7 +50,7 @@ public class Parser {
         // Se ha trovato un comando, cerco gli oggetti con cui si vuole interagire, se presenti
         if (!pOutput.isEmpty()) {
 
-            String s;
+            String s = null;
 
             // Ciclo con indice poiché serve mantenere il contatore
             for (short i = 0; i < tokens.length; i++) {
@@ -61,7 +61,7 @@ public class Parser {
                     pOutput.add(WordType.INVENTORY_OBJ, s);
 
                 }
-                
+
                 // Controlla se il token corrispondente è un oggetto della stanza
                 if (!(s = this.isItem(tokens[i], currentRoom.getItemList(), tokens, i)).isEmpty()) {
 
@@ -69,6 +69,12 @@ public class Parser {
 
                 }
 
+            }
+
+            if(tokens.length != pOutput.size()) //Funziona ma bisogna provare
+            {
+                if (!tokens[1].equals(currentRoom.getName())) //Meglio rimuoverlo
+                    pOutput.add(WordType.ERROR, s);
             }
 
         } else { // Se non ha trovato nemmeno un comando

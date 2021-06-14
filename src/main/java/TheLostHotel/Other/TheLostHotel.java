@@ -40,30 +40,34 @@ public class TheLostHotel extends GameManager {
                 case WEST:
 
                     // Controlla se ci si può spostare in quella direzione o meno
-                    if (Objects.isNull(room = this.move(command))) {
+                    if(!pOutput.containsWordType(WordType.ERROR)) {
+                        if (Objects.isNull(room = this.move(command))) {
 
-                        output.append("Non puoi andare lì!\n");
+                            output.append("Non puoi andare lì!\n");
 
-                    } // Controlla che non sia bloccata
-                    else if (room.getLockedBy().equals("")) {
+                        } // Controlla che non sia bloccata
+                        else if (room.getLockedBy().equals("")) {
 
-                        // Si sposta nella stanza designata
-                        this.getGame().setCurrentRoom(room);
+                            // Si sposta nella stanza designata
+                            this.getGame().setCurrentRoom(room);
 
-                        // Controlla se si è finito il gioco in maniera "lecita"
-                        //this.advancePlot();
+                            // Controlla se si è finito il gioco in maniera "lecita"
+                            //this.advancePlot();
 
-                        output.append("-- " + this.getGame().getCurrentRoom().getName() + " --" + "\n\n");
-                        if(!room.isVisited())
-                            output.append(this.getGame().getCurrentRoom().getDescription() + "\n");
-                        else
-                            output.append(this.getGame().getCurrentRoom().getVisitedDescription() + "\n");
+                            output.append("-- " + this.getGame().getCurrentRoom().getName() + " --" + "\n\n");
+                            if (!room.isVisited())
+                                output.append(this.getGame().getCurrentRoom().getDescription() + "\n");
+                            else
+                                output.append(this.getGame().getCurrentRoom().getVisitedDescription() + "\n");
 
-                        room.setVisited(true);
+                            room.setVisited(true);
 
+                        } else {
+                            // Nel caso la stanza sia bloccata
+                            output.append("Questa stanza è chiusa!\n");
+                        }
                     } else {
-                        // Nel caso la stanza sia bloccata
-                        output.append("Questa stanza è chiusa!\n");
+                        output.append("Temo di non aver capito la direzione...\n");
                     }
                     break;
 
@@ -71,32 +75,54 @@ public class TheLostHotel extends GameManager {
                 case LOOK:
 
                     // Se si vuole guardare un oggetto
-                    if (pOutput.size() == 2) {
+                    if(!pOutput.containsWordType(WordType.ERROR)) {
+                        if (pOutput.size() == 2) {
 
-                        output.append(gameItem.getDescription() + "\n");
+                            if(pOutput.containsWordType(WordType.INVENTORY_OBJ))
+                                output.append(gameItem.getDescription() + "\n");
+                            else if(pOutput.containsWordType(WordType.ROOM_OBJ)) {
+                                if(gameItem instanceof GameItemContainer)
+                                    output.append(gameItem.getDescription() + "\n");
+                                else
+                                    output.append("Osserva... cosa?\n");
+                            }
 
-                    } else if (pOutput.size() == 1) { // Se si vuole guardare la stanza
+                        } else if (pOutput.size() == 1) { // Se si vuole guardare la stanza
 
-                        output.append(this.getGame().getCurrentRoom().getLookDescription() + "\n");
+                            output.append(this.getGame().getCurrentRoom().getLookDescription() + "\n");
 
-                    } else if (pOutput.size() > 2) { // Se si vogliono guardare troppi oggetti alla volta
+                        } /*else if (pOutput.size() > 2) { // Se si vogliono guardare troppi oggetti alla volta
 
-                        output.append("Uno alla volta, ho una certa età.\n");
+                            output.append("Uno alla volta, ho una certa età.\n");
 
+                        }*/
+                    }
+                    else if (pOutput.containsWordType(WordType.INVENTORY_OBJ) && pOutput.size() > 2) {
+                        output.append("Uno alla volta...\n");
+                    }
+                    else {
+                        output.append("Osserva... cosa?\n");
                     }
                     break;
 
                 case HELP:
-                    output.append(showHelp());
+                    if(!pOutput.containsWordType(WordType.ERROR)) {
+                        output.append(showHelp());
+                    }
+                    else
+                        output.append("Errata chiamata comando aiuto\n"); //CAMBIARE
                     break;
 
                 case INVENTORY:
-                    output.append("Oggetti presenti nell'inventario: " + this.getGame().getInventory().toString() + "\n");
+                    if(!pOutput.containsWordType(WordType.ERROR)) {
+                        output.append("Oggetti presenti nell'inventario: " + this.getGame().getInventory().toString() + "\n");
+                    }
+                    else
+                        output.append("Errata chiamata comando inventario\n"); //CAMBIARE
                     break;
 
                 // Comandi per sbloccare stanze o contenitori
                 case USE:
-                case OPEN:
 
                     // Se si vuole aprire una stanza con un oggetto dell'inventario
                     if (pOutput.size() == 2 && pOutput.containsWordType(WordType.INVENTORY_OBJ)) {
@@ -116,10 +142,17 @@ public class TheLostHotel extends GameManager {
                             }
 
                         } else {
-                            output.append("Non puoi aprire con questo oggetto!\n");
+                            output.append("Non puoi usare questo oggetto ora/così!\n"); //Cambiare
                         }
 
-                    } else if (pOutput.containsWordType(WordType.ROOM_OBJ)) { // Apertura di un contenitore da sbloccare
+                    }
+                    else
+                        output.append("Usa... cosa?\n");
+                    break;
+
+                case OPEN:
+
+                     if (pOutput.containsWordType(WordType.ROOM_OBJ)) { // Apertura di un contenitore da sbloccare
 
                         GameItem iC = null; //contenitore
                         gameItem = null;
@@ -156,12 +189,12 @@ public class TheLostHotel extends GameManager {
 
                                 if (((GameItemContainer)iC).getcItemList().getInventoryList().isEmpty()) {
 
-                                    output.append("L'oggetto è stato aperto, ma è vuoto!");
+                                    output.append("L'oggetto è stato aperto, ma è vuoto!\n");
 
                                 } else {
 
                                     output.append("Hai aperto l'oggetto " + iC.getName()
-                                            + "! Ecco il suo contenuto:" + iC.toString());
+                                            + "! Ecco il suo contenuto:" + iC.toString() + "\n");
 
                                 }
 
@@ -172,7 +205,7 @@ public class TheLostHotel extends GameManager {
                                     // Se l'oggetto è stato consumato, lo rimuove dall'inventario
                                     if (gameItem.isConsumed()) {
                                         this.getGame().getInventory().remove(gameItem);
-                                        output.append("\nL'oggetto " + gameItem.getName() + " è stato rimosso.");
+                                        output.append("\nL'oggetto " + gameItem.getName() + " è stato rimosso.\n");
                                     }
                                 }
 
@@ -181,13 +214,52 @@ public class TheLostHotel extends GameManager {
                             }
 
                         } else {
-                            output.append("Non puoi aprire quest'oggetto così!\n");
+                            output.append("Apri... cosa?\n");
                         }
 
-                    } else {
-                        output.append("Non puoi aprire con quest'oggetto!\n");
+                     } else if (pOutput.containsWordType(WordType.INVENTORY_OBJ)) {
+                         output.append("Non puoi aprire quest'oggetto!\n"); //modificare (a volte può capitare che in
+                         //altre stanze possa essere aperto
+                     }
+                     else {
+                        output.append("Apri... cosa?\n");
                     }
 
+                    break;
+
+                // Comando per raccogliere oggetti
+                case PICK_UP:
+
+                    // Controlla che l'oggetto sia della stanza e non presente nell'inventario
+                    if (pOutput.containsWordType(WordType.ROOM_OBJ) && pOutput.size() == 2) {
+
+                        // Controlla che l'oggetto si possa raccogliere
+                        if (!Objects.isNull(gameItem) && gameItem.isPickupable()) {
+
+                            // Aggiunge l'oggetto all'inventario e lo rimuove dalla stanza
+                            this.getGame().getInventory().add(gameItem);
+                            this.getGame().getCurrentRoom().removeItem(gameItem);
+
+                            output.append("L'oggetto è stato aggiunto al tuo inventario.\n");
+
+                        } else {
+
+                            output.append("Prendere... cosa?\n");
+
+                        }
+                    } else if (pOutput.containsWordType(WordType.INVENTORY_OBJ) && pOutput.size() == 2) {
+
+                        output.append("L'oggetto è già presente nel tuo inventario!\n");
+
+                    } else if (pOutput.containsWordType(WordType.INVENTORY_OBJ) && pOutput.size() > 2) {
+
+                        output.append("Uno alla volta...\n");
+
+                    } else{
+
+                        output.append("Prendere... cosa?\n");
+
+                    }
                     break;
 
                 default:
