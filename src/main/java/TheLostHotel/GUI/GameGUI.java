@@ -49,6 +49,9 @@ public class GameGUI extends javax.swing.JFrame {
     private boolean fastText = false;
 
     private ArrayList<String> commandHistory = new ArrayList<String>();
+
+    private int count = 0;
+    private boolean up_click = false;
     /**
      * Creates new form GameGUI
      */
@@ -209,7 +212,7 @@ public class GameGUI extends javax.swing.JFrame {
         jbSaveGame.setBounds(1010, 520, 170, 40);
 
         jbQuitGame.setText("ESCI (CTRL-Q)");
-        jbQuitGame.addActionListener(e -> jmiQuitActionPerformed());
+        jbQuitGame.addActionListener(e -> quitGame());
         getContentPane().add(jbQuitGame);
         jbQuitGame.setBounds(1010, 580, 170, 40);
 
@@ -233,7 +236,7 @@ public class GameGUI extends javax.swing.JFrame {
         jtCommand.setToolTipText("Inserisci un comando");
         jtCommand.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                GameCommandFieldKeyReleased(evt);
+                textFieldCommandKeyEvent(evt);
             }
         });
         jspCommand.setViewportView(jtCommand);
@@ -277,7 +280,7 @@ public class GameGUI extends javax.swing.JFrame {
         jmiQuit.setText("Torna al menu principale");
         KeyStroke keyStrokeQuit = KeyStroke.getKeyStroke(KeyEvent.VK_Q, KeyEvent.CTRL_DOWN_MASK);
         jmiQuit.setAccelerator(keyStrokeQuit);
-        jmiQuit.addActionListener(e -> jmiQuitActionPerformed());
+        jmiQuit.addActionListener(e -> quitGame());
 
         jmOptions.add(jmiSave);
         jmOptions.addSeparator();
@@ -302,201 +305,6 @@ public class GameGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jmiFastTextActionPerformed() {
-        fastText = !fastText;
-    }
-
-    private void jmiCommandsActionPerformed()
-    {
-        JOptionPane.showMessageDialog(this, "\t\t-- Come giocare a The Lost Hotel --\n"
-                + "\n"
-                + "E' possibile usare questi comandi testuali anche senza premere i relativi pulsanti:\n"
-                + "\n"
-                + ">> nord - Spostati in direzione nord\n"
-                + ">> est - Spostati in direzione est\n"
-                + ">> sud - Spostati in direzione sud\n"
-                + ">> ovest - Spostati in direzione ovest\n"
-                + ">> inventario - Consente di visualizzare l'inventario con i relativi oggetti\n"
-                + ">> salva (valido solo tramite pulsante) - Salva la partita corrente\n"
-                + ">> esci (valido solo tramite pulsante) - Permette di ritornare al menù principale ed eventualmente salvare una partita\n"
-                + "\n"
-                + "Altri comandi:\n"
-                + "\n"
-                + ">> aiuto - Consente di visualizzare l'elenco dei comando riconosciuti\n"
-                + ">> osserva - Permette di guardarti intorno ed esaminare l'ambiente circostante\n"
-                + ">> osserva [oggetto/oggetto contenitore] - Permette di esaminare un oggetto dell'inventario o della stanza corrente\n"
-                + ">> usa [oggetto] -  Usa oggetti del tuo inventario\n"
-                + ">> apri [oggetto contenitore] - Apri un oggetto contenitore\n"
-                + ">> apri [oggetto contenitore] con [oggetto] - Apri un oggetto contenitore bloccato con un oggetto\n"
-                + ">> prendi [oggetto] - Prendi un oggetto a terra nella stanza o in un contenitore\n"
-                + ">> lascia [oggetto] - Lascia un oggetto in una stanza\n"
-                + "Altri comandi più specifici dovranno essere trovati dal giocatore.\n"
-                + "\n"
-                + "Per salvare o caricare una partita, sovrascrivere il file TheLostHotel.dat\n", "Lista comandi", JOptionPane.PLAIN_MESSAGE);
-    }
-
-    private void jmiQuitActionPerformed() {
-        if(!savedGame)
-        {
-            int ris = JOptionPane.showConfirmDialog(this, "Ci sono progressi non salvati. Desideri salvare?", "Ci sono progressi non salvati. Desideri salvare?", JOptionPane.YES_NO_CANCEL_OPTION);
-
-            if(ris == JOptionPane.YES_OPTION) {
-                saveGame();
-            }
-            else if(ris == JOptionPane.NO_OPTION) {
-                new MenuGUI(this.gInteraction.getGameManager()).setVisible(true);
-                this.dispose();
-            }
-        }
-        else {
-            if (JOptionPane.showConfirmDialog(this, "Sei sicuro di voler tornare al menu principale?", "Sei sicuro di voler tornare al menu principale?", JOptionPane.YES_NO_OPTION)
-                    == JOptionPane.YES_OPTION) {
-                new MenuGUI(this.gInteraction.getGameManager()).setVisible(true);
-                this.dispose();
-            }
-        }
-    }
-
-
-    private void GameCommandFieldKeyReleased(java.awt.event.KeyEvent evt)
-    {
-        if ((evt.getKeyCode() == KeyEvent.VK_ENTER) && jbSendCommand.isEnabled()) {
-            sendCommandByTextField();
-        } else if ((evt.getKeyCode() == KeyEvent.VK_UP) && jbSendCommand.isEnabled()) {
-            commandHistory(KeyEvent.VK_UP);
-        } else if ((evt.getKeyCode() == KeyEvent.VK_DOWN) && jbSendCommand.isEnabled()) { //ACCORPARE
-            commandHistory(KeyEvent.VK_DOWN);
-        }
-    }
-
-    private void commandHistory(int keyEvent)
-    {
-        if(!commandHistory.isEmpty()) {
-            if(keyEvent == KeyEvent.VK_UP)
-                jtCommand.setText(commandHistory.get(commandHistory.size() - 1));
-            else if(keyEvent == KeyEvent.VK_DOWN)
-                jtCommand.setText("A"); //CONTINUARE
-        }
-    }
-
-    private void sendCommandByButton(String command)
-    {
-
-        jtCommand.setText("");
-
-        tm.start();
-        s = new StringBuilder("\n");
-        appendToPane(jtpReadingArea,"\n>> " + command + "\n", Color.red);
-        jtpReadingArea.setCaretPosition(0);
-        jtpReadingArea.setCaretPosition(jtpReadingArea.getDocument().getLength());
-
-        if(fastText)
-            appendToPane(jtpReadingArea, "\n" + gInteraction.inputPlayer(command) + "\n", Color.white);
-        else
-            s.append("\n" + gInteraction.inputPlayer(command) + "\n");
-
-        savedGame = false;
-        addCommand(command);
-
-        //Aggiorna l'immagine della Room e il suo tooltip
-        jlRoomImage.setIcon(gInteraction.getGameManager().getGame().getCurrentRoom().getRoomImage());
-        jlRoomImage.setToolTipText(gInteraction.getGameManager().getGame().getCurrentRoom().getName());
-        jlRoomName.setText("  " + gInteraction.getGameManager().getGame().getCurrentRoom().getName() + "        ");
-    }
-
-    private void addCommand(String command)
-    {
-        commandHistory.add(command);
-    }
-
-    private void sendCommandByTextField()
-    {
-        if (!jtCommand.getText().matches("\\s+")) {
-
-            tm.start();
-            s = new StringBuilder("\n");
-
-            // Prende il testo scritto dall'utente e lo stampa sul jTextPane
-            String command = jtCommand.getText();
-
-            appendToPane(jtpReadingArea, "\n>> " + command.toLowerCase() + "\n", Color.red);
-
-            jtpReadingArea.setCaretPosition(0);
-            jtpReadingArea.setCaretPosition(jtpReadingArea.getDocument().getLength());
-
-            jtCommand.setText("");
-
-            // Una volta inviato il comando al gestore di interazione, ne stampa la risposta sul jTextPane
-            if(fastText) {
-                if(command.length() > 0)
-                    appendToPane(jtpReadingArea, "\n" + gInteraction.inputPlayer(command) + "\n", Color.white);
-                else
-                    appendToPane(jtpReadingArea, "\nUn comando vuoto. Interessante...\n\n", Color.white);
-            }
-            else {
-                if(command.length() > 0)
-                    s.append("\n" + gInteraction.inputPlayer(command) + "\n");
-                else
-                    s.append("\nUn comando vuoto. Interessante...\n\n");
-            }
-
-            savedGame = false;
-
-            // Se il comando ha fatto terminare il gioco ( ovvero se il tempo di completamento si è bloccato )
-            /*if (!gInteraction.getGameManager().getGame().getGameTime().isActive()) {
-                this.insertScore();
-            }*/
-
-        }
-
-        //Aggiorna l'immagine della Room e il suo tooltip
-        jlRoomImage.setIcon(gInteraction.getGameManager().getGame().getCurrentRoom().getRoomImage());
-        jlRoomImage.setToolTipText(gInteraction.getGameManager().getGame().getCurrentRoom().getName());
-        jlRoomName.setText("  " + gInteraction.getGameManager().getGame().getCurrentRoom().getName() + "        ");
-    }
-
-    private void saveGame()
-    {
-        // Inizializza il jFileChooser per scegliere la cartella dove salvare
-        JFileChooser fChooser = new JFileChooser();
-        fChooser.setMultiSelectionEnabled(false);
-        fChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY); //FILES_ONLY
-        fChooser.setCurrentDirectory(new File(".")); // Parte dalla cartella del progetto
-
-        try {
-
-            if (fChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
-                gInteraction.getGameManager().getGame().saveGame(fChooser.getSelectedFile().getPath());
-                savedGame = true;
-
-                appendToPane(jtpReadingArea,"\nSalvataggio partita completato.\n\n", Color.cyan);
-                jtpReadingArea.setCaretPosition(jtpReadingArea.getDocument().getLength());
-            }
-
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(this, "Errore: " + e.getMessage(), "Errore nel salvataggio del file", JOptionPane.ERROR_MESSAGE);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Errore: " + e.getMessage(), e.getMessage(), JOptionPane.ERROR_MESSAGE);
-        }
-    }
-
-    private void enableComponents(boolean enable) {
-        //if (!game.isEnd()) {
-        jtCommand.setEditable(enable);
-        jbEast.setEnabled(enable);
-        jbNorth.setEnabled(enable);
-        jbSendCommand.setEnabled(enable);
-        jbSouth.setEnabled(enable);
-        jbWest.setEnabled(enable);
-        jbSaveGame.setEnabled(enable);
-        jbQuitGame.setEnabled(enable);
-        jmiSave.setEnabled(enable);
-        jmiQuit.setEnabled(enable);
-        jmiFastText.setEnabled(enable);
-        jmiCommands.setEnabled(enable);
-        //}
-    }
 
     private void initGame()
     {
@@ -563,19 +371,6 @@ public class GameGUI extends javax.swing.JFrame {
         jlRoomName.setText("  " + gInteraction.getGameManager().getGame().getCurrentRoom().getName());
     }
 
-    private void changeJtpFont()
-    {
-        Font timesNewRoman = new Font("Times New Roman", Font.PLAIN, 18);
-
-        //Utilizzato per cambiare dinamicamente il font nella jtp
-        StyledDocument doc = jtpReadingArea.getStyledDocument();
-        SimpleAttributeSet aSet = new SimpleAttributeSet();
-
-        StyleConstants.setFontFamily(aSet, timesNewRoman.getFamily());
-        StyleConstants.setFontSize(aSet, timesNewRoman.getSize());
-        doc.setParagraphAttributes(1900, 0, aSet, false);
-    }
-
     private void initFont() {
 
         // La risorsa del try with resource si chiuderà da sola poiché implementa l'interfaccia AutoCloseable
@@ -619,6 +414,197 @@ public class GameGUI extends javax.swing.JFrame {
         }
     }
 
+    private void changeJtpFont()
+    {
+        Font timesNewRoman = new Font("Times New Roman", Font.PLAIN, 18);
+
+        //Utilizzato per cambiare dinamicamente il font nella jtp
+        StyledDocument doc = jtpReadingArea.getStyledDocument();
+        SimpleAttributeSet aSet = new SimpleAttributeSet();
+
+        StyleConstants.setFontFamily(aSet, timesNewRoman.getFamily());
+        StyleConstants.setFontSize(aSet, timesNewRoman.getSize());
+        doc.setParagraphAttributes(1900, 0, aSet, false);
+    }
+
+    private void saveGame()
+    {
+        // Inizializza il jFileChooser per scegliere la cartella dove salvare
+        JFileChooser fChooser = new JFileChooser();
+        fChooser.setMultiSelectionEnabled(false);
+        fChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY); //FILES_ONLY
+        fChooser.setCurrentDirectory(new File(".")); // Parte dalla cartella del progetto
+
+        try {
+
+            if (fChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+                gInteraction.getGameManager().getGame().saveGame(fChooser.getSelectedFile().getPath());
+                savedGame = true;
+
+                appendToPane(jtpReadingArea,"\nSalvataggio partita completato.\n\n", Color.cyan);
+                jtpReadingArea.setCaretPosition(jtpReadingArea.getDocument().getLength());
+            }
+
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "Errore: " + e.getMessage(), "Errore nel salvataggio del file", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Errore: " + e.getMessage(), e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void quitGame() {
+        if(!savedGame)
+        {
+            int ris = JOptionPane.showConfirmDialog(this, "Ci sono progressi non salvati. Desideri salvare?", "Ci sono progressi non salvati. Desideri salvare?", JOptionPane.YES_NO_CANCEL_OPTION);
+
+            if(ris == JOptionPane.YES_OPTION) {
+                saveGame();
+            }
+            else if(ris == JOptionPane.NO_OPTION) {
+                new MenuGUI(this.gInteraction.getGameManager()).setVisible(true);
+                this.dispose();
+            }
+            System.out.println();
+        }
+        else {
+            if (JOptionPane.showConfirmDialog(this, "Sei sicuro di voler tornare al menu principale?", "Sei sicuro di voler tornare al menu principale?", JOptionPane.YES_NO_OPTION)
+                    == JOptionPane.YES_OPTION) {
+                new MenuGUI(this.gInteraction.getGameManager()).setVisible(true);
+                this.dispose();
+            }
+        }
+    }
+
+    private void jmiFastTextActionPerformed() {
+        fastText = !fastText;
+    }
+
+    private void jmiCommandsActionPerformed()
+    {
+        JOptionPane.showMessageDialog(this, "\t\t-- Come giocare a The Lost Hotel --\n"
+                + "\n"
+                + "E' possibile usare questi comandi testuali anche senza premere i relativi pulsanti:\n"
+                + "\n"
+                + ">> nord - Spostati in direzione nord\n"
+                + ">> est - Spostati in direzione est\n"
+                + ">> sud - Spostati in direzione sud\n"
+                + ">> ovest - Spostati in direzione ovest\n"
+                + ">> inventario - Consente di visualizzare l'inventario con i relativi oggetti\n"
+                + ">> salva (valido solo tramite pulsante) - Salva la partita corrente\n"
+                + ">> esci (valido solo tramite pulsante) - Permette di ritornare al menù principale ed eventualmente salvare una partita\n"
+                + "\n"
+                + "Altri comandi:\n"
+                + "\n"
+                + ">> aiuto - Consente di visualizzare l'elenco dei comando riconosciuti\n"
+                + ">> osserva - Permette di guardarti intorno ed esaminare l'ambiente circostante\n"
+                + ">> osserva [oggetto/oggetto contenitore] - Permette di esaminare un oggetto dell'inventario o della stanza corrente\n"
+                + ">> usa [oggetto] -  Usa oggetti del tuo inventario\n"
+                + ">> apri [oggetto contenitore] - Apri un oggetto contenitore\n"
+                + ">> apri [oggetto contenitore] con [oggetto] - Apri un oggetto contenitore bloccato con un oggetto\n"
+                + ">> prendi [oggetto] - Prendi un oggetto a terra nella stanza o in un contenitore\n"
+                + ">> lascia [oggetto] - Lascia un oggetto in una stanza\n\n"
+                + "Altri comandi più specifici dovranno essere trovati dal giocatore.\n\n"
+                + "SUGGERIMENTO:\nÈ possibile risalire ai comandi eseguiti posizionandosi sull'area di inserimento dei comandi.\n"
+                + "   - Premendo la freccia in sù, è possibile visualizzare l'ultimo comando eseguito;\n"
+                + "   - Premendo la freccia in giù, è possibile scorrere i vari comandi eseguiti.\n\n"
+                + "N.B. In caso in cui si carichi una partita esistente i comandi eseguiti verranno persi!\n"
+                + "\n\n"
+                + "Per salvare o caricare una partita, sovrascrivere il file TheLostHotel.dat\n", "Lista comandi", JOptionPane.PLAIN_MESSAGE);
+    }
+
+    private void sendCommandByTextField()
+    {
+        if (!jtCommand.getText().matches("\\s+")) {
+
+            tm.start();
+            s = new StringBuilder("\n");
+
+            // Prende il testo scritto dall'utente e lo stampa sul jTextPane
+            String command = jtCommand.getText();
+
+            appendToPane(jtpReadingArea, "\n>> " + command.toLowerCase() + "\n", Color.red);
+
+            jtpReadingArea.setCaretPosition(0);
+            jtpReadingArea.setCaretPosition(jtpReadingArea.getDocument().getLength());
+
+            jtCommand.setText("");
+
+            // Una volta inviato il comando al gestore di interazione, ne stampa la risposta sul jTextPane
+            if(fastText) {
+                if(command.length() > 0)
+                    appendToPane(jtpReadingArea, "\n" + gInteraction.inputPlayer(command) + "\n", Color.white);
+                else
+                    appendToPane(jtpReadingArea, "\nUn comando vuoto. Interessante...\n\n", Color.white);
+            }
+            else {
+                if(command.length() > 0)
+                    s.append("\n" + gInteraction.inputPlayer(command) + "\n");
+                else
+                    s.append("\nUn comando vuoto. Interessante...\n\n");
+            }
+
+            savedGame = false;
+            addCommand(command);
+            count = 0;
+            up_click = false;
+
+            // Se il comando ha fatto terminare il gioco ( ovvero se il tempo di completamento si è bloccato )
+            /*if (!gInteraction.getGameManager().getGame().getGameTime().isActive()) {
+                this.insertScore();
+            }*/
+
+        }
+
+        //Aggiorna l'immagine della Room e il suo tooltip
+        jlRoomImage.setIcon(gInteraction.getGameManager().getGame().getCurrentRoom().getRoomImage());
+        jlRoomImage.setToolTipText(gInteraction.getGameManager().getGame().getCurrentRoom().getName());
+        jlRoomName.setText("  " + gInteraction.getGameManager().getGame().getCurrentRoom().getName() + "        ");
+    }
+
+    private void sendCommandByButton(String command)
+    {
+
+        jtCommand.setText("");
+
+        tm.start();
+        s = new StringBuilder("\n");
+        appendToPane(jtpReadingArea,"\n>> " + command + "\n", Color.red);
+        jtpReadingArea.setCaretPosition(0);
+        jtpReadingArea.setCaretPosition(jtpReadingArea.getDocument().getLength());
+
+        if(fastText)
+            appendToPane(jtpReadingArea, "\n" + gInteraction.inputPlayer(command) + "\n", Color.white);
+        else
+            s.append("\n" + gInteraction.inputPlayer(command) + "\n");
+
+        savedGame = false;
+        addCommand(command);
+        count = 0;
+        up_click = false;
+
+        //Aggiorna l'immagine della Room e il suo tooltip
+        jlRoomImage.setIcon(gInteraction.getGameManager().getGame().getCurrentRoom().getRoomImage());
+        jlRoomImage.setToolTipText(gInteraction.getGameManager().getGame().getCurrentRoom().getName());
+        jlRoomName.setText("  " + gInteraction.getGameManager().getGame().getCurrentRoom().getName() + "        ");
+    }
+
+    private void enableComponents(boolean enable) {
+        //if (!game.isEnd()) {
+        jtCommand.setEditable(enable);
+        jbEast.setEnabled(enable);
+        jbNorth.setEnabled(enable);
+        jbSendCommand.setEnabled(enable);
+        jbSouth.setEnabled(enable);
+        jbWest.setEnabled(enable);
+        jbSaveGame.setEnabled(enable);
+        jbQuitGame.setEnabled(enable);
+        jmiSave.setEnabled(enable);
+        jmiQuit.setEnabled(enable);
+        jmiFastText.setEnabled(enable);
+        jmiCommands.setEnabled(enable);
+        //}
+    }
+
     /**
      * Le varie descrizioni appariranno nel jTextPane e per ogni interazione
      * dell'utente verrà concatenata la risposta al testo già presente.
@@ -644,6 +630,49 @@ public class GameGUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Errore: " + e.getMessage(), e.getMessage(), JOptionPane.ERROR_MESSAGE);
         }
 
+    }
+
+    private void addCommand(String command)
+    {
+        commandHistory.add(command);
+    }
+
+    private void commandHistory(int keyEvent)
+    {
+        //Verifico che sia stato inserito almeno un comando
+        if(!commandHistory.isEmpty()) {
+            //Nel caso della freccia in sù verrà visualizzato l'ultimo comando eseguito
+            if(keyEvent == KeyEvent.VK_UP) {
+                jtCommand.setText(commandHistory.get(commandHistory.size() - 1)); //Visualizza l'ultimo comando inserito
+                count = 0;
+                up_click = true;
+            }
+            //Nel caso della freccia in giù verrà visualizzato, in ordine temporale, i comandi eseguiti
+            else if(keyEvent == KeyEvent.VK_DOWN) {
+                count++;
+
+                if (count <= commandHistory.size()) {
+                    //Serve per verificare che non sia già stato visualizzato l'ultimo comando (altrimenti verrebbe scritto a doppio)
+                    if(!up_click) {
+                        jtCommand.setText(commandHistory.get(commandHistory.size() - count));
+                    }
+                    else
+                        if((commandHistory.size() - count) > 0)
+                            jtCommand.setText(commandHistory.get(commandHistory.size() - count - 1));
+                }
+            }
+        }
+    }
+
+    private void textFieldCommandKeyEvent(java.awt.event.KeyEvent evt)
+    {
+        if ((evt.getKeyCode() == KeyEvent.VK_ENTER) && jbSendCommand.isEnabled()) {
+            sendCommandByTextField();
+        } else if ((evt.getKeyCode() == KeyEvent.VK_UP) && jbSendCommand.isEnabled()) {
+            commandHistory(KeyEvent.VK_UP);
+        } else if ((evt.getKeyCode() == KeyEvent.VK_DOWN) && jbSendCommand.isEnabled()) {
+            commandHistory(KeyEvent.VK_DOWN);
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

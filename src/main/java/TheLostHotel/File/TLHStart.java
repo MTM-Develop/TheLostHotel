@@ -61,6 +61,7 @@ public class TLHStart {
         //ItemContainer
         GameItemContainer wardrobe = new GameItemContainer(80, "mobile", "Il mobile è chiuso a chiave. "
                 + "La serratura è argentata con dei simboli verdi.");
+        wardrobe.setOpenedDescription("GIA APERTO");
         wardrobe.setAlias(new String[]{"guardaroba", "armadio"});
         wardrobe.add(accendino);
         //wardrobe.add(bibita);

@@ -94,11 +94,16 @@ public class TheLostHotel extends GameManager {
                     if(!pOutput.containsWordType(WordType.ERROR)) {
                         if (pOutput.size() == 2) {
 
-                            if(pOutput.containsWordType(WordType.INVENTORY_OBJ))
+                            if(pOutput.containsWordType(WordType.INVENTORY_OBJ)) {
                                 output.append(gameItem.getDescription() + "\n");
+                            }
                             else if(pOutput.containsWordType(WordType.ROOM_OBJ)) {
-                                if(gameItem instanceof GameItemContainer)
-                                    output.append(gameItem.getDescription() + "\n");
+                                if(gameItem instanceof GameItemContainer) {
+                                    if(((GameItemContainer) gameItem).isClosed())
+                                        output.append(gameItem.getDescription() + "\n");
+                                    else
+                                        output.append(((GameItemContainer) gameItem).getOpenedDescription() + "\n");
+                                }
                                 else
                                     output.append("Osserva... cosa?\n");
                             }
@@ -186,11 +191,13 @@ public class TheLostHotel extends GameManager {
                                 if (((GameItemContainer)iC).getcItemList().getInventoryList().isEmpty()) {
 
                                     output.append("L'oggetto è stato aperto, ma è vuoto!\n");
+                                    ((GameItemContainer) iC).setClosed(false);
 
                                 } else {
 
                                     output.append("Hai aperto l'oggetto " + iC.getName()
                                             + "! Ecco il suo contenuto:" + iC.toString() + "\n");
+                                    ((GameItemContainer) iC).setClosed(false);
 
                                 }
 
@@ -214,8 +221,7 @@ public class TheLostHotel extends GameManager {
                         }
 
                      } else if (pOutput.containsWordType(WordType.INVENTORY_OBJ)) {
-                         output.append("Non puoi aprire quest'oggetto!\n"); //modificare (a volte può capitare che in
-                         //altre stanze possa essere aperto
+                         output.append("Non puoi aprire quest'oggetto!\n"); //da modificare nel caso in cui ci siano iC nell'inventario
                      }
                      else {
                         output.append("Apri... cosa?\n");
@@ -377,19 +383,7 @@ public class TheLostHotel extends GameManager {
             this.getGame().getCurrentRoom().getWest().setLockedBy("");
             flag = true;
 
-        } /*else if (!Objects.isNull(this.getGame().getCurrentRoom().getUp())
-                && this.getGame().getCurrentRoom().getUp().getLockedBy().equals(iName)) {
-
-            this.getGame().getCurrentRoom().getUp().setLockedBy("");
-            flag = true;
-
-        } else if (!Objects.isNull(this.getGame().getCurrentRoom().getDown())
-                && this.getGame().getCurrentRoom().getDown().getLockedBy().equals(iName)) {
-
-            this.getGame().getCurrentRoom().getDown().setLockedBy("");
-            flag = true;
-
-        }*/
+        }
 
         return flag;
     }
@@ -417,8 +411,12 @@ public class TheLostHotel extends GameManager {
             + ">> apri [oggetto contenitore] con [oggetto] - Apri un oggetto contenitore bloccato con un oggetto\n"
             + ">> prendi [oggetto] - Prendi un oggetto a terra nella stanza o in un contenitore\n"
             + ">> lascia [oggetto] - Lascia un oggetto in una stanza\n"
-            + "Altri comandi più specifici dovranno essere trovati dal giocatore.\n"
-            + "\n"
+            + "Altri comandi più specifici dovranno essere trovati dal giocatore.\n\n"
+            + "SUGGERIMENTO:\nÈ possibile risalire ai comandi eseguiti posizionandosi sull'area di inserimento dei comandi.\n"
+            + "   - Premendo la freccia in sù, è possibile visualizzare l'ultimo comando eseguito;\n"
+            + "   - Premendo la freccia in giù, è possibile scorrere i vari comandi eseguiti.\n\n"
+            + "N.B. In caso in cui si carichi una partita esistente i comandi eseguiti verranno persi!\n"
+            + "\n\n"
             + "Per salvare o caricare una partita, sovrascrivere il file TheLostHotel.dat\n";
     }
 
