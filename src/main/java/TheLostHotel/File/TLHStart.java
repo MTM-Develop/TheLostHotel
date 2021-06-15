@@ -37,7 +37,7 @@ public class TLHStart {
         accendino.setItemImage(imgAccendino);
         accendino.setConsumable((byte) 1); /////////////
         accendino.setPickupable(true);
-        g.getInventory().add(accendino);
+        //g.getInventory().add(accendino);
 
         GameItem foglio = new GameItem(33, "foglio", "Descrizione foglio di carta!");
         foglio.setAlias(new String[]{"nota", "carta", "note", "appunti"});
@@ -63,8 +63,8 @@ public class TLHStart {
                 + "La serratura è argentata con dei simboli verdi.");
         wardrobe.setAlias(new String[]{"guardaroba", "armadio"});
         wardrobe.add(accendino);
-        wardrobe.add(bibita);
-        wardrobe.setLockedBy(foglio.getName());
+        //wardrobe.add(bibita);
+        wardrobe.setLockedBy(coltellino.getName());
 
         /*GameItemContainer strongbox = new GameItemContainer(80, "cassaforte", "Descrizione cassaforte");
         strongbox.setAlias(new String[]{"guardaroba", "armadio"});

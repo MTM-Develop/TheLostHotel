@@ -71,6 +71,14 @@ public class TheLostHotel extends GameManager {
                     }
                     break;
 
+                case INVENTORY:
+                    if(!pOutput.containsWordType(WordType.ERROR)) {
+                        output.append("Oggetti presenti nell'inventario: " + this.getGame().getInventory().toString() + "\n");
+                    }
+                    else
+                        output.append("Forse intendevi \"inventario\"?\n");
+                    break;
+
                 // Comando per guardare
                 case HELP:
                     if(!pOutput.containsWordType(WordType.ERROR)) {
@@ -99,11 +107,7 @@ public class TheLostHotel extends GameManager {
 
                             output.append(this.getGame().getCurrentRoom().getLookDescription() + "\n");
 
-                        } /*else if (pOutput.size() > 2) { // Se si vogliono guardare troppi oggetti alla volta
-
-                            output.append("Uno alla volta, ho una certa età.\n");
-
-                        }*/
+                        }
                     }
                     else if (pOutput.containsWordType(WordType.INVENTORY_OBJ) && pOutput.size() > 2) {
                         output.append("Uno alla volta...\n");
@@ -111,14 +115,6 @@ public class TheLostHotel extends GameManager {
                     else {
                         output.append("Osserva... cosa?\n");
                     }
-                    break;
-
-                case INVENTORY:
-                    if(!pOutput.containsWordType(WordType.ERROR)) {
-                        output.append("Oggetti presenti nell'inventario: " + this.getGame().getInventory().toString() + "\n");
-                    }
-                    else
-                        output.append("Forse intendevi \"inventario\"?\n");
                     break;
 
                 // Comandi per sbloccare stanze o contenitori

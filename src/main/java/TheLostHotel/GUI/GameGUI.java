@@ -24,6 +24,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.*;
+import java.security.Key;
+import java.util.ArrayList;
 
 /**
  *
@@ -45,6 +47,8 @@ public class GameGUI extends javax.swing.JFrame {
 
     private boolean savedGame = true;
     private boolean fastText = false;
+
+    private ArrayList<String> commandHistory = new ArrayList<String>();
     /**
      * Creates new form GameGUI
      */
@@ -334,7 +338,7 @@ public class GameGUI extends javax.swing.JFrame {
     }
 
     private void jmiQuitActionPerformed() {
-        if(!savedGame)
+        /*if(!savedGame)
         {
             int ris = JOptionPane.showConfirmDialog(this, "Ci sono progressi non salvati. Desideri salvare?", "Ci sono progressi non salvati. Desideri salvare?", JOptionPane.YES_NO_CANCEL_OPTION);
 
@@ -352,6 +356,30 @@ public class GameGUI extends javax.swing.JFrame {
                 new MenuGUI(this.gInteraction.getGameManager()).setVisible(true);
                 this.dispose();
             }
+        }*/
+        JFileChooser fChooser = new JFileChooser();
+        fChooser.setMultiSelectionEnabled(false);
+        fChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        fChooser.setCurrentDirectory(new File(".")); // Parte dalla cartella del progetto
+
+        try {
+
+            if (fChooser.showOpenDialog(this) == (JFileChooser.APPROVE_OPTION)) {
+
+                // Carica il gioco con il file di partita selezionato
+                menu.loadGame(fChooser.getSelectedFile().getAbsolutePath());
+
+                //Per iniziare il gioco si passa al GameGUI
+                GameGUI g = new GameGUI(menu.getgInteraction());
+                g.setVisible(true);
+                this.dispose();
+
+                appendToPane(g.jtpReadingArea,"\nCaricamento partita completato.\n\n", Color.cyan);
+                jtpReadingArea.setCaretPosition(g.jtpReadingArea.getDocument().getLength());
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Errore: File non valido\n " + e.getMessage(), "File non valido", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -359,6 +387,20 @@ public class GameGUI extends javax.swing.JFrame {
     {
         if ((evt.getKeyCode() == KeyEvent.VK_ENTER) && jbSendCommand.isEnabled()) {
             sendCommandByTextField();
+        } else if ((evt.getKeyCode() == KeyEvent.VK_UP) && jbSendCommand.isEnabled()) {
+            commandHistory(KeyEvent.VK_UP);
+        } else if ((evt.getKeyCode() == KeyEvent.VK_DOWN) && jbSendCommand.isEnabled()) { //ACCORPARE
+            commandHistory(KeyEvent.VK_DOWN);
+        }
+    }
+
+    private void commandHistory(int keyEvent)
+    {
+        if(!commandHistory.isEmpty()) {
+            if(keyEvent == KeyEvent.VK_UP)
+                jtCommand.setText(commandHistory.get(commandHistory.size() - 1));
+            else if(keyEvent == KeyEvent.VK_DOWN)
+                jtCommand.setText("A"); //CONTINUARE
         }
     }
 
@@ -379,11 +421,17 @@ public class GameGUI extends javax.swing.JFrame {
             s.append("\n" + gInteraction.inputPlayer(command) + "\n");
 
         savedGame = false;
+        addCommand(command);
 
         //Aggiorna l'immagine della Room e il suo tooltip
         jlRoomImage.setIcon(gInteraction.getGameManager().getGame().getCurrentRoom().getRoomImage());
         jlRoomImage.setToolTipText(gInteraction.getGameManager().getGame().getCurrentRoom().getName());
         jlRoomName.setText("  " + gInteraction.getGameManager().getGame().getCurrentRoom().getName() + "        ");
+    }
+
+    private void addCommand(String command)
+    {
+        commandHistory.add(command);
     }
 
     private void sendCommandByTextField()
@@ -470,6 +518,7 @@ public class GameGUI extends javax.swing.JFrame {
         jmiSave.setEnabled(enable);
         jmiQuit.setEnabled(enable);
         jmiFastText.setEnabled(enable);
+        jmiCommands.setEnabled(enable);
         //}
     }
 
@@ -479,48 +528,52 @@ public class GameGUI extends javax.swing.JFrame {
         DefaultCaret caret = (DefaultCaret)jtpReadingArea.getCaret();
         caret.setUpdatePolicy(DefaultCaret.NEVER_UPDATE);
 
-        appendToPane(jtpReadingArea, "11 gennaio 2000, " , new Color(127, 255, 0));
+        appendToPane(jtpReadingArea, "7 gennaio 2000, " , new Color(127, 255, 0));
         appendToPane(jtpReadingArea, "21:32\n" , Color.red);
         appendToPane(jtpReadingArea,"\n" +
-                "L'appuntamento importante è alle porte e decidi di riuniriti con gli amici di sempre (Mangia e Impedovo)\n" +
-                "per organizzare il tutto...\n" +
-                "È un occasione che state aspettando da sempre e lo avete sempre voluto.\n" +
-                "Finalmente passerete una settimana insieme in America...\n" +
+                "L'appuntamento importante è alle porte e decidi di riunirti con gli amici di sempre (Ethan e John)\n" +
+                "per organizzare il tutto.\n" +
+                "Ancora qualche giorno e poi finalmente passerete una settimana insieme in America.\n" +
                 "Lo aspettavate dalle scuole medie!\n\n", Color.white);
 
         appendToPane(jtpReadingArea, "12 gennaio 2000,  ", new Color(127, 255, 0));
-        appendToPane(jtpReadingArea, "22:04\n" , Color.red);
+        appendToPane(jtpReadingArea, "22:03\n" , Color.red);
         appendToPane(jtpReadingArea,"\n" +
-                "Poichè il viaggio è lungo e stancante, decidete di partire \"presto\" per non perdere il volo.\n" +
-                "Si sa, l'uomo mira sempre al risparmio... e anche questa volta non ci siamo lasciati sfuggire\n" +
-                "questo super volo low-cost presso un'agenzia britannica privata.\n" +
-                "Quindi questo estenuante viaggio in macchina sarà il prezzo da pagare...\n\n", Color.white);
+                "Poichè il viaggio è lungo e stancante, decidete di partire in tarda serata per non perdere il volo.\n" +
+                "Si sa, l'uomo mira sempre al risparmio, e anche questa volta non vi siete lasciati sfuggire questo\n" +
+                "super volo low-cost presso un'agenzia britannica privata.\n" +
+                "Quindi, questo estenuante viaggio in macchina sarà il prezzo da pagare...\n\n", Color.white);
 
         appendToPane(jtpReadingArea, "12 gennaio 2000,  ", new Color(127, 255, 0));
         appendToPane(jtpReadingArea, "23:56\n" , Color.red);
         appendToPane(jtpReadingArea,"\n" +
                 "Sono passate circa due ore ma sembra che il viaggio duri il doppio.\n" +
-                "Siamo in una strada di periferia, quando all'improvviso\n" +
-                "Mangia impreca... Spia rossa del motore. \"Cazzo, ci voleva solo questa!\"\n" +
-                "Impedovo: \"Speriamo che la macchina regga fino a destinazione\"\n" +
-                "Io: \"Speriamo di si acciderbolina!\".\n" +
+                "Siete in una strada di periferia, quando all'improvviso\n" +
+                "Ethan impreca: \"Spia rossa del motore. Cazzo, ci voleva solo questa!\"\n" +
+                "\"Speriamo che la macchina regga fino a destinazione...\", ribatte John.\n" +
                 "Passati esattamente 5 minuti, ecco che si intravede del fumo bianco dal motore.\n" +
-                "Forse sarebbe stato meglio non continuare il viaggio e fermarsi subito.\n" +
-                "Presi dalla rabbia e disperazione cerchi subito soccorso.\n" +
-                "Il telefono, come da previsione per ogni zona di periferia che si rispetti, non dà segni di vita.\n" +
-                "Beep - Beep - Beep! \"Non prende zio porco\", esclami.\n\n", Color.white);
+                "Presi dalla rabbia e disperazione, vi fermate e cerchi subito soccorso.\n" +
+                "Il telefono, come da previsione, non dà segni di vita.\n" +
+                "<<Beep - Beep - Beep>> \"Non prende, ovviamente!\", esclami.\n\n", Color.white);
 
         appendToPane(jtpReadingArea, "13 gennaio 2000,  ", new Color(127, 255, 0));
-        appendToPane(jtpReadingArea, "00:34\n" , Color.red);
-        appendToPane(jtpReadingArea, "\nÈ ormai mezzanotte inoltrata, è iniziato a piovere, il freddo e la stanchezza si fanno sentire..\n" +
-                "Sembra che il viaggio che aspettavate da una vita stia andando a puttane!\n" +
-                "Quando in lontananza Impedovo vede una struttura mezza illuminata e decidete di avvicinarvi...\n" +
-                "Non vi è rimasta altra scelta! Decidi, prima di abbandonare quel rottame di macchina di Mangia,\n" +
-                "di riempire il tuo zaino con un paio di oggetti che potrebbero esserti utili...\n\n", Color.white);
+        appendToPane(jtpReadingArea, "00:33\n" , Color.red);
+        appendToPane(jtpReadingArea, "\n" +
+                "È ormai mezzanotte inoltrata. È iniziato a piovere, il freddo e la stanchezza si fanno sentire.\n" +
+                "Sembra che il viaggio che aspettavate da una vita stia diventando un incubo!\n" +
+                "Quando in lontananza Ethan vede una struttura mezza illuminata ed esclama: " +
+                "\"È un hotel, magari potremmo passare la nottata qui e chiedere aiuto\".\n" +
+                "Così, non avendo altre possibilità, vi rassegnate e decidete di entrare.\n" +
+                "Prima di abbandonare l'auto, riempi il tuo zaino con un paio di oggetti che potrebbero esserti utili...\n\n", Color.white);
 
         caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
 
         changeJtpFont();
+
+        appendToPane(jtpReadingArea, "\n" +
+                "Puoi visualizzare in qualsiasi momento l'elenco \n" +
+                "dei comandi nella sezione \"Comandi\", oppure digitando \n" +
+                "\"help\", \"aiuto\", \"guida\".\n\n", Color.cyan);
 
         appendToPane(jtpReadingArea, "\n" + "-- " + gInteraction.getGameManager().getGame().getCurrentRoom().getName() + " --"
                 + "\n\n" + gInteraction.getGameManager().getGame().getCurrentRoom().getDescription() + "\n\n", Color.white);
