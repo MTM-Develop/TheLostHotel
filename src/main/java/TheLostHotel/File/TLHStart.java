@@ -1,9 +1,9 @@
 package TheLostHotel.File;
 
-import TheLostHotel.GUI.GameGUI;
 import TheLostHotel.Other.GameDescription;
-import TheLostHotel.Other.RoomsID;
+import TheLostHotel.Other.RoomsDescription;
 import TheLostHotel.Type.*;
+
 
 import javax.swing.*;
 
@@ -71,32 +71,31 @@ public class TLHStart {
         strongbox.setLockedBy("123456");*/
 
         //Stanze
-        Room myRoom = new Room(69, "Stanza 69", RoomsID.DESCRIPTION_ROOM_69);
-        myRoom.setLookDescription("Osserva stanza");
-        myRoom.setRoomImage(new ImageIcon("resources//img//room//stanza69.png"));
-        myRoom.setVisitedDescription("Descrizione stanza gia visitata");
-        myRoom.addItem(portafoglio);
+        Room room79 = new Room(79, "Stanza 79", RoomsDescription.DESCRIPTION_ROOM_79);
+        room79.setLookDescription(RoomsDescription.LOOK_ROOM_79);
+        room79.setRoomImage(new ImageIcon("resources//img//room//stanza69.png"));
+        room79.setVisitedDescription(RoomsDescription.DESCRIPTION_VISITED_ROOM_79);
+        room79.addItem(portafoglio);
 
         //myRoom.addItem(accendino);
-
-        Room corridoio = new Room(4, "corridoio", "Descrizione corridoio");
-        corridoio.setLookDescription("Osserva corridoio");
-        corridoio.setRoomImage(new ImageIcon("resources//img//room//corridoio.png"));
-        corridoio.setVisitedDescription("Descrizione corridoio gia visitato");
-        corridoio.setLockedBy("accendino"); //////////
-
-        Room bagnoMyRoom = new Room(79, "Bagno della tua stanza", "Descrizione bagno della tua stanza");
-        bagnoMyRoom.setLookDescription("Osserva bagno della tua stanza");
-        bagnoMyRoom.setRoomImage(new ImageIcon("resources//img//room//bagno69.png"));
-        bagnoMyRoom.setVisitedDescription("Descrizione bagno gia visitato");
+        Room bathroom79 = new Room(3, "Bagno stanza 79", RoomsDescription.DESCRIPTION_BATHROOM_79);
+        bathroom79.setLookDescription(RoomsDescription.LOOK_BATHROOM_79);
+        bathroom79.setRoomImage(new ImageIcon("resources//img//room//bagno69.png"));
+        bathroom79.setVisitedDescription(RoomsDescription.DESCRIPTION_VISITED_BATHROOM_79);
         //bagnoMyRoom.setLockedBy("cellulare"); /////////
-        bagnoMyRoom.addItem(wardrobe); /////////
+        bathroom79.addItem(wardrobe); /////////
 
-        g.setCurrentRoom(myRoom);
-        myRoom.setNorth(corridoio);
-        myRoom.setWest(bagnoMyRoom);
-        bagnoMyRoom.setEast(myRoom);
-        corridoio.setSouth(myRoom);
+        Room hallway = new Room(4, "Corridoio", RoomsDescription.DESCRIPTION_HALLWAY);
+        hallway.setLookDescription(RoomsDescription.LOOK_HALLWAY);
+        hallway.setRoomImage(new ImageIcon("resources//img//room//corridoio.png"));
+        hallway.setVisitedDescription(RoomsDescription.DESCRIPTION_VISITED_HALLWAY);
+        //hallway.setLockedBy("accendino");
+
+        g.setCurrentRoom(room79);
+        room79.setNorth(hallway);
+        room79.setWest(bathroom79);
+        bathroom79.setEast(room79);
+        hallway.setSouth(room79);
 
         //Comandi
         Command north = new Command("nord", CommandType.NORD);

@@ -194,7 +194,7 @@ public class GameGUI extends javax.swing.JFrame {
         jlRoomName.setOpaque(true);
         jlRoomName.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jlRoomName);
-        jlRoomName.setBounds(750, 60, 180, 40);
+        jlRoomName.setBounds(750, 60, 190, 40);
 
         jlCurrentRoom.setBackground(new java.awt.Color(43, 52, 43));
         jlCurrentRoom.setOpaque(true);
@@ -317,9 +317,9 @@ public class GameGUI extends javax.swing.JFrame {
                 + ">> est - Spostati in direzione est\n"
                 + ">> sud - Spostati in direzione sud\n"
                 + ">> ovest - Spostati in direzione ovest\n"
-                + ">> salva - Salva la partita corrente\n"
-                + ">> esci - Permette di ritornare al menù principale ed eventualmente salvare una partita\n"
                 + ">> inventario - Consente di visualizzare l'inventario con i relativi oggetti\n"
+                + ">> salva (valido solo tramite pulsante) - Salva la partita corrente\n"
+                + ">> esci (valido solo tramite pulsante) - Permette di ritornare al menù principale ed eventualmente salvare una partita\n"
                 + "\n"
                 + "Altri comandi:\n"
                 + "\n"
@@ -331,14 +331,13 @@ public class GameGUI extends javax.swing.JFrame {
                 + ">> apri [oggetto contenitore] con [oggetto] - Apri un oggetto contenitore bloccato con un oggetto\n"
                 + ">> prendi [oggetto] - Prendi un oggetto a terra nella stanza o in un contenitore\n"
                 + ">> lascia [oggetto] - Lascia un oggetto in una stanza\n"
-                + ">> metti [oggetto] in [oggetto contenitore] - Metti un oggetto in un contenitore valido\n\n" //da vedere se inserire o meno
                 + "Altri comandi più specifici dovranno essere trovati dal giocatore.\n"
                 + "\n"
                 + "Per salvare o caricare una partita, sovrascrivere il file TheLostHotel.dat\n", "Lista comandi", JOptionPane.PLAIN_MESSAGE);
     }
 
     private void jmiQuitActionPerformed() {
-        /*if(!savedGame)
+        if(!savedGame)
         {
             int ris = JOptionPane.showConfirmDialog(this, "Ci sono progressi non salvati. Desideri salvare?", "Ci sono progressi non salvati. Desideri salvare?", JOptionPane.YES_NO_CANCEL_OPTION);
 
@@ -356,32 +355,9 @@ public class GameGUI extends javax.swing.JFrame {
                 new MenuGUI(this.gInteraction.getGameManager()).setVisible(true);
                 this.dispose();
             }
-        }*/
-        JFileChooser fChooser = new JFileChooser();
-        fChooser.setMultiSelectionEnabled(false);
-        fChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        fChooser.setCurrentDirectory(new File(".")); // Parte dalla cartella del progetto
-
-        try {
-
-            if (fChooser.showOpenDialog(this) == (JFileChooser.APPROVE_OPTION)) {
-
-                // Carica il gioco con il file di partita selezionato
-                menu.loadGame(fChooser.getSelectedFile().getAbsolutePath());
-
-                //Per iniziare il gioco si passa al GameGUI
-                GameGUI g = new GameGUI(menu.getgInteraction());
-                g.setVisible(true);
-                this.dispose();
-
-                appendToPane(g.jtpReadingArea,"\nCaricamento partita completato.\n\n", Color.cyan);
-                jtpReadingArea.setCaretPosition(g.jtpReadingArea.getDocument().getLength());
-            }
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Errore: File non valido\n " + e.getMessage(), "File non valido", JOptionPane.ERROR_MESSAGE);
         }
     }
+
 
     private void GameCommandFieldKeyReleased(java.awt.event.KeyEvent evt)
     {
@@ -584,7 +560,7 @@ public class GameGUI extends javax.swing.JFrame {
 
         jlRoomImage.setIcon(gInteraction.getGameManager().getGame().getCurrentRoom().getRoomImage());
         jlRoomImage.setToolTipText(gInteraction.getGameManager().getGame().getCurrentRoom().getName());
-        jlRoomName.setText("  " + gInteraction.getGameManager().getGame().getCurrentRoom().getName() + "        ");
+        jlRoomName.setText("  " + gInteraction.getGameManager().getGame().getCurrentRoom().getName());
     }
 
     private void changeJtpFont()
@@ -616,7 +592,7 @@ public class GameGUI extends javax.swing.JFrame {
             fontGameBar = font1.deriveFont(Font.PLAIN, 13);
 
             jlCommand.setFont(fontGameLabel);
-            jlRoomName.setFont(fontGameLabel);
+            jlRoomName.setFont(fontGameButton);
             jlCurrentRoom.setFont(fontGameLabel);
 
             jbSendCommand.setFont(fontGameButton);

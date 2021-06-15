@@ -1,5 +1,6 @@
 TheLostHotel\GUI\MenuGUI$2.class
 TheLostHotel\Type\GameItemContainer.class
+TheLostHotel\Other\RoomsDescription.class
 TheLostHotel\Other\TheLostHotel$1.class
 TheLostHotel\GUI\InventoryGUI$1.class
 TheLostHotel\Other\TheLostHotel.class
@@ -12,7 +13,6 @@ TheLostHotel\Type\GameItem.class
 TheLostHotel\Type\Room.class
 TheLostHotel\GUI\GameGUI$1.class
 TheLostHotel\Parser\ParserOutput.class
-TheLostHotel\Other\RoomsID.class
 TheLostHotel\GUI\GameGUI.class
 TheLostHotel\Other\Main.class
 TheLostHotel\GUI\MenuGUI$1.class

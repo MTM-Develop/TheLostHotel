@@ -403,9 +403,9 @@ public class TheLostHotel extends GameManager {
             + ">> est - Spostati in direzione est\n"
             + ">> sud - Spostati in direzione sud\n"
             + ">> ovest - Spostati in direzione ovest\n"
-            + ">> salva - Salva la partita corrente\n"
-            + ">> esci - Permette di ritornare al menù principale ed eventualmente salvare una partita\n"
             + ">> inventario - Consente di visualizzare l'inventario con i relativi oggetti\n"
+            + ">> salva (valido solo tramite pulsante) - Salva la partita corrente\n"
+            + ">> esci (valido solo tramite pulsante) - Permette di ritornare al menù principale ed eventualmente salvare una partita\n"
             + "\n"
             + "Altri comandi:\n"
             + "\n"
@@ -417,7 +417,6 @@ public class TheLostHotel extends GameManager {
             + ">> apri [oggetto contenitore] con [oggetto] - Apri un oggetto contenitore bloccato con un oggetto\n"
             + ">> prendi [oggetto] - Prendi un oggetto a terra nella stanza o in un contenitore\n"
             + ">> lascia [oggetto] - Lascia un oggetto in una stanza\n"
-            + ">> metti [oggetto] in [oggetto contenitore] - Metti un oggetto in un contenitore valido\n\n" //da vedere se inserire o meno
             + "Altri comandi più specifici dovranno essere trovati dal giocatore.\n"
             + "\n"
             + "Per salvare o caricare una partita, sovrascrivere il file TheLostHotel.dat\n";
