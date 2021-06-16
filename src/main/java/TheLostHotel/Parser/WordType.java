@@ -7,5 +7,5 @@ package TheLostHotel.Parser;
  * è di supporto per il parser, parseroutput e per la gestione del gioco.
  */
 public enum WordType{
-    INVENTORY_OBJ, ROOM_OBJ, COMMAND, ERROR
+    INVENTORY_OBJ, ROOM_OBJ, COMMAND, CON, ERROR
 }

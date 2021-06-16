@@ -77,6 +77,11 @@ public class Parser {
                     pOutput.add(WordType.ERROR, s);
             }
 
+            if(tokens.length == 4) {
+                if (tokens[2].equals("con"))
+                    pOutput.add(WordType.CON, s);
+            }
+
         } else { // Se non ha trovato nemmeno un comando
             //throw new InvalidStringException();
         }

@@ -185,36 +185,67 @@ public class TheLostHotel extends GameManager {
                         if (iC instanceof GameItemContainer) {
 
                             // Se trova l'oggetto per aprirlo ed è corretto oppure se il contenitore non è bloccato lo apre
-                            if ((gameItem != null && !gameItem.isConsumed() && ((GameItemContainer)iC).unlockContainer(gameItem.getName()))
-                                    || (((GameItemContainer)iC).getLockedBy().equals(""))) {
+                            if(((GameItemContainer)iC).getLockedBy().equals("")) {
+                                if(!pOutput.containsWordType(WordType.ERROR)) {
+                                    if (((GameItemContainer) iC).getcItemList().getInventoryList().isEmpty()) {
 
-                                if (((GameItemContainer)iC).getcItemList().getInventoryList().isEmpty()) {
+                                        output.append("L'oggetto è stato aperto, ma è vuoto!\n");
+                                        ((GameItemContainer) iC).setClosed(false);
 
-                                    output.append("L'oggetto è stato aperto, ma è vuoto!\n");
-                                    ((GameItemContainer) iC).setClosed(false);
+                                    } else {
 
-                                } else {
+                                        output.append("Hai aperto l'oggetto " + iC.getName()
+                                                + "! Ecco il suo contenuto:" + iC.toString() + "\n");
 
-                                    output.append("Hai aperto l'oggetto " + iC.getName()
-                                            + "! Ecco il suo contenuto:" + iC.toString() + "\n");
-                                    ((GameItemContainer) iC).setClosed(false);
+                                        for (GameItem g : ((GameItemContainer) iC).getcItemList().getInventoryList()) {
+                                            g.setPickupable(true);
+                                        }
 
-                                }
+                                        ((GameItemContainer) iC).setClosed(false);
 
-                                if (gameItem != null) {
-
-                                    gameItem.consume();
-
-                                    // Se l'oggetto è stato consumato, lo rimuove dall'inventario
-                                    if (gameItem.isConsumed()) {
-                                        this.getGame().getInventory().remove(gameItem);
-                                        output.append("\nL'oggetto " + gameItem.getName() + " è stato rimosso.\n");
                                     }
                                 }
-
+                                else
+                                    output.append("Non puoi aprire quest'oggetto così!\n"); //Si potrebbe dire che è sbloccato
                             } else {
-                                output.append("Non puoi aprire quest'oggetto così!\n");
+                                if (!pOutput.containsWordType(WordType.CON))
+                                    output.append("Non puoi aprire quest'oggetto così!\n");
+                                else if ((gameItem != null && !gameItem.isConsumed() && ((GameItemContainer)iC).unlockContainer(gameItem.getName()))) {
+                                    if (((GameItemContainer) iC).getcItemList().getInventoryList().isEmpty()) {
+
+                                        output.append("L'oggetto è stato aperto, ma è vuoto!\n");
+                                        ((GameItemContainer) iC).setClosed(false);
+
+                                    } else {
+
+                                        output.append("Hai aperto l'oggetto " + iC.getName()
+                                                + "! Ecco il suo contenuto:" + iC.toString() + "\n");
+
+                                        for (GameItem g : ((GameItemContainer) iC).getcItemList().getInventoryList()) {
+                                            g.setPickupable(true);
+                                        }
+
+                                        ((GameItemContainer) iC).setClosed(false);
+
+                                    }
+                                } else {
+                                    output.append("Non puoi aprire quest'oggetto così!\n");
+                                }
+
                             }
+                            if (gameItem != null) {
+
+                                gameItem.consume();
+
+                                // Se l'oggetto è stato consumato, lo rimuove dall'inventario
+                                if (gameItem.isConsumed()) {
+                                    this.getGame().getInventory().remove(gameItem);
+                                    output.append("\nL'oggetto " + gameItem.getName() + " è stato rimosso.\n");
+                                }
+                            } //A CHE SERVE?
+                            /*else {
+                                output.append("Non puoi aprire quest'oggetto così!\n");
+                            }*/
 
                         } else {
                             output.append("Apri... cosa?\n");
@@ -243,6 +274,10 @@ public class TheLostHotel extends GameManager {
                             this.getGame().getCurrentRoom().removeItem(gameItem);
 
                             output.append("L'oggetto è stato aggiunto al tuo inventario.\n");
+
+                            if(gameItem.getName().equals("foglio"))
+                                output.append("\nN.B. Non sempre gli oggetti saranno visibili nelle varie stanze. Sfrutta nel migliore dei modi " +
+                                        "tutti i comandi per cercarli tutti... (Premi CTRL-L per visualizzare i comandi)\n");
 
                         } else {
 

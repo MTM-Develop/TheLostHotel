@@ -39,11 +39,10 @@ public class TLHStart {
         accendino.setPickupable(true);
         //g.getInventory().add(accendino);
 
-        GameItem foglio = new GameItem(33, "foglio", "Descrizione foglio di carta!");
-        foglio.setAlias(new String[]{"nota", "carta", "note", "appunti"});
+        GameItem foglio79 = new GameItem(33, "foglio", "Descrizione foglio di carta!");
+        foglio79.setAlias(new String[]{"nota", "carta", "note", "appunti"});
         ImageIcon imgFoglio = new ImageIcon("resources//img//gameItem//note.png");
-        foglio.setItemImage(imgFoglio);
-        //g.getInventory().add(foglio);
+        foglio79.setItemImage(imgFoglio);
 
         GameItem bibita = new GameItem(23, "bibita", "La tua bibita preferita. Chissà se ti sarà utile...");
         bibita.setAlias(new String[]{"drink"});
@@ -56,16 +55,19 @@ public class TLHStart {
         coltellino.setAlias(new String[]{"coltello"});
         ImageIcon imgColtellino = new ImageIcon("resources//img//gameItem//coltellino.png");
         coltellino.setItemImage(imgColtellino);
-        g.getInventory().add(coltellino);
+        //g.getInventory().add(coltellino);
 
         //ItemContainer
-        GameItemContainer wardrobe = new GameItemContainer(80, "mobile", "Il mobile è chiuso a chiave. "
-                + "La serratura è argentata con dei simboli verdi.");
+        GameItemContainer wardrobe = new GameItemContainer(80, "mobile", "Descrizione mobile"); //CAMBIARE NOME
         wardrobe.setOpenedDescription("GIA APERTO");
-        wardrobe.setAlias(new String[]{"guardaroba", "armadio"});
-        wardrobe.add(accendino);
-        //wardrobe.add(bibita);
-        wardrobe.setLockedBy(coltellino.getName());
+        wardrobe.setAlias(new String[]{"comodino"}); //Aggiungere altri alias
+        wardrobe.add(foglio79);
+        wardrobe.setLockedBy("");
+
+        GameItemContainer prova = new GameItemContainer(80, "prova", "Descrizione mobile"); //CAMBIARE NOME
+        prova.setOpenedDescription("GIA APERTO");
+        prova.add(coltellino);
+        prova.setLockedBy(bibita.getName());
 
         /*GameItemContainer strongbox = new GameItemContainer(80, "cassaforte", "Descrizione cassaforte");
         strongbox.setAlias(new String[]{"guardaroba", "armadio"});
@@ -76,15 +78,14 @@ public class TLHStart {
         room79.setLookDescription(RoomsDescription.LOOK_ROOM_79);
         room79.setRoomImage(new ImageIcon("resources//img//room//stanza69.png"));
         room79.setVisitedDescription(RoomsDescription.DESCRIPTION_VISITED_ROOM_79);
-        room79.addItem(portafoglio);
+        room79.addItem(wardrobe);
+        room79.addItem(prova);
 
         //myRoom.addItem(accendino);
         Room bathroom79 = new Room(3, "Bagno stanza 79", RoomsDescription.DESCRIPTION_BATHROOM_79);
         bathroom79.setLookDescription(RoomsDescription.LOOK_BATHROOM_79);
         bathroom79.setRoomImage(new ImageIcon("resources//img//room//bagno69.png"));
         bathroom79.setVisitedDescription(RoomsDescription.DESCRIPTION_VISITED_BATHROOM_79);
-        //bagnoMyRoom.setLockedBy("cellulare"); /////////
-        bathroom79.addItem(wardrobe); /////////
 
         Room hallway = new Room(4, "Corridoio", RoomsDescription.DESCRIPTION_HALLWAY);
         hallway.setLookDescription(RoomsDescription.LOOK_HALLWAY);
