@@ -99,10 +99,27 @@ public class TheLostHotel extends GameManager {
                             }
                             else if(pOutput.containsWordType(WordType.ROOM_OBJ)) {
                                 if(gameItem instanceof GameItemContainer) {
-                                    if(((GameItemContainer) gameItem).isClosed())
-                                        output.append(gameItem.getDescription() + "\n");
-                                    else
-                                        output.append(((GameItemContainer) gameItem).getOpenedDescription() + "\n");
+                                    if(((GameItemContainer) gameItem).isMovable()){
+                                        if(!((GameItemContainer) gameItem).isMoved())
+                                            output.append(gameItem.getDescription() + "\n");
+                                        else
+                                            output.append(((GameItemContainer) gameItem).getMovedDescription() + "\n");
+                                    }
+                                    else {
+                                        if (((GameItemContainer) gameItem).isClosed())
+                                            output.append(gameItem.getDescription() + "\n");
+                                        else
+                                            output.append(((GameItemContainer) gameItem).getOpenedDescription() + "\n");
+                                    }
+
+                                    if(gameItem.getName().equals("armadio"))
+                                        output.append("\nN.B: Alcuni oggetti contenitori necessitano di un oggetto per essere aperti.\n" +
+                                                "Per sbloccarli è necessario inserire il comando:\n\"apri [oggetto contenitore] con [oggetto]\"\n");
+
+                                    if (gameItem.getName().equals("quadro") && !((GameItemContainer) gameItem).isMoved())
+                                        output.append("\nN.B: Alcuni oggetti possono essere spostati con il comando:\n" +
+                                                "sposta [oggetto da spostare]\n" +
+                                                "Potresti trovarci qualcosa.\n");
                                 }
                                 else
                                     output.append("Osserva... cosa?\n");
@@ -141,6 +158,10 @@ public class TheLostHotel extends GameManager {
                                 output.append("\nL'oggetto " + gameItem.getName() + " è stato rimosso.\n");
 
                             }
+
+                            if(gameItem.getName().equals("chiave"))
+                                output.append("\nN.B: Il tutorial è terminato.\n" +
+                                        "Adesso dipende solo da te!\n");
 
                         } else {
                             output.append("Non puoi usare questo oggetto ora/così!\n");
@@ -190,12 +211,21 @@ public class TheLostHotel extends GameManager {
                                     if (((GameItemContainer) iC).getcItemList().getInventoryList().isEmpty()) {
 
                                         output.append("L'oggetto è stato aperto, ma è vuoto!\n");
+
+                                        if(iC.getName().equals("cestino"))
+                                            output.append("\nN.B: Non in tutte le stanze sono presenti degli oggetti...\n" +
+                                                    "In altre dovrai essere tu in grado di trovarli!") ;
+
                                         ((GameItemContainer) iC).setClosed(false);
 
                                     } else {
 
                                         output.append("Hai aperto l'oggetto " + iC.getName()
                                                 + "! Ecco il suo contenuto:" + iC.toString() + "\n");
+
+                                        if(iC.getName().equals("mobile"))
+                                            output.append("\nN.B: Non sempre gli oggetti saranno visibili nelle varie stanze. Sfrutta nel migliore dei modi " +
+                                                    "tutti i comandi per cercarli tutti... (Premi CTRL-L per visualizzare i comandi)\n");
 
                                         for (GameItem g : ((GameItemContainer) iC).getcItemList().getInventoryList()) {
                                             g.setPickupable(true);
@@ -206,7 +236,7 @@ public class TheLostHotel extends GameManager {
                                     }
                                 }
                                 else
-                                    output.append("Non puoi aprire quest'oggetto così!\n"); //Si potrebbe dire che è sbloccato
+                                    output.append("L'oggetto è sbloccato!\n");
                             } else {
                                 if (!pOutput.containsWordType(WordType.CON))
                                     output.append("Non puoi aprire quest'oggetto così!\n");
@@ -260,6 +290,67 @@ public class TheLostHotel extends GameManager {
 
                     break;
 
+                // Comando per spostare
+                case MOVE:
+                    if (pOutput.containsWordType(WordType.ROOM_OBJ)) { //spostamento di un oggetto
+
+                        GameItem iC = null; //contenitore
+                        gameItem = null;
+                        byte index = 0;
+
+                        // Iteratore per ciclare sul ParserOutput
+                        Iterator<WordType> it = pOutput.iterator();
+                        it.next(); // Salta il comando iniziale, già conosciuto
+
+                        // Salva gli oggetti che devono interagire nell'ordine prestabilito (e.g. "Apri baule con chiave")
+                        while (it.hasNext()) {
+
+                            //itemContainer. obbligatoriamente un oggetto della Room
+                            if (index == 1 && it.next().equals(WordType.ROOM_OBJ)) {
+
+                                iC = this.getGame().getCurrentRoom().getItemList().searchItem(pOutput.getString(WordType.ROOM_OBJ));
+
+                            }
+
+                            index++;
+                        }
+                        if (iC instanceof GameItemContainer) {
+
+                            // Se trova l'oggetto per aprirlo ed è corretto oppure se il contenitore non è bloccato lo apre
+                            if (((GameItemContainer) iC).isMovable()) {
+                                if (!pOutput.containsWordType(WordType.ERROR)) {
+                                    if (((GameItemContainer) iC).getcItemList().getInventoryList().isEmpty()) {
+
+                                        output.append("L'oggetto è stato spostato ma non c'è nulla!\n");
+
+                                        ((GameItemContainer) iC).setMoved(true);
+
+                                    } else {
+
+                                        output.append("Hai spostato l'oggetto " + iC.getName()
+                                                + "! Hai trovato:" + iC.toString() + "\n");
+
+                                        for (GameItem g : ((GameItemContainer) iC).getcItemList().getInventoryList()) {
+                                            g.setPickupable(true);
+
+                                        }
+                                        ((GameItemContainer) iC).setMoved(true);
+
+                                    }
+                                } else
+                                    output.append("Sposta... cosa?\n");
+                            } else {
+                                output.append("Non è possibile spostare questo oggetto!\n");
+                            }
+                        }
+                        else
+                            output.append("Non è possibile spostare questo oggetto!\n");
+                    }
+                    else if (pOutput.containsWordType(WordType.INVENTORY_OBJ))
+                        output.append("Non è possibile spostare questo oggetto!\n");
+                    else
+                        output.append("Sposta... cosa?\n");
+                    break;
                 // Comando per raccogliere oggetti
                 case PICK_UP:
 
@@ -274,10 +365,6 @@ public class TheLostHotel extends GameManager {
                             this.getGame().getCurrentRoom().removeItem(gameItem);
 
                             output.append("L'oggetto è stato aggiunto al tuo inventario.\n");
-
-                            if(gameItem.getName().equals("foglio"))
-                                output.append("\nN.B. Non sempre gli oggetti saranno visibili nelle varie stanze. Sfrutta nel migliore dei modi " +
-                                        "tutti i comandi per cercarli tutti... (Premi CTRL-L per visualizzare i comandi)\n");
 
                         } else {
 
@@ -450,7 +537,7 @@ public class TheLostHotel extends GameManager {
             + "SUGGERIMENTO:\nÈ possibile risalire ai comandi eseguiti posizionandosi sull'area di inserimento dei comandi.\n"
             + "   - Premendo la freccia in sù, è possibile visualizzare l'ultimo comando eseguito;\n"
             + "   - Premendo la freccia in giù, è possibile scorrere i vari comandi eseguiti.\n\n"
-            + "N.B. In caso in cui si carichi una partita esistente i comandi eseguiti verranno persi!\n"
+            + "N.B: In caso in cui si carichi una partita esistente i comandi eseguiti verranno persi!\n"
             + "\n\n"
             + "Per salvare o caricare una partita, sovrascrivere il file TheLostHotel.dat\n";
     }

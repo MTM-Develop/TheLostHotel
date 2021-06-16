@@ -507,7 +507,7 @@ public class GameGUI extends javax.swing.JFrame {
                 + "SUGGERIMENTO:\nÈ possibile risalire ai comandi eseguiti posizionandosi sull'area di inserimento dei comandi.\n"
                 + "   - Premendo la freccia in sù, è possibile visualizzare l'ultimo comando eseguito;\n"
                 + "   - Premendo la freccia in giù, è possibile scorrere i vari comandi eseguiti.\n\n"
-                + "N.B. In caso in cui si carichi una partita esistente i comandi eseguiti verranno persi!\n"
+                + "N.B: In caso in cui si carichi una partita esistente i comandi eseguiti verranno persi!\n"
                 + "\n\n"
                 + "Per salvare o caricare una partita, sovrascrivere il file TheLostHotel.dat\n", "Lista comandi", JOptionPane.PLAIN_MESSAGE);
     }

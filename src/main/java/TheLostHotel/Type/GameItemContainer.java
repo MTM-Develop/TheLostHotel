@@ -16,7 +16,10 @@ public class GameItemContainer extends GameItem implements Serializable {
     private Inventory cItemList;    //contenuto del contenitore
     private String lockedBy = "";   //indica da cosa è bloccato, se vuoto "" non è bloccato
     private boolean closed = true;
+    private boolean moved = false;
+    private boolean movable = false;
     private String openedDescription;
+    private String movedDescription;
 
     // Costruttori
 
@@ -61,12 +64,36 @@ public class GameItemContainer extends GameItem implements Serializable {
         this.closed = closed;
     }
 
+    public boolean isMoved() {
+        return moved;
+    }
+
+    public void setMoved(boolean moved) {
+        this.moved = moved;
+    }
+
+    public boolean isMovable() {
+        return movable;
+    }
+
+    public void setMovable(boolean movable) {
+        this.movable = movable;
+    }
+
     public String getOpenedDescription() {
         return openedDescription;
     }
 
     public void setOpenedDescription(String openedDescription) {
         this.openedDescription = openedDescription;
+    }
+
+    public String getMovedDescription() {
+        return movedDescription;
+    }
+
+    public void setMovedDescription(String movedDescription) {
+        this.movedDescription = movedDescription;
     }
 
     /**
