@@ -45,6 +45,8 @@ public class GameGUI extends javax.swing.JFrame {
     private Font font, font1;
     private Font fontGameButton,fontGameLabel, fontGameBar, fontGameText;
 
+    private boolean newGame = true;
+
     private boolean savedGame = true;
     private boolean fastText = false;
 

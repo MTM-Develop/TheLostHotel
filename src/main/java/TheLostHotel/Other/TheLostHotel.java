@@ -111,7 +111,7 @@ public class TheLostHotel extends GameManager {
                                             output.append(((GameItemContainer) gameItem).getOpenedDescription() + "\n");
                                     }
 
-                                    if(gameItem.getName().equals("armadio"))
+                                    if(gameItem.getName().equals("armadio") && ((GameItemContainer) gameItem).isClosed())
                                         output.append("\nN.B: Alcuni oggetti contenitori necessitano di un oggetto per essere aperti.\n" +
                                                 "Per sbloccarli è necessario inserire il comando:\n\"apri [oggetto contenitore] con [oggetto]\"\n");
 
@@ -218,7 +218,7 @@ public class TheLostHotel extends GameManager {
                                             else {
                                                 output.append("L'oggetto è stato aperto, ma è vuoto!\n");
 
-                                                if (iC.getName().equals("cestino"))
+                                                if (iC.getName().equals("cestino") && ((GameItemContainer) iC).isClosed())
                                                     output.append("\nN.B: Non in tutte le stanze sono presenti degli oggetti...\n" +
                                                             "In altre dovrai essere tu in grado di trovarli!");
 
