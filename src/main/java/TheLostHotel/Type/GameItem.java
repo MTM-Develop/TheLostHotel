@@ -20,6 +20,7 @@ public class GameItem implements Serializable {
     private boolean pickupable = false; //indica se si può raccogliere
     private boolean pushable = false; // indica se si può spingere
     private boolean push = false; // indica se è già stato spinto/premuto
+    private boolean useless = false; //
 
     private ImageIcon itemImage;   //immagine raffigurante l'oggetto
 
@@ -117,6 +118,14 @@ public class GameItem implements Serializable {
 
     public void setPush(boolean push) {
         this.push = push;
+    }
+
+    public boolean isUseless() {
+        return useless;
+    }
+
+    public void setUseless(boolean useless) {
+        this.useless = useless;
     }
 
     public ImageIcon getItemImage() {

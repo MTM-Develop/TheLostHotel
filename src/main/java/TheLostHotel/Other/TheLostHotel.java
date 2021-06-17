@@ -81,7 +81,7 @@ public class TheLostHotel extends GameManager {
 
                 // Comando per guardare
                 case HELP:
-                    if(!pOutput.containsWordType(WordType.ERROR)) {
+                    if(!pOutput.containsWordType(WordType.ERROR) && !pOutput.containsWordType(WordType.INVENTORY_OBJ) && !pOutput.containsWordType(WordType.ROOM_OBJ)) {
                         output.append(showHelp());
                     }
                     else
@@ -93,7 +93,6 @@ public class TheLostHotel extends GameManager {
                     // Se si vuole guardare un oggetto
                     if(!pOutput.containsWordType(WordType.ERROR)) {
                         if (pOutput.size() == 2) {
-
                             if(pOutput.containsWordType(WordType.INVENTORY_OBJ)) {
                                 output.append(gameItem.getDescription() + "\n");
                             }
@@ -121,9 +120,12 @@ public class TheLostHotel extends GameManager {
                                                 "sposta [oggetto da spostare]\n" +
                                                 "Potresti trovarci qualcosa.\n");
                                 }
+                                /*else if(gameItem.isUseless())
+                                    output.append(gameItem.getDescription() + "\n");*/    //AGGIUNGERE NEL COMANDO APRI
                                 else
                                     output.append("Osserva... cosa?\n");
-                            }
+                            } //else
+                                //output.append("Osserva... cosa?\n");
 
                         } else if (pOutput.size() == 1) { // Se si vuole guardare la stanza
 
@@ -206,76 +208,86 @@ public class TheLostHotel extends GameManager {
                         if (iC instanceof GameItemContainer) {
 
                             // Se trova l'oggetto per aprirlo ed è corretto oppure se il contenitore non è bloccato lo apre
-                            if(((GameItemContainer)iC).getLockedBy().equals("")) {
-                                if(!pOutput.containsWordType(WordType.ERROR)) {
-                                    if (((GameItemContainer) iC).getcItemList().getInventoryList().isEmpty()) {
+                            if(!((GameItemContainer) iC).isMovable()) {
+                                if (((GameItemContainer) iC).getLockedBy().equals("")) {
+                                    if (!pOutput.containsWordType(WordType.ERROR)) {
+                                        if (((GameItemContainer) iC).getcItemList().getInventoryList().isEmpty()) {
 
-                                        output.append("L'oggetto è stato aperto, ma è vuoto!\n");
+                                            if(iC.isUseless())
+                                                output.append("Non puoi aprire quest'oggetto!\n");
+                                            else {
+                                                output.append("L'oggetto è stato aperto, ma è vuoto!\n");
 
-                                        if(iC.getName().equals("cestino"))
-                                            output.append("\nN.B: Non in tutte le stanze sono presenti degli oggetti...\n" +
-                                                    "In altre dovrai essere tu in grado di trovarli!") ;
+                                                if (iC.getName().equals("cestino"))
+                                                    output.append("\nN.B: Non in tutte le stanze sono presenti degli oggetti...\n" +
+                                                            "In altre dovrai essere tu in grado di trovarli!");
 
-                                        ((GameItemContainer) iC).setClosed(false);
+                                                ((GameItemContainer) iC).setClosed(false);
+                                            }
 
-                                    } else {
+                                        } else {
 
-                                        output.append("Hai aperto l'oggetto " + iC.getName()
-                                                + "! Ecco il suo contenuto:" + iC.toString() + "\n");
+                                            if(((GameItemContainer) iC).isClosed()) {
+                                                output.append("Hai aperto l'oggetto " + iC.getName()
+                                                        + "! Ecco il suo contenuto:" + iC.toString() + "\n");
+                                            }
+                                            else {
+                                                output.append("Contenitore aperto ma oggetti non ancora raccolti"
+                                                        + iC.toString() + "\n"); //CAMBIARE
+                                            }
 
-                                        if(iC.getName().equals("mobile"))
-                                            output.append("\nN.B: Non sempre gli oggetti saranno visibili nelle varie stanze. Sfrutta nel migliore dei modi " +
-                                                    "tutti i comandi per cercarli tutti... (Premi CTRL-L per visualizzare i comandi)\n");
+                                            if (iC.getName().equals("mobile") && ((GameItemContainer) iC).isClosed())
+                                                output.append("\nN.B: Non sempre gli oggetti saranno visibili nelle varie stanze. Sfrutta nel migliore dei modi " +
+                                                        "tutti i comandi per cercarli tutti... (Premi CTRL-L per visualizzare i comandi)\n");
 
-                                        for (GameItem g : ((GameItemContainer) iC).getcItemList().getInventoryList()) {
-                                            g.setPickupable(true);
+                                            for (GameItem g : ((GameItemContainer) iC).getcItemList().getInventoryList()) {
+                                                g.setPickupable(true);
+                                            }
+
+                                            ((GameItemContainer) iC).setClosed(false);
+
                                         }
-
-                                        ((GameItemContainer) iC).setClosed(false);
-
-                                    }
-                                }
-                                else
-                                    output.append("L'oggetto è sbloccato!\n");
-                            } else {
-                                if (!pOutput.containsWordType(WordType.CON))
-                                    output.append("Non puoi aprire quest'oggetto così!\n");
-                                else if ((gameItem != null && !gameItem.isConsumed() && ((GameItemContainer)iC).unlockContainer(gameItem.getName()))) {
-                                    if (((GameItemContainer) iC).getcItemList().getInventoryList().isEmpty()) {
-
-                                        output.append("L'oggetto è stato aperto, ma è vuoto!\n");
-                                        ((GameItemContainer) iC).setClosed(false);
-
-                                    } else {
-
-                                        output.append("Hai aperto l'oggetto " + iC.getName()
-                                                + "! Ecco il suo contenuto:" + iC.toString() + "\n");
-
-                                        for (GameItem g : ((GameItemContainer) iC).getcItemList().getInventoryList()) {
-                                            g.setPickupable(true);
-                                        }
-
-                                        ((GameItemContainer) iC).setClosed(false);
-
-                                    }
+                                    } else if(iC.isUseless())
+                                        output.append("Non puoi aprire quest'oggetto!\n");
+                                    else
+                                        output.append("L'oggetto " + iC.getName() + " è sbloccato!\n");
                                 } else {
-                                    output.append("Non puoi aprire quest'oggetto così!\n");
-                                }
+                                    if (!pOutput.containsWordType(WordType.CON))
+                                        output.append("Non puoi aprire quest'oggetto così!\n");
+                                    else if ((gameItem != null && !gameItem.isConsumed() && ((GameItemContainer) iC).unlockContainer(gameItem.getName()))) {
+                                        if (((GameItemContainer) iC).getcItemList().getInventoryList().isEmpty()) {
 
+                                            output.append("L'oggetto è stato aperto, ma è vuoto!\n");
+                                            ((GameItemContainer) iC).setClosed(false);
+
+                                        } else {
+
+                                            output.append("Hai aperto l'oggetto " + iC.getName()
+                                                    + "! Ecco il suo contenuto:" + iC.toString() + "\n");
+
+                                            for (GameItem g : ((GameItemContainer) iC).getcItemList().getInventoryList()) {
+                                                g.setPickupable(true);
+                                            }
+
+                                            ((GameItemContainer) iC).setClosed(false);
+
+                                            gameItem.consume();
+
+                                            // Se l'oggetto è stato consumato, lo rimuove dall'inventario
+                                            if (gameItem.isConsumed()) {
+                                                this.getGame().getInventory().remove(gameItem);
+                                                output.append("\nL'oggetto " + gameItem.getName() + " è stato rimosso.\n");
+                                            }
+
+                                        }
+                                    } else {
+                                        output.append("Non puoi aprire quest'oggetto così!\n");
+                                    }
+
+                                }
                             }
-                            if (gameItem != null) {
-
-                                gameItem.consume();
-
-                                // Se l'oggetto è stato consumato, lo rimuove dall'inventario
-                                if (gameItem.isConsumed()) {
-                                    this.getGame().getInventory().remove(gameItem);
-                                    output.append("\nL'oggetto " + gameItem.getName() + " è stato rimosso.\n");
-                                }
-                            } //A CHE SERVE?
-                            /*else {
-                                output.append("Non puoi aprire quest'oggetto così!\n");
-                            }*/
+                            else
+                                output.append("Non puoi aprire quest'oggetto!\n");
 
                         } else {
                             output.append("Apri... cosa?\n");
@@ -327,8 +339,14 @@ public class TheLostHotel extends GameManager {
 
                                     } else {
 
-                                        output.append("Hai spostato l'oggetto " + iC.getName()
-                                                + "! Hai trovato:" + iC.toString() + "\n");
+                                        if(!((GameItemContainer) iC).isMoved()) {
+                                            output.append("Hai spostato l'oggetto " + iC.getName()
+                                                    + "! Hai trovato:" + iC.toString() + "\n");
+                                        }
+                                        else {
+                                            output.append("Contenitore aperto ma oggetti non ancora raccolti"
+                                                    + iC.toString() + "\n"); //CAMBIARE
+                                        }
 
                                         for (GameItem g : ((GameItemContainer) iC).getcItemList().getInventoryList()) {
                                             g.setPickupable(true);
@@ -344,7 +362,7 @@ public class TheLostHotel extends GameManager {
                             }
                         }
                         else
-                            output.append("Non è possibile spostare questo oggetto!\n");
+                            output.append("Sposta... cosa?\n");
                     }
                     else if (pOutput.containsWordType(WordType.INVENTORY_OBJ))
                         output.append("Non è possibile spostare questo oggetto!\n");
@@ -368,7 +386,7 @@ public class TheLostHotel extends GameManager {
 
                         } else {
 
-                            output.append("Prendere... cosa?\n");
+                            output.append("Prendi... cosa?\n");
 
                         }
                     } else if (pOutput.containsWordType(WordType.INVENTORY_OBJ) && pOutput.size() == 2) {
@@ -380,9 +398,7 @@ public class TheLostHotel extends GameManager {
                         output.append("Uno alla volta...\n");
 
                     } else{
-
-                        output.append("Prendere... cosa?\n");
-
+                        output.append("Prendi... cosa?\n");
                     }
                     break;
 
@@ -531,11 +547,11 @@ public class TheLostHotel extends GameManager {
             + ">> usa [oggetto] -  Usa oggetti del tuo inventario\n"
             + ">> apri [oggetto contenitore] - Apri un oggetto contenitore\n"
             + ">> apri [oggetto contenitore] con [oggetto] - Apri un oggetto contenitore bloccato con un oggetto\n"
+            + ">> sposta [oggetto/oggetto contenitore] - Sposta un oggetto della stanza\n"
             + ">> prendi [oggetto] - Prendi un oggetto a terra nella stanza o in un contenitore\n"
             + ">> lascia [oggetto] - Lascia un oggetto in una stanza\n"
             + "Altri comandi più specifici dovranno essere trovati dal giocatore.\n\n"
             + "SUGGERIMENTO:\nÈ possibile risalire ai comandi eseguiti posizionandosi sull'area di inserimento dei comandi.\n"
-            + "   - Premendo la freccia in sù, è possibile visualizzare l'ultimo comando eseguito;\n"
             + "   - Premendo la freccia in giù, è possibile scorrere i vari comandi eseguiti.\n\n"
             + "N.B: In caso in cui si carichi una partita esistente i comandi eseguiti verranno persi!\n"
             + "\n\n"

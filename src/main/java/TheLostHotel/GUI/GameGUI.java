@@ -51,7 +51,6 @@ public class GameGUI extends javax.swing.JFrame {
     private ArrayList<String> commandHistory = new ArrayList<String>();
 
     private int count_key_down = 0;
-    private boolean key_up_click = false;
     /**
      * Creates new form GameGUI
      */
@@ -362,6 +361,9 @@ public class GameGUI extends javax.swing.JFrame {
         appendToPane(jtpReadingArea, "\n" + "-- " + gInteraction.getGameManager().getGame().getCurrentRoom().getName() + " --"
                 + "\n\n" + gInteraction.getGameManager().getGame().getCurrentRoom().getDescription() + "\n\n", Color.white);
 
+        appendToPane(jtpReadingArea, "\nSUGGERIMENTO: " +
+                "\nDigita \"osserva\" per guardarti intorno ed esaminare la stanza.\n\n", Color.white);
+
         //new Color(104, 140, 189))
 
         gInteraction.getGameManager().getGame().getCurrentRoom().setVisited(true);
@@ -501,11 +503,11 @@ public class GameGUI extends javax.swing.JFrame {
                 + ">> usa [oggetto] -  Usa oggetti del tuo inventario\n"
                 + ">> apri [oggetto contenitore] - Apri un oggetto contenitore\n"
                 + ">> apri [oggetto contenitore] con [oggetto] - Apri un oggetto contenitore bloccato con un oggetto\n"
+                + ">> sposta [oggetto/oggetto contenitore] - Sposta un oggetto della stanza\n"
                 + ">> prendi [oggetto] - Prendi un oggetto a terra nella stanza o in un contenitore\n"
                 + ">> lascia [oggetto] - Lascia un oggetto in una stanza\n\n"
                 + "Altri comandi più specifici dovranno essere trovati dal giocatore.\n\n"
                 + "SUGGERIMENTO:\nÈ possibile risalire ai comandi eseguiti posizionandosi sull'area di inserimento dei comandi.\n"
-                + "   - Premendo la freccia in sù, è possibile visualizzare l'ultimo comando eseguito;\n"
                 + "   - Premendo la freccia in giù, è possibile scorrere i vari comandi eseguiti.\n\n"
                 + "N.B: In caso in cui si carichi una partita esistente i comandi eseguiti verranno persi!\n"
                 + "\n\n"
@@ -546,7 +548,6 @@ public class GameGUI extends javax.swing.JFrame {
             savedGame = false;
             addCommand(command);
             count_key_down = 0;
-            key_up_click = false;
 
             // Se il comando ha fatto terminare il gioco ( ovvero se il tempo di completamento si è bloccato )
             /*if (!gInteraction.getGameManager().getGame().getGameTime().isActive()) {
@@ -580,7 +581,6 @@ public class GameGUI extends javax.swing.JFrame {
         savedGame = false;
         addCommand(command);
         count_key_down = 0;
-        key_up_click = false;
 
         //Aggiorna l'immagine della Room e il suo tooltip
         jlRoomImage.setIcon(gInteraction.getGameManager().getGame().getCurrentRoom().getRoomImage());
@@ -641,36 +641,22 @@ public class GameGUI extends javax.swing.JFrame {
     {
         if ((evt.getKeyCode() == KeyEvent.VK_ENTER) && jbSendCommand.isEnabled()) {
             sendCommandByTextField();
-        } else if ((evt.getKeyCode() == KeyEvent.VK_UP) && jbSendCommand.isEnabled()) {
-            commandHistory(KeyEvent.VK_UP);
         } else if ((evt.getKeyCode() == KeyEvent.VK_DOWN) && jbSendCommand.isEnabled()) {
-            commandHistory(KeyEvent.VK_DOWN);
+            commandHistory();
         }
     }
 
-    private void commandHistory(int keyEvent)
+    private void commandHistory()
     {
         //Verifico che sia stato inserito almeno un comando
         if(!commandHistory.isEmpty()) {
-            //Nel caso della freccia in sù verrà visualizzato l'ultimo comando eseguito
-            if(keyEvent == KeyEvent.VK_UP) {
-                jtCommand.setText(commandHistory.get(commandHistory.size() - 1)); //Visualizza l'ultimo comando inserito
-                count_key_down = 0;
-                key_up_click = true;
-            }
-            //Nel caso della freccia in giù verrà visualizzato, in ordine temporale, i comandi eseguiti
-            else if(keyEvent == KeyEvent.VK_DOWN) {
-                count_key_down++;
+            //Verranno visualizzati, in ordine temporale, i comandi eseguiti
+            count_key_down++;
 
-                if (count_key_down <= commandHistory.size()) {
-                    //Serve per verificare che non sia già stato visualizzato l'ultimo comando (altrimenti verrebbe scritto a doppio)
-                    if(!key_up_click) {
-                        jtCommand.setText(commandHistory.get(commandHistory.size() - count_key_down));
-                    }
-                    else
-                        if((commandHistory.size() - count_key_down) > 0)
-                            jtCommand.setText(commandHistory.get(commandHistory.size() - count_key_down - 1));
-                }
+            if (count_key_down <= commandHistory.size()) {
+                //Serve per verificare che non sia già stato visualizzato l'ultimo comando (altrimenti verrebbe scritto a doppio)
+                if((commandHistory.size() - count_key_down) >= 0)
+                    jtCommand.setText(commandHistory.get(commandHistory.size() - count_key_down));
             }
         }
     }
