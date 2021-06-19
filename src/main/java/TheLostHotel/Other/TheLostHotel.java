@@ -175,6 +175,27 @@ public class TheLostHotel extends GameManager {
                         }
 
                     }
+                    else if(pOutput.containsWordType(WordType.ROOM_OBJ) && gameItem.isUsableWithDrops())
+                    {
+                        /*if(gameItem instanceof GameItemContainer)         if per gestire le descrizioni di alcuni oggetti da modificare
+                        {
+                            if(!gameItem.isUsed())
+                                output.append(gameItem.getDescriptionUsableWithDrops() + "\n");
+                            else if(gameItem)
+                                output.append(gameItem.getDescriptionAlreadyUsedWithDrops() + "\n");
+                            else
+                                output.append("prova");
+
+                        }*/
+
+                        for(GameItem g : ((GameItemContainer) gameItem).getcItemList().getInventoryList()) {
+                                g.setPickupable(true);
+                        }
+
+
+                        gameItem.setUsed(true);
+
+                    }
                     else
                         output.append("Usa... cosa?\n");
                     break;
@@ -387,6 +408,7 @@ public class TheLostHotel extends GameManager {
                             this.getGame().getInventory().add(gameItem);
                             this.getGame().getCurrentRoom().removeItem(gameItem);
 
+                            gameItem.setPicked(true);
                             output.append("L'oggetto è stato aggiunto al tuo inventario.\n");
 
                         } else {
@@ -443,7 +465,7 @@ public class TheLostHotel extends GameManager {
                 case PUSH:
                     if (pOutput.containsWordType(WordType.ROOM_OBJ) && pOutput.size() == 2) {
 
-                        // Controlla che l'oggetto si possa raccogliere
+                        // Controlla che l'oggetto si possa spingere
                         if (!Objects.isNull(gameItem) && gameItem.isPushable()) {
 
                             gameItem.setPush(!gameItem.isPush());

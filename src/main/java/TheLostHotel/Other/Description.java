@@ -16,10 +16,14 @@ public class Description {
     public static final String DESCRIPTION_HALLWAY = "Un lungo corridoio.\n" +
             "Chissà dove porterà...";
 
+    public static final String DESCRIPTION_GAMEROOM = "Un'immensa sala giochi, provvista di 3 slot e\n" +
+            "2 grandi cambiamonete. Alcune delle slot sembrano ancora funzionare!";
+
     //Descrizioni relative a stanze/luoghi già visitati
     public static final String DESCRIPTION_VISITED_ROOM_79 = "La stanza dove tutto è partito...";
     public static final String DESCRIPTION_VISITED_BATHROOM_79 = "Si, è lo stesso bagno di prima.";
     public static final String DESCRIPTION_VISITED_HALLWAY = "Un lungo corridoio.";
+    public static final String DESCRIPTION_VISITED_GAMEROOM = "La sala giochi a est del corridoio.";
 
     //Descrizione comando osserva per ogni stanza/luogo
     public static final String LOOK_ROOM_79 = "Accanto al letto dove hai \"passato\" la notte\n" +
@@ -32,6 +36,8 @@ public class Description {
     public static final String LOOK_HALLWAY = "Il corridoio sembra essere molto stretto e lungo.\n" +
             "Ti chiedi come possa passarci la gente.\n" +
             "In lontananza si intravede qualcosa...";
+
+    public static final String LOOK_GAMEROOM = "Descrizione osserva";
 
     //Descrizione relativa agli oggetti
     public static final String DESCRIPTION_CELLPHONE = "Il tuo ossessionato telefono. Te lo porti dappertutto.\n" +
@@ -69,6 +75,16 @@ public class Description {
 
     public static final String DESCRIPTION_COATHOOK_79 = "Un appendiabiti di legno pregiato. Sembra essere un pezzo nuovo!";
 
+    public static final String DESCRIPTION_SLOT = "Una slot ancora funzionante lo capisci dalla musichetta che proviene da essa!";
+
+    public static final String DESCRIPTION_HANDLE = "La maniglia caduta dalla slot machine... Hai avuto un passato da ludopatico?";
+
+    public static final String DESCRIPTION_CARD_GAMEROOM = "Una tessera magnetica dimenticata da qualcuno nella sala giochi.\n" +
+            "Potrebbe sbloccare alcune stanze!";
+
+    public static final String DESCRIPTION_CHANGE_MACHINE = "Una macchina cambiamonete ancora in funzione, qualcuno avrà lasciato" +
+            " la sua tessera dentro.";
+
     //Descrizione relativa agli itemContainer già aperti/spostati
     public static final String OPENED_DESCRIPTION_FURNITURE_79 = "Il mobile della tua stanza. È aperto!";
     public static final String OPENED_DESCRIPTION_WARDROBE_79 = "L'armadio presente nella tua stanza. Un'anta è aperta!";
@@ -83,6 +99,8 @@ public class Description {
     public static final int ID_DRINK = 5;
     public static final int ID_KNIFE = 6;
     public static final int ID_KEY79 = 7;
+    public static final int ID_HANDLE = 7;
+    public static final int ID_CARD_GAMEROOM = 7;
 
     //ID oggetti contenitori
     public static final int ID_FURNITURE_79 = 100;
@@ -91,11 +109,15 @@ public class Description {
     public static final int ID_FURNITURE_BATHROOM_79 = 103;
     public static final int ID_BED_79 = 104;
     public static final int ID_COATHOOK_79 = 105;
+    public static final int ID_SLOT = 106;
+    public static final int ID_CHANGE_MACHINE = 107;
+
 
     //ID stanze
     public static final int ID_ROOM_79 = 1000;
     public static final int ID_BATHROOM_79 = 1001;
     public static final int ID_HALLWAY = 1002;
+    public static final int ID_GAMEROOM = 1003;
 
 
 

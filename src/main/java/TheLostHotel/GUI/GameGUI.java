@@ -467,7 +467,6 @@ public class GameGUI extends javax.swing.JFrame {
                 new MenuGUI(this.gInteraction.getGameManager()).setVisible(true);
                 this.dispose();
             }
-            System.out.println();
         }
         else {
             if (JOptionPane.showConfirmDialog(this, "Sei sicuro di voler tornare al menu principale?", "Sei sicuro di voler tornare al menu principale?", JOptionPane.YES_NO_OPTION)

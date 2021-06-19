@@ -21,6 +21,7 @@ public class GameItemContainer extends GameItem implements Serializable {
     private String openedDescription;
     private String movedDescription;
 
+
     // Costruttori
 
     public GameItemContainer(int id, String name, String desc) {

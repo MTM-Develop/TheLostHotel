@@ -62,6 +62,16 @@ public class TLHStart {
         key79.setConsumable((byte) 1);
         //g.getInventory().add(chiave79);
 
+        GameItem handle = new GameItem(Description.ID_HANDLE, "maniglia", Description.DESCRIPTION_HANDLE);
+        ImageIcon imgHandle = new ImageIcon("resources//img//gameItem//handle.png");
+        handle.setItemImage(imgHandle);
+
+        GameItem cardGameRoom = new GameItem(Description.ID_CARD_GAMEROOM, "carta", Description.DESCRIPTION_CARD_GAMEROOM);
+        cardGameRoom.setAlias(new String[]{"card", "tessera"});
+        ImageIcon imgCardGameRoom = new ImageIcon("resources//img//gameItem//card.png");
+        cardGameRoom.setItemImage(imgCardGameRoom);
+
+
         GameItemContainer button = new GameItemContainer(45324533, "bottone", Description.DESCRIPTION_KNIFE); //CAMBIARE
         button.setAlias(new String[]{"pulsante"}); //CAMBIARE
         button.setPushable(true);
@@ -101,6 +111,21 @@ public class TLHStart {
         coatHook79.setAlias(new String[]{"attaccapanni", "appendiabito"});
         coatHook79.setUseless(true);
 
+        GameItemContainer slot = new GameItemContainer(Description.ID_SLOT, "slot", Description.DESCRIPTION_SLOT);
+        slot.setAlias(new String[]{"macchinetta"});
+        slot.setUsableWithDrops(true);
+        slot.setDescriptionUsableWithDrops("Hai girato troppo forte! La maniglia si è rotta ed è caduta!");
+        slot.setDescriptionAlreadyUsedWithDrops("Hai già rotto la slot, non ti basta?");
+        slot.add(handle);
+
+        GameItemContainer changeMachine = new GameItemContainer(Description.ID_CHANGE_MACHINE, "cambiamonete", Description.DESCRIPTION_CHANGE_MACHINE);
+        changeMachine.setAlias(new String[]{"cambiovaluta"});
+        changeMachine.setUsableWithDrops(true);
+        changeMachine.setDescriptionUsableWithDrops("Grazie alle tue elevate capacità informatiche hai estratto la tessera...hai solo premuto un tasto!");
+        changeMachine.setDescriptionAlreadyUsedWithDrops("Una macchinetta cambiamonete vuota.");
+        changeMachine.add(cardGameRoom);
+
+
         /*GameItemContainer strongbox = new GameItemContainer(80, "cassaforte", "Descrizione cassaforte");
         strongbox.setAlias(new String[]{"guardaroba", "armadio"});
         strongbox.setLockedBy("123456");*/
@@ -115,7 +140,6 @@ public class TLHStart {
         room79.addItem(paint79);
         room79.addItem(bed79);
         room79.addItem(coatHook79);
-
         room79.addItem(button);
 
         Room bathroom79 = new Room(Description.ID_BATHROOM_79, "Bagno stanza 79", Description.DESCRIPTION_BATHROOM_79);
@@ -128,13 +152,15 @@ public class TLHStart {
         hallway.setLookDescription(Description.LOOK_HALLWAY);
         hallway.setRoomImage(new ImageIcon("resources//img//room//hallway.png"));
         hallway.setVisitedDescription(Description.DESCRIPTION_VISITED_HALLWAY);
-        hallway.setLockedBy("chiave");
+        hallway.setLockedBy(""); //chiave
 
-        Room gameRoom = new Room(Description.ID_HALLWAY, "Sala giochi", "Descrizione sala giochi"); //CAMBIARE
-        gameRoom.setLookDescription("Descrizione osserva sala giochi"); //CAMBIARE
+        Room gameRoom = new Room(Description.ID_GAMEROOM, "Sala giochi", Description.DESCRIPTION_GAMEROOM);
+        gameRoom.setLookDescription(Description.LOOK_GAMEROOM); //CAMBIARE
         gameRoom.setRoomImage(new ImageIcon("resources//img//room//gameRoom.png"));
-        gameRoom.setVisitedDescription("Descrizione sala giochi già visitata"); //CAMBIARE
+        gameRoom.setVisitedDescription(Description.DESCRIPTION_VISITED_GAMEROOM);
         gameRoom.setLockedBy("");
+        gameRoom.addItem(slot);
+        gameRoom.addItem(changeMachine);
 
         g.setCurrentRoom(room79);
         room79.setNorth(hallway);

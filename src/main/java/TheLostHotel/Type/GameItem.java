@@ -15,12 +15,17 @@ public class GameItem implements Serializable {
     private String name;
     private String description; // descrizione dell'oggetto
     private Set<String> alias; // sinonimi dell'oggetto
+    private String descriptionUsableWithDrops;
+    private String descriptionAlreadyUsedWithDrops;
 
     private byte consumable = -1; // indica il numero di usi possibili, -1 significa che ha infiniti usi
     private boolean pickupable = false; //indica se si può raccogliere
+    private boolean picked = false;
     private boolean pushable = false; // indica se si può spingere
     private boolean push = false; // indica se è già stato spinto/premuto
     private boolean useless = false; //indica se è utile o meno
+    private boolean usableWithDrops = false; //indica che un oggetto contenitore si può usare e droppa oggetti
+    private boolean used = false; //indica se è stato usato o meno
 
     private ImageIcon itemImage;   //immagine raffigurante l'oggetto
 
@@ -70,6 +75,22 @@ public class GameItem implements Serializable {
         this.alias = new HashSet<>(Arrays.asList(alias));
     }
 
+    public String getDescriptionUsableWithDrops() {
+        return descriptionUsableWithDrops;
+    }
+
+    public void setDescriptionUsableWithDrops(String descriptionUsableWithDrops) {
+        this.descriptionUsableWithDrops = descriptionUsableWithDrops;
+    }
+
+    public String getDescriptionAlreadyUsedWithDrops() {
+        return descriptionAlreadyUsedWithDrops;
+    }
+
+    public void setDescriptionAlreadyUsedWithDrops(String descriptionAlreadyUsedWithDrops) {
+        this.descriptionAlreadyUsedWithDrops = descriptionAlreadyUsedWithDrops;
+    }
+
     public byte getConsumable() {
         return consumable;
     }
@@ -104,6 +125,14 @@ public class GameItem implements Serializable {
         this.pickupable = pickupable;
     }
 
+    public boolean isPicked() {
+        return picked;
+    }
+
+    public void setPicked(boolean picked) {
+        this.picked = picked;
+    }
+
     public boolean isPushable() {
         return pushable;
     }
@@ -126,6 +155,22 @@ public class GameItem implements Serializable {
 
     public void setUseless(boolean useless) {
         this.useless = useless;
+    }
+
+    public boolean isUsableWithDrops() {
+        return usableWithDrops;
+    }
+
+    public void setUsableWithDrops(boolean usableWithDrops) {
+        this.usableWithDrops = usableWithDrops;
+    }
+
+    public boolean isUsed() {
+        return used;
+    }
+
+    public void setUsed(boolean used) {
+        this.used = used;
     }
 
     public ImageIcon getItemImage() {
