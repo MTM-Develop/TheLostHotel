@@ -34,13 +34,13 @@ public class Description {
             "In lontananza si intravede qualcosa...";
 
     //Descrizione relativa agli oggetti
-    public static final String DESCRIPTION_CELLPHONE = "Il tuo ossessionato telefono. Te lo porti dappertutto!\n" +
+    public static final String DESCRIPTION_CELLPHONE = "Il tuo ossessionato telefono. Te lo porti dappertutto.\n" +
             "Lo hai pagato un sacco!";
 
     public static final String DESCRIPTION_WALLET = "Mai partire senza portafoglio... ricco di soldi. \n" +
             "Ma saranno utili in un hotel abbandonato?";
 
-    public static final String DESCRIPTION_LIGHTER = "Per un fumatore come è impossibile non avere un accendino " +
+    public static final String DESCRIPTION_LIGHTER = "Per un fumatore come te è impossibile non avere un accendino " +
             "a portata di mano...";
 
     public static final String DESCRIPTION_PAPER_79 = "Un pezzo di carta stroppiciato...\n" +
@@ -49,7 +49,7 @@ public class Description {
     public static final String DESCRIPTION_DRINK = "Una bevanda gassata che hai preso da un autogrill " +
             "durante il viaggio.";
 
-    public static final String DESCRIPTION_KNIFE = "Il coltellino svizzero che ti ha regalato tuo nonno..." +
+    public static final String DESCRIPTION_KNIFE = "Il coltellino svizzero che ti ha regalato tuo nonno...\n" +
             "Avresti voluto aprirci le birre in vacanza!";
 
     public static final String DESCRIPTION_KEY_79 = "Una chiave con inciso il numero di una stanza.";

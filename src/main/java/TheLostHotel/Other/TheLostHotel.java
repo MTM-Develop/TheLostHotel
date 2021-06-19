@@ -8,6 +8,7 @@ import TheLostHotel.Type.GameItem;
 import TheLostHotel.Type.GameItemContainer;
 import TheLostHotel.Type.Room;
 
+import javax.swing.*;
 import java.awt.*;
 import java.util.Iterator;
 import java.util.Objects;
@@ -34,9 +35,10 @@ public class TheLostHotel extends GameManager {
         try {
 
             switch (command) {
-                case SOUTH:
+
                 case NORD:
                 case EAST:
+                case SOUTH:
                 case WEST:
 
                     // Controlla se ci si può spostare in quella direzione o meno
@@ -73,7 +75,10 @@ public class TheLostHotel extends GameManager {
 
                 case INVENTORY:
                     if(!pOutput.containsWordType(WordType.ERROR)) {
-                        output.append("Oggetti presenti nell'inventario: " + this.getGame().getInventory().toString() + "\n");
+                        if(!this.getGame().getInventory().getInventoryList().isEmpty())
+                            output.append("Oggetti presenti nell'inventario: " + this.getGame().getInventory().toString() + "\n");
+                        else
+                            output.append(this.getGame().getInventory().toString());
                     }
                     else
                         output.append("Forse intendevi \"inventario\"?\n");
@@ -400,6 +405,78 @@ public class TheLostHotel extends GameManager {
                     } else{
                         output.append("Prendi... cosa?\n");
                     }
+                    break;
+
+                case DROP:
+                    // Controlla che l'oggetto sia presente nell'inventario
+                    if (pOutput.containsWordType(WordType.INVENTORY_OBJ) && pOutput.size() == 2) {
+
+                        // Controlla che l'oggetto si possa lasciare
+                        if (!Objects.isNull(gameItem)){// && gameItem.isPickupable()) {
+
+                            // Aggiunge l'oggetto all'inventario e lo rimuove dalla stanza
+                            this.getGame().getInventory().remove(gameItem);
+                            this.getGame().getCurrentRoom().addItem(gameItem);
+
+                            gameItem.setPickupable(true);
+
+                            output.append("Hai lasciato l'oggetto " + gameItem.getName() + ".\n");
+
+                        } else {
+
+                            output.append("Lascia... cosa?\n");
+
+                        }
+                    } else if (pOutput.containsWordType(WordType.ROOM_OBJ) && pOutput.size() == 2) {
+
+                        output.append("Lascia... cosa?\n");
+
+                    } else if (pOutput.containsWordType(WordType.INVENTORY_OBJ) && pOutput.size() > 2) {
+
+                        output.append("Uno alla volta...\n");
+
+                    } else{
+                        output.append("Lascia... cosa?\n");
+                    }
+                    break;
+
+                case PUSH:
+                    if (pOutput.containsWordType(WordType.ROOM_OBJ) && pOutput.size() == 2) {
+
+                        // Controlla che l'oggetto si possa raccogliere
+                        if (!Objects.isNull(gameItem) && gameItem.isPushable()) {
+
+                            gameItem.setPush(!gameItem.isPush());
+                            // Aggiunge l'oggetto all'inventario e lo rimuove dalla stanza
+
+                            output.append("Hai premuto il pulsante " + gameItem.getName() + ".\n"); //CAMBIARE
+
+                        } else {
+
+                            output.append("Premi... cosa?\n");
+
+                        }
+                    } else if (pOutput.containsWordType(WordType.INVENTORY_OBJ) && pOutput.size() == 2) {
+
+                        output.append("Premi... cosa?\n");
+
+                    } else if (pOutput.containsWordType(WordType.ROOM_OBJ) && pOutput.size() > 2) {
+
+                        output.append("Uno alla volta...\n");
+
+                    } else{
+                        output.append("Premi... cosa?\n");
+                    }
+                    break;
+
+                case QUIT:
+                    if(!pOutput.containsWordType(WordType.ERROR)) {
+
+                        //JOptionPane.showConfirmDialog(, "W", "w", JOptionPane.YES_NO_OPTION);
+
+                        output.append("MESSAGGIO ABBANDONO\n");
+                    }else
+                        output.append("Forse intendevi \"abbandona\"?\n");
                     break;
 
                 default:

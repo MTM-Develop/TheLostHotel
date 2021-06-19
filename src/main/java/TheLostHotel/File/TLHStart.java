@@ -46,7 +46,6 @@ public class TLHStart {
         drink.setAlias(new String[]{"drink"});
         ImageIcon imgDrink = new ImageIcon("resources//img//gameItem//drink.png");
         drink.setItemImage(imgDrink);
-        //bibita.setPickupable(true);
         drink.setConsumable((byte) 1);
         g.getInventory().add(drink);
 
@@ -62,6 +61,11 @@ public class TLHStart {
         key79.setItemImage(imgKey79);
         key79.setConsumable((byte) 1);
         //g.getInventory().add(chiave79);
+
+        GameItemContainer button = new GameItemContainer(45324533, "bottone", Description.DESCRIPTION_KNIFE); //CAMBIARE
+        button.setAlias(new String[]{"pulsante"}); //CAMBIARE
+        button.setPushable(true);
+        button.setUseless(true);
 
         //ItemContainer e oggetti della stanza
         GameItemContainer furniture79 = new GameItemContainer(Description.ID_FURNITURE_79, "mobile", Description.DESCRIPTION_FURNITURE_79);
@@ -104,7 +108,7 @@ public class TLHStart {
         //Stanze
         Room room79 = new Room(Description.ID_ROOM_79, "Stanza 79", Description.DESCRIPTION_ROOM_79);
         room79.setLookDescription(Description.LOOK_ROOM_79);
-        room79.setRoomImage(new ImageIcon("resources//img//room//stanza69.png"));
+        room79.setRoomImage(new ImageIcon("resources//img//room//room79.png"));
         room79.setVisitedDescription(Description.DESCRIPTION_VISITED_ROOM_79);
         room79.addItem(wardrobe79);
         room79.addItem(furniture79);
@@ -112,40 +116,45 @@ public class TLHStart {
         room79.addItem(bed79);
         room79.addItem(coatHook79);
 
-        //myRoom.addItem(accendino);
+        room79.addItem(button);
+
         Room bathroom79 = new Room(Description.ID_BATHROOM_79, "Bagno stanza 79", Description.DESCRIPTION_BATHROOM_79);
         bathroom79.setLookDescription(Description.LOOK_BATHROOM_79);
-        bathroom79.setRoomImage(new ImageIcon("resources//img//room//bagno69.png"));
+        bathroom79.setRoomImage(new ImageIcon("resources//img//room//bathroom79.png"));
         bathroom79.setVisitedDescription(Description.DESCRIPTION_VISITED_BATHROOM_79);
         bathroom79.addItem(furniture_bathroom79);
 
         Room hallway = new Room(Description.ID_HALLWAY, "Corridoio", Description.DESCRIPTION_HALLWAY);
         hallway.setLookDescription(Description.LOOK_HALLWAY);
-        hallway.setRoomImage(new ImageIcon("resources//img//room//corridoio.png"));
+        hallway.setRoomImage(new ImageIcon("resources//img//room//hallway.png"));
         hallway.setVisitedDescription(Description.DESCRIPTION_VISITED_HALLWAY);
         hallway.setLockedBy("chiave");
+
+        Room gameRoom = new Room(Description.ID_HALLWAY, "Sala giochi", "Descrizione sala giochi"); //CAMBIARE
+        gameRoom.setLookDescription("Descrizione osserva sala giochi"); //CAMBIARE
+        gameRoom.setRoomImage(new ImageIcon("resources//img//room//gameRoom.png"));
+        gameRoom.setVisitedDescription("Descrizione sala giochi già visitata"); //CAMBIARE
+        gameRoom.setLockedBy("");
 
         g.setCurrentRoom(room79);
         room79.setNorth(hallway);
         room79.setWest(bathroom79);
         bathroom79.setEast(room79);
         hallway.setSouth(room79);
+        hallway.setEast(gameRoom);
+        gameRoom.setWest(hallway);
 
         //Comandi
         Command north = new Command("nord", CommandType.NORD);
-        //north.setAlias(new String[]{"n"});
         g.getCommands().add(north);
 
         Command south = new Command("sud", CommandType.SOUTH);
-        //south.setAlias(new String[]{"s"});
         g.getCommands().add(south);
 
         Command east = new Command("est", CommandType.EAST);
-        //east.setAlias(new String[]{"e"});
         g.getCommands().add(east);
 
         Command west = new Command("ovest", CommandType.WEST);
-        //west.setAlias(new String[]{"o", "w"});
         g.getCommands().add(west);
 
         Command look = new Command("guarda", CommandType.LOOK);
@@ -173,6 +182,18 @@ public class TLHStart {
         Command pickUp = new Command("prendi", CommandType.PICK_UP);
         pickUp.setAlias(new String[]{"raccogli"});
         g.getCommands().add(pickUp);
+
+        Command drop = new Command("lascia", CommandType.DROP);
+        drop.setAlias(new String[]{"molla", "abbandona"});
+        g.getCommands().add(drop);
+
+        Command push = new Command("premi", CommandType.PUSH);
+        push.setAlias(new String[]{"spingi"});
+        g.getCommands().add(push);
+
+        Command quit = new Command("abbandona", CommandType.QUIT);
+        quit.setAlias(new String[]{"arrenditi", "termina", "ammazzati", "suicidati", "resa"});
+        g.getCommands().add(quit);
 
     }
 

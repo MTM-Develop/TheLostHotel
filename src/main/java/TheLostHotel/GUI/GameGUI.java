@@ -45,8 +45,6 @@ public class GameGUI extends javax.swing.JFrame {
     private Font font, font1;
     private Font fontGameButton,fontGameLabel, fontGameBar, fontGameText;
 
-    private boolean newGame = true;
-
     private boolean savedGame = true;
     private boolean fastText = false;
 
@@ -60,6 +58,7 @@ public class GameGUI extends javax.swing.JFrame {
         initComponents();
         this.gInteraction = gInteraction;
         menu = new MenuManager(gInteraction.getGameManager());
+        jtCommand.requestFocus();
         initGame();
         initFont();
 
@@ -364,7 +363,7 @@ public class GameGUI extends javax.swing.JFrame {
                 + "\n\n" + gInteraction.getGameManager().getGame().getCurrentRoom().getDescription() + "\n\n", Color.white);
 
         appendToPane(jtpReadingArea, "\nSUGGERIMENTO: " +
-                "\nDigita \"osserva\" per guardarti intorno ed esaminare la stanza.\n\n", Color.white);
+                "\nDigita \"osserva\" per guardarti intorno ed esaminare la stanza.\n\n", Color.white); //Provare a rimuoverlo se si carica una partita
 
         //new Color(104, 140, 189))
 

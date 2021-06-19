@@ -57,10 +57,13 @@ public class Inventory implements Serializable {
 
         StringBuilder invList = new StringBuilder();
 
-        for (GameItem i : inventoryList) {
+        if(!inventoryList.isEmpty()) {
+            for (GameItem i : inventoryList) {
 
-            invList.append("\n- ").append(i.getName());
-        }
+                invList.append("\n- ").append(i.getName());
+            }
+        }else
+            invList.append("L'inventario è vuoto!\n");
 
         return invList.toString();
     }
