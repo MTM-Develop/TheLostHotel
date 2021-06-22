@@ -127,11 +127,12 @@ public class TheLostHotel extends GameManager {
                                 }
                                 /*else if(gameItem.isUseless())
                                     output.append(gameItem.getDescription() + "\n");*/    //AGGIUNGERE NEL COMANDO APRI
-                                else //if(gameItem.isPicked()) //PROVARE
-                                    output.append(gameItem.getDescription() + "\n"); //CAMBIARE (Occhio agli spoiler)
-                                    //output.append("Osserva... cosa?\n"); //CAMBIARE (Così si può osservare un oggetto)
+                                //else if(gameItem.isPicked()) //PROVARE
+                                    //output.append(gameItem.getDescription() + "\n"); //CAMBIARE (Occhio agli spoiler e crash)
+                                else
+                                    output.append("Osserva... cosa?\n"); //CAMBIARE (Così si può osservare un oggetto)
                             } //else
-                                //output.append("Osserva... cosa?\n");
+                                //output.append("PROVA OSSERVA\n");
 
                         } else if (pOutput.size() == 1) { // Se si vuole guardare la stanza
 

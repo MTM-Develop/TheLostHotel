@@ -66,11 +66,8 @@ public class TLHStart {
         ImageIcon imgHandle = new ImageIcon("resources//img//gameItem//handle.png");
         handle.setItemImage(imgHandle);
 
-        GameItem radio = new GameItem(Description.ID_RADIO, "radio", "Descrizione radio");
-        radio.setAlias(new String[]{"radiolina"});
-
-        GameItem cardGameRoom = new GameItem(Description.ID_CARD_GAMEROOM, "carta", Description.DESCRIPTION_CARD_GAMEROOM);
-        cardGameRoom.setAlias(new String[]{"card", "tessera"});
+        GameItem cardGameRoom = new GameItem(Description.ID_CARD_GAMEROOM, "tessera", Description.DESCRIPTION_CARD_GAMEROOM);
+        cardGameRoom.setAlias(new String[]{"card", "carta"});
         ImageIcon imgCardGameRoom = new ImageIcon("resources//img//gameItem//card.png");
         cardGameRoom.setItemImage(imgCardGameRoom);
 
@@ -126,6 +123,10 @@ public class TLHStart {
         changeMachine.setDescriptionAlreadyUsedWithDrops(Description.DESCRIPTION_CHANGE_MACHINE_ALREADY_USED_WITH_DROPS);
         changeMachine.setUsableWithDrops(true);
         changeMachine.add(cardGameRoom);
+
+        GameItemContainer radio = new GameItemContainer(Description.ID_RADIO, "radio", "Descrizione radio"); //Scrivere qualcosa riguardo la mancanza di corrente
+        radio.setAlias(new String[]{"emittente", "apparecchio", "radiostazione", "radiofonia", "radiocomunicazione", "radiodiffusione"});
+
 
         //GameItem password = new GameItem(Description.ID_PASSWORD, "1"); //Occhio alla descrizione
 
