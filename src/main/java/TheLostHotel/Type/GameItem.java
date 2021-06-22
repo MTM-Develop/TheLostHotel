@@ -17,6 +17,7 @@ public class GameItem implements Serializable {
     private Set<String> alias; // sinonimi dell'oggetto
     private String descriptionUsableWithDrops;
     private String descriptionAlreadyUsedWithDrops;
+    private String descriptionUsableButItemRemoved;
 
     private byte consumable = -1; // indica il numero di usi possibili, -1 significa che ha infiniti usi
     private boolean pickupable = false; //indica se si può raccogliere
@@ -95,6 +96,14 @@ public class GameItem implements Serializable {
 
     public void setDescriptionAlreadyUsedWithDrops(String descriptionAlreadyUsedWithDrops) {
         this.descriptionAlreadyUsedWithDrops = descriptionAlreadyUsedWithDrops;
+    }
+
+    public String getDescriptionUsableButItemRemoved() {
+        return descriptionUsableButItemRemoved;
+    }
+
+    public void setDescriptionUsableButItemRemoved(String descriptionUsableButItemRemoved) {
+        this.descriptionUsableButItemRemoved = descriptionUsableButItemRemoved;
     }
 
     public byte getConsumable() {

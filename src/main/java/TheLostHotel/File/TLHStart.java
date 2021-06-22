@@ -71,6 +71,11 @@ public class TLHStart {
         ImageIcon imgCardGameRoom = new ImageIcon("resources//img//gameItem//card.png");
         cardGameRoom.setItemImage(imgCardGameRoom);
 
+        GameItem batteries = new GameItem(Description.ID_BATTERY, "batterie", Description.DESCRIPTION_CARD_GAMEROOM);
+        batteries.setAlias(new String[]{"pila", "batteria", "pile"});
+        ImageIcon imgBatteries = new ImageIcon("resources//img//gameItem//batteries.png");
+        batteries.setItemImage(imgBatteries);
+
         GameItemContainer button = new GameItemContainer(45324533, "bottone", Description.DESCRIPTION_KNIFE); //CAMBIARE
         button.setAlias(new String[]{"pulsante"}); //CAMBIARE
         button.setPushable(true);
@@ -124,8 +129,23 @@ public class TLHStart {
         changeMachine.setUsableWithDrops(true);
         changeMachine.add(cardGameRoom);
 
+
         GameItemContainer radio = new GameItemContainer(Description.ID_RADIO, "radio", "Descrizione radio"); //Scrivere qualcosa riguardo la mancanza di corrente
-        radio.setAlias(new String[]{"emittente", "apparecchio", "radiostazione", "radiofonia", "radiocomunicazione", "radiodiffusione"});
+        radio.setAlias(new String[]{"emittente", "radiostazione", "radiofonia", "radiocomunicazione", "radiodiffusione"});
+
+
+        GameItemContainer remoteControl = new GameItemContainer(Description.ID_REMOTE_CONTROL, "telecomando", Description.DESCRIPTION_REMOTE_CONTROL);
+        remoteControl.setOpenedDescription(Description.OPENED_DESCRIPTION_REMOTE_CONTROL);
+        remoteControl.setAlias(new String[]{"apparecchio"});
+        remoteControl.setDescriptionUsableWithDrops(Description.DESCRIPTION_REMOTE_CONTROL_USABLE_WITH_DROPS);
+        remoteControl.setDescriptionAlreadyUsedWithDrops(Description.DESCRIPTION_REMOTE_CONTROL_ALREADY_USED_WITH_DROPS);
+        remoteControl.setDescriptionUsableButItemRemoved(Description.DESCRIPTION_REMOTE_CONTROL_USABLE_BUT_ITEM_REMOVED);
+        remoteControl.add(batteries);
+        remoteControl.setLockedBy("");
+        remoteControl.setUsableWithItem(true);
+
+        GameItemContainer tv = new GameItemContainer(Description.ID_TV, "televisione", Description.DESCRIPTION_TV);
+        tv.setAlias(new String[]{"tv", "televisore"});
 
 
         //GameItem password = new GameItem(Description.ID_PASSWORD, "1"); //Occhio alla descrizione
@@ -154,12 +174,13 @@ public class TLHStart {
         bathroom79.setRoomImage(new ImageIcon("resources//img//room//bathroom79.png"));
         bathroom79.setVisitedDescription(Description.DESCRIPTION_VISITED_BATHROOM_79);
         bathroom79.addItem(furniture_bathroom79);
+        bathroom79.addItem(batteries);
 
         Room hallway = new Room(Description.ID_HALLWAY, "Corridoio", Description.DESCRIPTION_HALLWAY);
         hallway.setLookDescription(Description.LOOK_HALLWAY);
         hallway.setRoomImage(new ImageIcon("resources//img//room//hallway.png"));
         hallway.setVisitedDescription(Description.DESCRIPTION_VISITED_HALLWAY);
-        hallway.setLockedBy(""); //chiave
+        hallway.setLockedBy(key79.getName()); //chiave
 
         Room gameRoom = new Room(Description.ID_GAMEROOM, "Sala giochi", Description.DESCRIPTION_GAMEROOM);
         gameRoom.setLookDescription(Description.LOOK_GAMEROOM); //CAMBIARE
@@ -169,12 +190,20 @@ public class TLHStart {
         gameRoom.addItem(slot);
         gameRoom.addItem(changeMachine);
 
-        Room kitchen = new Room(Description.ID_KITCHEN, "Cucina", "Descrizione Cucina"); //CAMBIARE
-        kitchen.setLookDescription("Osserva Cucina"); //CAMBIARE
+        Room kitchen = new Room(Description.ID_KITCHEN, "Cucina", Description.DESCRIPTION_KITCHEN);
+        kitchen.setLookDescription(Description.LOOK_KITCHEN);
         kitchen.setRoomImage(new ImageIcon("resources//img//room//kitchen.png"));
-        kitchen.setVisitedDescription("Descrizione Cucina già visitata"); //CAMBIARE
+        kitchen.setVisitedDescription(Description.DESCRIPTION_VISITED_KITCHEN);
         kitchen.setLockedBy(cardGameRoom.getName());
         kitchen.addItem(radio);
+
+        Room relaxRoom = new Room(Description.ID_RELAX_ROOM, "Stanza relax", Description.DESCRIPTION_RELAX_ROOM);
+        relaxRoom.setLookDescription(Description.LOOK_RELAX_ROOM);
+        relaxRoom.setRoomImage(new ImageIcon("resources//img//room//relaxRoom.png"));
+        relaxRoom.setVisitedDescription(Description.DESCRIPTION_VISITED_RELAX_ROOM);
+        gameRoom.setLockedBy("");
+        relaxRoom.addItem(remoteControl);
+        relaxRoom.addItem(tv);
 
         g.setCurrentRoom(room79);
         room79.setNorth(hallway);
@@ -183,8 +212,10 @@ public class TLHStart {
         hallway.setSouth(room79);
         hallway.setEast(gameRoom);
         hallway.setWest(kitchen);
+        hallway.setNorth(relaxRoom);
         gameRoom.setWest(hallway);
         kitchen.setEast(hallway);
+        relaxRoom.setSouth(hallway);
 
         //Comandi
         Command north = new Command("nord", CommandType.NORD);

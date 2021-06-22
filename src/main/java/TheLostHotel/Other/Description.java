@@ -16,14 +16,22 @@ public class Description {
     public static final String DESCRIPTION_HALLWAY = "Un lungo corridoio.\n" +
             "Chissà dove porterà...";
 
-    public static final String DESCRIPTION_GAMEROOM = "Un'immensa sala giochi, provvista di 3 slot e\n" +
-            "2 grandi cambiamonete. Alcune delle slot sembrano ancora funzionare!";
+    public static final String DESCRIPTION_GAMEROOM = "Il tuo passato da ludopatico ti ha portato in questa arredata sala giochi. " +
+            "Sarà il caso di fermarsi a giocare o andare avanti?";
+
+    public static final String DESCRIPTION_KITCHEN = "Una fredda e umida cucina.\n" +
+            "Ti chiedi come hanno fatto a cucinarci qui dentro.";
+
+    public static final String DESCRIPTION_RELAX_ROOM = "Una stanza che sembra essere accogliente e ospitale.\n" +
+            "Sarà di certo piaciuta ai clienti dell'hotel!";
 
     //Descrizioni relative a stanze/luoghi già visitati
     public static final String DESCRIPTION_VISITED_ROOM_79 = "La stanza dove tutto è partito...";
     public static final String DESCRIPTION_VISITED_BATHROOM_79 = "Si, è lo stesso bagno di prima.";
     public static final String DESCRIPTION_VISITED_HALLWAY = "Un lungo corridoio.";
     public static final String DESCRIPTION_VISITED_GAMEROOM = "La sala giochi a est del corridoio.";
+    public static final String DESCRIPTION_VISITED_KITCHEN = "La cucina più brutta che tu abbia mai visto!";
+    public static final String DESCRIPTION_VISITED_RELAX_ROOM = "La miglior stanza dell'hotel per rilassarsi.";
 
     //Descrizione comando osserva per ogni stanza/luogo
     public static final String LOOK_ROOM_79 = "Accanto al letto dove hai \"passato\" la notte\n" +
@@ -37,7 +45,16 @@ public class Description {
             "Ti chiedi come possa passarci la gente.\n" +
             "In lontananza si intravede qualcosa...";
 
-    public static final String LOOK_GAMEROOM = "Descrizione osserva";
+    public static final String LOOK_GAMEROOM = "Un'immensa sala giochi, provvista di 3 slot e\n" +
+            "2 grandi cambiamonete. Alcune delle slot sembrano ancora funzionare!\n";
+
+    public static final String LOOK_KITCHEN = "Non appena entrato nella cucina vieni attirato da una musichetta gracchiata...\n" +
+            "Ti ritrovi in questa cucina malmessa con mobili antiquati e pentole arruginite. ";
+
+    public static final String LOOK_RELAX_ROOM = "Una scura stanza che presenta un'enorme televisione a muro.\n" +
+            "C'è tutto lo spazio e il confort per guardare un film.\n" +
+            "\"Chissa se la TV funzioni...\", ti chiedi.";
+
 
     //Descrizione relativa agli oggetti
     public static final String DESCRIPTION_CELLPHONE = "Il tuo ossessionato telefono. Te lo porti dappertutto.\n" +
@@ -77,13 +94,18 @@ public class Description {
 
     public static final String DESCRIPTION_SLOT = "Una slot ancora funzionante. Lo capisci dalla musichetta che proviene da essa!";
 
-    public static final String DESCRIPTION_HANDLE = "La maniglia caduta dalla slot machine... Hai avuto un passato da ludopatico?";
+    public static final String DESCRIPTION_HANDLE = "La maniglia caduta dalla slot machine...";
 
     public static final String DESCRIPTION_CARD_GAMEROOM = "Una tessera magnetica dimenticata da qualcuno nella sala giochi.\n" +
             "Potrebbe sbloccare alcune stanze!";
 
     public static final String DESCRIPTION_CHANGE_MACHINE = "Una macchina cambiamonete ancora in funzione, qualcuno avrà lasciato" +
             " la sua tessera dentro.";
+
+    public static final String DESCRIPTION_REMOTE_CONTROL = "Il telecomando della televisione presente nella stanza.";
+
+    public static final String DESCRIPTION_TV = "Una tv spenta. Sembra essere un ultimo modello.\n" +
+            "Purtroppo non ci sono i bottoni laterali per accenderla.\n" ;
 
     ///////////////////////
     public static final String DESCRIPTION_SLOT_USABLE_WITH_DROPS = "Hai girato troppo forte! " +
@@ -94,11 +116,19 @@ public class Description {
             "hai estratto la tessera... hai solo premuto un tasto!";
     public static final String DESCRIPTION_CHANGE_MACHINE_ALREADY_USED_WITH_DROPS = "Una macchinetta cambiamonete vuota.";
 
+    public static final String DESCRIPTION_REMOTE_CONTROL_USABLE_WITH_DROPS = "Non sai manco tu come hai fatto a trovare il telecomando. \n" +
+            "Sei riuscito ad accendere la TV e sono comparse delle scritte poco chiare!\n" +
+            "Per oggi niente film...";
+    public static final String DESCRIPTION_REMOTE_CONTROL_ALREADY_USED_WITH_DROPS = "Il telecomando che hai usato poco fa.\n" ;
+
+    public static final String DESCRIPTION_REMOTE_CONTROL_USABLE_BUT_ITEM_REMOVED = "Il telecomando non puo' funzionare senza pile!\n" ;
+
     //Descrizione relativa agli itemContainer già aperti/spostati
     public static final String OPENED_DESCRIPTION_FURNITURE_79 = "Il mobile della tua stanza. È aperto!";
     public static final String OPENED_DESCRIPTION_WARDROBE_79 = "L'armadio presente nella tua stanza. Un'anta è aperta!";
     public static final String MOVED_DESCRIPTION_PAINT_79 = "Il pregiato quadro della tua stanza. Lo hai spostato poco fa!";
     public static final String OPENED_DESCRIPTION_FURTNITURE_BATHROOM_79 = "Che ti aspettavi di trovare in un cestino da bagno?";
+    public static final String OPENED_DESCRIPTION_REMOTE_CONTROL = "Un telecomando sprovvisto di pile.";
 
     //ID oggetti
     public static final int ID_CELLPHONE = 1;
@@ -110,7 +140,7 @@ public class Description {
     public static final int ID_KEY79 = 7;
     public static final int ID_HANDLE = 8;
     public static final int ID_CARD_GAMEROOM = 9;
-    public static final int ID_RADIO = 10;
+    public static final int ID_BATTERY = 10;
 
     //ID oggetti contenitori
     public static final int ID_FURNITURE_79 = 100;
@@ -121,6 +151,9 @@ public class Description {
     public static final int ID_COATHOOK_79 = 105;
     public static final int ID_SLOT = 106;
     public static final int ID_CHANGE_MACHINE = 107;
+    public static final int ID_RADIO = 108;
+    public static final int ID_REMOTE_CONTROL = 109;
+    public static final int ID_TV = 110;
 
     //ID stanze
     public static final int ID_ROOM_79 = 1000;
@@ -128,6 +161,7 @@ public class Description {
     public static final int ID_HALLWAY = 1002;
     public static final int ID_GAMEROOM = 1003;
     public static final int ID_KITCHEN = 1004;
+    public static final int ID_RELAX_ROOM = 1005;
 
     //Password cassaforte
     public static final String PASS_STRONGBOX = "123456";

@@ -19,6 +19,8 @@ public class GameItemContainer extends GameItem implements Serializable {
     private boolean moved = false;
     private boolean movable = false;
     private boolean password_locked = false;
+    private boolean usableWithItem = false;
+
     private String openedDescription;
     private String movedDescription;
     private String passwordUnlockedDescription;
@@ -89,6 +91,14 @@ public class GameItemContainer extends GameItem implements Serializable {
 
     public void setPassword_locked(boolean password_locked) {
         this.password_locked = password_locked;
+    }
+
+    public boolean isUsableWithItem() {
+        return usableWithItem;
+    }
+
+    public void setUsableWithItem(boolean usableWithItem) {
+        this.usableWithItem = usableWithItem;
     }
 
     public String getOpenedDescription() {

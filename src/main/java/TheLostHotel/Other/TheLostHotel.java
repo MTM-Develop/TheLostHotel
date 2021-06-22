@@ -201,6 +201,35 @@ public class TheLostHotel extends GameManager {
                         gameItem.setUsed(true);
 
                     }
+                    else if(pOutput.containsWordType(WordType.ROOM_OBJ))
+                    {
+                        if(gameItem instanceof GameItemContainer)
+                        {
+                            if(((GameItemContainer) gameItem).isUsableWithItem())
+                            {
+                                if(!gameItem.isUsed() && !((GameItemContainer) gameItem).getcItemList().getInventoryList().isEmpty()) {
+                                    output.append(gameItem.getDescriptionUsableWithDrops() + "\n");
+                                    gameItem.setUsed(true);
+                                }
+                                else if(!gameItem.isUsed() && ((GameItemContainer) gameItem).getcItemList().getInventoryList().isEmpty()) {
+                                    output.append(gameItem.getDescriptionUsableButItemRemoved() + "\n");
+                                }
+                                else
+                                    output.append(gameItem.getDescriptionAlreadyUsedWithDrops() + "\n");
+
+
+                                //CAMBIARE E VEDERE SE CAMBIARE DESCRIZIONE OSSERVA SE é STATO PRESO L'OGGETTO
+                            }
+                            else
+                            {
+                                output.append(gameItem.getName() + " già utilizzato.\n");
+                            }
+                            //((GameItemContainer) gameItem).getcItemList().getInventoryList().removeIf(GameItem::isPicked);
+
+                        }
+
+
+                    }
                     else
                         output.append("Usa... cosa?\n");
                     break;
