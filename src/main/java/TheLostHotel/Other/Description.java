@@ -75,7 +75,7 @@ public class Description {
 
     public static final String DESCRIPTION_COATHOOK_79 = "Un appendiabiti di legno pregiato. Sembra essere un pezzo nuovo!";
 
-    public static final String DESCRIPTION_SLOT = "Una slot ancora funzionante lo capisci dalla musichetta che proviene da essa!";
+    public static final String DESCRIPTION_SLOT = "Una slot ancora funzionante. Lo capisci dalla musichetta che proviene da essa!";
 
     public static final String DESCRIPTION_HANDLE = "La maniglia caduta dalla slot machine... Hai avuto un passato da ludopatico?";
 
@@ -84,6 +84,15 @@ public class Description {
 
     public static final String DESCRIPTION_CHANGE_MACHINE = "Una macchina cambiamonete ancora in funzione, qualcuno avrà lasciato" +
             " la sua tessera dentro.";
+
+    ///////////////////////
+    public static final String DESCRIPTION_SLOT_USABLE_WITH_DROPS = "Hai girato troppo forte! " +
+            "La maniglia si è rotta ed è caduta!";
+    public static final String DESCRIPTION_SLOT_ALREADY_USED_WITH_DROPS = "Hai già rotto la slot, non ti basta?";
+
+    public static final String DESCRIPTION_CHANGE_MACHINE_USABLE_WITH_DROPS = "Grazie alle tue elevate capacità informatiche " +
+            "hai estratto la tessera... hai solo premuto un tasto!";
+    public static final String DESCRIPTION_CHANGE_MACHINE_ALREADY_USED_WITH_DROPS = "Una macchinetta cambiamonete vuota.";
 
     //Descrizione relativa agli itemContainer già aperti/spostati
     public static final String OPENED_DESCRIPTION_FURNITURE_79 = "Il mobile della tua stanza. È aperto!";
@@ -99,8 +108,9 @@ public class Description {
     public static final int ID_DRINK = 5;
     public static final int ID_KNIFE = 6;
     public static final int ID_KEY79 = 7;
-    public static final int ID_HANDLE = 7;
-    public static final int ID_CARD_GAMEROOM = 7;
+    public static final int ID_HANDLE = 8;
+    public static final int ID_CARD_GAMEROOM = 9;
+    public static final int ID_RADIO = 10;
 
     //ID oggetti contenitori
     public static final int ID_FURNITURE_79 = 100;
@@ -112,14 +122,14 @@ public class Description {
     public static final int ID_SLOT = 106;
     public static final int ID_CHANGE_MACHINE = 107;
 
-
     //ID stanze
     public static final int ID_ROOM_79 = 1000;
     public static final int ID_BATHROOM_79 = 1001;
     public static final int ID_HALLWAY = 1002;
     public static final int ID_GAMEROOM = 1003;
+    public static final int ID_KITCHEN = 1004;
 
-
-
+    //Password cassaforte
+    public static final String PASS_STRONGBOX = "123456";
 
 }

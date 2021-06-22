@@ -127,8 +127,9 @@ public class TheLostHotel extends GameManager {
                                 }
                                 /*else if(gameItem.isUseless())
                                     output.append(gameItem.getDescription() + "\n");*/    //AGGIUNGERE NEL COMANDO APRI
-                                else
-                                    output.append("Osserva... cosa?\n");
+                                else //if(gameItem.isPicked()) //PROVARE
+                                    output.append(gameItem.getDescription() + "\n"); //CAMBIARE (Occhio agli spoiler)
+                                    //output.append("Osserva... cosa?\n"); //CAMBIARE (Così si può osservare un oggetto)
                             } //else
                                 //output.append("Osserva... cosa?\n");
 
@@ -177,21 +178,24 @@ public class TheLostHotel extends GameManager {
                     }
                     else if(pOutput.containsWordType(WordType.ROOM_OBJ) && gameItem.isUsableWithDrops())
                     {
-                        /*if(gameItem instanceof GameItemContainer)         if per gestire le descrizioni di alcuni oggetti da modificare
+                        if(gameItem instanceof GameItemContainer)
                         {
+
+                            ((GameItemContainer) gameItem).getcItemList().getInventoryList().removeIf(GameItem::isPicked);
+
                             if(!gameItem.isUsed())
                                 output.append(gameItem.getDescriptionUsableWithDrops() + "\n");
-                            else if(gameItem)
+                            else if(gameItem.isUsed() && ((GameItemContainer) gameItem).getcItemList().getInventoryList().isEmpty())
                                 output.append(gameItem.getDescriptionAlreadyUsedWithDrops() + "\n");
                             else
-                                output.append("prova");
+                                output.append("già usato oggetto contentitore ma oggetti non ancora raccolti\n");
+                            //CAMBIARE E VEDERE SE CAMBIARE DESCRIZIONE OSSERVA SE é STATO PRESO L'OGGETTO
 
-                        }*/
-
-                        for(GameItem g : ((GameItemContainer) gameItem).getcItemList().getInventoryList()) {
+                            for(GameItem g : ((GameItemContainer) gameItem).getcItemList().getInventoryList()) {
                                 g.setPickupable(true);
-                        }
+                            }
 
+                        }
 
                         gameItem.setUsed(true);
 
@@ -501,6 +505,78 @@ public class TheLostHotel extends GameManager {
                         output.append("Forse intendevi \"abbandona\"?\n");
                     break;
 
+                /*case INSERT_PASS_STRONGBOX:
+                    if (pOutput.containsWordType(WordType.ROOM_OBJ) && pOutput.size() == 4) {
+
+                        GameItem iC = null; //contenitore
+                        gameItem = null;
+                        byte index = 0;
+
+                        // Iteratore per ciclare sul ParserOutput
+                        Iterator<WordType> it = pOutput.iterator();
+                        it.next(); // Salta il comando iniziale, già conosciuto
+
+                        // Salva gli oggetti che devono interagire nell'ordine prestabilito (e.g. "Apri baule con chiave")
+                        while (it.hasNext()) {
+
+                            //itemContainer. obbligatoriamente un oggetto della Room
+                            if (index == 1 && it.next().equals(WordType.ROOM_OBJ)) {
+
+                                iC = this.getGame().getCurrentRoom().getItemList().searchItem(pOutput.getString(WordType.ROOM_OBJ));
+
+                            }
+
+                            index++;
+                        }
+                        if (iC instanceof GameItemContainer) {
+
+                            // Se trova l'oggetto per aprirlo ed è corretto oppure se il contenitore non è bloccato lo apre
+                            if (((GameItemContainer) iC).isPassword_locked()) {
+                                if (pOutput.containsWordType(WordType.ERROR)) {
+                                    if (pOutput.getString(WordType.ERROR).equals("1")) {
+                                        output.append("Hai sbloccato la cassaforte!\n" +
+                                                "Hai trovato: " + iC.toString() + "\n"); //CAMBIARE DESCRIZIONE OSSERVA SE è STATA GIà APERTA
+
+                                        //((GameItemContainer) iC).setPassword_locked(false);
+
+                                        for(GameItem g: ((GameItemContainer) iC).getcItemList().getInventoryList()) {
+                                            g.setPickupable(true);
+                                        }
+
+                                    } else {
+
+                                        output.append("Password errata!\n");
+                                        //if(!((GameItemContainer) iC).isMoved()) {
+                                            //output.append("Hai spostato l'oggetto " + iC.getName()
+                                          //          + "! Hai trovato:" + iC.toString() + "\n");
+                                        //}
+                                        //else {
+                                            //output.append("Contenitore aperto ma oggetti non ancora raccolti"
+                                          //          + iC.toString() + "\n"); //CAMBIARE
+                                        //}
+
+                                        //for (GameItem g : ((GameItemContainer) iC).getcItemList().getInventoryList()) {
+                                          //  g.setPickupable(true);
+
+                                        //}
+                                        //((GameItemContainer) iC).setMoved(true);
+
+                                    }
+                                } else
+                                    output.append("Inserisci... cosa?\n");
+                            } else {
+                                output.append("NON POSSIBILE INSERIRE PASSWORD PPPP\n"); //CAMBIARE
+                            }
+                        }
+                        else
+                            output.append("PROVA NON CONTENITORE\n"); //CAMBIARE
+                    }
+                    else if (pOutput.containsWordType(WordType.INVENTORY_OBJ))
+                        output.append("Non è possibile spostare questo oggetto!\n");
+                    else
+                        output.append("Inserisci... cosa?\n");
+                    break;*/
+
                 default:
                     break;
             }
@@ -643,13 +719,15 @@ public class TheLostHotel extends GameManager {
             + ">> aiuto - Consente di visualizzare l'elenco dei comando riconosciuti\n"
             + ">> osserva - Permette di guardarti intorno ed esaminare l'ambiente circostante\n"
             + ">> osserva [oggetto/oggetto contenitore] - Permette di esaminare un oggetto dell'inventario o della stanza corrente\n"
-            + ">> usa [oggetto] -  Usa oggetti del tuo inventario\n"
+            + ">> usa [oggetto/oggetto contenitore] -  Usa un oggetto dell'inventario o della stanza corrente\n"
             + ">> apri [oggetto contenitore] - Apri un oggetto contenitore\n"
             + ">> apri [oggetto contenitore] con [oggetto] - Apri un oggetto contenitore bloccato con un oggetto\n"
             + ">> sposta [oggetto/oggetto contenitore] - Sposta un oggetto della stanza\n"
             + ">> prendi [oggetto] - Prendi un oggetto a terra nella stanza o in un contenitore\n"
-            + ">> lascia [oggetto] - Lascia un oggetto in una stanza\n"
-            + "Altri comandi più specifici dovranno essere trovati dal giocatore.\n\n"
+            + ">> lascia [oggetto] - Lascia un oggetto in una stanza\n\n"
+            //+ ">> inserisci [password] in [oggetto contenitore] - Permette di sbloccare un oggetto contenitore tramite una password\n\n"
+            + "Altri comandi più specifici dovranno essere trovati dal giocatore.\n"
+            + "N.B: Occhio agli oggetti non presenti nelle immagini!\n\n"
             + "SUGGERIMENTO:\nÈ possibile risalire ai comandi eseguiti posizionandosi sull'area di inserimento dei comandi.\n"
             + "   - Premendo la freccia in giù, è possibile scorrere i vari comandi eseguiti.\n\n"
             + "N.B: In caso in cui si carichi una partita esistente i comandi eseguiti verranno persi!\n"

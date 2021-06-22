@@ -66,11 +66,13 @@ public class TLHStart {
         ImageIcon imgHandle = new ImageIcon("resources//img//gameItem//handle.png");
         handle.setItemImage(imgHandle);
 
+        GameItem radio = new GameItem(Description.ID_RADIO, "radio", "Descrizione radio");
+        radio.setAlias(new String[]{"radiolina"});
+
         GameItem cardGameRoom = new GameItem(Description.ID_CARD_GAMEROOM, "carta", Description.DESCRIPTION_CARD_GAMEROOM);
         cardGameRoom.setAlias(new String[]{"card", "tessera"});
         ImageIcon imgCardGameRoom = new ImageIcon("resources//img//gameItem//card.png");
         cardGameRoom.setItemImage(imgCardGameRoom);
-
 
         GameItemContainer button = new GameItemContainer(45324533, "bottone", Description.DESCRIPTION_KNIFE); //CAMBIARE
         button.setAlias(new String[]{"pulsante"}); //CAMBIARE
@@ -113,22 +115,25 @@ public class TLHStart {
 
         GameItemContainer slot = new GameItemContainer(Description.ID_SLOT, "slot", Description.DESCRIPTION_SLOT);
         slot.setAlias(new String[]{"macchinetta"});
+        slot.setDescriptionUsableWithDrops(Description.DESCRIPTION_SLOT_USABLE_WITH_DROPS);
+        slot.setDescriptionAlreadyUsedWithDrops(Description.DESCRIPTION_SLOT_ALREADY_USED_WITH_DROPS);
         slot.setUsableWithDrops(true);
-        slot.setDescriptionUsableWithDrops("Hai girato troppo forte! La maniglia si è rotta ed è caduta!");
-        slot.setDescriptionAlreadyUsedWithDrops("Hai già rotto la slot, non ti basta?");
         slot.add(handle);
 
         GameItemContainer changeMachine = new GameItemContainer(Description.ID_CHANGE_MACHINE, "cambiamonete", Description.DESCRIPTION_CHANGE_MACHINE);
         changeMachine.setAlias(new String[]{"cambiovaluta"});
+        changeMachine.setDescriptionUsableWithDrops(Description.DESCRIPTION_CHANGE_MACHINE_USABLE_WITH_DROPS);
+        changeMachine.setDescriptionAlreadyUsedWithDrops(Description.DESCRIPTION_CHANGE_MACHINE_ALREADY_USED_WITH_DROPS);
         changeMachine.setUsableWithDrops(true);
-        changeMachine.setDescriptionUsableWithDrops("Grazie alle tue elevate capacità informatiche hai estratto la tessera...hai solo premuto un tasto!");
-        changeMachine.setDescriptionAlreadyUsedWithDrops("Una macchinetta cambiamonete vuota.");
         changeMachine.add(cardGameRoom);
 
+        //GameItem password = new GameItem(Description.ID_PASSWORD, "1"); //Occhio alla descrizione
 
         /*GameItemContainer strongbox = new GameItemContainer(80, "cassaforte", "Descrizione cassaforte");
-        strongbox.setAlias(new String[]{"guardaroba", "armadio"});
-        strongbox.setLockedBy("123456");*/
+        strongbox.setLockedBy(password.getName());//Description.PASS_STRONGBOX);
+        strongbox.setPassword_locked(true);
+        strongbox.setPasswordUnlockedDescription("Già sbloccato");
+        strongbox.add(key79);*/
 
         //Stanze
         Room room79 = new Room(Description.ID_ROOM_79, "Stanza 79", Description.DESCRIPTION_ROOM_79);
@@ -141,6 +146,7 @@ public class TLHStart {
         room79.addItem(bed79);
         room79.addItem(coatHook79);
         room79.addItem(button);
+        //room79.addItem(strongbox);
 
         Room bathroom79 = new Room(Description.ID_BATHROOM_79, "Bagno stanza 79", Description.DESCRIPTION_BATHROOM_79);
         bathroom79.setLookDescription(Description.LOOK_BATHROOM_79);
@@ -162,13 +168,22 @@ public class TLHStart {
         gameRoom.addItem(slot);
         gameRoom.addItem(changeMachine);
 
+        Room kitchen = new Room(Description.ID_KITCHEN, "Cucina", "Descrizione Cucina"); //CAMBIARE
+        kitchen.setLookDescription("Osserva Cucina"); //CAMBIARE
+        kitchen.setRoomImage(new ImageIcon("resources//img//room//kitchen.png"));
+        kitchen.setVisitedDescription("Descrizione Cucina già visitata"); //CAMBIARE
+        kitchen.setLockedBy(cardGameRoom.getName());
+        kitchen.addItem(radio);
+
         g.setCurrentRoom(room79);
         room79.setNorth(hallway);
         room79.setWest(bathroom79);
         bathroom79.setEast(room79);
         hallway.setSouth(room79);
         hallway.setEast(gameRoom);
+        hallway.setWest(kitchen);
         gameRoom.setWest(hallway);
+        kitchen.setEast(hallway);
 
         //Comandi
         Command north = new Command("nord", CommandType.NORD);
@@ -220,6 +235,9 @@ public class TLHStart {
         Command quit = new Command("abbandona", CommandType.QUIT);
         quit.setAlias(new String[]{"arrenditi", "termina", "ammazzati", "suicidati", "resa"});
         g.getCommands().add(quit);
+
+        //Command insertPassStrongbox = new Command("inserisci", CommandType.INSERT_PASS_STRONGBOX);
+        //g.getCommands().add(insertPassStrongbox);
 
     }
 

@@ -18,8 +18,10 @@ public class GameItemContainer extends GameItem implements Serializable {
     private boolean closed = true;
     private boolean moved = false;
     private boolean movable = false;
+    private boolean password_locked = false;
     private String openedDescription;
     private String movedDescription;
+    private String passwordUnlockedDescription;
 
 
     // Costruttori
@@ -81,6 +83,14 @@ public class GameItemContainer extends GameItem implements Serializable {
         this.movable = movable;
     }
 
+    public boolean isPassword_locked() {
+        return password_locked;
+    }
+
+    public void setPassword_locked(boolean password_locked) {
+        this.password_locked = password_locked;
+    }
+
     public String getOpenedDescription() {
         return openedDescription;
     }
@@ -95,6 +105,14 @@ public class GameItemContainer extends GameItem implements Serializable {
 
     public void setMovedDescription(String movedDescription) {
         this.movedDescription = movedDescription;
+    }
+
+    public String getPasswordUnlockedDescription() {
+        return passwordUnlockedDescription;
+    }
+
+    public void setPasswordUnlockedDescription(String passwordUnlockedDescription) {
+        this.passwordUnlockedDescription = passwordUnlockedDescription;
     }
 
     /**

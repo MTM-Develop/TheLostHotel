@@ -29,7 +29,7 @@ public class Parser {
         ParserOutput pOutput = new ParserOutput();
 
         // Rimuove punteggiatura, caratteri speciali e cifre e tokenizza la stringa in base agli spazi
-        String[] tokens = phrase.replaceAll("[^a-zA-Zùìèéàò]", " ").toLowerCase().split("\\s+");
+        String[] tokens = phrase.replaceAll("[^0-9a-zA-Zùìèéàò]", " ").toLowerCase().split("\\s+");
 
         // Cerca un comando
         for (String t : tokens) {
@@ -73,13 +73,16 @@ public class Parser {
 
             if(tokens.length != pOutput.size()) //Funziona ma bisogna provare
             {
+
                 if (!tokens[1].equals(currentRoom.getName())) //Meglio rimuoverlo
-                    pOutput.add(WordType.ERROR, s);
+                    pOutput.add(WordType.ERROR, tokens[1]);
             }
 
             if(tokens.length == 4) {
                 if (tokens[2].equals("con"))
                     pOutput.add(WordType.CON, s);
+                else if (tokens[2].equals("in"))
+                    pOutput.add(WordType.IN, s);
             }
 
         } else { // Se non ha trovato nemmeno un comando
@@ -155,6 +158,7 @@ public class Parser {
                  */ else if (i instanceof GameItemContainer) {
 
                     // Chiamata ricorsiva sul contenitore
+
                     if (!(s1 = isItem(s, ((GameItemContainer) i).getcItemList(), tokens, counter)).isEmpty()) {
                         return s1;
                     }
