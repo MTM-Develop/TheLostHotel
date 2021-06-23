@@ -105,7 +105,7 @@ public class Description {
     public static final String DESCRIPTION_REMOTE_CONTROL = "Il telecomando della televisione presente nella stanza.";
 
     public static final String DESCRIPTION_TV = "Una tv spenta. Sembra essere un ultimo modello.\n" +
-            "Purtroppo non ci sono i bottoni laterali per accenderla.\n" ;
+            "Purtroppo non ci sono i bottoni laterali per accenderla." ;
 
     ///////////////////////
     public static final String DESCRIPTION_SLOT_USABLE_WITH_DROPS = "Hai girato troppo forte! " +
@@ -116,12 +116,18 @@ public class Description {
             "hai estratto la tessera... hai solo premuto un tasto!";
     public static final String DESCRIPTION_CHANGE_MACHINE_ALREADY_USED_WITH_DROPS = "Una macchinetta cambiamonete vuota.";
 
-    public static final String DESCRIPTION_REMOTE_CONTROL_USABLE_WITH_DROPS = "Non sai manco tu come hai fatto a trovare il telecomando. \n" +
-            "Sei riuscito ad accendere la TV e sono comparse delle scritte poco chiare!\n" +
+    public static final String DESCRIPTION_REMOTE_CONTROL_USABLE_WITH_DROPS = "Sei riuscito ad accendere la TV e sono comparse delle scritte poco chiare!" +
             "Per oggi niente film...";
-    public static final String DESCRIPTION_REMOTE_CONTROL_ALREADY_USED_WITH_DROPS = "Il telecomando che hai usato poco fa.\n" ;
+    public static final String DESCRIPTION_REMOTE_CONTROL_ALREADY_USED_WITH_DROPS = "Il telecomando che hai usato poco fa." ;
 
-    public static final String DESCRIPTION_REMOTE_CONTROL_USABLE_BUT_ITEM_REMOVED = "Il telecomando non puo' funzionare senza pile!\n" ;
+    public static final String DESCRIPTION_REMOTE_CONTROL_USABLE_BUT_ITEM_REMOVED = "Il telecomando non puo' funzionare senza pile!" ;
+
+    ///////////////////////////////////// CAMBIARE
+    public static final String DESCRIPTION_RADIO_USABLE_WITH_DROPS = "Sei riuscito ad accendere la TV e sono comparse delle scritte poco chiare! " +
+            "Per oggi niente film...";
+    public static final String DESCRIPTION_RADIO_ALREADY_USED_WITH_DROPS = "Il telecomando che hai usato poco fa." ;
+
+    public static final String DESCRIPTION_RADIO_USABLE_BUT_ITEM_REMOVED = "La radio non puo' funzionare senza pile!" ;
 
     //Descrizione relativa agli itemContainer già aperti/spostati
     public static final String OPENED_DESCRIPTION_FURNITURE_79 = "Il mobile della tua stanza. È aperto!";

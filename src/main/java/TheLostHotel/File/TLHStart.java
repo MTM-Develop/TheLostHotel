@@ -75,6 +75,7 @@ public class TLHStart {
         batteries.setAlias(new String[]{"pila", "batteria", "pile"});
         ImageIcon imgBatteries = new ImageIcon("resources//img//gameItem//batteries.png");
         batteries.setItemImage(imgBatteries);
+        g.getInventory().add(batteries);
 
         GameItemContainer button = new GameItemContainer(45324533, "bottone", Description.DESCRIPTION_KNIFE); //CAMBIARE
         button.setAlias(new String[]{"pulsante"}); //CAMBIARE
@@ -129,10 +130,13 @@ public class TLHStart {
         changeMachine.setUsableWithDrops(true);
         changeMachine.add(cardGameRoom);
 
-
         GameItemContainer radio = new GameItemContainer(Description.ID_RADIO, "radio", "Descrizione radio"); //Scrivere qualcosa riguardo la mancanza di corrente
         radio.setAlias(new String[]{"emittente", "radiostazione", "radiofonia", "radiocomunicazione", "radiodiffusione"});
-
+        radio.setUsableWithItem(true);
+        radio.setDescriptionUsableWithDrops(Description.DESCRIPTION_RADIO_USABLE_WITH_DROPS); //CAMBIARE
+        radio.setDescriptionAlreadyUsedWithDrops(Description.DESCRIPTION_RADIO_ALREADY_USED_WITH_DROPS); //CAMBIARE
+        radio.setDescriptionUsableButItemRemoved(Description.DESCRIPTION_RADIO_USABLE_BUT_ITEM_REMOVED); //CAMBIARE
+        radio.setLockedBy(knife.getName());
 
         GameItemContainer remoteControl = new GameItemContainer(Description.ID_REMOTE_CONTROL, "telecomando", Description.DESCRIPTION_REMOTE_CONTROL);
         remoteControl.setOpenedDescription(Description.OPENED_DESCRIPTION_REMOTE_CONTROL);
@@ -140,13 +144,12 @@ public class TLHStart {
         remoteControl.setDescriptionUsableWithDrops(Description.DESCRIPTION_REMOTE_CONTROL_USABLE_WITH_DROPS);
         remoteControl.setDescriptionAlreadyUsedWithDrops(Description.DESCRIPTION_REMOTE_CONTROL_ALREADY_USED_WITH_DROPS);
         remoteControl.setDescriptionUsableButItemRemoved(Description.DESCRIPTION_REMOTE_CONTROL_USABLE_BUT_ITEM_REMOVED);
-        remoteControl.add(batteries);
+        //remoteControl.add(batteries);
         remoteControl.setLockedBy("");
         remoteControl.setUsableWithItem(true);
 
-        GameItemContainer tv = new GameItemContainer(Description.ID_TV, "televisione", Description.DESCRIPTION_TV);
+        GameItemContainer tv = new GameItemContainer(Description.ID_TV, "televisione", Description.DESCRIPTION_TV); //CAMBIARE
         tv.setAlias(new String[]{"tv", "televisore"});
-
 
         //GameItem password = new GameItem(Description.ID_PASSWORD, "1"); //Occhio alla descrizione
 
@@ -180,7 +183,7 @@ public class TLHStart {
         hallway.setLookDescription(Description.LOOK_HALLWAY);
         hallway.setRoomImage(new ImageIcon("resources//img//room//hallway.png"));
         hallway.setVisitedDescription(Description.DESCRIPTION_VISITED_HALLWAY);
-        hallway.setLockedBy(key79.getName()); //chiave
+        hallway.setLockedBy(""); //chiave
 
         Room gameRoom = new Room(Description.ID_GAMEROOM, "Sala giochi", Description.DESCRIPTION_GAMEROOM);
         gameRoom.setLookDescription(Description.LOOK_GAMEROOM); //CAMBIARE
@@ -221,13 +224,13 @@ public class TLHStart {
         Command north = new Command("nord", CommandType.NORD);
         g.getCommands().add(north);
 
-        Command south = new Command("sud", CommandType.SOUTH);
+        Command south = new Command("sud", CommandType.SUD);
         g.getCommands().add(south);
 
-        Command east = new Command("est", CommandType.EAST);
+        Command east = new Command("est", CommandType.EST);
         g.getCommands().add(east);
 
-        Command west = new Command("ovest", CommandType.WEST);
+        Command west = new Command("ovest", CommandType.OVEST);
         g.getCommands().add(west);
 
         Command look = new Command("guarda", CommandType.LOOK);
@@ -264,12 +267,12 @@ public class TLHStart {
         push.setAlias(new String[]{"spingi"});
         g.getCommands().add(push);
 
-        Command quit = new Command("abbandona", CommandType.QUIT);
+        /*Command quit = new Command("abbandona", CommandType.QUIT);
         quit.setAlias(new String[]{"arrenditi", "termina", "ammazzati", "suicidati", "resa"});
-        g.getCommands().add(quit);
+        g.getCommands().add(quit);*/
 
-        //Command insertPassStrongbox = new Command("inserisci", CommandType.INSERT_PASS_STRONGBOX);
-        //g.getCommands().add(insertPassStrongbox);
+        Command insert = new Command("inserisci", CommandType.INSERT);
+        g.getCommands().add(insert);
 
     }
 

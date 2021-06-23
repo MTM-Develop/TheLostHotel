@@ -289,6 +289,8 @@ public class GameGUI extends javax.swing.JFrame {
 
         jmText.setText("Text");
         jmiFastText.setText("Fast text");
+        KeyStroke keyStrokeFastText = KeyStroke.getKeyStroke(KeyEvent.VK_F, KeyEvent.CTRL_DOWN_MASK);
+        jmiFastText.setAccelerator(keyStrokeFastText);
         jmiFastText.addActionListener(e -> jmiFastTextActionPerformed());
         jmText.add(jmiFastText);
         jMenuBar1.add(jmText);
@@ -505,8 +507,8 @@ public class GameGUI extends javax.swing.JFrame {
                 + ">> apri [oggetto contenitore] con [oggetto] - Apri un oggetto contenitore bloccato con un oggetto\n"
                 + ">> sposta [oggetto/oggetto contenitore] - Sposta un oggetto della stanza\n"
                 + ">> prendi [oggetto] - Prendi un oggetto a terra nella stanza o in un contenitore\n"
-                + ">> lascia [oggetto] - Lascia un oggetto in una stanza\n\n"
-                //+ ">> inserisci [password] in [oggetto contenitore] - Permette di sbloccare un oggetto contenitore tramite una password\n\n"
+                + ">> lascia [oggetto] - Lascia un oggetto nella stanza corrente\n"
+                + ">> inserisci [oggetto] in [oggetto contenitore] - Permette di inserire un oggetto in un oggetto contenitore (non bloccato)\n\n"
                 + "Altri comandi più specifici dovranno essere trovati dal giocatore.\n"
                 + "N.B: Occhio agli oggetti non presenti nelle immagini!\n\n"
                 + "SUGGERIMENTO:\nÈ possibile risalire ai comandi eseguiti posizionandosi sull'area di inserimento dei comandi.\n"
