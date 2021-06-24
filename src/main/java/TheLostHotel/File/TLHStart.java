@@ -37,23 +37,23 @@ public class TLHStart {
         lighter.setItemImage(imgLighter);
         //g.getInventory().add(accendino);
 
-        GameItem paper79 = new GameItem(Description.ID_PAPER79, "foglio", Description.DESCRIPTION_PAPER_79);
-        paper79.setAlias(new String[]{"nota", "carta", "note", "appunti"});
-        ImageIcon imgPaper79 = new ImageIcon("resources//img//gameItem//paper79.png");
-        paper79.setItemImage(imgPaper79);
+        GameItem paperHallwayColumbus = new GameItem(Description.ID_PAPER_HALLWAY_COLUMBUS, "foglio", Description.DESCRIPTION_PAPER_HALLWAY_COLUMBUS);
+        paperHallwayColumbus.setAlias(new String[]{"nota", "carta", "note", "appunti"});
+        ImageIcon imgPaperHallwayColumbus = new ImageIcon("resources//img//gameItem//paperHallwayColumbus.png");
+        paperHallwayColumbus.setItemImage(imgPaperHallwayColumbus);
 
         GameItem drink = new GameItem(Description.ID_DRINK, "bibita", Description.DESCRIPTION_DRINK);
         drink.setAlias(new String[]{"drink"});
         ImageIcon imgDrink = new ImageIcon("resources//img//gameItem//drink.png");
         drink.setItemImage(imgDrink);
         drink.setConsumable((byte) 1);
-        g.getInventory().add(drink);
+        //g.getInventory().add(drink);
 
         GameItem knife = new GameItem(Description.ID_KNIFE, "coltellino", Description.DESCRIPTION_KNIFE);
         knife.setAlias(new String[]{"coltello"});
         ImageIcon imgKnife = new ImageIcon("resources//img//gameItem//knife.png");
         knife.setItemImage(imgKnife);
-        //g.getInventory().add(coltellino);
+        g.getInventory().add(knife);
 
         GameItem key79 = new GameItem(Description.ID_KEY79, "chiave", Description.DESCRIPTION_KEY_79);
         key79.setAlias(new String[]{"chiavi"});
@@ -82,6 +82,7 @@ public class TLHStart {
         map.setItemImage(imgMap);
         g.getInventory().add(map);
 
+
         GameItemContainer button = new GameItemContainer(45324533, "bottone", Description.DESCRIPTION_KNIFE); //CAMBIARE
         button.setAlias(new String[]{"pulsante"}); //CAMBIARE
         button.setPushable(true);
@@ -91,16 +92,15 @@ public class TLHStart {
         GameItemContainer furniture79 = new GameItemContainer(Description.ID_FURNITURE_79, "mobile", Description.DESCRIPTION_FURNITURE_79);
         furniture79.setOpenedDescription(Description.OPENED_DESCRIPTION_FURNITURE_79);
         furniture79.setAlias(new String[]{"comodino"});
-        furniture79.add(paper79);
         furniture79.add(cellphone);
         furniture79.setLockedBy("");
 
         GameItemContainer wardrobe79 = new GameItemContainer(Description.ID_WARDROBE_79, "armadio", Description.DESCRIPTION_WARDROBE_79);
         wardrobe79.setOpenedDescription(Description.OPENED_DESCRIPTION_WARDROBE_79);
         wardrobe79.setAlias(new String[]{"guardaroba"});
-        wardrobe79.add(knife);
+        //wardrobe79.add(knife);
         wardrobe79.add(lighter);
-        wardrobe79.setLockedBy(drink.getName());
+        wardrobe79.setLockedBy(wallet.getName());
 
         GameItemContainer paint79 = new GameItemContainer(Description.ID_PAINT_79, "quadro", Description.DESCRIPTION_PAINT_79);
         paint79.setMovedDescription(Description.MOVED_DESCRIPTION_PAINT_79);
@@ -159,12 +159,25 @@ public class TLHStart {
         GameItemContainer sofa = new GameItemContainer(Description.ID_SOFA, "divano", Description.DESCRIPTION_SOFA);
         sofa.setAlias(new String[]{"poltrona", "sofa"});
 
-        GameItemContainer plant = new GameItemContainer(Description.ID_PLANT, "pianta", Description.DESCRIPTION_PLANT);
-        plant.setAlias(new String[]{"piantina"});
+        GameItemContainer plantRelaxRoom = new GameItemContainer(Description.ID_PLANT_RELAX_ROOM, "pianta", Description.DESCRIPTION_PLANT);
+        plantRelaxRoom.setAlias(new String[]{"piantina"});
         //plant.setUseless(true);
 
         GameItemContainer fan = new GameItemContainer(Description.ID_FAN, "ventilatore", Description.DESCRIPTION_FAN);
         fan.setAlias(new String[]{"ventola"});
+
+        /*GameItemContainer box = new GameItemContainer(Description.ID_BOX, "scatola", Description.DESCRIPTION_BOX);
+        box.setOpenedDescription(Description.OPENED_DESCRIPTION_BOX);
+        box.setAlias(new String[]{"scatolone", "cartone", "box", "contenitore"});
+        box.setLockedBy(knife.getName());
+        box.add(drink);*/
+
+        GameItemContainer plantHallwayColumbus = new GameItemContainer(Description.ID_PLANT_HALLWAY_COLUMBUS, "pianta", Description.DESCRIPTION_PLANT);
+        plantHallwayColumbus.setMovedDescription(Description.MOVED_DESCRIPTION_PLANT_HALLWAY_COLUMBUS);
+        plantHallwayColumbus.setAlias(new String[]{"piantina"});
+        plantHallwayColumbus.setMovable(true);
+        plantHallwayColumbus.add(paperHallwayColumbus);
+
 
         //GameItem password = new GameItem(Description.ID_PASSWORD, "1"); //Occhio alla descrizione
 
@@ -223,14 +236,22 @@ public class TLHStart {
         relaxRoom.addItem(remoteControl);
         relaxRoom.addItem(tv);
         relaxRoom.addItem(sofa);
-        relaxRoom.addItem(plant);
+        relaxRoom.addItem(plantRelaxRoom);
         relaxRoom.addItem(fan);
 
-        Room hallwayOvest = new Room(Description.ID_HALLWAY_OVEST, "Corridoio Ovest", Description.DESCRIPTION_HALLWAY_OVEST);
-        hallwayOvest.setLookDescription(Description.LOOK_HALLWAY_OVEST);
-        hallwayOvest.setRoomImage(new ImageIcon("resources//img//room//hallway2.png"));
-        hallwayOvest.setVisitedDescription(Description.DESCRIPTION_VISITED_HALLWAY_OVEST);
-        hallwayOvest.setLockedBy(""); //chiave
+        Room hallwayColumbus = new Room(Description.ID_HALLWAY_COLUMBUS, "Corridoio Columbus", Description.DESCRIPTION_HALLWAY_COLUMBUS);
+        hallwayColumbus.setLookDescription(Description.LOOK_HALLWAY_COLUMBUS);
+        hallwayColumbus.setRoomImage(new ImageIcon("resources//img//room//hallwayColumbus.png"));
+        hallwayColumbus.setVisitedDescription(Description.DESCRIPTION_VISITED_HALLWAY_COLUMBUS);
+        hallwayColumbus.setLockedBy(""); //chiave
+        hallwayColumbus.addItem(plantHallwayColumbus);
+        //hallwayOvest.addItem(box);
+
+        Room bar = new Room(Description.ID_BAR, "Bar Columbus", Description.DESCRIPTION_BAR);
+        bar.setLookDescription(Description.LOOK_BAR);
+        bar.setRoomImage(new ImageIcon("resources//img//room//bar.png"));
+        bar.setVisitedDescription(Description.DESCRIPTION_VISITED_BAR);
+        bar.setLockedBy(""); //chiave
 
         g.setCurrentRoom(room79);
         room79.setNorth(hallway);
@@ -238,11 +259,13 @@ public class TLHStart {
         bathroom79.setEast(room79);
         hallway.setSouth(room79);
         hallway.setEast(gameRoom);
-        hallway.setWest(hallwayOvest);
+        hallway.setWest(hallwayColumbus);
         hallway.setNorth(relaxRoom);
         gameRoom.setWest(hallway);
-        hallwayOvest.setEast(hallway);
+        hallwayColumbus.setEast(hallway);
+        hallwayColumbus.setWest(bar);
         relaxRoom.setSouth(hallway);
+        bar.setEast(hallwayColumbus);
 
         //Comandi
         Command north = new Command("nord", CommandType.NORD);

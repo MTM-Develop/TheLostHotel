@@ -411,7 +411,6 @@ public class TheLostHotel extends GameManager {
 
                                         for (GameItem g : ((GameItemContainer) iC).getcItemList().getInventoryList()) {
                                             g.setPickupable(true);
-
                                         }
 
                                     }

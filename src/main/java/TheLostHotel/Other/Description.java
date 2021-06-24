@@ -25,8 +25,11 @@ public class Description {
     public static final String DESCRIPTION_RELAX_ROOM = "Una stanza che sembra essere accogliente e ospitale.\n" +
             "Sarà di certo piaciuta ai clienti dell'hotel!";
 
-    public static final String DESCRIPTION_HALLWAY_OVEST = "Un lungo corridoio.\n" +
-            "Chissà dove porterà..."; //CAMBIARE
+    public static final String DESCRIPTION_HALLWAY_COLUMBUS = "Un lungo corridoio simile a quello visitato prima.\n" +
+            "Sembrano essere tutti uguali...";
+
+    public static final String DESCRIPTION_BAR = "Un lungo corridoio simile a quello visitato prima.\n" +
+            "Sembrano essere tutti uguali..."; //DA CAMBIARE
 
     //Descrizioni relative a stanze/luoghi già visitati
     public static final String DESCRIPTION_VISITED_ROOM_79 = "La stanza dove tutto è partito...";
@@ -35,7 +38,8 @@ public class Description {
     public static final String DESCRIPTION_VISITED_GAMEROOM = "La sala giochi a est del corridoio.";
     public static final String DESCRIPTION_VISITED_KITCHEN = "La cucina più brutta che tu abbia mai visto!";
     public static final String DESCRIPTION_VISITED_RELAX_ROOM = "La miglior stanza dell'hotel per rilassarsi.";
-    public static final String DESCRIPTION_VISITED_HALLWAY_OVEST = "Un lungo corridoio."; //CAMBIARE
+    public static final String DESCRIPTION_VISITED_HALLWAY_COLUMBUS = "Un lungo corridoio.";
+    public static final String DESCRIPTION_VISITED_BAR = "Un lungo corridoio."; // CAMBIARE
 
     //Descrizione comando osserva per ogni stanza/luogo
     public static final String LOOK_ROOM_79 = "Accanto al letto dove hai \"passato\" la notte\n" +
@@ -45,9 +49,8 @@ public class Description {
     public static final String LOOK_BATHROOM_79 = "Cosa vuoi che ci sia di così utile in un bagno d'hotel abbandonato?\n" +
             "Un cestino e solo tanta puzza... devi ringraziare che la luce funzioni.";
 
-    public static final String LOOK_HALLWAY = "Il corridoio sembra essere molto stretto e lungo.\n" +
-            "Ti chiedi come possa passarci la gente.\n" +
-            "In lontananza si intravede qualcosa...";
+    public static final String LOOK_HALLWAY = "Il corridoio sembra essere molto lungo e cupo.\n" +
+            "Ci sono diverse porte... Sarà il caso di entrarci? ";
 
     public static final String LOOK_GAMEROOM = "Un'immensa sala giochi, provvista di 3 slot e\n" +
             "2 grandi cambiamonete. Alcune delle slot sembrano ancora funzionare!";
@@ -59,8 +62,12 @@ public class Description {
             "C'è tutto lo spazio e il confort per guardare un film.\n" +
             "\"Chissa se la TV funzioni...\", ti chiedi.";
 
-    public static final String LOOK_HALLWAY_OVEST = "Il corridoio sembra essere molto stretto e lungo.\n" +
-            "Ti chiedi come possa passarci la gente.\n" +
+    public static final String LOOK_HALLWAY_COLUMBUS = "Un altro corridoio, il parquet sembra essere più consumato\n" +
+            "rispetto a quello di prima. " +
+            "In lontananza si intravede qualcosa...";
+
+    public static final String LOOK_BAR = "Un altro corridoio, il parquet sembra essere più consumato\n" +
+            "rispetto a quello di prima. " +
             "In lontananza si intravede qualcosa..."; //CAMBIARE
 
     //Descrizione relativa agli oggetti
@@ -72,9 +79,6 @@ public class Description {
 
     public static final String DESCRIPTION_LIGHTER = "Per un fumatore come te è impossibile non avere un accendino " +
             "a portata di mano...";
-
-    public static final String DESCRIPTION_PAPER_79 = "Un pezzo di carta stroppiciato...\n" +
-            "sembra esserci scritto qualcosa: \" ... \" "; //da ultimare
 
     public static final String DESCRIPTION_DRINK = "Una bevanda gassata che hai preso da un autogrill " +
             "durante il viaggio.";
@@ -130,9 +134,19 @@ public class Description {
             "▓▓▓: Stanza▓9;\n" + //stanza79
             "▓▓▓: ▓▓▓▓▓▓▓▓▓▓▓▓;\n" + //gaming room
             "NO▓▓: Stanza ▓▓▓a▓;\n" + //relax
-            "OVEST: ▓▓▓▓▓▓▓oio ▓▓▓▓;\n" + //corridoio ovest
+            "OVEST: ▓▓▓▓▓▓▓oio ▓▓▓▓;\n" + //corridoio Columbus
             "▓▓▓: ▓▓▓▓▓79;\n" + //bagno79
             "▓▓▓: ▓▓▓▓▓▓▓3;\"\n"; //stanza amico .3
+
+    public static final String DESCRIPTION_PAPER_HALLWAY_COLUMBUS = "Un pezzo di carta stroppiciato...\n" +
+            "sembra esserci scritto qualcosa: \" ... Non so ▓▓▓e sia ▓▓▓sibile ma non c'è u▓a via d'uscita.\n" +
+            "In ▓▓▓▓▓ stanze ho trovato qu▓▓▓▓sa che mi conduce ad ▓▓▓ ce▓ta ▓▓▓▓za..\n" +
+            "La chiamano sta▓▓▓ ▓3, sembra s▓▓▓▓▓a!\n" +
+            "13 ge▓n▓io  03:▓1\" \n" +
+            "Dalla scrittura sembra trattarsi di John."; //da ultimare
+
+    /*public static final String DESCRIPTION_BOX = "Una scatola di cartone chiusa con dello scotch.\n" +
+            "Difficile aprirla a mano.";*/
 
     public static final String DESCRIPTION_SLOT_USABLE_WITH_DROPS = "Hai girato troppo forte! " +
             "La maniglia si è rotta ed è caduta!";
@@ -161,19 +175,21 @@ public class Description {
     public static final String MOVED_DESCRIPTION_PAINT_79 = "Il pregiato quadro della tua stanza. Lo hai spostato poco fa!";
     public static final String OPENED_DESCRIPTION_FURTNITURE_BATHROOM_79 = "Che ti aspettavi di trovare in un cestino da bagno?";
     public static final String OPENED_DESCRIPTION_REMOTE_CONTROL = "Un telecomando sprovvisto di pile.";
+    public static final String MOVED_DESCRIPTION_PLANT_HALLWAY_COLUMBUS = "La piccola piantina del corridoio Columbus che hai spostato poco fa!";
+    //public static final String OPENED_DESCRIPTION_BOX = "La scatola che conteneva <<oggetto>>";
 
     //ID oggetti
     public static final int ID_CELLPHONE = 1;
     public static final int ID_WALLET = 2;
     public static final int ID_LIGHTER = 3;
-    public static final int ID_PAPER79 = 4;
-    public static final int ID_DRINK = 5;
-    public static final int ID_KNIFE = 6;
-    public static final int ID_KEY79 = 7;
-    public static final int ID_HANDLE = 8;
-    public static final int ID_CARD_GAMEROOM = 9;
-    public static final int ID_BATTERY = 10;
-    public static final int ID_MAP = 11;
+    public static final int ID_DRINK = 4;
+    public static final int ID_KNIFE = 5;
+    public static final int ID_KEY79 = 6;
+    public static final int ID_HANDLE = 7;
+    public static final int ID_CARD_GAMEROOM = 8;
+    public static final int ID_BATTERY = 9;
+    public static final int ID_MAP = 10;
+    public static final int ID_PAPER_HALLWAY_COLUMBUS = 11;
 
     //ID oggetti contenitori
     public static final int ID_FURNITURE_79 = 100;
@@ -188,8 +204,10 @@ public class Description {
     public static final int ID_REMOTE_CONTROL = 109;
     public static final int ID_TV = 110;
     public static final int ID_SOFA = 111;
-    public static final int ID_PLANT = 112;
+    public static final int ID_PLANT_RELAX_ROOM = 112;
     public static final int ID_FAN = 113;
+    public static final int ID_PLANT_HALLWAY_COLUMBUS = 114;
+    //public static final int ID_BOX = 115;
 
     //ID stanze
     public static final int ID_ROOM_79 = 1000;
@@ -198,7 +216,8 @@ public class Description {
     public static final int ID_GAMEROOM = 1003;
     public static final int ID_KITCHEN = 1004;
     public static final int ID_RELAX_ROOM = 1005;
-    public static final int ID_HALLWAY_OVEST = 1006;
+    public static final int ID_HALLWAY_COLUMBUS = 1006;
+    public static final int ID_BAR = 1007;
 
     //Password cassaforte
     public static final String PASS_STRONGBOX = "123456";
