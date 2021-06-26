@@ -65,6 +65,7 @@ public class TLHStart {
         GameItem handle = new GameItem(Description.ID_HANDLE, "maniglia", Description.DESCRIPTION_HANDLE);
         ImageIcon imgHandle = new ImageIcon("resources//img//gameItem//handle.png");
         handle.setItemImage(imgHandle);
+        handle.setConsumable((byte) 1);
 
         GameItem cardGameRoom = new GameItem(Description.ID_CARD_GAMEROOM, "tessera", Description.DESCRIPTION_CARD_GAMEROOM);
         cardGameRoom.setAlias(new String[]{"card", "carta"});
@@ -73,6 +74,7 @@ public class TLHStart {
 
         GameItem batteries = new GameItem(Description.ID_BATTERY, "batterie", Description.DESCRIPTION_BATTERIES);
         batteries.setAlias(new String[]{"pila", "batteria", "pile"});
+        batteries.setConsumable((byte) 1);
         ImageIcon imgBatteries = new ImageIcon("resources//img//gameItem//batteries.png");
         batteries.setItemImage(imgBatteries);
 
@@ -81,6 +83,12 @@ public class TLHStart {
         ImageIcon imgMap = new ImageIcon("resources//img//gameItem//map.png");
         map.setItemImage(imgMap);
         g.getInventory().add(map);
+
+        GameItem key33 = new GameItem(Description.ID_KEY33, "chiave33", Description.DESCRIPTION_KEY_33);
+        key33.setAlias(new String[]{"chiavi"});
+        ImageIcon imgKey33 = new ImageIcon("resources//img//gameItem//key33.png");
+        key33.setItemImage(imgKey33);
+        key33.setConsumable((byte) 1);
 
         GameItemContainer button = new GameItemContainer(45324533, "bottone", Description.DESCRIPTION_KNIFE); //CAMBIARE
         button.setAlias(new String[]{"pulsante"}); //CAMBIARE
@@ -183,6 +191,36 @@ public class TLHStart {
         plantHallwayColumbus.add(paperHallwayColumbus);
         plantHallwayColumbus.setiCNotOpenable(true);
 
+        GameItemContainer table = new GameItemContainer(Description.ID_TABLE, "tavolo", Description.DESCRIPTION_TABLE);
+        table.setAlias(new String[]{"tavoli", "tavolino", "tavolini"});
+        table.setiCNotOpenable(true);
+
+        GameItemContainer glass = new GameItemContainer(Description.ID_GLASS, "bicchiere", Description.DESCRIPTION_GLASS);
+        glass.setAlias(new String[]{"bicchieri", "calice", "flute", "calici"});
+        glass.setiCNotOpenable(true);
+
+        /*GameItemContainer speakers = new GameItemContainer(Description.ID_SPEAKERS, "cassa", Description.DESCRIPTION_SPEAKERS);
+        speakers.setAlias(new String[]{"casse", "stereo"});
+        speakers.setiCNotOpenable(true);*/
+
+        GameItemContainer cup = new GameItemContainer(Description.ID_CUP, "tazza", Description.DESCRIPTION_CUP);
+        cup.setAlias(new String[]{"tazze", "tazzina", "tazzine"});
+        cup.setMovedDescription(Description.MOVED_DESCRIPTION_CUP);
+        cup.setMovable(true);
+        //cup.add(token); possibilita di inserire gettone spostando la tazza
+        cup.setiCNotOpenable(true);
+
+        GameItemContainer displayCase = new GameItemContainer(Description.ID_DISPLAY_CASE, "vetrina", Description.DESCRIPTION_DISPLAY_CASE);
+        displayCase.setAlias(new String[]{"espositore", "cristalliera", "bacheca", "teca"});
+        displayCase.setOpenedDescription(Description.OPENED_DESCRIPTION_DISPLAY_CASE);
+        displayCase.setLockedBy(handle.getName());
+        displayCase.add(key33);
+
+        GameItemContainer cashDesk = new GameItemContainer(Description.ID_CASH_DESK, "cassa", Description.DESCRIPTION_CASH_DESK);
+        cashDesk.setOpenedDescription(Description.OPENED_DESCRIPTION_CASH_DESK);
+        cashDesk.setLockedBy(drink.getName()); //cambiare con chiave
+        //cashDesk.add(key33);
+
         //GameItem password = new GameItem(Description.ID_PASSWORD, "1"); //Occhio alla descrizione
 
         /*GameItemContainer strongbox = new GameItemContainer(80, "cassaforte", "Descrizione cassaforte");
@@ -191,12 +229,7 @@ public class TLHStart {
         strongbox.setPasswordUnlockedDescription("Già sbloccato");
         strongbox.add(key79);*/
 
-        GameItem key33 = new GameItem(Description.ID_KEY33, "chiave33", Description.DESCRIPTION_KEY_33);
-        key33.setAlias(new String[]{"chiavi"});
-        ImageIcon imgKey33 = new ImageIcon("resources//img//gameItem//key33.png");
-        key33.setItemImage(imgKey33);
-        key33.setConsumable((byte) 1);
-        key33.setPickupable(true); ///TOGLIERE
+
 
         //Stanze
         Room room79 = new Room(Description.ID_ROOM_79, "Stanza 79", Description.DESCRIPTION_ROOM_79);
@@ -249,7 +282,7 @@ public class TLHStart {
         relaxRoom.addItem(tv);
         relaxRoom.addItem(sofa);
         relaxRoom.addItem(plantRelaxRoom);
-        relaxRoom.addItem(fan);
+        relaxRoom.addItem(fan); //CHIAVE USB
 
         Room hallwayColumbus = new Room(Description.ID_HALLWAY_COLUMBUS, "Corridoio Columbus", Description.DESCRIPTION_HALLWAY_COLUMBUS);
         hallwayColumbus.setLookDescription(Description.LOOK_HALLWAY_COLUMBUS);
@@ -264,7 +297,12 @@ public class TLHStart {
         bar.setRoomImage(new ImageIcon("resources//img//room//bar.png"));
         bar.setVisitedDescription(Description.DESCRIPTION_VISITED_BAR);
         bar.setLockedBy(""); //chiave
-        bar.addItem(key33);
+        bar.addItem(table);
+        bar.addItem(glass);
+        //bar.addItem(speakers);
+        bar.addItem(cup);
+        bar.addItem(displayCase); //contenitore conterra chiave33, necessita di utilizzare la maniglia
+        bar.addItem(cashDesk); //contenitore apribile con la chiave della cassa*/
 
         g.setCurrentRoom(room79);
         room79.setNorth(hallway);

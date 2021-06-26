@@ -459,6 +459,8 @@ public class GameGUI extends javax.swing.JFrame {
 
             if(ris == JOptionPane.YES_OPTION) {
                 saveGame();
+                new MenuGUI(this.gInteraction.getGameManager()).setVisible(true);
+                this.dispose();
             }
             else if(ris == JOptionPane.NO_OPTION) {
                 new MenuGUI(this.gInteraction.getGameManager()).setVisible(true);

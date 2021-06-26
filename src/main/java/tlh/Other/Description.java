@@ -28,8 +28,8 @@ public class Description {
     public static final String DESCRIPTION_HALLWAY_COLUMBUS = "Un lungo corridoio simile a quello visitato prima.\n" +
             "Sembrano essere tutti uguali...";
 
-    public static final String DESCRIPTION_BAR = "Un lungo corridoio simile a quello visitato prima.\n" +
-            "Sembrano essere tutti uguali..."; //DA CAMBIARE
+    public static final String DESCRIPTION_BAR = "Il bar dell'hotel. Posto molto chic, lo noti dal pavimento\n" +
+            "Deduci che venivano organizzate feste qui...";
 
     //Descrizioni relative a stanze/luoghi già visitati
     public static final String DESCRIPTION_VISITED_ROOM_79 = "La stanza dove tutto è partito...";
@@ -39,7 +39,7 @@ public class Description {
     public static final String DESCRIPTION_VISITED_KITCHEN = "La cucina più brutta che tu abbia mai visto!";
     public static final String DESCRIPTION_VISITED_RELAX_ROOM = "La miglior stanza dell'hotel per rilassarsi.";
     public static final String DESCRIPTION_VISITED_HALLWAY_COLUMBUS = "Un lungo corridoio.";
-    public static final String DESCRIPTION_VISITED_BAR = "Un lungo corridoio."; // CAMBIARE
+    public static final String DESCRIPTION_VISITED_BAR = "Il bar del corridoio Columbus";
 
     //Descrizione comando osserva per ogni stanza/luogo
     public static final String LOOK_ROOM_79 = "Accanto al letto dove hai \"passato\" la notte\n" +
@@ -66,9 +66,7 @@ public class Description {
             "rispetto a quello di prima. " +
             "In lontananza si intravede qualcosa...";
 
-    public static final String LOOK_BAR = "Un altro corridoio, il parquet sembra essere più consumato\n" +
-            "rispetto a quello di prima. " +
-            "In lontananza si intravede qualcosa..."; //CAMBIARE
+    public static final String LOOK_BAR = ""; //CAMBIARE
 
     //Descrizione relativa agli oggetti
     public static final String DESCRIPTION_CELLPHONE = "Il tuo ossessionato telefono. Te lo porti dappertutto.\n" +
@@ -147,6 +145,21 @@ public class Description {
 
     public static final String DESCRIPTION_KEY_33 = "Una chiave con inciso il numero di una stanza.";
 
+    public static final String DESCRIPTION_TABLE = "Dei tavolini di vetro. Sembrano poco curati.\n" +
+            "Chissa quanti ci hanno bevuto e vomitato qui sopra!";
+
+    public static final String DESCRIPTION_GLASS = "Un tris di calici di vino. Su uno di essi ci sono macchie di rossetto rosso.";
+
+    public static final String DESCRIPTION_SPEAKERS = "Due casse enormi. Sicuramente alimentavano le serate una volta...";
+
+    public static final String DESCRIPTION_CUP = "Due tazzine di ceramica. Una è ancora sporca di caffè.\n" +
+            "L'altra non sembra essere stabile.";
+
+    public static final String DESCRIPTION_DISPLAY_CASE = "Una splendida vetrina contenente un sacco di pregiati liquori e vini. " +
+            "Sei sul punto di aprirla e prepararti qualcosa da bere. È chiusa!";
+
+    public static final String DESCRIPTION_CASH_DESK = "Una cassa di ferro un po' antiquata. Chissà cosa possa contenere.";
+
     /*public static final String DESCRIPTION_BOX = "Una scatola di cartone chiusa con dello scotch.\n" +
             "Difficile aprirla a mano.";*/
 
@@ -178,6 +191,9 @@ public class Description {
     public static final String OPENED_DESCRIPTION_FURTNITURE_BATHROOM_79 = "Che ti aspettavi di trovare in un cestino da bagno?";
     public static final String OPENED_DESCRIPTION_REMOTE_CONTROL = "Un telecomando sprovvisto di pile.";
     public static final String MOVED_DESCRIPTION_PLANT_HALLWAY_COLUMBUS = "La piccola piantina del corridoio Columbus che hai spostato poco fa!";
+    public static final String MOVED_DESCRIPTION_CUP = "La tazzina che hai spostato prima! ";
+    public static final String OPENED_DESCRIPTION_DISPLAY_CASE = "La splendida vetrina che hai ridotto in frantumi. Quasi ti dispiace...";
+    public static final String OPENED_DESCRIPTION_CASH_DESK = "La cassa del bar Columbus aperta!";
     //public static final String OPENED_DESCRIPTION_BOX = "La scatola che conteneva <<oggetto>>";
 
     //ID oggetti
@@ -210,8 +226,14 @@ public class Description {
     public static final int ID_PLANT_RELAX_ROOM = 112;
     public static final int ID_FAN = 113;
     public static final int ID_PLANT_HALLWAY_COLUMBUS = 114;
-    //public static final int ID_BOX = 115;
+    public static final int ID_TABLE = 115;
+    public static final int ID_GLASS = 116;
+    public static final int ID_SPEAKERS = 117;
+    public static final int ID_CUP = 118;
+    public static final int ID_DISPLAY_CASE = 119;
+    public static final int ID_CASH_DESK = 120;
 
+    //public static final int ID_BOX = 115;
     //ID stanze
     public static final int ID_ROOM_79 = 1000;
     public static final int ID_BATHROOM_79 = 1001;
