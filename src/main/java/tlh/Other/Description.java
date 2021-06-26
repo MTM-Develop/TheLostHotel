@@ -226,5 +226,26 @@ public class Description {
     public static final int MAX_INV_CAPACITY = 6; //CAMBIARE
     public static final int INV_H1 = 7;
     public static final int INV_H2 = 19;
+    public static final int COMMAND_H1 = 7;
+    public static final int COMMAND_H2 = 31;
+    public static final int TOKENS_LENGTH_4 = 4;
+    public static final int INV_GUI_WIDTH = 712;
+    public static final int INV_GUI_HEIGHT = 737;
+    public static final int INV_GUI_WIDTH_JSP = 660;
+    public static final int INV_GUI_HEIGHT_JSP = 660;
+    public static final int INV_GUI_ALIGNMENT_X_JSP = 50;
+    public static final int INV_GUI_WIDTH_JB = 75;
+    public static final int INV_GUI_HEIGHT_JB = 75;
+    public static final int INV_GUI_SIZE = 700;
+    public static final int INV_GUI_WIDTH_JP1 = 700;
+    public static final int INV_GUI_HEIGHT_JP1 = 700;
+    public static final int INV_GUI_COLOR_JSP = 153;
+    public static final int INV_GUI_SIZE_JSP = 650;
+    public static final int INV_GUI_ROWS_JP3 = 6;
+    public static final int INV_GUI_COLS_JP3 = 6;
+    public static final int INV_GUI_X_JSP = 20;
+    public static final int INV_GUI_Y_JSP = 20;
+    public static final int INV_GUI_WIDTH_JL = 700;
+    public static final int INV_GUI_HEIGHT_JL = 700;
 
 }

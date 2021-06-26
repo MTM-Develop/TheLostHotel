@@ -153,7 +153,7 @@ public class TheLostHotel extends GameManager {
                 // Comandi per sbloccare stanze o contenitori
                 case USE:
 
-                    if(pOutput.containsWordType(WordType.ROOM_OBJ))
+                    if(pOutput.containsWordType(WordType.ROOM_OBJ) && !gameItem.isUsableWithDrops())
                     {
                         if(gameItem instanceof GameItemContainer)
                         {

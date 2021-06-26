@@ -23,7 +23,6 @@ tlh\File\File.class
 tlh\GUI\GameGUI.class
 tlh\GUI\MenuGUI$2.class
 tlh\GUI\MenuGUI.class
-tlh\GUI\InventoryGUI$1.class
 tlh\Parser\WordType.class
 tlh\Parser\Parser.class
 tlh\File\TLHStart.class

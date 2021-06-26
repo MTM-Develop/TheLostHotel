@@ -1,78 +1,126 @@
 package tlh.Type;
 
+import tlh.Other.Description;
+
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 /**
- * Classe che rappresenta l'entità di Comando
+ * Classe che rappresenta l'entità di Comando.
  */
 public class Command implements Serializable {
 
-    private final String name; // Nome del comando
-    private final CommandType cType; // Tipo di comando
-    private Set<String> alias; // Sinonimi del comando
+    /**
+     * Nome del comando.
+     */
+    private final String cName;
 
-    // Costruttori
+    /**
+     * Tipo di comando.
+     */
+    private final CommandType cType;
 
-    public Command(String name, CommandType cType) {
-        this.name = name;
-        this.cType = cType;
-        this.alias = new HashSet<>();
+    /**
+     * Sinonimi del comando.
+     */
+    private Set<String> cAlias;
+
+    /**
+     * Costruttore.
+     *
+     * @param name
+     * @param type
+     */
+    public Command(final String name, final CommandType type) {
+        this.cName = name;
+        this.cType = type;
+        this.cAlias = new HashSet<>();
     }
 
-    public Command(String name, CommandType cType, Set<String> alias) {
-        this.name = name;
-        this.cType = cType;
-        this.alias = alias;
+    /**
+     * Costruttore.
+     *
+     * @param name
+     * @param type
+     * @param alias
+     */
+    public Command(final String name, final CommandType type,
+                   final Set<String> alias) {
+        this.cName = name;
+        this.cType = type;
+        this.cAlias = alias;
     }
 
-    // Metodi di get, set, equals e hash code
-
+    /**
+     * @return nome del comando.
+     */
     public String getName() {
-        return name;
+        return cName;
     }
 
+    /**
+     * @return sinonimi del comando.
+     */
     public Set<String> getAlias() {
-        return alias;
+        return cAlias;
     }
 
-    public void setAlias(Set<String> alias) {
-        this.alias = alias;
+    /**
+     * Imposta i sinonimi del comando.
+     *
+     * @param alias
+     */
+    public void setAlias(final Set<String> alias) {
+        this.cAlias = alias;
     }
 
-    public void setAlias(String[] alias) {
-        this.alias = new HashSet<>(Arrays.asList(alias));
+    /**
+     * Imposta gli alias del comando.
+     *
+     * @param alias
+     */
+    public void setAlias(final String[] alias) {
+        this.cAlias = new HashSet<>(Arrays.asList(alias));
     }
 
+    /**
+     * @return tipo del comando.
+     */
     public CommandType getcType() {
         return cType;
     }
 
+    /**
+     * Metodo generato automaticamente per confrontare
+     * se due oggetti di questa classe sono uguali.
+     *
+     * @return codice hash dell'oggetto.
+     */
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 31 * hash + Objects.hashCode(this.name);
+        int hash = Description.COMMAND_H1;
+        hash = Description.COMMAND_H2 * hash + Objects.hashCode(this.cName);
         return hash;
     }
 
+    /**
+     *  Permette di confrontare se due comandi sono uguali.
+     *
+     * @param o
+     * @return booleano (vero se i due comandi sono uguali, falso altrimenti).
+     */
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
+    public boolean equals(final Object o) {
+        if (this == o) {
             return true;
         }
-        if (obj == null) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Command other = (Command) obj;
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        return true;
+        Command command = (Command) o;
+        return Objects.equals(cName, command.cName) && cType == command.cType
+                && Objects.equals(cAlias, command.cAlias);
     }
-
 }

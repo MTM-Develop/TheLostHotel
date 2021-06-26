@@ -22,9 +22,7 @@ public class GameInteraction {
     }
 
     /**
-     * Restituisce il gestore del gioco.
-     *
-     * @return g.
+     * @return gestore del gioco.
      */
     public GameManager getGameManager() {
         return g;

@@ -34,9 +34,7 @@ public abstract class GameManager {
     }*/
 
     /**
-     * Restituisce l'entità di gioco.
-     *
-     * @return game.
+     * @return entità di gioco.
      */
     public GameDescription getGame() {
         return game;

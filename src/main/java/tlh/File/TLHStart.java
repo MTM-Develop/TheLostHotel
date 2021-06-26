@@ -296,7 +296,7 @@ public class TLHStart {
         g.getCommands().add(west);
 
         Command look = new Command("guarda", CommandType.LOOK);
-        look.setAlias(new String[]{"osserva", "vedi", "trova", "cerca", "descrivi", "controlla"});
+        look.setAlias(new String[]{"osserva", "vedi", "descrivi", "controlla", "esamina"});
         g.getCommands().add(look);
 
         Command help = new Command("help", CommandType.HELP);

@@ -30,9 +30,7 @@ public class Inventory implements Serializable {
     }
 
     /**
-     * Restituisce la lista di GameItem.
-     *
-     * @return inventoryList.
+     * @return lista di GameItem.
      */
     public List<GameItem> getInventoryList() {
         return inventoryList;
