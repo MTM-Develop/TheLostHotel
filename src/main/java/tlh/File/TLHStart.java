@@ -118,11 +118,27 @@ public class TLHStart {
 
         GameItem key33 = new GameItem(Description.ID_KEY33, "chiave33",
                 Description.DESCRIPTION_KEY_33);
-        key33.setAlias(new String[]{"chiavi"});
+        key33.setAlias(new String[]{"chiavi33"});
         ImageIcon imgKey33 = new ImageIcon(
                 "resources//img//gameItem//key33.png");
         key33.setItemImage(imgKey33);
         key33.setConsumable((byte) 1);
+
+        GameItem token = new GameItem(Description.ID_TOKEN, "gettone",
+                Description.DESCRIPTION_TOKEN);
+        token.setAlias(new String[]{"token", "moneta"});
+        ImageIcon imgToken = new ImageIcon(
+                "resources//img//gameItem//token.png");
+        token.setItemImage(imgToken);
+        token.setConsumable((byte) 1);
+
+        GameItem keyBar = new GameItem(Description.ID_KEY_BAR, "chiave47",
+                Description.DESCRIPTION_KEY_BAR);
+        keyBar.setAlias(new String[]{"chiavi47"});
+        ImageIcon imgKey47 = new ImageIcon(
+                "resources//img//gameItem//key47.png");
+        keyBar.setItemImage(imgKey47);
+        keyBar.setConsumable((byte) 1);
 
         GameItemContainer button = new GameItemContainer(
                 Description.ID_BUTTON, "bottone", //CAMBIARE ID
@@ -208,6 +224,8 @@ public class TLHStart {
         radio.setAlias(new String[]{"emittente", "radiostazione", "radiofonia",
                 "radiocomunicazione", "radiodiffusione"});
         radio.setUsableWithItem(true);
+        radio.setOpenedDescription(
+                Description.OPENED_DESCRIPTION_RADIO);
         radio.setDescriptionUsableWithDrops(
                 Description.DESCRIPTION_RADIO_USABLE_WITH_DROPS);
         radio.setDescriptionAlreadyUsedWithDrops(
@@ -292,7 +310,7 @@ public class TLHStart {
         cup.setAlias(new String[]{"tazze", "tazzina", "tazzine"});
         cup.setMovedDescription(Description.MOVED_DESCRIPTION_CUP);
         cup.setMovable(true);
-        //cup.add(token); possibilita di inserire gettone spostando la tazza
+        cup.add(token);
         cup.setiCNotOpenable(true);
 
         GameItemContainer displayCase = new GameItemContainer(
@@ -374,7 +392,7 @@ public class TLHStart {
         kitchen.setRoomImage(new ImageIcon(
                 "resources//img//room//kitchen.png"));
         kitchen.setVisitedDescription(Description.DESCRIPTION_VISITED_KITCHEN);
-        kitchen.setLockedBy(cardGameRoom.getName());
+        kitchen.setLockedBy(""/*cardGameRoom.getName()*/);
         kitchen.addItem(radio);
 
         Room relaxRoom = new Room(Description.ID_RELAX_ROOM,
@@ -414,9 +432,29 @@ public class TLHStart {
         //bar.addItem(speakers);
         bar.addItem(cup);
         bar.addItem(displayCase);
-        //contenitore conterra chiave33, necessita di utilizzare la maniglia
         bar.addItem(cashDesk);
         //contenitore apribile con la chiave della cassa*/
+
+        Room laundry = new Room(Description.ID_LAUNDRY, "Lavanderia",
+                Description.DESCRIPTION_LAUNDRY);
+        laundry.setLookDescription(Description.LOOK_LAUNDRY);
+        laundry.setRoomImage(new ImageIcon("resources//img//room//laundry.png"));
+        laundry.setVisitedDescription(Description.DESCRIPTION_VISITED_LAUNDRY);
+        laundry.setLockedBy(""/*cardGameRoom.getName()*/);
+
+        Room room53 = new Room(Description.ID_ROOM_53, "Stanza 53",
+                Description.DESCRIPTION_ROOM_53);
+        room53.setLookDescription(Description.LOOK_ROOM_53);
+        room53.setRoomImage(new ImageIcon("resources//img//room//room53.png"));
+        room53.setVisitedDescription(Description.DESCRIPTION_VISITED_ROOM_53);
+        /*room53.addItem(wardrobe79);
+        //room79.addItem(lighter);
+        room79.addItem(furniture79);
+        room79.addItem(paint79);
+        room79.addItem(bed79);
+        room79.addItem(coatHook79);
+        room79.addItem(button);
+        //room79.addItem(strongbox);*/
 
         g.setCurrentRoom(room79);
         room79.setNorth(hallway);
@@ -429,10 +467,12 @@ public class TLHStart {
         gameRoom.setWest(hallway);
         hallwayColumbus.setEast(hallway);
         hallwayColumbus.setWest(bar);
-        hallwayColumbus.setNorth(kitchen);
-        kitchen.setSouth(hallwayColumbus);
+        hallwayColumbus.setNorth(laundry);
+        hallwayColumbus.setSouth(room53);
+        room53.setNorth(hallwayColumbus);
         relaxRoom.setSouth(hallway);
         bar.setEast(hallwayColumbus);
+        laundry.setSouth(hallwayColumbus);
 
         //Comandi
         Command north = new Command("nord", CommandType.NORD);

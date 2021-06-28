@@ -70,6 +70,18 @@ public final class Description {
             "Il bar dell'hotel. Posto molto chic, lo noti dal pavimento.\n"
             + "Deduci che venivano organizzate feste qui...";
 
+    /**
+     * Descrizione della stanza "lavanderia".
+     */
+    public static final String DESCRIPTION_LAUNDRY =
+            ""; //cambiare
+
+    /**
+     * Descrizione della stanza "stanza 53".
+     */
+    public static final String DESCRIPTION_ROOM_53 =
+            ""; //cambiare
+
     //Descrizioni relative a stanze/luoghi già visitati
     /**
      * Descrizione della stanza "stanza 79" già visitata.
@@ -118,6 +130,18 @@ public final class Description {
      */
     public static final String DESCRIPTION_VISITED_BAR =
             "Il bar del corridoio Columbus";
+
+    /**
+     * Descrizione della stanza "lavenderia" già visitata.
+     */
+    public static final String DESCRIPTION_VISITED_LAUNDRY =
+            ""; //CAMBIAREE
+
+    /**
+     * Descrizione della stanza "stanza 53" già visitata.
+     */
+    public static final String DESCRIPTION_VISITED_ROOM_53 =
+            ""; //CAMBIAREE
 
     //Descrizione più dettagliata per ogni stanza/luogo
     /**
@@ -180,7 +204,23 @@ public final class Description {
     /**
      * Descrizione più dettagliata della stanza "bar".
      */
-    public static final String LOOK_BAR = ""; //CAMBIARE
+    public static final String LOOK_BAR =
+            "Una volta entrato nella stanza rimani abbagliato dalle tante "
+            + "luci presenti. Noti subito un enorme bancone "
+            + "e dei bicchieri sparsi e alcuni rotti. "
+            + "Ci avranno dato giù pesante!";
+
+    /**
+     * Descrizione più dettagliata della stanza "lavanderia".
+     */
+    public static final String LOOK_LAUNDRY =
+            ""; //cambiare
+
+    /**
+     * Descrizione più dettagliata della stanza "stanza 53".
+     */
+    public static final String LOOK_ROOM_53 =
+            ""; //cambiare
 
     //Descrizione relativa agli oggetti
     /**
@@ -415,6 +455,20 @@ public final class Description {
             "Difficile aprirla a mano.";*/
 
     /**
+     * Descrizione dell'oggetto "gettone".
+     */
+    public static final String DESCRIPTION_TOKEN =
+            "Il gettone che hai trovato sotto la tazzina. Qualcuno sarà passato "
+            + "poco fa dalla Sala Giochi.";
+
+    /**
+     * Descrizione dell'oggetto "chiave47".
+     */
+    public static final String DESCRIPTION_KEY_BAR =
+            "Una chiave differente dalle altre, su cui è inciso il 47. "
+                    + "Sicuramente non apre una camera dell'hotel.";
+
+    /**
      * Descrizione dell'oggetto contenitore "slot" non appena viene utilizzato.
      */
     public static final String DESCRIPTION_SLOT_USABLE_WITH_DROPS =
@@ -506,6 +560,12 @@ public final class Description {
      */
     public static final String OPENED_DESCRIPTION_FURTNITURE_BATHROOM_79 =
             "Che ti aspettavi di trovare in un cestino da bagno?";
+
+    /**
+     * Descrizione dell'oggetto contenitore "radio" già aperto.
+     */
+    public static final String OPENED_DESCRIPTION_RADIO =
+            "La radio aperta con il coltellino svizzero.";
 
     /**
      * Descrizione dell'oggetto contenitore "telecomando" già aperto.
@@ -610,6 +670,16 @@ public final class Description {
      * ID dell'oggetto "chiave33".
      */
     public static final int ID_KEY33 = 12;
+
+    /**
+     * ID dell'oggetto "token".
+     */
+    public static final int ID_TOKEN = 13;
+
+    /**
+     * ID dell'oggetto "chiave47".
+     */
+    public static final int ID_KEY_BAR = 14;
 
     //ID oggetti contenitori
     /**
@@ -759,11 +829,21 @@ public final class Description {
      */
     public static final int ID_BAR = 1007;
 
+    /**
+     * ID della stanza "lavanderia".
+     */
+    public static final int ID_LAUNDRY = 1008;
+
+    /**
+     * ID della stanza "stanza 53".
+     */
+    public static final int ID_ROOM_53 = 1009;
+
     //Magic Number
     /**
      * Indica la capacità massima dell'inventario del giocatore.
      */
-    public static final int MAX_INV_CAPACITY = 6; //CAMBIARE
+    public static final int MAX_INV_CAPACITY = 8; //CAMBIARE
 
     /**
      * Indica la lunghezza di String[] tokens (valore 4 per dei controlli)
