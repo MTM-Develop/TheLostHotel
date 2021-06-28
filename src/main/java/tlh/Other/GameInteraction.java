@@ -47,7 +47,7 @@ public class GameInteraction {
             //Salva in una stringa di output la risposta ricevuta dal gestore
             sOutput = g.executeCommand(pOutput);
         } catch (Exception e) {
-            sOutput = "Idea interessante... ma no.";
+            sOutput = "Idea interessante... ma no.\n"; //CAMBIARE?
         }
 
         return sOutput;

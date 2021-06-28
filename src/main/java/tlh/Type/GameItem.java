@@ -1,129 +1,285 @@
 package tlh.Type;
 
+import tlh.Other.Description;
+
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 import javax.swing.ImageIcon;
 
 /**
- * Classe utilizzata per rappresentare gli oggetti che saranno presenti nel gioco
+ * Classe utilizzata per rappresentare gli oggetti
+ * che saranno presenti nel gioco.
  */
 public class GameItem implements Serializable {
 
+    /**
+     * Id del gameItem.
+     */
     private final int id;
+
+    /**
+     * Nome del gameItem.
+     */
     private String name;
-    private String description; // descrizione dell'oggetto
-    private Set<String> alias; // sinonimi dell'oggetto
+
+    /**
+     * Descrizione base del gameItem.
+     */
+    private String description;
+
+    /**
+     * Sinonimi del gameItem.
+     */
+    private Set<String> alias;
+
+    /**
+     * Descrizione del gameItem (utilizzabile e, dopo l'utilizzo,
+     * droppa altri gameItem).
+     * Es. slot (dopo 'usa slot' cadrà la maniglia).
+     */
     private String descriptionUsableWithDrops;
+
+    /**
+     * Descrizione del gameItem (se è stato già utilizzato
+     * e ha droppato altri gameItem).
+     */
     private String descriptionAlreadyUsedWithDrops;
+
+    /**
+     * Descrizione del gameItem (utilizzabile,
+     * ma non ci sono oggetti dentro necessari per il suo funzionamento).
+     * Es. radio senza pile.
+     */
     private String descriptionUsableButItemRemoved;
 
-    private byte consumable = -1; // indica il numero di usi possibili, -1 significa che ha infiniti usi
-    private boolean pickupable = false; //indica se si può raccogliere
+    /**
+     * Indica il numero di usi possibili, -1 significa che ha infiniti usi.
+     */
+    private byte consumable = -1;
+
+    /**
+     * Indica se si può raccogliere.
+     */
+    private boolean pickupable = false;
+
+    /**
+     * Indica se è stato preso.
+     */
     private boolean picked = false;
-    private boolean pushable = false; // indica se si può spingere
-    private boolean push = false; // indica se è già stato spinto/premuto
-    private boolean usableWithDrops = false; //indica che un oggetto contenitore si può usare e droppa oggetti
-    private boolean used = false; //indica se è stato usato o meno
 
-    private ImageIcon itemImage;   //immagine raffigurante l'oggetto
+    /**
+     * Indica se si può spingere/premere.
+     */
+    private boolean pushable = false;
 
-    // Costruttori
+    /**
+     * Indica se è stato spinto/premuto.
+     */
+    private boolean push = false;
 
+    /**
+     * Indica se droppa oggetti dopo il suo utilizzo.
+     */
+    private boolean usableWithDrops = false; //METTERE IN GameItemContainer?
 
-    public GameItem(int id, String name) {
-        this.id = id;
-        this.name = name;
+    /**
+     * Indica se è stato usato.
+     */
+    private boolean used = false;
+
+    /**
+     * Immagine raffigurante l'oggetto.
+     */
+    private ImageIcon itemImage;
+
+    /**
+     * Costruttore.
+     *
+     * @param gId
+     * @param gIName
+     */
+    public GameItem(final int gId, final String gIName) {
+        this.id = gId;
+        this.name = gIName;
     }
 
-    public GameItem(int id, String name, String description) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
+    /**
+     * Costruttore.
+     *
+     * @param gId
+     * @param gIName
+     * @param gIDescription
+     */
+    public GameItem(final int gId, final String gIName,
+                    final String gIDescription) {
+        this.id = gId;
+        this.name = gIName;
+        this.description = gIDescription;
         this.alias = new HashSet<>();
     }
 
-    public GameItem(int id, String name, String description, Set<String> alias) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.alias = alias;
+    /**
+     * Costruttore.
+     *
+     * @param gId
+     * @param gIName
+     * @param gIDescription
+     * @param gIAlias
+     */
+    public GameItem(final int gId, final String gIName,
+                    final String gIDescription,
+                    final Set<String> gIAlias) {
+        this.id = gId;
+        this.name = gIName;
+        this.description = gIDescription;
+        this.alias = gIAlias;
     }
 
-    // Metodi di get, set, equals e hash code
-
+    /**
+     * @return nome del gameItem.
+     */
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * Imposta il nome del gameItem.
+     *
+     * @param gIName
+     */
+    public void setName(final String gIName) {
+        this.name = gIName;
     }
 
+    /**
+     * @return descrizione base del gameItem.
+     */
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    /**
+     * Imposta la descrizione base del gameItem.
+     *
+     * @param desc
+     */
+    public void setDescription(final String desc) {
+        this.description = desc;
     }
 
+    /**
+     * @return sinonimi del gameItem.
+     */
     public Set<String> getAlias() {
         return alias;
     }
 
-    public void setAlias(Set<String> alias) {
-        this.alias = alias;
+    /**
+     * Imposta i sinonimi del gameItem.
+     *
+     * @param gIAlias
+     */
+    public void setAlias(final Set<String> gIAlias) {
+        this.alias = gIAlias;
     }
 
-    public void setAlias(String[] alias) {
-        this.alias = new HashSet<>(Arrays.asList(alias));
+    /**
+     * Imposta i sinonimi del gameItem.
+     *
+     * @param gIAlias
+     */
+    public void setAlias(final String[] gIAlias) {
+        this.alias = new HashSet<>(Arrays.asList(gIAlias));
     }
 
+    /**
+     * @return descrizione del gameItem (se è utilizzabile e,
+     * dopo l'utilizzo, droppa altri gameItem).
+     */
     public String getDescriptionUsableWithDrops() {
         return descriptionUsableWithDrops;
     }
 
-    public void setDescriptionUsableWithDrops(String descriptionUsableWithDrops) {
-        this.descriptionUsableWithDrops = descriptionUsableWithDrops;
+    /**
+     * Imposta la descrizione del gameItem (se è utilizzabile e,
+     * dopo l'utilizzo, droppa altri gameItem).
+     *
+     * @param descriptionUWD
+     */
+    public void setDescriptionUsableWithDrops(final String descriptionUWD) {
+        this.descriptionUsableWithDrops = descriptionUWD;
     }
 
+    /**
+     * @return descrizione del gameItem (se è stato già utilizzato
+     * e ha droppato altri gameItem).
+     */
     public String getDescriptionAlreadyUsedWithDrops() {
         return descriptionAlreadyUsedWithDrops;
     }
 
-    public void setDescriptionAlreadyUsedWithDrops(String descriptionAlreadyUsedWithDrops) {
-        this.descriptionAlreadyUsedWithDrops = descriptionAlreadyUsedWithDrops;
+    /**
+     * Imposta la descrizione del gameItem (se è stato già utilizzato
+     * e ha droppato altri gameItem).
+     *
+     * @param descriptionAUWD
+     */
+    public void setDescriptionAlreadyUsedWithDrops(
+            final String descriptionAUWD) {
+        this.descriptionAlreadyUsedWithDrops = descriptionAUWD;
     }
 
+    /**
+     * @return descrizione del gameItem (se è utilizzabile
+     * ma non ci sono oggetti dentro necessari per il suo funzionamento).
+     */
     public String getDescriptionUsableButItemRemoved() {
         return descriptionUsableButItemRemoved;
     }
 
-    public void setDescriptionUsableButItemRemoved(String descriptionUsableButItemRemoved) {
-        this.descriptionUsableButItemRemoved = descriptionUsableButItemRemoved;
+    /**
+     * Imposta la descrizione del gameItem (se è utilizzabile
+     * ma non ci sono oggetti dentro necessari per il suo funzionamento).
+     *
+     * @param descriptionUBIR
+     */
+    public void setDescriptionUsableButItemRemoved(
+            final String descriptionUBIR) {
+        this.descriptionUsableButItemRemoved = descriptionUBIR;
     }
 
+    /**
+     * @return numero di usi possibili del gameItem.
+     */
     public byte getConsumable() {
         return consumable;
     }
 
     /**
-     * Indica se l'oggetto non ha più usi possibili
-     * @return booleano, true se l'oggetto è consumato e non più usabile
-     *          falso altrimenti
+     * Imposta il numero di usi possibili del gameItem.
+     *
+     * @param gIConsumable
+     */
+    public void setConsumable(final byte gIConsumable) {
+        this.consumable = gIConsumable;
+    }
+
+    /**
+     * Indica se l'oggetto non ha più usi possibili.
+     *
+     * @return booleano (vero se l'oggetto è consumato e non più usabile,
+     * falso altrimenti).
      */
     public boolean isConsumed() {
         return this.getConsumable() == 0;
     }
 
-    public void setConsumable(byte consumable) {
-        this.consumable = consumable;
-    }
-
     /**
-     * Decrementa di uno il numero di utilizzi di un oggetto se esso è consumabile
+     * Decrementa di uno il numero di utilizzi di un oggetto
+     * se esso è consumabile.
      */
     public void consume() {
         if (consumable > 0) {
@@ -131,85 +287,165 @@ public class GameItem implements Serializable {
         }
     }
 
+    /**
+     * @return booleano (vero se è possibile prendere il gameItem,
+     * falso altrimenti).
+     */
     public boolean isPickupable() {
         return pickupable;
     }
 
-    public void setPickupable(boolean pickupable) {
-        this.pickupable = pickupable;
+    /**
+     * Imposta lo stato del gameItem (se è possibile prenderlo o meno).
+     *
+     * @param p
+     */
+    public void setPickupable(final boolean p) {
+        this.pickupable = p;
     }
 
+    /**
+     * @return booleano (vero se il gameItem è stato preso, falso altrimenti).
+     */
     public boolean isPicked() {
         return picked;
     }
 
-    public void setPicked(boolean picked) {
-        this.picked = picked;
+    /**
+     * Imposta lo stato del gameItem (se è stato preso o meno).
+     *
+     * @param p
+     */
+    public void setPicked(final boolean p) {
+        this.picked = p;
     }
 
+    /**
+     * @return booleano (vero se è possibile premere il gameItem,
+     * falso altrimenti).
+     */
     public boolean isPushable() {
         return pushable;
     }
 
-    public void setPushable(boolean pushable) {
-        this.pushable = pushable;
+    /**
+     * Imposta lo stato del gameItem (se è possibile premerlo o meno).
+     *
+     * @param p
+     */
+    public void setPushable(final boolean p) {
+        this.pushable = p;
     }
 
+    /**
+     * @return booleano (vero se il gameItem è stato premuto, falso altrimenti).
+     */
     public boolean isPush() {
         return push;
     }
 
-    public void setPush(boolean push) {
-        this.push = push;
+    /**
+     * Imposta lo stato del gameItem (se è stato premuto o meno).
+     *
+     * @param p
+     */
+    public void setPush(final boolean p) {
+        this.push = p;
     }
 
+    /**
+     * @return booleano (vero se il gameItem è usabile e,
+     * non appena viene utilizzato, droppa uno o più gameItem,
+     * falso altrimenti).
+     */
     public boolean isUsableWithDrops() {
         return usableWithDrops;
     }
 
-    public void setUsableWithDrops(boolean usableWithDrops) {
-        this.usableWithDrops = usableWithDrops;
+    /**
+     * Imposta lo stato del gameItem (se è usabile e,
+     * non appena viene utilizzato, droppa uno o più gameItem, o meno).
+     *
+     * @param uWithDrops
+     */
+    public void setUsableWithDrops(final boolean uWithDrops) {
+        this.usableWithDrops = uWithDrops;
     }
 
+    /**
+     * @return booleano (vero se il gameItem è stato usato, falso altrimenti).
+     */
     public boolean isUsed() {
         return used;
     }
 
-    public void setUsed(boolean used) {
-        this.used = used;
+    /**
+     * Imposta lo stato del gameItem (se è stato usato o meno).
+     *
+     * @param u
+     */
+    public void setUsed(final boolean u) {
+        this.used = u;
     }
 
+    /**
+     * @return immagine del gameItem.
+     */
     public ImageIcon getItemImage() {
         return itemImage;
     }
 
-    public void setItemImage(ImageIcon itemImage) {
-        this.itemImage = itemImage;
+    /**
+     * Imposta l'immagine del gameItem.
+     *
+     * @param iImage
+     */
+    public void setItemImage(final ImageIcon iImage) {
+        this.itemImage = iImage;
     }
 
+    /**
+     *  Metodo generato automaticamente per confrontare
+     *  se due oggetti di questa classe sono uguali.
+     *
+     * @return codice hash dell'oggetto.
+     */
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 37 * hash + this.id;
+        int hash = Description.GAME_ITEM_H1;
+        hash = Description.GAME_ITEM_H2 * hash + this.id;
         return hash;
     }
 
+    /**
+     * Permette di confrontare se due gameItem sono uguali.
+     *
+     * @param o
+     * @return booleano (vero se i due gameItem sono uguali, falso altrimenti).
+     */
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
+    public boolean equals(final Object o) {
+        if (this == o) {
             return true;
         }
-        if (obj == null) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final GameItem other = (GameItem) obj;
-        if (this.id != other.id) {
-            return false;
-        }
-        return true;
+        GameItem gameItem = (GameItem) o;
+        return id == gameItem.id && consumable == gameItem.consumable
+                && pickupable == gameItem.pickupable
+                && picked == gameItem.picked
+                && pushable == gameItem.pushable && push == gameItem.push
+                && usableWithDrops == gameItem.usableWithDrops
+                && used == gameItem.used && Objects.equals(name, gameItem.name)
+                && Objects.equals(description, gameItem.description)
+                && Objects.equals(alias, gameItem.alias)
+                && Objects.equals(descriptionUsableWithDrops,
+                        gameItem.descriptionUsableWithDrops)
+                && Objects.equals(descriptionAlreadyUsedWithDrops,
+                gameItem.descriptionAlreadyUsedWithDrops)
+                && Objects.equals(descriptionUsableButItemRemoved,
+                gameItem.descriptionUsableButItemRemoved)
+                && Objects.equals(itemImage, gameItem.itemImage);
     }
-
 }

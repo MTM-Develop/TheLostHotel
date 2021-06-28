@@ -1,157 +1,287 @@
 package tlh.Type;
 
+import tlh.Other.Description;
+
 import java.io.Serializable;
 import java.util.Iterator;
+import java.util.Objects;
 import javax.swing.ImageIcon;
 
 public class Room implements Serializable {
 
+    /**
+     * Id della stanza.
+     */
     private final int id;
+
+    /**
+     * Nome della stanza.
+     */
     private String name;
+
+    /**
+     * Indica la descrizione base della stanza.
+     */
     private String description;
-    private String lookDescription;     //fornisce una decrizione più dettagliata della stanza
-    private String visitedDescription;     //decrizione della stanza già visitata
+
+    /**
+     * Fornisce una descrizione più dettagliata della stanza.
+     */
+    private String lookDescription;
+
+    /**
+     * Descrizione della stanza già visitata.
+     */
+    private String visitedDescription;
+
+    /**
+     * Indica se la stanza è stata già visitata.
+     */
     private boolean visited = false;
 
+    /**
+     * Indica la stanza che si trova a nord.
+     */
     private Room north = null;
+
+    /**
+     * Indica la stanza che si trova a sud.
+     */
     private Room south = null;
+
+    /**
+     * Indica la stanza che si trova a ovest.
+     */
     private Room west = null;
+
+    /**
+     * Indica la stanza che si trova a est.
+     */
     private Room east = null;
-    //private Room up = null;
-    //private Room down = null;
 
-    private Inventory itemList;  //lista di oggetti presenti nella stanza
-    private String lockedBy = "";  //indica l'oggetto che permette di sbloccare la stanza
-    private ImageIcon roomImage;   // immagine raffigurante la stanza che verrà visualizzata nell'interfaccia grafica
+    /**
+     * Lista di oggetti presenti nella stanza.
+     */
+    private Inventory itemList;
 
-    // Costruttori
-    public Room(int id, String name, String description) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
+    /**
+     * Indica l'oggetto che permette di sbloccare la stanza.
+     */
+    private String lockedBy = "";
+
+    /**
+     * Immagine raffigurante la stanza
+     * che verrà visualizzata nell'interfaccia grafica.
+     */
+    private ImageIcon roomImage;
+
+    /**
+     * Costruttore.
+     *
+     * @param rId
+     * @param rName
+     * @param rDescription
+     */
+    public Room(final int rId, final String rName, final String rDescription) {
+        this.id = rId;
+        this.name = rName;
+        this.description = rDescription;
         itemList = new Inventory();
     }
 
-    // Metodi get, set, equals e hashcode
-
+    /**
+     * @return nome della stanza.
+     */
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * Imposta il nome della stanza.
+     *
+     * @param n
+     */
+    public void setName(final String n) {
+        this.name = n;
     }
 
+    /**
+     * @return descrizione base della stanza.
+     */
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    /**
+     * Imposta la descrizione base della stanza.
+     *
+     * @param desc
+     */
+    public void setDescription(final String desc) {
+        this.description = desc;
     }
 
+    /**
+     * @return descrizione più dettagliata della stanza.
+     */
     public String getLookDescription() {
         return lookDescription;
     }
 
-    public void setLookDescription(String lookDescription) {
-        this.lookDescription = lookDescription;
+    /**
+     * Imposta una descrizione più dettagliata della stanza.
+     *
+     * @param lookDesc
+     */
+    public void setLookDescription(final String lookDesc) {
+        this.lookDescription = lookDesc;
     }
 
+    /**
+     * @return descrizione della stanza (se è stata già visitata).
+     */
     public String getVisitedDescription() {
         return visitedDescription;
     }
 
-    public void setVisitedDescription(String visitedDescription) {
-        this.visitedDescription = visitedDescription;
+    /**
+     * Imposta la descrizione della stanza (se è stata già visitata).
+     *
+     * @param visitedDesc
+     */
+    public void setVisitedDescription(final String visitedDesc) {
+        this.visitedDescription = visitedDesc;
     }
 
+    /**
+     * @return Stringa che rappresenta il nome dell'oggetto
+     * che permette di sbloccare la stanza.
+     */
     public String getLockedBy() {
         return lockedBy;
     }
 
-    public void setLockedBy(String lockedBy) {
-        this.lockedBy = lockedBy;
+    /**
+     * Indica quale oggetto (nome) permette di sbloccare la stanza.
+     *
+     * @param lBy
+     */
+    public void setLockedBy(final String lBy) {
+        this.lockedBy = lBy;
     }
 
+    /**
+     * @return booleano (vero se la stanza è stata visitata, falso altrimenti).
+     */
     public boolean isVisited() {
         return visited;
     }
 
-    public void setVisited(boolean visited) {
-        this.visited = visited;
+    /**
+     * Indica se la stanza è stata visitata.
+     *
+     * @param v
+     */
+    public void setVisited(final boolean v) {
+        this.visited = v;
     }
 
+    /**
+     * @return stanza che si trova a nord.
+     */
     public Room getNorth() {
         return north;
     }
 
-    public void setNorth(Room north) {
-        this.north = north;
+    /**
+     * Imposta la stanza che si trova a nord.
+     *
+     * @param rNorth
+     */
+    public void setNorth(final Room rNorth) {
+        this.north = rNorth;
     }
 
+    /**
+     * @return stanza che si trova a sud.
+     */
     public Room getSouth() {
         return south;
     }
 
-    public void setSouth(Room south) {
-        this.south = south;
+    /**
+     * Imposta la stanza che si trova a sud.
+     *
+     * @param rSouth
+     */
+    public void setSouth(final Room rSouth) {
+        this.south = rSouth;
     }
 
+    /**
+     * @return stanza che si trova a ovest.
+     */
     public Room getWest() {
         return west;
     }
 
-    public void setWest(Room west) {
-        this.west = west;
+    /**
+     * Imposta la stanza che si trova a ovest.
+     *
+     * @param rWest
+     */
+    public void setWest(final Room rWest) {
+        this.west = rWest;
     }
 
+    /**
+     * @return stanza che si trova a est.
+     */
     public Room getEast() {
         return east;
     }
 
-    public void setEast(Room east) {
-        this.east = east;
+    /**
+     * Imposta la stanza che si trova a est.
+     *
+     * @param rEast
+     */
+    public void setEast(final Room rEast) {
+        this.east = rEast;
     }
 
-    /*public Room getUp() {
-        return up;
-    }
-
-    public void setUp(Room up) {
-        this.up = up;
-    }
-
-    public Room getDown() {
-        return down;
-    }
-
-    public void setDown(Room down) {
-        this.down = down;
-    }*/
-
+    /**
+     * @return lista di oggetti presenti nella stanza.
+     */
     public Inventory getItemList() {
         return itemList;
     }
 
-    public void setItemList(Inventory itemList) {
-        this.itemList = itemList;
+    /**
+     * Imposta la lista di oggetti presenti nella stanza.
+     *
+     * @param iList
+     */
+    public void setItemList(final Inventory iList) {
+        this.itemList = iList;
     }
 
     /**
-     * Aggiunge un oggetto alla stanza
-     * @param i item da aggiungere
+     * Aggiunge un oggetto alla stanza.
+     *
+     * @param i item da aggiungere.
      */
-    public void addItem(GameItem i) {
+    public void addItem(final GameItem i) {
         itemList.add(i);
     }
 
     /**
-     * Rimuove un oggetto dalla stanza
-     * @param i item da rimuovere
-     * @return booleano, true se l'oggetto è stato rimosso, false altrimenti
+     * Rimuove un oggetto dalla stanza.
+     *
+     * @param i item da rimuovere.
+     * @return booleano (vero se l'oggetto è stato rimosso, falso altrimenti).
      */
-    public boolean removeItem(GameItem i) {
+    public boolean removeItem(final GameItem i) {
 
         // Se prova a rimuovere l'oggetto dalla stanza ma non lo trova
         if (!itemList.remove(i)) {
@@ -165,7 +295,8 @@ public class Room implements Serializable {
                 item = it.next();
 
                 // Se il contenitore contiene quell'elemento lo rimuove
-                if (item instanceof GameItemContainer && ((GameItemContainer) item).remove(i)) {
+                if (item instanceof GameItemContainer
+                        && ((GameItemContainer) item).remove(i)) {
                     return true;
                 }
             }
@@ -177,37 +308,61 @@ public class Room implements Serializable {
         return false;
     }
 
+    /**
+     * @return immagine della stanza.
+     */
     public ImageIcon getRoomImage() {
         return roomImage;
     }
 
-    public void setRoomImage(ImageIcon roomImage) {
-        this.roomImage = roomImage;
+    /**
+     * Imposta l'immagine della stanza.
+     *
+     * @param rImage
+     */
+    public void setRoomImage(final ImageIcon rImage) {
+        this.roomImage = rImage;
     }
 
+    /**
+     * Metodo generato automaticamente per confrontare
+     * se due oggetti di questa classe sono uguali.
+     *
+     * @return codice hash dell'oggetto.
+     */
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 83 * hash + this.id;
+        int hash = Description.ROOM_H1;
+        hash = Description.ROOM_H2 * hash + this.id;
         return hash;
     }
 
+    /**
+     *  Permette di confrontare se due stanze sono uguali.
+     *
+     * @param o
+     * @return booleano (vero se le due stanze sono uguali, falso altrimenti).
+     */
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
+    public boolean equals(final Object o) {
+        if (this == o) {
             return true;
         }
-        if (obj == null) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Room other = (Room) obj;
-        if (this.id != other.id) {
-            return false;
-        }
-        return true;
+        Room room = (Room) o;
+        return id == room.id && visited == room.visited
+                && Objects.equals(name, room.name)
+                && Objects.equals(description, room.description)
+                && Objects.equals(lookDescription, room.lookDescription)
+                && Objects.equals(visitedDescription, room.visitedDescription)
+                && Objects.equals(north, room.north)
+                && Objects.equals(south, room.south)
+                && Objects.equals(west, room.west)
+                && Objects.equals(east, room.east)
+                && Objects.equals(itemList, room.itemList)
+                && Objects.equals(lockedBy, room.lockedBy)
+                && Objects.equals(roomImage, room.roomImage);
     }
-
 }

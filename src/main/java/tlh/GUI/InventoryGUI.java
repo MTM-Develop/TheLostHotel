@@ -63,8 +63,8 @@ public class InventoryGUI extends javax.swing.JDialog {
 
                 ImageIcon img = i.getItemImage();
                 jbImage.setIcon(img);
-                jbImage.setSize(Description.INV_GUI_WIDTH_JB,
-                        Description.INV_GUI_HEIGHT_JB);
+                jbImage.setSize(Description.INV_GUI_WIDTH_JB_IMG,
+                        Description.INV_GUI_HEIGHT_JB_IMG);
                 jbImage.setToolTipText(i.getName());
 
                 /* Aggiunge l'ActionListener per il click sul bottone

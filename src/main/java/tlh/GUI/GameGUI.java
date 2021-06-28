@@ -9,16 +9,31 @@ import tlh.Other.GameInteraction;
 import tlh.Other.MenuManager;
 import tlh.Parser.Parser;
 
-import javax.swing.*;
+import javax.swing.JOptionPane;
+import javax.swing.JTextPane;
+import javax.swing.JFileChooser;
+import javax.swing.Timer;
+import javax.swing.JMenuItem;
+import javax.swing.ImageIcon;
+import javax.swing.JCheckBoxMenuItem;
+import javax.swing.UIDefaults;
+import javax.swing.KeyStroke;
 import javax.swing.text.DefaultCaret;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
-import java.awt.*;
+import java.awt.Font;
+import java.awt.Cursor;
+import java.awt.Color;
+import java.awt.FontFormatException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.io.*;
+import java.io.InputStream;
+import java.io.IOException;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.ArrayList;
 
 /**
@@ -27,26 +42,95 @@ import java.util.ArrayList;
  */
 public class GameGUI extends javax.swing.JFrame {
 
-    private GameInteraction gInteraction; // Gestore di Interazione col gioco e parser
+    /**
+     * Gestore di interazione col gioco e parser.
+     */
+    private GameInteraction gInteraction;
+
+    /**
+     * Parser del gioco.
+     */
     private Parser parser = new Parser();
 
+    /**
+     * Gestore del menu.
+     */
     private MenuManager menu;
 
+    /**
+     * Timer utilizzato per l'effetto del testo "typewriter".
+     */
     private Timer tm;
+
+    /**
+     * Tipo di stringa per concatenare i vari messaggi
+     * con effetto "typewriter".
+     */
     private StringBuilder s = new StringBuilder();
+
+    /**
+     * Indica il contatore per il testo.
+     */
     private int counter = 0;
 
-    private Font font, font1;
-    private Font fontGameButton,fontGameLabel, fontGameBar, fontGameText, fontGameRoomName;
+    /**
+     * Font di gioco.
+     */
+    private Font font;
 
+    /**
+     * Font di gioco.
+     */
+    private Font font1;
+
+    /**
+     * Font per i jButton.
+     */
+    private Font fontGameButton;
+
+    /**
+     * Font per jLabel.
+     */
+    private Font fontGameLabel;
+
+    /**
+     * Font per i jMenu.
+     */
+    private Font fontGameBar;
+
+    /**
+     * Font per il testo della JTextPane.
+     */
+    private Font fontGameText;
+
+    /**
+     * Font per jLabel (della stanza corrente).
+     */
+    private Font fontGameRoomName;
+
+    /**
+     * Indica se il gioco è stato salvato.
+     */
     private boolean savedGame = true;
+
+    /**
+     * Rappresenta il testo veloce a schermo.
+     */
     private boolean fastText = false;
 
+    /**
+     * Indica lo storico dei comandi del giocatore.
+     */
     private ArrayList<String> commandHistory = new ArrayList<String>();
 
-    private int count_key_down = 0;
     /**
-     * Creates new form GameGUI
+     * Indica il numero di volte in cui l'utente preme la freccia in giù
+     * (utile per lo storico dei comandi).
+     */
+    private int count_key_down = 0;
+
+    /**
+     * Creates new form GameGUI.
      */
     public GameGUI(GameInteraction gInteraction) {
         initComponents();

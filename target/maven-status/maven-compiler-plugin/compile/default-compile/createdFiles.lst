@@ -9,6 +9,7 @@ tlh\Other\GameDescription.class
 tlh\Other\TheLostHotel$1.class
 tlh\Type\Command.class
 tlh\Other\MenuManager.class
+tlh\Parser\InvalidStringException.class
 tlh\Type\Inventory.class
 tlh\Other\Description.class
 tlh\GUI\MenuGUI$3.class

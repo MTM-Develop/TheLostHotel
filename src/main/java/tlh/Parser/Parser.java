@@ -27,13 +27,13 @@ public class Parser {
      * @param commands comandi del gioco.
      * @return oggetto di tipo ParserOutput.
      *
-     * //@throws InvalidStringException se trova una stringa non valida
+     * @throws InvalidStringException se trova una stringa non valida
      * ad esempio composta da 0 o 2+ comandi
      */
     public ParserOutput parse(final String phrase,
                               final Room currentRoom,
                               final Inventory inv,
-                              final Set<Command> commands) {
+                              final Set<Command> commands) throws InvalidStringException {
 
         ParserOutput pOutput = new ParserOutput();
 
@@ -51,7 +51,7 @@ public class Parser {
             } else if (this.isCommand(t, commands) && !pOutput.isEmpty()) {
                 // Se trova un secondo comando, la stringa non è valida
 
-                //throw new InvalidStringException(); "Stringa non valida"
+                throw new InvalidStringException(); //"Stringa non valida"
 
             }
 
@@ -104,7 +104,7 @@ public class Parser {
             }
 
         } else { // Se non ha trovato nemmeno un comando
-            //throw new InvalidStringException();
+            throw new InvalidStringException();
         }
 
         return pOutput;

@@ -724,7 +724,7 @@ public class TheLostHotel extends GameManager {
 
             } else {// Se non ha trovato l'oggetto lo cerca in un contenitore non bloccato dell'inventario
 
-                for (GameItem iC : this.getGame().getInventory().getInventoryList()) {
+                for (GameItem iC : this.getGame().getInventory().getInventoryList()) { //TROVATO L'ERRORE! (USA ACCENDINO)
 
                     if (iC instanceof GameItemContainer && ((GameItemContainer) iC).getLockedBy().equals("")) {
 
