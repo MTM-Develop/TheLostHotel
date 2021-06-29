@@ -52,6 +52,12 @@ public class GameItemContainer extends GameItem implements Serializable {
     private boolean iCNotOpenable = false;
 
     /**
+     * Indica se è possibile inserire oggetti
+     * qui dentro.
+     * (Es. "Inserisci [oggetto] in attaccapanni").
+     */
+    private boolean iCNotInsertable = false;
+    /**
      * Descrizione del contenitore (quando viene aperto).
      */
     private String openedDescription;
@@ -221,6 +227,24 @@ public class GameItemContainer extends GameItem implements Serializable {
      */
     public void setiCNotOpenable(final boolean iCNOpenable) {
         this.iCNotOpenable = iCNOpenable;
+    }
+
+    /**
+     * @return booleano (vero se non è possibile inserire
+     * oggetti qui dentro, falso altrimenti).
+     */
+    public boolean isiCNotInsertable() {
+        return iCNotInsertable;
+    }
+
+    /**
+     * Imposta lo stato del contenitore (se è possibile
+     * inserire oggetti qui dentro o meno).
+     *
+     * @param iCNInsertable
+     */
+    public void setiCNotInsertable(boolean iCNInsertable) {
+        this.iCNotInsertable = iCNInsertable;
     }
 
     /**

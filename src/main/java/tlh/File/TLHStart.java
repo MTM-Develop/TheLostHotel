@@ -140,6 +140,21 @@ public class TLHStart {
         keyBar.setItemImage(imgKey47);
         keyBar.setConsumable((byte) 1);
 
+        GameItem usb = new GameItem(Description.ID_USB, "usb",
+                Description.DESCRIPTION_USB);
+        usb.setAlias(new String[]{"chiavetta", "pendrive", "penna"});
+        usb.setPickupable(true);
+        ImageIcon imgUsb = new ImageIcon(
+                "resources//img//gameItem//usb.png");
+        usb.setItemImage(imgUsb);
+
+        GameItem hook = new GameItem(Description.ID_HOOK, "gancio",
+                Description.DESCRIPTION_HOOK);
+        hook.setAlias(new String[]{"punta", "uncino", "gancetto"});
+        ImageIcon imgHook = new ImageIcon(
+                "resources//img//gameItem//hook.png");
+        hook.setItemImage(imgHook);
+
         GameItemContainer button = new GameItemContainer(
                 Description.ID_BUTTON, "bottone", //CAMBIARE ID
                 Description.DESCRIPTION_KNIFE); //CAMBIARE
@@ -189,12 +204,14 @@ public class TLHStart {
                 "letto", Description.DESCRIPTION_BED_79);
         bed79.setAlias(new String[]{"alcova", "lettiera"});
         bed79.setiCNotOpenable(true);
+        bed79.setiCNotInsertable(true);
 
         GameItemContainer coatHook79 = new GameItemContainer(
                 Description.ID_COATHOOK_79, "appendiabiti",
                 Description.DESCRIPTION_COATHOOK_79);
         coatHook79.setAlias(new String[]{"attaccapanni", "appendiabito"});
         coatHook79.setiCNotOpenable(true);
+        coatHook79.setiCNotInsertable(true);
 
         GameItemContainer slot = new GameItemContainer(Description.ID_SLOT,
                 "slot", Description.DESCRIPTION_SLOT);
@@ -271,12 +288,12 @@ public class TLHStart {
         fan.setAlias(new String[]{"ventola"});
         fan.setiCNotOpenable(true);
 
-        /*GameItemContainer box = new GameItemContainer(Description.ID_BOX,
-        "scatola", Description.DESCRIPTION_BOX);
-        box.setOpenedDescription(Description.OPENED_DESCRIPTION_BOX);
+        /*GameItemContainer box = new GameItemContainer(456456456,
+        "scatola", "boooob");
+        box.setOpenedDescription("booooobb2");
         box.setAlias(new String[]{"scatolone", "cartone", "box",
         "contenitore"});
-        box.setLockedBy(knife.getName());
+        box.setLockedBy("");
         box.add(drink);*/
 
         GameItemContainer plantHallwayColumbus = new GameItemContainer(
@@ -329,6 +346,67 @@ public class TLHStart {
         cashDesk.setOpenedDescription(Description.OPENED_DESCRIPTION_CASH_DESK);
         cashDesk.setLockedBy(drink.getName()); //cambiare con chiave
         //cashDesk.add(key33);
+
+        GameItemContainer computer = new GameItemContainer(
+                Description.ID_COMPUTER, "computer",
+                Description.DESCRIPTION_COMPUTER);
+        computer.setAlias(new String[]{"pc", "notebook", "portatile",
+                "calcolatore", "elaboratore"});
+        computer.setUsableWithItem(true);
+        computer.setiCNotOpenable(true);
+        computer.add(usb);
+
+        GameItemContainer bed53 = new GameItemContainer(Description.ID_BED_53,
+                "letto", Description.DESCRIPTION_BED_53);
+        bed53.setAlias(new String[]{"alcova", "lettiera"});
+        bed53.setiCNotOpenable(true);
+        bed53.setiCNotInsertable(true);
+
+        GameItemContainer babycot = new GameItemContainer(Description.ID_BABYCOT,
+                "culla", Description.DESCRIPTION_BABYCOT);
+        babycot.setAlias(new String[]{"connola", "brandina"});
+        babycot.setiCNotOpenable(true);
+        babycot.setiCNotInsertable(true);
+
+        GameItemContainer tv53 = new GameItemContainer(Description.ID_TV_53,
+                "televisione", Description.DESCRIPTION_TV_53);
+        tv53.setAlias(new String[]{"tv", "televisore"});
+        tv53.setiCNotOpenable(true);
+        //tv53.setiCNotInsertable(true);
+
+        GameItemContainer shoeRack = new GameItemContainer(Description.ID_SHOE_RACK,
+                "scarpiera", Description.DESCRIPTION_SHOE_RACK);
+        shoeRack.setAlias(new String[]{"portascarpe"});
+        shoeRack.setiCNotOpenable(true);
+        shoeRack.setiCNotInsertable(true);
+
+        GameItemContainer armchair53 = new GameItemContainer(Description.ID_ARMCHAIR53,
+                "poltrona", Description.DESCRIPTION_ARMCHAIR53);
+        armchair53.setAlias(new String[]{"sofa", "pouf", "poltroncina"});
+        armchair53.setiCNotOpenable(true);
+        armchair53.setiCNotInsertable(true);
+
+        GameItemContainer window53 = new GameItemContainer(Description.ID_WINDOW53,
+                "finestra", Description.DESCRIPTION_WINDOW53);
+        window53.setAlias(new String[]{"vetrina"});
+        window53.setiCNotInsertable(true);
+
+        GameItemContainer dresser53 = new GameItemContainer(Description.ID_DRESSER53,
+                "comò", Description.DESCRIPTION_DRESSER53);
+        dresser53.setAlias(new String[]{"cassettone", "cassettiera", "canterano", "como"});
+        dresser53.setOpenedDescription(Description.OPENED_DESCRIPTION_DRESSER53);
+        dresser53.setLockedBy("");//cambiare
+        //dresser53.add(socks);
+
+        GameItemContainer coatHook53 = new GameItemContainer(
+                Description.ID_COATHOOK53, "appendiabiti",
+                Description.DESCRIPTION_COATHOOK53);
+        coatHook53.setAlias(new String[]{"attaccapanni", "appendiabito"});
+        coatHook53.setMovedDescription(Description.MOVED_DESCRIPTION_COATHOOK53);
+        coatHook53.add(hook);
+        coatHook53.setMovable(true);
+        coatHook53.setiCNotInsertable(true);
+        coatHook53.setiCNotOpenable(true);
 
         //GameItem password = new GameItem(Description.ID_PASSWORD, "1");
         //Occhio alla descrizione
@@ -447,14 +525,15 @@ public class TLHStart {
         room53.setLookDescription(Description.LOOK_ROOM_53);
         room53.setRoomImage(new ImageIcon("resources//img//room//room53.png"));
         room53.setVisitedDescription(Description.DESCRIPTION_VISITED_ROOM_53);
-        /*room53.addItem(wardrobe79);
-        //room79.addItem(lighter);
-        room79.addItem(furniture79);
-        room79.addItem(paint79);
-        room79.addItem(bed79);
-        room79.addItem(coatHook79);
-        room79.addItem(button);
-        //room79.addItem(strongbox);*/
+        room53.addItem(computer);
+        room53.addItem(bed53);
+        room53.addItem(babycot);
+        room53.addItem(tv53);
+        room53.addItem(shoeRack);
+        room53.addItem(armchair53);
+        room53.addItem(window53);
+        room53.addItem(coatHook53);
+        room53.addItem(dresser53);
 
         g.setCurrentRoom(room79);
         room79.setNorth(hallway);

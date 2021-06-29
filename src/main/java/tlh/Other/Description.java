@@ -80,7 +80,9 @@ public final class Description {
      * Descrizione della stanza "stanza 53".
      */
     public static final String DESCRIPTION_ROOM_53 =
-            ""; //cambiare
+            "Un'altra stanza dell'hotel. "
+            + "Pensi che costi molto, lo noti dalla quantità di oggetti "
+            + "presenti al suo interno.";
 
     //Descrizioni relative a stanze/luoghi già visitati
     /**
@@ -141,7 +143,7 @@ public final class Description {
      * Descrizione della stanza "stanza 53" già visitata.
      */
     public static final String DESCRIPTION_VISITED_ROOM_53 =
-            ""; //CAMBIAREE
+            "Una grande stanza per famiglie.";
 
     //Descrizione più dettagliata per ogni stanza/luogo
     /**
@@ -220,7 +222,10 @@ public final class Description {
      * Descrizione più dettagliata della stanza "stanza 53".
      */
     public static final String LOOK_ROOM_53 =
-            ""; //cambiare
+            "Un vasta e ampia stanza si presenta davanti ai tuoi occhi. "
+            + "È molto più arredata della tua. "
+            + "Chissà cosa possa nascondersi qui. "
+            + "Noti il letto sfatto...";
 
     //Descrizione relativa agli oggetti
     /**
@@ -469,6 +474,74 @@ public final class Description {
                     + "Sicuramente non apre una camera dell'hotel.";
 
     /**
+     * Descrizione dell'oggetto "usb".
+     */
+    public static final String DESCRIPTION_USB =
+            "La penna USB che hai trovato nel computer della stanza 53.";
+
+    /**
+     * Descrizione dell'oggetto contenitore "computer".
+     */
+    public static final String DESCRIPTION_COMPUTER =
+            "Il computer sul tavolo della stanza, noti un pop-up in basso a destra. "
+                    + "Cosa potrebbe essere?";
+
+    /**
+     * Descrizione dell'oggetto contenitore "letto" della stanza 53.
+     */
+    public static final String DESCRIPTION_BED_53 =
+            "Un letto a due piazze. Sembra che qualcuno ci sia già stato...";
+
+    /**
+     * Descrizione dell'oggetto contenitore "culla".
+     */
+    public static final String DESCRIPTION_BABYCOT =
+            "Una docile culla, deduci che questa stanza era per una famiglia.";
+
+    /**
+     * Descrizione dell'oggetto contenitore "tv" della stanza 53.
+     */
+    public static final String DESCRIPTION_TV_53 =
+            "Una televisione accesa, è in onda il tg della notte.";//cambiare
+
+    /**
+     * Descrizione dell'oggetto contenitore "scarpiera".
+     */
+    public static final String DESCRIPTION_SHOE_RACK =
+            "Una scarpiera di ferro, non sembra che qualcuno l'abbia mai utilizzata!";//cambiare
+
+    /**
+     * Descrizione dell'oggetto contenitore "poltrona" della stanza 53.
+     */
+    public static final String DESCRIPTION_ARMCHAIR53 =
+            "Una poltrona blu, sembra essere abbastanza confortevole...";
+
+    /**
+     * Descrizione dell'oggetto contenitore "finestra" della stanza 53.
+     */
+    public static final String DESCRIPTION_WINDOW53 =
+            "Una finestra abbastanza sporca, non riesci a vedere che c'è aldilà...";
+
+
+    /**
+     * Descrizione dell'oggetto contenitore "appendiabiti" della stanza 53.
+     */
+    public static final String DESCRIPTION_COATHOOK53 =
+            "Un'attaccapanni simile a quello della tua stanza.";
+
+    /**
+     * Descrizione dell'oggetto "gancio".
+     */
+    public static final String DESCRIPTION_HOOK =
+            "Il gancio che si è staccato dall'appendiabiti mentre lo stavi spostando";
+
+    /**
+     * Descrizione dell'oggetto contenitore "comò" della stanza 53.
+     */
+    public static final String DESCRIPTION_DRESSER53 =
+            "Un grande comò in legno. Presenta 4 cassetti ma sono bloccati.";
+
+    /**
      * Descrizione dell'oggetto contenitore "slot" non appena viene utilizzato.
      */
     public static final String DESCRIPTION_SLOT_USABLE_WITH_DROPS =
@@ -586,6 +659,13 @@ public final class Description {
     public static final String OPENED_DESCRIPTION_CASH_DESK =
             "La cassa del bar Columbus aperta!";
 
+    /**
+     * Descrizione dell'oggetto contenitore "comò" già aperto.
+     */
+    public static final String OPENED_DESCRIPTION_DRESSER53 =
+            "Il como con i cassetti aperti.";
+
+
     //public static final String OPENED_DESCRIPTION_BOX =
     // "La scatola che conteneva <<oggetto>>";
 
@@ -609,6 +689,12 @@ public final class Description {
      */
     public static final String MOVED_DESCRIPTION_CUP =
             "La tazzina che hai spostato prima! ";
+
+    /**
+     * Descrizione dell'oggetto contenitore "appendiabiti"  della stanza 53 già spostato.
+     */
+    public static final String MOVED_DESCRIPTION_COATHOOK53 =
+            "L'appendiabiti senza gancio, hai fatto un bel danno!";
 
     //ID oggetti
     /**
@@ -680,6 +766,16 @@ public final class Description {
      * ID dell'oggetto "chiave47".
      */
     public static final int ID_KEY_BAR = 14;
+
+    /**
+     * ID dell'oggetto "usb".
+     */
+    public static final int ID_USB= 15;
+
+    /**
+     * ID dell'oggetto "gancio".
+     */
+    public static final int ID_HOOK= 16;
 
     //ID oggetti contenitori
     /**
@@ -781,6 +877,52 @@ public final class Description {
      * ID dell'oggetto contenitore "cassa".
      */
     public static final int ID_CASH_DESK = 119;
+
+    /**
+     * ID dell'oggetto contenitore "computer".
+     */
+    public static final int ID_COMPUTER = 120;
+
+    /**
+     * ID dell'oggetto contenitore "letto".
+     */
+    public static final int ID_BED_53 = 121;
+
+    /**
+     * ID dell'oggetto contenitore "culla".
+     */
+    public static final int ID_BABYCOT = 122;
+
+    /**
+     * ID dell'oggetto contenitore "tv" della stanza 53.
+     */
+    public static final int ID_TV_53 = 123;
+
+
+    /**
+     * ID dell'oggetto contenitore "scarpiera".
+     */
+    public static final int ID_SHOE_RACK = 124;
+
+    /**
+     * ID dell'oggetto contenitore "poltrona" della stanza 53.
+     */
+    public static final int ID_ARMCHAIR53 = 125;
+
+    /**
+     * ID dell'oggetto contenitore "finestra" della stanza 53.
+     */
+    public static final int ID_WINDOW53 = 126;
+
+    /**
+     * ID dell'oggetto contenitore "appendiabiti" della stanza 53.
+     */
+    public static final int ID_COATHOOK53 = 127;
+
+    /**
+     * ID dell'oggetto contenitore "comò" della stanza 53.
+     */
+    public static final int ID_DRESSER53 = 128;
 
     ////////// CAMBIARE
     /**

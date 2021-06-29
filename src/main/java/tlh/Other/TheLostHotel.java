@@ -297,14 +297,21 @@ public class TheLostHotel extends GameManager {
 
                                         } else {
 
-                                            if(((GameItemContainer) iC).isClosed()) {
-                                                output.append("Hai aperto l'oggetto " + iC.getName()
-                                                        + "! Ecco il suo contenuto:" + iC.toString() + "\n");
+                                            if(!((GameItemContainer) iC).isiCNotOpenable())
+                                            {
+                                                if(((GameItemContainer) iC).isClosed()) {
+                                                    output.append("Hai aperto l'oggetto " + iC.getName()
+                                                            + "! Ecco il suo contenuto:" + iC.toString() + "\n");
+                                                }
+                                                else{
+                                                    output.append("Hai aperto l'oggetto " + iC.getName()
+                                                            + " ma ci sono oggetti \n " +
+                                                            "non ancora raccolti: " + iC.toString() + "\n");
+                                                }
                                             }
-                                            else {
-                                                output.append("Hai aperto l'oggetto " + iC.getName()
-                                                        + "ma ci sono oggetti \n " +
-                                                        "non ancora raccolti: " + iC.toString() + "\n");
+                                            else
+                                            {
+                                                output.append("Non puoi aprire quest'oggetto!\n");
                                             }
 
                                             if (iC.getName().equals("mobile") && ((GameItemContainer) iC).isClosed())
@@ -637,7 +644,16 @@ public class TheLostHotel extends GameManager {
                                             output.append("Impossibile inserire questo oggetto perchè la " + iC.getName() + " è chiusa!\n");
                                         }
 
+                                        else if(iC.getName().equals("computer") && gameItem.getName().equals("usb") && ((GameItemContainer) iC).getcItemList().getInventoryList().isEmpty()) {
+                                            output.append("Hai inserito l'oggetto " + gameItem.getName() +
+                                                    " in " + iC.getName() + "\n");
+
+                                            ((GameItemContainer) iC).add(gameItem);
+                                            this.getGame().getInventory().remove(gameItem);
+                                        }
+
                                         //CONTINUARE DA QUI PER ALTRI OGGETTI
+
                                         else
                                             output.append("Non puoi inserire questo oggetto qui!\n");
 
@@ -652,7 +668,7 @@ public class TheLostHotel extends GameManager {
                             else {
                                 if (pOutput.containsWordType(WordType.ERROR)) {
                                     if (pOutput.containsWordType(WordType.IN)) {
-                                        if(((GameItemContainer) iC).getLockedBy().equals("")) {
+                                        if(((GameItemContainer) iC).getLockedBy().equals("") && !((GameItemContainer) iC).isiCNotInsertable()) {
                                             output.append("Hai inserito l'oggetto " + gameItem.getName() +
                                                     " in " + iC.getName() + ".\n");
 
@@ -667,6 +683,8 @@ public class TheLostHotel extends GameManager {
                                                 output.append("\nL'oggetto " + gameItem.getName() + " è stato rimosso.\n");
                                             }
                                         }
+                                        else if(((GameItemContainer) iC).isiCNotInsertable())
+                                            output.append("Non puoi inserire qualcosa qui!\n");
                                         else
                                             output.append("Impossibile inserire questo oggetto perchè il contenitore è chiuso.");
 
