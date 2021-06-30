@@ -463,8 +463,8 @@ public final class Description {
      * Descrizione dell'oggetto "gettone".
      */
     public static final String DESCRIPTION_TOKEN =
-            "Il gettone che hai trovato sotto la tazzina. Qualcuno sarà passato "
-            + "poco fa dalla Sala Giochi.";
+            "Il gettone che hai trovato sotto la tazzina. "
+            + "Qualcuno sarà passato poco fa dalla Sala Giochi.";
 
     /**
      * Descrizione dell'oggetto "chiave47".
@@ -483,8 +483,9 @@ public final class Description {
      * Descrizione dell'oggetto contenitore "computer".
      */
     public static final String DESCRIPTION_COMPUTER =
-            "Il computer sul tavolo della stanza, noti un pop-up in basso a destra. "
-                    + "Cosa potrebbe essere?";
+            "Il computer sul tavolo della stanza. "
+            + "Noti un pop-up in basso a destra. "
+            + "Cosa potrebbe essere?";
 
     /**
      * Descrizione dell'oggetto contenitore "letto" della stanza 53.
@@ -502,13 +503,14 @@ public final class Description {
      * Descrizione dell'oggetto contenitore "tv" della stanza 53.
      */
     public static final String DESCRIPTION_TV_53 =
-            "Una televisione accesa, è in onda il tg della notte.";//cambiare
+            "Una televisione accesa, è in onda il tg della notte."; //cambiare
 
     /**
      * Descrizione dell'oggetto contenitore "scarpiera".
      */
     public static final String DESCRIPTION_SHOE_RACK =
-            "Una scarpiera di ferro, non sembra che qualcuno l'abbia mai utilizzata!";//cambiare
+            "Una scarpiera di ferro, non sembra "
+            + "che qualcuno l'abbia mai utilizzata!";
 
     /**
      * Descrizione dell'oggetto contenitore "poltrona" della stanza 53.
@@ -520,7 +522,8 @@ public final class Description {
      * Descrizione dell'oggetto contenitore "finestra" della stanza 53.
      */
     public static final String DESCRIPTION_WINDOW53 =
-            "Una finestra abbastanza sporca, non riesci a vedere che c'è aldilà...";
+            "Una finestra abbastanza sporca,"
+            + "non riesci a vedere che c'è aldilà...";
 
 
     /**
@@ -533,7 +536,8 @@ public final class Description {
      * Descrizione dell'oggetto "gancio".
      */
     public static final String DESCRIPTION_HOOK =
-            "Il gancio che si è staccato dall'appendiabiti mentre lo stavi spostando";
+            "Il gancio che si è staccato"
+            + "dall'appendiabiti mentre lo stavi spostando";
 
     /**
      * Descrizione dell'oggetto contenitore "comò" della stanza 53.
@@ -691,7 +695,8 @@ public final class Description {
             "La tazzina che hai spostato prima! ";
 
     /**
-     * Descrizione dell'oggetto contenitore "appendiabiti"  della stanza 53 già spostato.
+     * Descrizione dell'oggetto contenitore "appendiabiti"
+     * della stanza 53 già spostato.
      */
     public static final String MOVED_DESCRIPTION_COATHOOK53 =
             "L'appendiabiti senza gancio, hai fatto un bel danno!";
@@ -770,12 +775,12 @@ public final class Description {
     /**
      * ID dell'oggetto "usb".
      */
-    public static final int ID_USB= 15;
+    public static final int ID_USB = 15;
 
     /**
      * ID dell'oggetto "gancio".
      */
-    public static final int ID_HOOK= 16;
+    public static final int ID_HOOK = 16;
 
     //ID oggetti contenitori
     /**
@@ -1263,4 +1268,417 @@ public final class Description {
      * del codice hash dell'oggetto di classe Command.
      */
     public static final int COMMAND_H2 = 31;
+
+    /**
+     * Indica il valore dell'offset per
+     * StyledDocument utilizzato per cambiare
+     * dinamicamente il font nella jtpReadingArea.
+     */
+    public static final int GAME_GUI_OFFSET_SD = 1900;
+
+    /**
+     * Indica la dimensione del nuovo font
+     * della jtpReadingArea.
+     */
+    public static final int GAME_GUI_SIZE_NEW_FONT_JTP = 18;
+
+    /**
+     * Indica la dimensione del font della label
+     * indicante il nome della stanza corrente.
+     */
+    public static final int GAME_GUI_SIZE_FONT_ROOM_NAME = 14;
+
+    /**
+     * Indica la dimensione del font delle sezioni del jMenuBar.
+     */
+    public static final int GAME_GUI_SIZE_FONT_GAME_BAR = 13;
+
+    /**
+     * Indica la dimensione del font dei bottoni.
+     */
+    public static final int GAME_GUI_SIZE_FONT_BUTTON = 15;
+
+    /**
+     * Indica la dimensione del font delle label.
+     */
+    public static final int GAME_GUI_SIZE_FONT_LABEL = 17;
+
+    /**
+     * Indica la dimensione del font del testo
+     * riportato nella jtpReadingArea.
+     */
+    public static final int GAME_GUI_SIZE_FONT_TEXT = 18;
+
+    /**
+     * Indica il codice RGB (Red) del testo
+     * indicato nella jtpReadingArea.
+     */
+    public static final int GAME_GUI_CODE_RGB_R_JTP = 127;
+
+    /**
+     * Indica il codice RGB (Green) del testo
+     * indicato nella jtpReadingArea.
+     */
+    public static final int GAME_GUI_CODE_RGB_G_JTP = 255;
+
+    /**
+     * Indica il valore dell'ascissa della jLabel
+     * (utilizzata per lo sfondo) della classe GameGUI.
+     */
+    public static final int GAME_GUI_X_JL_BG = 0;
+
+    /**
+     * Indica il valore dell'ordinata della jLabel
+     * (utilizzata per lo sfondo) della classe GameGUI.
+     */
+    public static final int GAME_GUI_Y_JL_BG = -20;
+
+    /**
+     * Indica il valore della larghezza della jLabel
+     * (utilizzata per lo sfondo) della classe GameGUI.
+     */
+    public static final int GAME_GUI_WIDTH_JL_BG = 1220;
+
+    /**
+     * Indica il valore dell'altezza della jLabel
+     * (utilizzata per lo sfondo) della classe GameGUI.
+     */
+    public static final int GAME_GUI_HEIGHT_JL_BG = 700;
+
+    /**
+     * Indica il valore dell'ascissa del jScrollPane
+     * (utilizzato per la jtpReadingArea) della classe GameGUI.
+     */
+    public static final int GAME_GUI_X_JSP_RA = 40;
+
+    /**
+     * Indica il valore dell'ordinata del jScrollPane
+     * (utilizzato per la jtpReadingArea) della classe GameGUI.
+     */
+    public static final int GAME_GUI_Y_JSP_RA = 30;
+
+    /**
+     * Indica il valore della larghezza del jScrollPane
+     * (utilizzato per la jtpReadingArea) della classe GameGUI.
+     */
+    public static final int GAME_GUI_WIDTH_JSP_RA = 500;
+
+    /**
+     * Indica il valore dell'altezza del jScrollPane
+     * (utilizzato per la jtpReadingArea) della classe GameGUI.
+     */
+    public static final int GAME_GUI_HEIGHT_JSP_RA = 460;
+
+    /**
+     * Indica il valore della larghezza della jtpReadingArea
+     * della classe GameGUI.
+     */
+    public static final int GAME_GUI_WIDTH_JTP = 900;
+
+    /**
+     * Indica il valore dell'altezza della jtpReadingArea
+     * della classe GameGUI.
+     */
+    public static final int GAME_GUI_HEIGHT_JTP = 450;
+
+    /**
+     * Indica il codice RGB del foreground.
+     */
+    public static final int GAME_GUI_CODE_RGB_255 = 255;
+
+    /**
+     * Indica il valore dell'ascissa dell'immagine
+     * (utilizzata per la stanza corrente) della classe GameGUI.
+     */
+    public static final int GAME_GUI_X_JL_RI = 560;
+
+    /**
+     * Indica il valore dell'ordinata dell'immagine
+     * (utilizzata per la stanza corrente) della classe GameGUI.
+     */
+    public static final int GAME_GUI_Y_JL_RI = 140;
+
+    /**
+     * Indica il valore della larghezza dell'immagine
+     * (utilizzata per la stanza corrente) della classe GameGUI.
+     */
+    public static final int GAME_GUI_WIDTH_JL_RI = 620;
+
+    /**
+     * Indica il valore dell'altezza dell'immagine
+     * (utilizzata per la stanza corrente) della classe GameGUI.
+     */
+    public static final int GAME_GUI_HEIGHT_JL_RI = 350;
+
+    /**
+     * Indica il valore dell'ascissa del jScrollPane
+     * (utilizzata per scrollare l'area di inserimento dei comandi)
+     * della classe GameGUI.
+     */
+    public static final int GAME_GUI_X_JSP = 40;
+
+    /**
+     * Indica il valore dell'ordinata del jScrollPane
+     * (utilizzata per scrollare l'area di inserimento dei comandi)
+     * della classe GameGUI.
+     */
+    public static final int GAME_GUI_Y_JSP = 580;
+
+    /**
+     * Indica il valore della larghezza del jScrollPane
+     * (utilizzata per scrollare l'area di inserimento dei comandi)
+     * della classe GameGUI.
+     */
+    public static final int GAME_GUI_WIDTH_JSP = 380;
+
+    /**
+     * Indica il valore dell'altezza del jScrollPane
+     * (utilizzata per scrollare l'area di inserimento dei comandi)
+     * della classe GameGUI.
+     */
+    public static final int GAME_GUI_HEIGHT_JSP = 40;
+
+    /**
+     * Indica il valore dell'ascissa del bottone
+     * (utilizzato per visualizzare l'inventario) della classe GameGUI.
+     */
+    public static final int GAME_GUI_X_JB_INV = 1000;
+
+    /**
+     * Indica il valore dell'ordinata del bottone
+     * (utilizzato per visualizzare l'inventario) della classe GameGUI.
+     */
+    public static final int GAME_GUI_Y_JB_INV = 45;
+
+    /**
+     * Indica il valore della larghezza del bottone
+     * (utilizzato per visualizzare l'inventario) della classe GameGUI.
+     */
+    public static final int GAME_GUI_WIDTH_JB_INV = 70;
+
+    /**
+     * Indica il valore dell'altezza del bottone
+     * (utilizzato per visualizzare l'inventario) della classe GameGUI.
+     */
+    public static final int GAME_GUI_HEIGHT_JB_INV = 70;
+
+    /**
+     * Indica il valore dell'ascissa del bottone
+     * (utilizzato per inviare un comando) della classe GameGUI.
+     */
+    public static final int GAME_GUI_X_JB_SCOMMAND = 430;
+
+    /**
+     * Indica il valore dell'ordinata del bottone
+     * (utilizzato per inviare un comando) della classe GameGUI.
+     */
+    public static final int GAME_GUI_Y_JB_SCOMMAND = 580;
+
+    /**
+     * Indica il valore della larghezza del bottone
+     * (utilizzato per inviare un comando) della classe GameGUI.
+     */
+    public static final int GAME_GUI_WIDTH_JB_SCOMMAND = 100;
+
+    /**
+     * Indica il valore dell'altezza del bottone
+     * (utilizzato per inviare un comando) della classe GameGUI.
+     */
+    public static final int GAME_GUI_HEIGHT_JB_SCOMMAND = 40;
+
+    /**
+     * Indica il valore dell'ascissa del bottone
+     * (utilizzato per tornare al menù principale) della classe GameGUI.
+     */
+    public static final int GAME_GUI_X_JB_QUIT = 1010;
+
+    /**
+     * Indica il valore dell'ordinata del bottone
+     * (utilizzato per tornare al menù principale) della classe GameGUI.
+     */
+    public static final int GAME_GUI_Y_JB_QUIT = 580;
+
+    /**
+     * Indica il valore della larghezza del bottone
+     * (utilizzato per tornare al menù principale) della classe GameGUI.
+     */
+    public static final int GAME_GUI_WIDTH_JB_QUIT = 170;
+
+    /**
+     * Indica il valore dell'altezza del bottone
+     * (utilizzato per tornare al menù principale) della classe GameGUI.
+     */
+    public static final int GAME_GUI_HEIGHT_JB_QUIT = 40;
+
+    /**
+     * Indica il valore dell'ascissa del bottone
+     * (utilizzato per salvare la partita corrente) della classe GameGUI.
+     */
+    public static final int GAME_GUI_X_JB_SAVE = 1010;
+
+    /**
+     * Indica il valore dell'ordinata del bottone
+     * (utilizzato per salvare la partita corrente) della classe GameGUI.
+     */
+    public static final int GAME_GUI_Y_JB_SAVE = 520;
+
+    /**
+     * Indica il valore della larghezza del bottone
+     * (utilizzato per salvare la partita corrente) della classe GameGUI.
+     */
+    public static final int GAME_GUI_WIDTH_JB_SAVE = 170;
+
+    /**
+     * Indica il valore dell'altezza del bottone
+     * (utilizzato per salvare la partita corrente) della classe GameGUI.
+     */
+    public static final int GAME_GUI_HEIGHT_JB_SAVE = 40;
+
+    /**
+     * Indica il valore dell'ascissa della Label
+     * (con su scritto "STANZA CORRENTE:") della classe GameGUI.
+     */
+    public static final int GAME_GUI_X_JL_CROOM = 560;
+
+    /**
+     * Indica il valore dell'ordinata della Label
+     * (con su scritto "STANZA CORRENTE:") della classe GameGUI.
+     */
+    public static final int GAME_GUI_Y_JL_CROOM = 60;
+
+    /**
+     * Indica il valore della larghezza della Label
+     * (con su scritto "STANZA CORRENTE:") della classe GameGUI.
+     */
+    public static final int GAME_GUI_WIDTH_JL_CROOM = 160;
+
+    /**
+     * Indica il valore dell'altezza della Label
+     * (con su scritto "STANZA CORRENTE:") della classe GameGUI.
+     */
+    public static final int GAME_GUI_HEIGHT_JL_CROOM = 40;
+
+    /**
+     * Indica il codice RGB (Red) del background
+     * delle Label.
+     */
+    public static final int GAME_GUI_CODE_RGB_R_JL = 43;
+
+    /**
+     * Indica il codice RGB (Green) del background
+     * delle Label.
+     */
+    public static final int GAME_GUI_CODE_RGB_G_JL = 52;
+
+    /**
+     * Indica il codice RGB (Blue) del background
+     * delle Label.
+     */
+    public static final int GAME_GUI_CODE_RGB_B_JL = 43;
+
+    /**
+     * Indica il valore dell'ascissa della Label
+     * (indicante la stanza corrente) della classe GameGUI.
+     */
+    public static final int GAME_GUI_X_JL_RNAME = 750;
+
+    /**
+     * Indica il valore dell'ordinata della Label
+     * (indicante la stanza corrente) della classe GameGUI.
+     */
+    public static final int GAME_GUI_Y_JL_RNAME = 60;
+
+    /**
+     * Indica il valore della larghezza della Label
+     * (indicante la stanza corrente) della classe GameGUI.
+     */
+    public static final int GAME_GUI_WIDTH_JL_RNAME = 190;
+
+    /**
+     * Indica il valore dell'altezza della Label
+     * (indicante la stanza corrente) della classe GameGUI.
+     */
+    public static final int GAME_GUI_HEIGHT_JL_RNAME = 40;
+
+    /**
+     * Indica il valore dell'ascissa della Label
+     * (con su scritto "INSERISCI UN COMANDO:") della classe GameGUI.
+     */
+    public static final int GAME_GUI_X_JL_COMMAND = 40;
+
+    /**
+     * Indica il valore dell'ordinata della Label
+     * (con su scritto "INSERISCI UN COMANDO:") della classe GameGUI.
+     */
+    public static final int GAME_GUI_Y_JL_COMMAND = 530;
+
+    /**
+     * Indica il valore della larghezza della Label
+     * (con su scritto "INSERISCI UN COMANDO:") della classe GameGUI.
+     */
+    public static final int GAME_GUI_WIDTH_JL_COMMAND = 200;
+
+    /**
+     * Indica il valore dell'altezza della Label
+     * (con su scritto "INSERISCI UN COMANDO:") della classe GameGUI.
+     */
+    public static final int GAME_GUI_HEIGHT_JL_COMMAND = 40;
+
+    /**
+     * Indica il valore dell'ascissa del jPanel
+     * principale della classe GameGUI.
+     */
+    public static final int GAME_GUI_X_JP = 680;
+
+    /**
+     * Indica il valore dell'ascissa del jPanel
+     * principale della classe GameGUI.
+     */
+    public static final int GAME_GUI_Y_JP = 510;
+
+    /**
+     * Indica il valore dell'ascissa del jPanel
+     * principale della classe GameGUI.
+     */
+    public static final int GAME_GUI_WIDTH_JP = 250;
+
+    /**
+     * Indica il valore dell'ascissa del jPanel
+     * principale della classe GameGUI.
+     */
+    public static final int GAME_GUI_HEIGHT_JP = 160;
+
+    /**
+     * Indica la dimensione utilizzata automaticamente dall'IDE
+     * riguardo i jButton (y) della classe GameGUI.
+     */
+    public static final int GAME_GUI_SIZE_CONTAINER_Y_JB = 50;
+
+    /**
+     * Indica la dimensione utilizzata automaticamente dall'IDE
+     * riguardo i jButton (x) della classe GameGUI.
+     */
+    public static final int GAME_GUI_SIZE_CONTAINER_X_JB = 67;
+
+    /**
+     * Indica la dimensione utilizzata automaticamente dall'IDE
+     * riguardo i jButton (gap) della classe GameGUI.
+     */
+    public static final int GAME_GUI_SIZE_CONTAINER_GAP_JB = 87;
+
+    /**
+     * Indica il valore della larghezza del jFrame della classe GameGUI.
+     */
+    public static final int GAME_GUI_WIDTH = 1220;
+
+    /**
+     * Indica il valore dell'altezza del jFrame della classe GameGUI.
+     */
+    public static final int GAME_GUI_HEIGHT = 700;
+
+    /**
+     * Indica il ritardo (in termini di ms) secondo cui apparirà
+     * ciascun messaggio sulla jtpReadingArea della classe GameGUI.
+     */
+    public static final int GAME_GUI_DELAY_TEXT = 10;
 }

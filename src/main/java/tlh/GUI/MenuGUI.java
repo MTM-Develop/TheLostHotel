@@ -308,9 +308,9 @@ public class MenuGUI extends javax.swing.JFrame {
                 g.setVisible(true);
                 this.dispose();
 
-                g.appendToPane(g.jtpReadingArea,
+                g.appendToPane(g.getJtpReadingArea(),
                         "\nCaricamento partita completato.\n\n", Color.cyan);
-                g.jtpReadingArea.setCaretPosition(g.jtpReadingArea.getDocument()
+                g.getJtpReadingArea().setCaretPosition(g.getJtpReadingArea().getDocument()
                         .getLength());
             }
 
@@ -399,7 +399,7 @@ public class MenuGUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmiLoadGame;
 
     /**
-     * Pannello contenente i componenti grafici.
+     * Pannello contenente tutti i componenti grafici.
      */
     private javax.swing.JPanel jpMenu;
     // End of variables declaration//GEN-END:variables

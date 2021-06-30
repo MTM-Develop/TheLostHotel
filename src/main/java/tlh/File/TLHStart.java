@@ -362,7 +362,8 @@ public class TLHStart {
         bed53.setiCNotOpenable(true);
         bed53.setiCNotInsertable(true);
 
-        GameItemContainer babycot = new GameItemContainer(Description.ID_BABYCOT,
+        GameItemContainer babycot = new GameItemContainer(
+                Description.ID_BABYCOT,
                 "culla", Description.DESCRIPTION_BABYCOT);
         babycot.setAlias(new String[]{"connola", "brandina"});
         babycot.setiCNotOpenable(true);
@@ -374,35 +375,42 @@ public class TLHStart {
         tv53.setiCNotOpenable(true);
         //tv53.setiCNotInsertable(true);
 
-        GameItemContainer shoeRack = new GameItemContainer(Description.ID_SHOE_RACK,
+        GameItemContainer shoeRack = new GameItemContainer(
+                Description.ID_SHOE_RACK,
                 "scarpiera", Description.DESCRIPTION_SHOE_RACK);
         shoeRack.setAlias(new String[]{"portascarpe"});
         shoeRack.setiCNotOpenable(true);
         shoeRack.setiCNotInsertable(true);
 
-        GameItemContainer armchair53 = new GameItemContainer(Description.ID_ARMCHAIR53,
+        GameItemContainer armchair53 = new GameItemContainer(
+                Description.ID_ARMCHAIR53,
                 "poltrona", Description.DESCRIPTION_ARMCHAIR53);
         armchair53.setAlias(new String[]{"sofa", "pouf", "poltroncina"});
         armchair53.setiCNotOpenable(true);
         armchair53.setiCNotInsertable(true);
 
-        GameItemContainer window53 = new GameItemContainer(Description.ID_WINDOW53,
+        GameItemContainer window53 = new GameItemContainer(
+                Description.ID_WINDOW53,
                 "finestra", Description.DESCRIPTION_WINDOW53);
         window53.setAlias(new String[]{"vetrina"});
         window53.setiCNotInsertable(true);
 
-        GameItemContainer dresser53 = new GameItemContainer(Description.ID_DRESSER53,
+        GameItemContainer dresser53 = new GameItemContainer(
+                Description.ID_DRESSER53,
                 "comò", Description.DESCRIPTION_DRESSER53);
-        dresser53.setAlias(new String[]{"cassettone", "cassettiera", "canterano", "como"});
-        dresser53.setOpenedDescription(Description.OPENED_DESCRIPTION_DRESSER53);
-        dresser53.setLockedBy("");//cambiare
+        dresser53.setAlias(new String[]{"cassettone", "cassettiera",
+                "canterano", "como"});
+        dresser53.setOpenedDescription(
+                Description.OPENED_DESCRIPTION_DRESSER53);
+        dresser53.setLockedBy(""); //cambiare
         //dresser53.add(socks);
 
         GameItemContainer coatHook53 = new GameItemContainer(
                 Description.ID_COATHOOK53, "appendiabiti",
                 Description.DESCRIPTION_COATHOOK53);
         coatHook53.setAlias(new String[]{"attaccapanni", "appendiabito"});
-        coatHook53.setMovedDescription(Description.MOVED_DESCRIPTION_COATHOOK53);
+        coatHook53.setMovedDescription(
+                Description.MOVED_DESCRIPTION_COATHOOK53);
         coatHook53.add(hook);
         coatHook53.setMovable(true);
         coatHook53.setiCNotInsertable(true);
@@ -516,7 +524,8 @@ public class TLHStart {
         Room laundry = new Room(Description.ID_LAUNDRY, "Lavanderia",
                 Description.DESCRIPTION_LAUNDRY);
         laundry.setLookDescription(Description.LOOK_LAUNDRY);
-        laundry.setRoomImage(new ImageIcon("resources//img//room//laundry.png"));
+        laundry.setRoomImage(new ImageIcon(
+                "resources//img//room//laundry.png"));
         laundry.setVisitedDescription(Description.DESCRIPTION_VISITED_LAUNDRY);
         laundry.setLockedBy(""/*cardGameRoom.getName()*/);
 
