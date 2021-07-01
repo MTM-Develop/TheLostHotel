@@ -84,6 +84,14 @@ public final class Description {
             + "Pensi che costi molto, lo noti dalla quantità di oggetti "
             + "presenti al suo interno.";
 
+    /**
+     * Descrizione della stanza "cctv".
+     */
+    public static final String DESCRIPTION_CCTV =
+            "Per essere una CCTV, questa stanza è molto arredata. "
+                    + "Lo si nota dalle tante postazioni. "
+                    + "Forse era anche una sala per lo studio.";
+
     //Descrizioni relative a stanze/luoghi già visitati
     /**
      * Descrizione della stanza "stanza 79" già visitata.
@@ -144,6 +152,13 @@ public final class Description {
      */
     public static final String DESCRIPTION_VISITED_ROOM_53 =
             "Una grande stanza per famiglie.";
+
+    /**
+     * Descrizione della stanza "cctv" già visitata.
+     */
+    public static final String DESCRIPTION_VISITED_CCTV =
+            "La sala CCTV da dove si controllano "
+            + "le aree pubbliche dell'hotel.";
 
     //Descrizione più dettagliata per ogni stanza/luogo
     /**
@@ -226,6 +241,15 @@ public final class Description {
             + "È molto più arredata della tua. "
             + "Chissà cosa possa nascondersi qui. "
             + "Noti il letto sfatto...";
+
+    /**
+     * Descrizione più dettagliata della stanza "cctv".
+     */
+    public static final String LOOK_CCTV =
+            "La stanza si presenta con una schiera di postazioni. "
+            + "Alcuni computer sembrano mancare. "
+            + "La vetrata di fronte a te è enorme, "
+            + "sembra occupare tutta la stanza...";
 
     //Descrizione relativa agli oggetti
     /**
@@ -546,6 +570,56 @@ public final class Description {
             "Un grande comò in legno. Presenta 4 cassetti ma sono bloccati.";
 
     /**
+     * Descrizione dell'oggetto contenitore "stampante".
+     */
+    public static final String DESCRIPTION_PRINTER =
+            "Un ultimo modello di stampante. "
+                    + "Sembra essere all-in-one, lo noti dagli adesivi.";
+
+    /**
+     * Descrizione dell'oggetto contenitore "lavagna".
+     */
+    public static final String DESCRIPTION_WHITEBOARD =
+            "Una lavagna bianca. "
+            + "Ti ricorda quella di scuola.";
+
+    /**
+     * Descrizione dell'oggetto contenitore "vetrina" della stanza cctv.
+     */
+    public static final String DESCRIPTION_GLASS_CABINET =
+            "Una maestosa vetrina scura e cupa. "
+            + "Non riesci a vedere cosa c'è al suo interno.";
+
+    /**
+     * Descrizione dell'oggetto contenitore "tavolo" della stanza cctv.
+     */
+    public static final String DESCRIPTION_TABLE_CCTV =
+            "Delle scrivanie in legno. "
+            + "Il mio falegname le farebbe meglio con 2 spicci!";
+
+    /**
+     * Descrizione dell'oggetto contenitore "fisso" della stanza cctv.
+     */
+    public static final String DESCRIPTION_COMPUTER_CCTV =
+            "L'unico fisso della stanza. "
+            + "È ancora acceso...";
+
+    /**
+     * Descrizione dell'oggetto contenitore "portatile" della stanza cctv.
+     */
+    public static final String DESCRIPTION_LAPTOP_CCTV =
+            "Dei computer portatili di buona qualità. "
+            + "Strano siano ancora qui." ;
+
+    /**
+     * Descrizione dell'oggetto contenitore "sedia" della stanza cctv.
+     */
+    public static final String DESCRIPTION_CHAIR_CCTV =
+            "Delle sedie girovoli. "
+            + "Ti domandi come possano essere "
+            + "in un hotel abbandonato.";
+
+    /**
      * Descrizione dell'oggetto contenitore "slot" non appena viene utilizzato.
      */
     public static final String DESCRIPTION_SLOT_USABLE_WITH_DROPS =
@@ -583,6 +657,13 @@ public final class Description {
             + "Per oggi niente film...";
 
     /**
+     * Descrizione dell'oggetto contenitore "fisso"
+     * non appena viene utilizzato.
+     */
+    public static final String DESCRIPTION_COMPUTER_CCTV_USABLE_WITH_DROPS =
+            " "; //CAMBIARE
+
+    /**
      * Descrizione dell'oggetto contenitore "telecomando" già utilizzato.
      */
     public static final String
@@ -613,11 +694,24 @@ public final class Description {
             "La radio dove hai ascoltato il messaggio poco fa...";
 
     /**
+     * Descrizione dell'oggetto contenitore "fisso" già utilizzato.
+     */
+    public static final String DESCRIPTION_COMPUTER_CCTV_ALREADY_USED_WITH_DROPS =
+            ""; //CAMBIARE
+
+    /**
      * Descrizione dell'oggetto contenitore "radio"
      * sprovvisto di gameItem per il suo funzionamento.
      */
     public static final String DESCRIPTION_RADIO_USABLE_BUT_ITEM_REMOVED =
             "La radio non puo' funzionare senza pile!";
+
+    /**
+     * Descrizione dell'oggetto contenitore "fisso"
+     * sprovvisto di gameItem per il suo funzionamento.
+     */
+    public static final String DESCRIPTION_COMPUTER_CCTV_USABLE_BUT_ITEM_REMOVED =
+            "Ti siedi, cosa vuoi farci con un computer senza internet?";
 
     //Descrizione relativa ai gameItemContainer già aperti
     /**
@@ -668,6 +762,13 @@ public final class Description {
      */
     public static final String OPENED_DESCRIPTION_DRESSER53 =
             "Il como con i cassetti aperti.";
+
+    /**
+     * Descrizione dell'oggetto contenitore "vetrina"
+     * della stanza cctv già aperto.
+     */
+    public static final String OPENED_DESCRIPTION_GLASS_CABINET =
+            "La vetrina con le ante centrali aperte!";
 
 
     //public static final String OPENED_DESCRIPTION_BOX =
@@ -929,6 +1030,42 @@ public final class Description {
      */
     public static final int ID_DRESSER53 = 128;
 
+    /**
+     * ID dell'oggetto contenitore "comò" della stanza 53.
+     */
+    public static final int ID_PRINTER = 129;
+
+    /**
+     * ID dell'oggetto contenitore "comò" della stanza 53.
+     */
+    public static final int ID_WHITEBOARD = 130;
+
+    /**
+     * ID dell'oggetto contenitore "comò" della stanza 53.
+     */
+    public static final int ID_GLASS_CABINET = 131;
+
+    /**
+     * ID dell'oggetto contenitore "comò" della stanza 53.
+     */
+    public static final int ID_TABLE_CCTV = 132;
+
+    /**
+     * ID dell'oggetto contenitore "comò" della stanza 53.
+     */
+    public static final int ID_COMPUTER_CCTV = 133;
+
+    /**
+     * ID dell'oggetto contenitore "comò" della stanza 53.
+     */
+    public static final int ID_LAPTOP_CCTV = 134;
+
+    /**
+     * ID dell'oggetto contenitore "comò" della stanza 53.
+     */
+    public static final int ID_CHAIR_CCTV = 135;
+
+
     ////////// CAMBIARE
     /**
      * ID dell'oggetto contenitore "bottone".
@@ -985,6 +1122,11 @@ public final class Description {
      * ID della stanza "stanza 53".
      */
     public static final int ID_ROOM_53 = 1009;
+
+    /**
+     * ID della stanza "cctv".
+     */
+    public static final int ID_CCTV = 1010;
 
     //Magic Number
     /**

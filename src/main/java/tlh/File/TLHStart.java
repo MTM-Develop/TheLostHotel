@@ -310,6 +310,7 @@ public class TLHStart {
                 "tavolo", Description.DESCRIPTION_TABLE);
         table.setAlias(new String[]{"tavoli", "tavolino", "tavolini"});
         table.setiCNotOpenable(true);
+        table.setiCNotInsertable(true);
 
         GameItemContainer glass = new GameItemContainer(Description.ID_GLASS,
                 "bicchiere", Description.DESCRIPTION_GLASS);
@@ -415,6 +416,62 @@ public class TLHStart {
         coatHook53.setMovable(true);
         coatHook53.setiCNotInsertable(true);
         coatHook53.setiCNotOpenable(true);
+
+        GameItemContainer printer = new GameItemContainer(
+                Description.ID_PRINTER,
+                "stampante", Description.DESCRIPTION_PRINTER);
+        printer.setAlias(new String[]{"fotocopiatrice", "scanner"});
+        printer.setiCNotInsertable(true);
+        printer.setiCNotOpenable(true);
+        //possibilita di aggiungere  qualcosa (mappa o foglio)
+
+        GameItemContainer whiteboard = new GameItemContainer(
+                Description.ID_WHITEBOARD,
+                "lavagna", Description.DESCRIPTION_WHITEBOARD);
+        whiteboard.setAlias(new String[]{"lavagnetta"});
+        whiteboard.setiCNotOpenable(true);
+        whiteboard.setiCNotInsertable(true);
+
+        GameItemContainer glassCabinet = new GameItemContainer(
+                Description.ID_GLASS_CABINET,
+                "vetrina", Description.DESCRIPTION_GLASS_CABINET);
+        glassCabinet.setAlias(new String[]{"espositore", "cristalliera", "armadio", "vetrata"});
+        glassCabinet.setOpenedDescription(
+                Description.OPENED_DESCRIPTION_GLASS_CABINET);
+        glassCabinet.setLockedBy(""); //aggiungere qualcosa;
+        //glassCabinet.add();
+
+        GameItemContainer tableCCTV = new GameItemContainer(Description.ID_TABLE_CCTV,
+                "scrivania", Description.DESCRIPTION_TABLE_CCTV);
+        tableCCTV.setAlias(new String[]{"tavolo", "tavoli", "tavolino", "tavolini"});
+        tableCCTV.setiCNotOpenable(true);
+        tableCCTV.setiCNotInsertable(true);
+
+        GameItemContainer computerCCTV = new GameItemContainer(
+                Description.ID_COMPUTER_CCTV, "fisso",
+                Description.DESCRIPTION_COMPUTER_CCTV);
+        computerCCTV.setUsableWithItem(true);
+        computerCCTV.setDescriptionUsableWithDrops(
+                Description.DESCRIPTION_COMPUTER_CCTV_USABLE_WITH_DROPS);
+        computerCCTV.setDescriptionAlreadyUsedWithDrops(
+                Description.DESCRIPTION_COMPUTER_CCTV_ALREADY_USED_WITH_DROPS);
+        computerCCTV.setDescriptionUsableButItemRemoved(
+                Description.DESCRIPTION_COMPUTER_CCTV_USABLE_BUT_ITEM_REMOVED);
+        computerCCTV.setiCNotOpenable(true);
+
+        GameItemContainer laptopCCTV = new GameItemContainer(
+                Description.ID_LAPTOP_CCTV, "portatile",
+                Description.DESCRIPTION_LAPTOP_CCTV);
+        laptopCCTV.setAlias(new String[]{"pc", "notebook", "laptop",
+                "calcolatore", "elaboratore", "computer"});
+        laptopCCTV.setiCNotOpenable(true);
+
+        GameItemContainer chairCCTV = new GameItemContainer(
+                Description.ID_CHAIR_CCTV, "sedia",
+                Description.DESCRIPTION_CHAIR_CCTV);
+        chairCCTV.setAlias(new String[]{"sedie", "girovole", "sgabello", "seggiola"});
+        chairCCTV.setiCNotOpenable(true);
+        chairCCTV.setiCNotInsertable(true);
 
         //GameItem password = new GameItem(Description.ID_PASSWORD, "1");
         //Occhio alla descrizione
@@ -529,6 +586,7 @@ public class TLHStart {
         laundry.setVisitedDescription(Description.DESCRIPTION_VISITED_LAUNDRY);
         laundry.setLockedBy(""/*cardGameRoom.getName()*/);
 
+
         Room room53 = new Room(Description.ID_ROOM_53, "Stanza 53",
                 Description.DESCRIPTION_ROOM_53);
         room53.setLookDescription(Description.LOOK_ROOM_53);
@@ -543,6 +601,21 @@ public class TLHStart {
         room53.addItem(window53);
         room53.addItem(coatHook53);
         room53.addItem(dresser53);
+
+        Room cctv = new Room(Description.ID_CCTV, "CCTV",
+                Description.DESCRIPTION_CCTV);
+        cctv.setLookDescription(Description.LOOK_CCTV);
+        cctv.setRoomImage(new ImageIcon(
+                "resources//img//room//cctv.png"));
+        cctv.setVisitedDescription(Description.DESCRIPTION_VISITED_CCTV);
+        cctv.setLockedBy(""/*cardGameRoom.getName()*/);
+        cctv.addItem(printer);
+        cctv.addItem(whiteboard);
+        cctv.addItem(glassCabinet);
+        cctv.addItem(tableCCTV);
+        cctv.addItem(computerCCTV);
+        cctv.addItem(laptopCCTV);
+        cctv.addItem(chairCCTV);
 
         g.setCurrentRoom(room79);
         room79.setNorth(hallway);
@@ -559,10 +632,13 @@ public class TLHStart {
         hallwayColumbus.setSouth(room53);
         room53.setNorth(hallwayColumbus);
         relaxRoom.setSouth(hallway);
+        relaxRoom.setEast(cctv);
+        cctv.setWest(relaxRoom);
         bar.setEast(hallwayColumbus);
         bar.setNorth(kitchen); //CAMBIARE
         kitchen.setSouth(bar); //CAMBIARE
         laundry.setSouth(hallwayColumbus);
+
 
         //Comandi
         Command north = new Command("nord", CommandType.NORD);

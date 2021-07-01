@@ -583,7 +583,7 @@ public class TheLostHotel extends GameManager {
                                     if (pOutput.containsWordType(WordType.IN)) {
                                         if (iC.getName().equals("telecomando") && gameItem.getName().equals("batterie")) {
                                             output.append("Hai inserito l'oggetto " + gameItem.getName()
-                                                + " in " + iC.getName() + "\n");
+                                                + " in " + iC.getName() + ".\n");
 
                                             ((GameItemContainer) iC).add(gameItem);
                                             this.getGame().getInventory().remove(gameItem);
@@ -598,7 +598,7 @@ public class TheLostHotel extends GameManager {
 
                                         } else if (iC.getName().equals("radio") && gameItem.getName().equals("batterie") && ((GameItemContainer) iC).getLockedBy().equals("")) {
                                             output.append("Hai inserito l'oggetto " + gameItem.getName()
-                                                + " in " + iC.getName() + "\n");
+                                                + " in " + iC.getName() + ".\n");
 
                                             ((GameItemContainer) iC).add(gameItem);
                                             this.getGame().getInventory().remove(gameItem);
@@ -620,7 +620,14 @@ public class TheLostHotel extends GameManager {
                                             output.append("Impossibile inserire questo oggetto perchè la " + iC.getName() + " è chiusa!\n");
                                         } else if (iC.getName().equals("computer") && gameItem.getName().equals("usb") && ((GameItemContainer) iC).getcItemList().getInventoryList().isEmpty()) {
                                             output.append("Hai inserito l'oggetto " + gameItem.getName()
-                                                + " in " + iC.getName() + "\n");
+                                                + " in " + iC.getName() + ".\n");
+
+                                            ((GameItemContainer) iC).add(gameItem);
+                                            this.getGame().getInventory().remove(gameItem);
+
+                                        } else if (iC.getName().equals("fisso") && gameItem.getName().equals("usb") && ((GameItemContainer) iC).getcItemList().getInventoryList().isEmpty()) {
+                                            output.append("Hai inserito l'oggetto " + gameItem.getName()
+                                                    + " in " + iC.getName() + ".\n");
 
                                             ((GameItemContainer) iC).add(gameItem);
                                             this.getGame().getInventory().remove(gameItem);
