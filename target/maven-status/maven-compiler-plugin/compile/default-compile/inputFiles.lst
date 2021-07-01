@@ -4,6 +4,7 @@ C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\Other\GameDescri
 C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\Parser\InvalidStringException.java
 C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\Type\Inventory.java
 C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\Other\TheLostHotel.java
+C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\Other\GameTime.java
 C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\Parser\ParserOutput.java
 C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\Type\CommandType.java
 C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\File\TLHStart.java
@@ -18,5 +19,6 @@ C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\Other\Main.java
 C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\Type\GameItem.java
 C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\Other\GameInteraction.java
 C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\GUI\GameGUI.java
+C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\Database\DB.java
 C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\Other\MenuManager.java
 C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\Type\Room.java

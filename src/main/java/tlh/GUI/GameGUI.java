@@ -5,6 +5,7 @@
  */
 package tlh.GUI;
 
+import tlh.Database.DB;
 import tlh.Other.Description;
 import tlh.Other.GameInteraction;
 import tlh.Other.MenuManager;
@@ -35,6 +36,8 @@ import java.io.IOException;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.ArrayList;
 
 /**
@@ -47,6 +50,11 @@ public class GameGUI extends javax.swing.JFrame {
      * Gestore di interazione col gioco e parser.
      */
     private GameInteraction gInteraction;
+
+    /**
+     * Database per i punteggi.
+     */
+    private DB db = new DB();
 
     /**
      * Parser del gioco.
@@ -142,6 +150,7 @@ public class GameGUI extends javax.swing.JFrame {
         jtCommand.requestFocus();
         initGame();
         initFont();
+        initDB();
 
         ActionListener taskPerformer = (ActionEvent evt) -> {
             enableComponents(false);
@@ -516,6 +525,18 @@ public class GameGUI extends javax.swing.JFrame {
     } // </editor-fold>//GEN-END:initComponents
 
     private void initGame() {
+
+        // Salva il nome del giocatore.
+        gInteraction.getGameManager().getGame().setPlayer(
+                JOptionPane.showInputDialog(this,
+                        "Inserisci il tuo nome:"));
+
+        if (gInteraction.getGameManager().getGame().getPlayer().isEmpty()) {
+            JOptionPane.showMessageDialog(this,
+                    "Errore: il nome non può essere vuoto",
+                    "Errore", JOptionPane.ERROR_MESSAGE);
+        } //FARE ALTRI CONTROLLI
+
         //Utilizzato per bloccare lo scorrimento
         //al fine di visualizzare correttamente la trama del gioco.
         DefaultCaret caret = (DefaultCaret) jtpReadingArea.getCaret();
@@ -613,6 +634,9 @@ public class GameGUI extends javax.swing.JFrame {
                 getCurrentRoom().getName());
         jlRoomName.setText("  " + gInteraction.getGameManager().getGame().
                 getCurrentRoom().getName());
+
+        // Fa partire il timer del tempo di gioco.
+        gInteraction.getGameManager().getGame().getgTime().start();
     }
 
     private void initFont() {
@@ -683,6 +707,33 @@ public class GameGUI extends javax.swing.JFrame {
                 0, aSet, false);
     }
 
+    /**
+     * Connessione al database ( che conterrà il nome del giocatore e il tempo
+     * che ha impiegato per concludere il gioco).
+     */
+    private void initDB() {
+        try {
+            db.connect();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this,
+                    "Errore: " + e.getMessage(),
+                    "Errore", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    /**
+     * Disconnette il database prima di chiudere il jFrame.
+     */
+    private void disconnectDB() {
+        try {
+            db.disconnect();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this,
+                    "Errore: " + e.getMessage(),
+                    e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
     private void saveGame() {
         // Inizializza il jFileChooser per scegliere la cartella dove salvare
         JFileChooser fChooser = new JFileChooser();
@@ -725,10 +776,12 @@ public class GameGUI extends javax.swing.JFrame {
                 saveGame();
                 new MenuGUI(this.gInteraction.getGameManager()).
                         setVisible(true);
+                disconnectDB();
                 this.dispose();
             } else if (ris == JOptionPane.NO_OPTION) {
                 new MenuGUI(this.gInteraction.getGameManager()).
                         setVisible(true);
+                disconnectDB();
                 this.dispose();
             }
         } else {
@@ -739,6 +792,7 @@ public class GameGUI extends javax.swing.JFrame {
                     == JOptionPane.YES_OPTION) {
                 new MenuGUI(this.gInteraction.getGameManager()).
                         setVisible(true);
+                disconnectDB();
                 this.dispose();
             }
         }
@@ -851,10 +905,10 @@ public class GameGUI extends javax.swing.JFrame {
 
             //Se il comando ha fatto terminare il gioco
             // (ovvero se il tempo di completamento si è bloccato)
-            /*if (!gInteraction.getGameManager().getGame().getGameTime().
-            isActive()) {
+            if (!gInteraction.getGameManager().getGame().
+                    getgTime().isActive()) {
                 this.insertScore();
-            }*/
+            }
 
         }
 
@@ -896,6 +950,13 @@ public class GameGUI extends javax.swing.JFrame {
                 getGame().getCurrentRoom().getName());
         jlRoomName.setText("  " + gInteraction.getGameManager().
                 getGame().getCurrentRoom().getName() + "        ");
+
+        //Se il comando ha fatto terminare il gioco
+        // (ovvero se il tempo di completamento si è bloccato)
+        if (!gInteraction.getGameManager().getGame().
+                getgTime().isActive()) {
+            this.insertScore();
+        }
     }
 
     private void enableComponents(final boolean enable) {
@@ -970,6 +1031,42 @@ public class GameGUI extends javax.swing.JFrame {
                             commandHistory.size() - countKeyDown));
                 }
             }
+        }
+    }
+
+    /**
+     * Richiama il db per inserire punteggio
+     * e giocatore una volta completato il gioco.
+     */
+    private void insertScore() {
+
+        try {
+            // Inserisce il nome del giocatore e il suo tempo nel DB
+            db.insertScore(gInteraction.getGameManager().
+                            getGame().getPlayer() + " ",
+                    gInteraction.getGameManager().getGame().
+                            getgTime().getTime());
+            JOptionPane.showMessageDialog(this,
+                    db.topScores(), "OK",
+                    JOptionPane.WARNING_MESSAGE);
+
+            //enableComponents(false);
+            // Lo rimuovo così alcuni oggetti sono utilizzabili
+            // (es. esci e salva).
+            // P.S. Problema con salva (renderlo notEnabled?).
+            jtCommand.setEditable(false);
+            jbEast.setEnabled(false);
+            jbNorth.setEnabled(false);
+            jbSendCommand.setEnabled(false);
+            jbSouth.setEnabled(false);
+            jbWest.setEnabled(false);
+            jmiFastText.setEnabled(false);
+            jmiCommands.setEnabled(false);
+
+        } catch (SQLException | ParseException e) {
+            JOptionPane.showMessageDialog(this,
+                    "Errore: " + e.getMessage(), e.getMessage(),
+                    JOptionPane.ERROR_MESSAGE);
         }
     }
 

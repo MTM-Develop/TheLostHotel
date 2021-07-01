@@ -27,7 +27,15 @@ public class GameDescription {
      */
     private Room currentRoom;
 
-    //private GameTimeTask gTime = new GameTimeTask(); // tempo di completamento
+    /**
+     * Nome del giocatore.
+     */
+    private String player = "";
+
+    /**
+     * Tempo di completamento del gioco.
+     */
+    private GameTime gTime = new GameTime();
 
     /**
      * Costruttore.
@@ -51,8 +59,6 @@ public class GameDescription {
         this.inventory = gInventory;
         this.currentRoom = gCurrentRoom;
     }
-
-    // Metodi di get e set
 
     /**
      * @return inventario del giocatore.
@@ -100,6 +106,38 @@ public class GameDescription {
      */
     public void setCommands(final Set<Command> gCommands) {
         this.commands = gCommands;
+    }
+
+    /**
+     * @return nome del giocatore.
+     */
+    public String getPlayer() {
+        return player;
+    }
+
+    /**
+     * Imposta il nome del giocatore.
+     *
+     * @param p
+     */
+    public void setPlayer(final String p) {
+        this.player = p;
+    }
+
+    /**
+     * @return tempo di gioco.
+     */
+    public GameTime getgTime() {
+        return gTime;
+    }
+
+    /**
+     * Imposta il tempo di gioco.
+     *
+     * @param time
+     */
+    public void setgTime(final GameTime time) {
+        this.gTime = time;
     }
 
     /**

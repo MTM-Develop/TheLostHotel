@@ -13,6 +13,8 @@ tlh\Parser\InvalidStringException.class
 tlh\Type\Inventory.class
 tlh\Other\Description.class
 tlh\GUI\MenuGUI$3.class
+tlh\Database\DB.class
+tlh\Other\GameTime.class
 tlh\Parser\ParserOutput.class
 tlh\Other\GameManager.class
 tlh\Other\GameInteraction.class
@@ -27,3 +29,4 @@ tlh\GUI\MenuGUI.class
 tlh\Parser\WordType.class
 tlh\Parser\Parser.class
 tlh\File\TLHStart.class
+tlh\Other\GameTime$1.class

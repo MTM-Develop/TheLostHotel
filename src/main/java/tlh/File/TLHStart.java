@@ -560,6 +560,8 @@ public class TLHStart {
         room53.setNorth(hallwayColumbus);
         relaxRoom.setSouth(hallway);
         bar.setEast(hallwayColumbus);
+        bar.setNorth(kitchen); //CAMBIARE
+        kitchen.setSouth(bar); //CAMBIARE
         laundry.setSouth(hallwayColumbus);
 
         //Comandi

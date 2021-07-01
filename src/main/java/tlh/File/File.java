@@ -34,8 +34,8 @@ public class File {
         objOut.writeObject(gDescription.getCommands());
         objOut.writeObject(gDescription.getInventory());
         objOut.writeObject(gDescription.getCurrentRoom());
-
-        //objOut.writeInt(g.getGameTime().getSecondPassed());
+        objOut.writeUTF(gDescription.getPlayer());
+        objOut.writeInt(gDescription.getgTime().getSecondPassed());
 
         objOut.close();
         fOut.close();
@@ -60,8 +60,8 @@ public class File {
         gDescription.setCommands((HashSet<Command>) objIn.readObject());
         gDescription.setInventory((Inventory) objIn.readObject());
         gDescription.setCurrentRoom((Room) objIn.readObject());
-
-        //g.getGameTime().setSecondPassed((int) objIn.readInt());
+        gDescription.setPlayer((String) objIn.readUTF());
+        gDescription.getgTime().setSecondPassed((int) objIn.readInt());
 
         objIn.close();
         fIn.close();

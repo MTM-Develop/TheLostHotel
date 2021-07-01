@@ -35,16 +35,6 @@ public class MenuGUI extends javax.swing.JFrame {
      * Gestore del menu.
      */
     private MenuManager menu;
-    /*Statement stm;
-    Connection con;
-
-    static final String QUERY_CREATE = "CREATE TABLE IF NOT EXISTS
-    za (ID INTEGER, NAME VARCHAR(20))";
-    static final String QUERY_INSERT = "INSERT INTO za VALUES (4, 'PROVA 4')";
-    static final String QUERY_SELECT = "SELECT * FROM za";
-    static final String QUERY_DROP = "DROP TABLE IF EXISTS za";
-
-    ResultSet resultSet;*/
 
     /**
      * Font di gioco.
@@ -70,7 +60,6 @@ public class MenuGUI extends javax.swing.JFrame {
         initComponents();
         initFont();
         menu = new MenuManager(gameManager);
-        //initDb();
     }
 
     /**
@@ -320,37 +309,6 @@ public class MenuGUI extends javax.swing.JFrame {
                     "File non valido", JOptionPane.ERROR_MESSAGE);
         }
     }
-
-    /*public void initDb() throws SQLException, ClassNotFoundException {
-
-        try {
-            con = DriverManager.getConnection(
-            "jdbc:h2:./resources/database/store");
-            stm = con.createStatement();
-            stm.executeUpdate(QUERY_CREATE);
-            stm.close();
-            //esegui_query();
-        }catch (Exception exception)
-        {
-            System.out.println(exception);
-        }
-
-    }*/
-
-    /*public void esegui_query() throws SQLException {
-        stm = con.createStatement();
-        //stm.executeUpdate(QUERY_INSERT);
-        //Per le query di SELECT si usa executeQuery
-        resultSet = stm.executeQuery(QUERY_SELECT);
-
-        while (resultSet.next()) {
-            System.out.println(resultSet.getInt(1) + ": " +
-            resultSet.getString(2));
-        }
-
-        resultSet.close();
-        stm.close();
-    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     /**

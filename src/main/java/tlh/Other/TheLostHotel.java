@@ -611,6 +611,11 @@ public class TheLostHotel extends GameManager {
                                                 output.append("\nL'oggetto " + gameItem.getName() + " è stato rimosso.\n");
                                             }
 
+                                            ///////////////////////////////////
+                                            this.getGame().getgTime().cancel(); //ESEMPIO FINE GIOCO.
+                                            output.append(provaFine());
+                                            ///////////////////////////////////
+
                                         } else if (iC.getName().equals("radio") && gameItem.getName().equals("batterie") && !((GameItemContainer) iC).getLockedBy().equals("")) {
                                             output.append("Impossibile inserire questo oggetto perchè la " + iC.getName() + " è chiusa!\n");
                                         } else if (iC.getName().equals("computer") && gameItem.getName().equals("usb") && ((GameItemContainer) iC).getcItemList().getInventoryList().isEmpty()) {
@@ -672,6 +677,29 @@ public class TheLostHotel extends GameManager {
                     }
                     break;
 
+                // Comando per "svegliarsi", fa partire un finale nascosto
+                /*case WAKE_UP:
+
+                    output.append("Ti guardi intorno e controlli l'orario: sono le 12! Non è suonata la sveglia... \n"
+                            + "L'esame era alle 9. Ti sei giocato l'ultimo appello della sessione...\n"
+                            + "Ora dovrai farlo a settembre... Ti sei rovinato le vacanze! "
+                            + "\n \n HAI SCOPERTO IL FINALE ALTERNATIVO DEL GIOCO IN : "
+                            + this.getGame().getGameTime().getTime()
+                            + "\nNon avendo concluso il gioco portando a termine gli obiettivi, "
+                            + "nella scoreboard avrai una penitenza. ");
+
+                    // Ferma il timer che tiene traccia del tempo di completamento del gioco
+                    this.getGame().getGameTime().cancel();
+
+                    // La penitenza è pari al tempo di completamento + 3 ore (10800 secondi)
+                    this.getGame().getGameTime().setSecondPassed(this.getGame().getGameTime().getSecondPassed() + 10800);
+
+                    // Mostra all'utente una immagine di congratulazioni
+                    r = this.getGame().getCurrentRoom();
+                    r.setRoomImage(new ImageIcon("resources//img//stanze//congratulations.jpg"));
+
+                    break;*/
+
                 default:
                     break;
             }
@@ -681,6 +709,10 @@ public class TheLostHotel extends GameManager {
         } finally {
             return output.toString();
         }
+    }
+
+    private String provaFine() {
+        return "\n\nTEMPO COMPLETAMENTO GIOCO: " + this.getGame().getgTime().getTime();
     }
 
     private GameItem findGameItem(final ParserOutput pOutput) {

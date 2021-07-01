@@ -1681,4 +1681,13 @@ public final class Description {
      * ciascun messaggio sulla jtpReadingArea della classe GameGUI.
      */
     public static final int GAME_GUI_DELAY_TEXT = 10;
+
+    /**
+     * Indica il numero (riguardo secondi, minuti ed ore) del tempo di
+     * gioco secondo cui debba essere scritto il numero 0
+     * prima dell'effettivo tempo.
+     * Es. 0 ore, 9 minuti, 5 secondi verrà visualizzato così:
+     * 00:09:05.
+     */
+    public static final int GAME_TIME_ZERO_FIRST_NUMBER = 10;
 }
