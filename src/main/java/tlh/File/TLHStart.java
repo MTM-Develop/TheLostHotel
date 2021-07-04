@@ -156,10 +156,46 @@ public class TLHStart {
                 "resources//img//gameItem//hook.png");
         hook.setItemImage(imgHook);
 
-        GameItem pass = new GameItem(2131, "123456", ""); //CAMBIARE
+        GameItem pass = new GameItem(2131, Description.PASSWORD_STRONGBOX_CCTV, ""); //CAMBIARE
         pass.setConsumable((byte) 1); //serve?
         pass.setGIPassword(true);
         g.getInventory().add(pass);
+
+        GameItem paperPass1 = new GameItem(
+                Description.ID_PAPER_PASS1_CCTV, "foglio03",
+                Description.DESCRIPTION_PAPER_PASS_CCTV);
+        paperPass1.setAlias(new String[]{"nota03", "carta03",
+                "note03", "appunti03"});
+        ImageIcon imgPaperPass1 = new ImageIcon(
+                "resources//img//gameItem//paperPass1CCTV.png");
+        paperPass1.setItemImage(imgPaperPass1);
+
+        GameItem paperPass2 = new GameItem(
+                Description.ID_PAPER_PASS2_CCTV, "foglio08",
+                Description.DESCRIPTION_PAPER_PASS_CCTV);
+        paperPass2.setAlias(new String[]{"nota08", "carta08",
+                "note08", "appunti08"});
+        ImageIcon imgPaperPass2 = new ImageIcon(
+                "resources//img//gameItem//paperPass2CCTV.png");
+        paperPass2.setItemImage(imgPaperPass2);
+
+        GameItem paperPass3 = new GameItem(
+                Description.ID_PAPER_PASS3_CCTV, "foglio17",
+                Description.DESCRIPTION_PAPER_PASS_CCTV);
+        paperPass3.setAlias(new String[]{"nota17", "carta17",
+                "note17", "appunti17"});
+        ImageIcon imgPaperPass3 = new ImageIcon(
+                "resources//img//gameItem//paperPass3CCTV.png");
+        paperPass3.setItemImage(imgPaperPass3);
+
+        GameItem paperPass4 = new GameItem(
+                Description.ID_PAPER_PASS4_CCTV, "foglio21",
+                Description.DESCRIPTION_PAPER_PASS_CCTV);
+        paperPass4.setAlias(new String[]{"nota21", "carta21",
+                "note21", "appunti21"});
+        ImageIcon imgPaperPass4 = new ImageIcon(
+                "resources//img//gameItem//paperPass4CCTV.png");
+        paperPass4.setItemImage(imgPaperPass4);
 
         GameItemContainer button = new GameItemContainer(
                 Description.ID_BUTTON, "bottone", //CAMBIARE ID
@@ -257,6 +293,15 @@ public class TLHStart {
                 Description.DESCRIPTION_RADIO_USABLE_BUT_ITEM_REMOVED);
         radio.setLockedBy(knife.getName());
 
+        GameItemContainer furnace = new GameItemContainer(
+                Description.ID_FURNACE,
+                "forno", Description.DESCRIPTION_FURNACE); //CAMBIARE
+        furnace.setOpenedDescription(
+                Description.OPENED_DESCRIPTION_FURNACE);
+        furnace.setAlias(new String[]{"forni", "fornace", "fornaci"});
+        furnace.setLockedBy("");
+        furnace.add(paperPass3);
+
         GameItemContainer remoteControl = new GameItemContainer(
                 Description.ID_REMOTE_CONTROL, "telecomando",
                 Description.DESCRIPTION_REMOTE_CONTROL);
@@ -291,8 +336,12 @@ public class TLHStart {
 
         GameItemContainer fan = new GameItemContainer(Description.ID_FAN,
                 "ventilatore", Description.DESCRIPTION_FAN);
+        fan.setMovedDescription(Description.MOVED_DESCRIPTION_FAN);
         fan.setAlias(new String[]{"ventola"});
+        fan.setMovable(true);
         fan.setiCNotOpenable(true);
+        fan.setiCNotInsertable(true);
+        fan.add(paperPass2);
 
         /*GameItemContainer box = new GameItemContainer(456456456,
         "scatola", "boooob");
@@ -351,8 +400,8 @@ public class TLHStart {
                 Description.ID_CASH_DESK, "cassa",
                 Description.DESCRIPTION_CASH_DESK);
         cashDesk.setOpenedDescription(Description.OPENED_DESCRIPTION_CASH_DESK);
-        cashDesk.setLockedBy(drink.getName()); //cambiare con chiave
-        //cashDesk.add(key33);
+        cashDesk.setLockedBy(""); //cambiare con chiave
+        cashDesk.add(paperPass1);
 
         GameItemContainer computer = new GameItemContainer(
                 Description.ID_COMPUTER, "computer",
@@ -426,10 +475,10 @@ public class TLHStart {
         GameItemContainer printer = new GameItemContainer(
                 Description.ID_PRINTER,
                 "stampante", Description.DESCRIPTION_PRINTER);
+        printer.setOpenedDescription(Description.OPENED_DESCRIPTION_PRINTER);
         printer.setAlias(new String[]{"fotocopiatrice", "scanner"});
         printer.setiCNotInsertable(true);
-        printer.setiCNotOpenable(true);
-        //possibilita di aggiungere  qualcosa (mappa o foglio)
+        printer.add(paperPass4);
 
         GameItemContainer whiteboard = new GameItemContainer(
                 Description.ID_WHITEBOARD,
@@ -509,16 +558,16 @@ public class TLHStart {
         //FERRO DA STIRO RIMOSSO PERCHE' E' PIU' DI UNA PAROLA
         //TAPPETI DA METTERE?
 
-        GameItemContainer strongbox = new GameItemContainer(
-                Description.ID_STRONGBOX_NOME_STANZA,
-        "cassaforte", Description.DESCRIPTION_STRONGBOX_NOME_STANZA); //CAMBIARE
-        strongbox.setLockedBy("");
-        strongbox.setPasswordLocked(true);
-        strongbox.setPasswordLockedBy(
-                Description.PASSWORD_STRONGBOX_NOME_STANZA); //CAMBIARE
-        strongbox.setPasswordUnlockedDescription(
-                Description.DESCRIPTION_STRONGBOX_UNLOCKED_NOME_STANZA); //CAMBIARE
-        strongbox.add(keyBar); //CAMBIARE
+        GameItemContainer strongboxCCTV = new GameItemContainer(
+                Description.ID_STRONGBOX_CCTV,
+        "cassaforte", Description.DESCRIPTION_STRONGBOX_CCTV);
+        strongboxCCTV.setLockedBy("");
+        strongboxCCTV.setPasswordLocked(true);
+        strongboxCCTV.setPasswordLockedBy(
+                Description.PASSWORD_STRONGBOX_CCTV);
+        strongboxCCTV.setPasswordUnlockedDescription(
+                Description.DESCRIPTION_STRONGBOX_UNLOCKED_CCTV);
+        strongboxCCTV.add(keyBar); //CAMBIARE
 
 
         //Stanze
@@ -533,7 +582,6 @@ public class TLHStart {
         room79.addItem(bed79);
         room79.addItem(coatHook79);
         room79.addItem(button);
-        room79.addItem(strongbox);
 
         Room bathroom79 = new Room(Description.ID_BATHROOM_79,
                 "Bagno stanza 79", Description.DESCRIPTION_BATHROOM_79);
@@ -572,6 +620,7 @@ public class TLHStart {
         kitchen.setVisitedDescription(Description.DESCRIPTION_VISITED_KITCHEN);
         kitchen.setLockedBy(""/*cardGameRoom.getName()*/);
         kitchen.addItem(radio);
+        kitchen.addItem(furnace);
 
         Room relaxRoom = new Room(Description.ID_RELAX_ROOM,
                 "Stanza relax", Description.DESCRIPTION_RELAX_ROOM);
@@ -653,6 +702,7 @@ public class TLHStart {
         cctv.addItem(computerCCTV);
         cctv.addItem(laptopCCTV);
         cctv.addItem(chairCCTV);
+        cctv.addItem(strongboxCCTV);
 
         g.setCurrentRoom(room79);
         room79.setNorth(hallway);

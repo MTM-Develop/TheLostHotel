@@ -198,7 +198,7 @@ public final class Description {
      */
     public static final String LOOK_KITCHEN =
             "Non appena entrato nella cucina vieni attirato "
-            + "da una musichetta gracchiata...\n"
+            + "da una musichetta gracchiata e da una puzza di fumo...\n"
             + "Ti ritrovi in questa cucina malmessa "
             + "con mobili antiquati e pentole arruginite. ";
 
@@ -387,6 +387,13 @@ public final class Description {
      */
     public static final String DESCRIPTION_RADIO =
             "Una radio non totalmente funzionante.";
+
+    /**
+     * Descrizione dell'oggetto "forno".
+     */
+    public static final String DESCRIPTION_FURNACE =
+            "Osservando il forno centrale noti una cappa di fumo nero... "
+            + "Ecco da dove veniva la puzza di bruciato!";
 
     /**
      * Descrizione dell'oggetto "divano".
@@ -623,38 +630,49 @@ public final class Description {
      * Descrizione dell'oggetto contenitore "ventola".
      */
     public static final String DESCRIPTION_FAN_LAUNDRY =
-            "Descrizione ventola chiusa"; //CAMBIARE
+            "Una banale ventola che sembra essere chiusa.";
 
     /**
      * Descrizione dell'oggetto contenitore "lavatrice".
      */
     public static final String DESCRIPTION_WASHING_MACHINE =
-            "Descrizione lavatrice"; //CAMBIARE
+            "Una schiera di lavatrici bianche di ultima generazione. "
+            + "Sono tutte spente.";
 
     /**
      * Descrizione dell'oggetto contenitore "aspirapolvere".
      */
     public static final String DESCRIPTION_VACUUM_CLEANER =
-            "Descrizione aspirapolvere"; //CAMBIARE
+            "Un'aspirapolvere mai utilizzata. "
+            + "Ci sarà mai entrato qualcuno qui?";
+
+    /**
+     * Descrizione degli oggetti "foglio"
+     * utili per aprire la cassaforte della stanza CCTV.
+     */
+    public static final String DESCRIPTION_PAPER_PASS_CCTV =
+            "Sul foglio è riportata una combinazione di cifre...";
 
     /**
      * Descrizione dell'oggetto contenitore "cassaforte"
-     * della stanza "AGGIUNGERE".
+     * della stanza "CCTV".
      */
-    public static final String DESCRIPTION_STRONGBOX_NOME_STANZA =
-            "Descrizione cassaforte chiusa"; //CAMBIARE
+    public static final String DESCRIPTION_STRONGBOX_CCTV =
+            "Una cassaforte chiusa da una combinazione. "
+            + "Sembrano essere richieste 6 cifre.";
 
     /**
      * Descrizione dell'oggetto contenitore "cassaforte"
-     * (sbloccato) della stanza "AGGIUNGERE".
+     * (sbloccato) della stanza "CCTV".
      */
-    public static final String DESCRIPTION_STRONGBOX_UNLOCKED_NOME_STANZA =
-            "Descrizione cassaforte sbloccata"; //CAMBIARE
+    public static final String DESCRIPTION_STRONGBOX_UNLOCKED_CCTV =
+            "La cassaforte aperta, forse sei il primo "
+            + "a trovare la combinazione giusta.";
 
     /**
-     * Password della cassaforte situata nella stanza "AGGIUNGERE".
+     * Password della cassaforte situata nella stanza "CCTV".
      */
-    public static final String PASSWORD_STRONGBOX_NOME_STANZA = "123456";
+    public static final String PASSWORD_STRONGBOX_CCTV = "522727";
 
     /**
      * Descrizione dell'oggetto contenitore "slot" non appena viene utilizzato.
@@ -778,6 +796,12 @@ public final class Description {
             "La radio aperta con il coltellino svizzero.";
 
     /**
+     * Descrizione dell'oggetto contenitore "forno" già aperto.
+     */
+    public static final String OPENED_DESCRIPTION_FURNACE =
+            "Il forno appena aperto.";
+
+    /**
      * Descrizione dell'oggetto contenitore "telecomando" già aperto.
      */
     public static final String OPENED_DESCRIPTION_REMOTE_CONTROL =
@@ -816,6 +840,13 @@ public final class Description {
     public static final String OPENED_DESCRIPTION_FAN_LAUNDRY =
             "Descrizione ventola aperta";
 
+    /**
+     * Descrizione dell'oggetto contenitore
+     * "stampante" già aperto.
+     */
+    public static final String OPENED_DESCRIPTION_PRINTER =
+            "La stampante della CCTV con il coperchio sollevato!";
+
     //public static final String OPENED_DESCRIPTION_BOX =
     // "La scatola che conteneva <<oggetto>>";
 
@@ -838,7 +869,7 @@ public final class Description {
      * Descrizione dell'oggetto contenitore "tazza" già spostato.
      */
     public static final String MOVED_DESCRIPTION_CUP =
-            "La tazzina che hai spostato prima! ";
+            "La tazzina che hai spostato prima!";
 
     /**
      * Descrizione dell'oggetto contenitore "appendiabiti"
@@ -846,6 +877,13 @@ public final class Description {
      */
     public static final String MOVED_DESCRIPTION_COATHOOK53 =
             "L'appendiabiti senza gancio, hai fatto un bel danno!";
+
+    /**
+     * Descrizione dell'oggetto contenitore "ventilatore"
+     * già spostato.
+     */
+    public static final String MOVED_DESCRIPTION_FAN =
+            "Il ventilatore che hai spostato prima!";
 
     //ID oggetti
     /**
@@ -927,6 +965,26 @@ public final class Description {
      * ID dell'oggetto "gancio".
      */
     public static final int ID_HOOK = 16;
+
+    /**
+     * ID dell'oggetto "foglio03".
+     */
+    public static final int ID_PAPER_PASS1_CCTV = 17;
+
+    /**
+     * ID dell'oggetto "foglio08".
+     */
+    public static final int ID_PAPER_PASS2_CCTV = 18;
+
+    /**
+     * ID dell'oggetto "foglio17".
+     */
+    public static final int ID_PAPER_PASS3_CCTV = 19;
+
+    /**
+     * ID dell'oggetto "foglio25".
+     */
+    public static final int ID_PAPER_PASS4_CCTV = 20;
 
     //ID oggetti contenitori
     /**
@@ -1110,9 +1168,9 @@ public final class Description {
     public static final int ID_CHAIR_CCTV = 135;
 
     /**
-     * ID dell'oggetto contenitore "cassaforte" della stanza "AGGIUNGERE".
+     * ID dell'oggetto contenitore "cassaforte" della stanza "CCTV".
      */
-    public static final int ID_STRONGBOX_NOME_STANZA = 136;
+    public static final int ID_STRONGBOX_CCTV = 136;
 
     /**
      * ID dell'oggetto contenitore "ventola".
@@ -1128,6 +1186,11 @@ public final class Description {
      * ID dell'oggetto contenitore "aspirapolvere".
      */
     public static final int ID_VACUUM_CLEANER = 139;
+
+    /**
+     * ID dell'oggetto contenitore "forno".
+     */
+    public static final int ID_FURNACE= 140;
 
     ////////// CAMBIARE
     /**

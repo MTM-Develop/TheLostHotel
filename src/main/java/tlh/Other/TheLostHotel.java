@@ -122,7 +122,17 @@ public class TheLostHotel extends GameManager {
                                         }
                                     } else {
                                         if (((GameItemContainer) gameItem).isClosed()) {
-                                            output.append(gameItem.getDescription() + "\n");
+                                            if(((GameItemContainer) gameItem).isPasswordLocked())
+                                            {
+                                                if(((GameItemContainer) gameItem).isPasswordUnlocked())
+                                                {
+                                                    output.append("Hai trovato la combinazione. Che aspetti ad aprirla?\n");
+                                                }
+                                                else
+                                                    output.append(gameItem.getDescription() + "\n");
+                                            }
+                                            else
+                                                output.append(gameItem.getDescription() + "\n");
                                         } else {
                                             if (((GameItemContainer) gameItem).isPasswordLocked()) {
                                                 if (!((GameItemContainer) gameItem).isPasswordUnlocked()) {
@@ -738,8 +748,7 @@ public class TheLostHotel extends GameManager {
                                                 output.append("\nL'oggetto " + gameItem.getName() + " è stato rimosso.\n");
                                             }
                                         } else if (((GameItemContainer) iC).isPasswordLocked()) {
-                                            //STANZA 79 DA CAMBIARE
-                                            if (this.getGame().getCurrentRoom().getName().equals("Stanza 79") && gameItem.getName().equals(Description.PASSWORD_STRONGBOX_NOME_STANZA)) {
+                                            if (this.getGame().getCurrentRoom().getName().equals("CCTV") && gameItem.getName().equals(Description.PASSWORD_STRONGBOX_CCTV)) {
                                                 if (!((GameItemContainer) iC).isPasswordUnlocked()) {
                                                     output.append("Password esatta. Hai sbloccato la " + iC.getName() + "!\n");
                                                     ((GameItemContainer) iC).setPasswordUnlocked(true);
