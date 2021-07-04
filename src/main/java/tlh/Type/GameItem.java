@@ -91,20 +91,14 @@ public class GameItem implements Serializable {
     private boolean used = false;
 
     /**
+     * Indica se rappresenta una password.
+     */
+    private boolean isGIPassword = false;
+
+    /**
      * Immagine raffigurante l'oggetto.
      */
     private ImageIcon itemImage;
-
-    /**
-     * Costruttore.
-     *
-     * @param gId
-     * @param gIName
-     */
-    public GameItem(final int gId, final String gIName) {
-        this.id = gId;
-        this.name = gIName;
-    }
 
     /**
      * Costruttore.
@@ -386,6 +380,23 @@ public class GameItem implements Serializable {
      */
     public void setUsed(final boolean u) {
         this.used = u;
+    }
+
+    /**
+     * @return booleano (vero se il gameItem
+     * rappresenta una password, falso altrimenti).
+     */
+    public boolean isGIPassword() {
+        return isGIPassword;
+    }
+
+    /**
+     * Imposta lo stato del gameItem (se è una password o meno).
+     *
+     * @param gIPassword
+     */
+    public void setGIPassword(final boolean gIPassword) {
+        isGIPassword = gIPassword;
     }
 
     /**

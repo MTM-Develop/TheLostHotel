@@ -381,6 +381,7 @@ public class GameGUI extends javax.swing.JFrame {
                 Description.GAME_GUI_HEIGHT_JL_CROOM);
 
         jbSaveGame.setText("SALVA (CTRL-S)");
+        jbSaveGame.setToolTipText("Salva la partita corrente");
         jbSaveGame.addActionListener(e -> saveGame());
         getContentPane().add(jbSaveGame);
         jbSaveGame.setBounds(Description.GAME_GUI_X_JB_SAVE,
@@ -389,6 +390,7 @@ public class GameGUI extends javax.swing.JFrame {
                 Description.GAME_GUI_HEIGHT_JB_SAVE);
 
         jbQuitGame.setText("ESCI (CTRL-Q)");
+        jbQuitGame.setToolTipText("Torna al menù principale");
         jbQuitGame.addActionListener(e -> quitGame());
         getContentPane().add(jbQuitGame);
         jbQuitGame.setBounds(Description.GAME_GUI_X_JB_QUIT,
@@ -397,7 +399,8 @@ public class GameGUI extends javax.swing.JFrame {
                 Description.GAME_GUI_HEIGHT_JB_QUIT);
 
         jbSendCommand.setText("INVIA");
-        jbSendCommand.setMnemonic(KeyEvent.VK_I); //Provare con INVIO
+        jbSendCommand.setMnemonic(KeyEvent.VK_I);
+        jbSendCommand.setToolTipText("Invia un comando");
         jbSendCommand.addActionListener(evt -> sendCommandByTextField());
         getContentPane().add(jbSendCommand);
         jbSendCommand.setBounds(Description.GAME_GUI_X_JB_SCOMMAND,
@@ -527,7 +530,7 @@ public class GameGUI extends javax.swing.JFrame {
     private void initGame() {
 
         // Salva il nome del giocatore.
-        gInteraction.getGameManager().getGame().setPlayer(
+        /*gInteraction.getGameManager().getGame().setPlayer(
                 JOptionPane.showInputDialog(this,
                         "Inserisci il tuo nome:"));
 
@@ -535,7 +538,7 @@ public class GameGUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,
                     "Errore: il nome non può essere vuoto",
                     "Errore", JOptionPane.ERROR_MESSAGE);
-        } //FARE ALTRI CONTROLLI
+        } //FARE ALTRI CONTROLLI*/ //AGGIUNGERLO ALLA FINE
 
         //Utilizzato per bloccare lo scorrimento
         //al fine di visualizzare correttamente la trama del gioco.
@@ -1041,9 +1044,9 @@ public class GameGUI extends javax.swing.JFrame {
     private void insertScore() {
 
         try {
-            // Inserisce il nome del giocatore e il suo tempo nel DB
-            db.insertScore(gInteraction.getGameManager().
-                            getGame().getPlayer() + " ",
+            // Inserisce il nome del giocatore e il suo tempo nel DB.
+            db.insertScore("NOME GIOCATORE" + " ",
+                    //gInteraction.getGameManager().getGame().getPlayer()
                     gInteraction.getGameManager().getGame().
                             getgTime().getTime());
             JOptionPane.showMessageDialog(this,

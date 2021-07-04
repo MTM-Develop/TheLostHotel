@@ -30,19 +30,20 @@ public class DB {
     /**
      * Query di creazione.
      */
-    private final String createTable = "CREATE TABLE IF NOT EXISTS "
+    private static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS "
             + "scores (name VARCHAR(25), time TIME)";
 
     /**
      * Query di selezione.
      */
-    private final String selectTable = "SELECT name, time FROM scores "
+    private static final String SELECT_TABLE = "SELECT name, time FROM scores "
             + "ORDER BY time LIMIT 3";
 
     /**
      * Query di inserimento.
      */
-    private final String insertValues = "INSERT INTO scores VALUES (?,?)";
+    private static final String INSERT_VALUES =
+            "INSERT INTO scores VALUES (?,?)";
 
     //private static final String QUERY_DROP = "DROP TABLE IF EXISTS scores";
 
@@ -57,7 +58,7 @@ public class DB {
                 "jdbc:h2:./resources/database/scores");
 
         Statement stm = con.createStatement();
-        stm.executeUpdate(createTable);
+        stm.executeUpdate(CREATE_TABLE);
         stm.close();
     }
 
@@ -84,7 +85,7 @@ public class DB {
     public void insertScore(final String s, final String t)
             throws SQLException, ParseException {
         reconnect();
-        PreparedStatement prstm = con.prepareStatement(insertValues);
+        PreparedStatement prstm = con.prepareStatement(INSERT_VALUES);
         prstm.setString(1, s);
 
         // Converte la stringa in tempo.
@@ -107,20 +108,22 @@ public class DB {
     public String topScores() throws SQLException {
         reconnect();
 
-        String results = "";
+        StringBuilder results = new StringBuilder();
         Statement stm = con.createStatement();
-        ResultSet resSet = stm.executeQuery(selectTable);
+        ResultSet resSet = stm.executeQuery(SELECT_TABLE);
 
         while (resSet.next()) {
 
-            results += resSet.getString(1) + "\t\t\t"
-                    + resSet.getTime(2) + "\n\n";
+            results.append(resSet.getString(1)).
+                    append("\t\t\t").
+                    append(resSet.getTime(2)).
+                    append("\n\n");
         }
 
         resSet.close();
         stm.close();
 
-        return results;
+        return results.toString();
     }
 
     /**

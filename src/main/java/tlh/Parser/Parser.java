@@ -28,12 +28,13 @@ public class Parser {
      * @return oggetto di tipo ParserOutput.
      *
      * @throws InvalidStringException se trova una stringa non valida
-     * ad esempio composta da 0 o 2+ comandi
+     * ad esempio composta da 0 o 2+ comandi.
      */
     public ParserOutput parse(final String phrase,
                               final Room currentRoom,
                               final Inventory inv,
-                              final Set<Command> commands) throws InvalidStringException {
+                              final Set<Command> commands)
+            throws InvalidStringException {
 
         ParserOutput pOutput = new ParserOutput();
 

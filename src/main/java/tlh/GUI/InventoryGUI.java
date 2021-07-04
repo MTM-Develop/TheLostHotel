@@ -62,18 +62,20 @@ public class InventoryGUI extends javax.swing.JDialog {
                 jbImage.setFocusable(false);
 
                 ImageIcon img = i.getItemImage();
-                jbImage.setIcon(img);
-                jbImage.setSize(Description.INV_GUI_WIDTH_JB_IMG,
-                        Description.INV_GUI_HEIGHT_JB_IMG);
-                jbImage.setToolTipText(i.getName());
+                if (!i.isGIPassword()) {
+                    jbImage.setIcon(img);
+                    jbImage.setSize(Description.INV_GUI_WIDTH_JB_IMG,
+                            Description.INV_GUI_HEIGHT_JB_IMG);
+                    jbImage.setToolTipText(i.getName());
 
-                /* Aggiunge l'ActionListener per il click sul bottone
-                 * che permette di visualizzare nome e descrizione dell'Item.
-                 */
-                jbImage.addActionListener(evt -> jbImageActionPerformed(evt,
-                        i.getDescription(), i.getName()));
+                    /* Aggiunge l'ActionListener per il click sul bottone
+                     * che permette di visualizzare nome e descrizione dell'Item
+                     */
+                    jbImage.addActionListener(evt -> jbImageActionPerformed(evt,
+                            i.getDescription(), i.getName()));
 
-                jPanel3.add(jbImage);
+                    jPanel3.add(jbImage);
+                }
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this,

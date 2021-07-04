@@ -24,6 +24,11 @@ public class GameItemContainer extends GameItem implements Serializable {
     private String lockedBy = "";
 
     /**
+     * Indica da che combinazione è bloccato, se vuoto "" non è bloccato.
+     */
+    private String passwordLockedBy = "";
+
+    /**
      * Indica se è stato chiuso.
      */
     private boolean closed = true;
@@ -57,6 +62,25 @@ public class GameItemContainer extends GameItem implements Serializable {
      * (Es. "Inserisci [oggetto] in attaccapanni").
      */
     private boolean iCNotInsertable = false;
+
+    /**
+     * Indica se l'oggetto contenitore è
+     * bloccato da una password.
+     */
+    private boolean passwordLocked = false;
+
+    /**
+     * Indica se l'oggetto contenitore è
+     * stato sbloccato da una password.
+     */
+    private boolean passwordUnlocked = false;
+
+    /**
+     * Indica se l'oggetto contenitore
+     * permette di accedere ad un posto segreto.
+     */
+    private boolean secretAccess = false;
+
     /**
      * Descrizione del contenitore (quando viene aperto).
      */
@@ -66,6 +90,12 @@ public class GameItemContainer extends GameItem implements Serializable {
      * Descrizione del contenitore (quando viene spostato).
      */
     private String movedDescription;
+
+    /**
+     * Descrizione del contenitore (quando viene sbloccato
+     * da una password).
+     */
+    private String passwordUnlockedDescription;
 
     /**
      * Costruttore.
@@ -141,6 +171,23 @@ public class GameItemContainer extends GameItem implements Serializable {
      */
     public void setLockedBy(final String lBy) {
         this.lockedBy = lBy;
+    }
+
+    /**
+     * @return Stringa che rappresenta la combinazione
+     * che blocca il contenitore.
+     */
+    public String getPasswordLockedBy() {
+        return passwordLockedBy;
+    }
+
+    /**
+     * Indica quale combinazione blocca il contenitore.
+     *
+     * @param pswLockedBy
+     */
+    public void setPasswordLockedBy(final String pswLockedBy) {
+        this.passwordLockedBy = pswLockedBy;
     }
 
     /**
@@ -243,8 +290,62 @@ public class GameItemContainer extends GameItem implements Serializable {
      *
      * @param iCNInsertable
      */
-    public void setiCNotInsertable(boolean iCNInsertable) {
+    public void setiCNotInsertable(final boolean iCNInsertable) {
         this.iCNotInsertable = iCNInsertable;
+    }
+
+    /**
+     * @return booleano (vero se è bloccato da una password,
+     * falso altrimenti).
+     */
+    public boolean isPasswordLocked() {
+        return passwordLocked;
+    }
+
+    /**
+     * Imposta lo stato del contenitore (se è bloccato
+     * da una password o meno).
+     *
+     * @param passLocked
+     */
+    public void setPasswordLocked(final boolean passLocked) {
+        this.passwordLocked = passLocked;
+    }
+
+    /**
+     * @return booleano (vero se è sbloccato da una password,
+     * falso altrimenti).
+     */
+    public boolean isPasswordUnlocked() {
+        return passwordUnlocked;
+    }
+
+    /**
+     * Imposta lo stato del contenitore (se è sbloccato
+     * da una password o meno).
+     *
+     * @param pswUnlocked
+     */
+    public void setPasswordUnlocked(final boolean pswUnlocked) {
+        this.passwordUnlocked = pswUnlocked;
+    }
+
+    /**
+     * @return booleano (vero se ha un accesso segreto,
+     * falso altrimenti).
+     */
+    public boolean isSecretAccess() {
+        return secretAccess;
+    }
+
+    /**
+     * Imposta lo stato del contenitore (se prevede un
+     * accesso segreto o meno).
+     *
+     * @param secretAccess
+     */
+    public void setSecretAccess(boolean secretAccess) {
+        this.secretAccess = secretAccess;
     }
 
     /**
@@ -277,6 +378,24 @@ public class GameItemContainer extends GameItem implements Serializable {
      */
     public void setMovedDescription(final String mDescription) {
         this.movedDescription = mDescription;
+    }
+
+    /**
+     * @return descrizione del contenitore
+     * (quando è stato sbloccato da una password).
+     */
+    public String getPasswordUnlockedDescription() {
+        return passwordUnlockedDescription;
+    }
+
+    /**
+     * Imposta la descrizione del contenitore
+     * (quando è stato sbloccato da una password).
+     *
+     * @param pswUDescription
+     */
+    public void setPasswordUnlockedDescription(final String pswUDescription) {
+        this.passwordUnlockedDescription = pswUDescription;
     }
 
     /**

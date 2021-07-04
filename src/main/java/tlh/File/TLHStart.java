@@ -42,6 +42,7 @@ public class TLHStart {
                 "resources//img//gameItem//wallet.png");
         wallet.setItemImage(imgWallet);
         wallet.setPickupable(true);
+        wallet.setConsumable((byte) 1);
         g.getInventory().add(wallet);
 
         GameItem lighter = new GameItem(Description.ID_LIGHTER, "accendino",
@@ -154,6 +155,11 @@ public class TLHStart {
         ImageIcon imgHook = new ImageIcon(
                 "resources//img//gameItem//hook.png");
         hook.setItemImage(imgHook);
+
+        GameItem pass = new GameItem(2131, "123456", ""); //CAMBIARE
+        pass.setConsumable((byte) 1); //serve?
+        pass.setGIPassword(true);
+        g.getInventory().add(pass);
 
         GameItemContainer button = new GameItemContainer(
                 Description.ID_BUTTON, "bottone", //CAMBIARE ID
@@ -435,15 +441,19 @@ public class TLHStart {
         GameItemContainer glassCabinet = new GameItemContainer(
                 Description.ID_GLASS_CABINET,
                 "vetrina", Description.DESCRIPTION_GLASS_CABINET);
-        glassCabinet.setAlias(new String[]{"espositore", "cristalliera", "armadio", "vetrata"});
+        glassCabinet.setAlias(new String[]{"espositore",
+                "cristalliera", "armadio", "vetrata"});
         glassCabinet.setOpenedDescription(
                 Description.OPENED_DESCRIPTION_GLASS_CABINET);
+
         glassCabinet.setLockedBy(""); //aggiungere qualcosa;
         //glassCabinet.add();
 
-        GameItemContainer tableCCTV = new GameItemContainer(Description.ID_TABLE_CCTV,
+        GameItemContainer tableCCTV = new GameItemContainer(
+                Description.ID_TABLE_CCTV,
                 "scrivania", Description.DESCRIPTION_TABLE_CCTV);
-        tableCCTV.setAlias(new String[]{"tavolo", "tavoli", "tavolino", "tavolini"});
+        tableCCTV.setAlias(new String[]{"tavolo", "tavoli",
+                "tavolino", "tavolini"});
         tableCCTV.setiCNotOpenable(true);
         tableCCTV.setiCNotInsertable(true);
 
@@ -469,20 +479,46 @@ public class TLHStart {
         GameItemContainer chairCCTV = new GameItemContainer(
                 Description.ID_CHAIR_CCTV, "sedia",
                 Description.DESCRIPTION_CHAIR_CCTV);
-        chairCCTV.setAlias(new String[]{"sedie", "girovole", "sgabello", "seggiola"});
+        chairCCTV.setAlias(new String[]{"sedie", "girovole",
+                "sgabello", "seggiola"});
         chairCCTV.setiCNotOpenable(true);
         chairCCTV.setiCNotInsertable(true);
 
-        //GameItem password = new GameItem(Description.ID_PASSWORD, "1");
-        //Occhio alla descrizione
+        GameItemContainer fanLaundry = new GameItemContainer(
+                Description.ID_FAN_LAUNDRY,
+                "ventola", Description.DESCRIPTION_FAN_LAUNDRY); //CAMBIARE
+        fanLaundry.setLockedBy(knife.getName()); //CAMBIARE
+        fanLaundry.setOpenedDescription(Description.OPENED_DESCRIPTION_FAN_LAUNDRY); //CAMBIARE
+        fanLaundry.setiCNotInsertable(true);
+        fanLaundry.setSecretAccess(true);
 
-        /*GameItemContainer strongbox = new GameItemContainer(80,
-        "cassaforte", "Descrizione cassaforte");
-        strongbox.setLockedBy(password.getName());//Description.PASS_STRONGBOX);
-        strongbox.setPassword_locked(true);
-        strongbox.setPasswordUnlockedDescription("Già sbloccato");
-        strongbox.add(key79);*/
+        GameItemContainer washingMachine = new GameItemContainer(
+                Description.ID_WASHING_MACHINE, "lavatrice",
+                Description.DESCRIPTION_WASHING_MACHINE);
+        washingMachine.setAlias(new String[]{"lavatrici", "lavabiancheria"});
+        washingMachine.setiCNotOpenable(true); //DA VALUTARE
+        washingMachine.setiCNotInsertable(true); //DA VALUTARE
 
+        GameItemContainer vacuumCleaner = new GameItemContainer(
+                Description.ID_VACUUM_CLEANER, "aspirapolvere",
+                Description.DESCRIPTION_VACUUM_CLEANER);
+        vacuumCleaner.setAlias(new String[]{"aspiratore"});
+        vacuumCleaner.setiCNotOpenable(true); //DA VALUTARE
+        vacuumCleaner.setiCNotInsertable(true); //DA VALUTARE
+
+        //FERRO DA STIRO RIMOSSO PERCHE' E' PIU' DI UNA PAROLA
+        //TAPPETI DA METTERE?
+
+        GameItemContainer strongbox = new GameItemContainer(
+                Description.ID_STRONGBOX_NOME_STANZA,
+        "cassaforte", Description.DESCRIPTION_STRONGBOX_NOME_STANZA); //CAMBIARE
+        strongbox.setLockedBy("");
+        strongbox.setPasswordLocked(true);
+        strongbox.setPasswordLockedBy(
+                Description.PASSWORD_STRONGBOX_NOME_STANZA); //CAMBIARE
+        strongbox.setPasswordUnlockedDescription(
+                Description.DESCRIPTION_STRONGBOX_UNLOCKED_NOME_STANZA); //CAMBIARE
+        strongbox.add(keyBar); //CAMBIARE
 
 
         //Stanze
@@ -492,13 +528,12 @@ public class TLHStart {
         room79.setRoomImage(new ImageIcon("resources//img//room//room79.png"));
         room79.setVisitedDescription(Description.DESCRIPTION_VISITED_ROOM_79);
         room79.addItem(wardrobe79);
-        //room79.addItem(lighter);
         room79.addItem(furniture79);
         room79.addItem(paint79);
         room79.addItem(bed79);
         room79.addItem(coatHook79);
         room79.addItem(button);
-        //room79.addItem(strongbox);
+        room79.addItem(strongbox);
 
         Room bathroom79 = new Room(Description.ID_BATHROOM_79,
                 "Bagno stanza 79", Description.DESCRIPTION_BATHROOM_79);
@@ -585,7 +620,9 @@ public class TLHStart {
                 "resources//img//room//laundry.png"));
         laundry.setVisitedDescription(Description.DESCRIPTION_VISITED_LAUNDRY);
         laundry.setLockedBy(""/*cardGameRoom.getName()*/);
-
+        laundry.addItem(fanLaundry);
+        laundry.addItem(washingMachine);
+        laundry.addItem(vacuumCleaner);
 
         Room room53 = new Room(Description.ID_ROOM_53, "Stanza 53",
                 Description.DESCRIPTION_ROOM_53);

@@ -609,7 +609,7 @@ public final class Description {
      */
     public static final String DESCRIPTION_LAPTOP_CCTV =
             "Dei computer portatili di buona qualità. "
-            + "Strano siano ancora qui." ;
+            + "Strano siano ancora qui.";
 
     /**
      * Descrizione dell'oggetto contenitore "sedia" della stanza cctv.
@@ -618,6 +618,43 @@ public final class Description {
             "Delle sedie girovoli. "
             + "Ti domandi come possano essere "
             + "in un hotel abbandonato.";
+
+    /**
+     * Descrizione dell'oggetto contenitore "ventola".
+     */
+    public static final String DESCRIPTION_FAN_LAUNDRY =
+            "Descrizione ventola chiusa"; //CAMBIARE
+
+    /**
+     * Descrizione dell'oggetto contenitore "lavatrice".
+     */
+    public static final String DESCRIPTION_WASHING_MACHINE =
+            "Descrizione lavatrice"; //CAMBIARE
+
+    /**
+     * Descrizione dell'oggetto contenitore "aspirapolvere".
+     */
+    public static final String DESCRIPTION_VACUUM_CLEANER =
+            "Descrizione aspirapolvere"; //CAMBIARE
+
+    /**
+     * Descrizione dell'oggetto contenitore "cassaforte"
+     * della stanza "AGGIUNGERE".
+     */
+    public static final String DESCRIPTION_STRONGBOX_NOME_STANZA =
+            "Descrizione cassaforte chiusa"; //CAMBIARE
+
+    /**
+     * Descrizione dell'oggetto contenitore "cassaforte"
+     * (sbloccato) della stanza "AGGIUNGERE".
+     */
+    public static final String DESCRIPTION_STRONGBOX_UNLOCKED_NOME_STANZA =
+            "Descrizione cassaforte sbloccata"; //CAMBIARE
+
+    /**
+     * Password della cassaforte situata nella stanza "AGGIUNGERE".
+     */
+    public static final String PASSWORD_STRONGBOX_NOME_STANZA = "123456";
 
     /**
      * Descrizione dell'oggetto contenitore "slot" non appena viene utilizzato.
@@ -696,7 +733,8 @@ public final class Description {
     /**
      * Descrizione dell'oggetto contenitore "fisso" già utilizzato.
      */
-    public static final String DESCRIPTION_COMPUTER_CCTV_ALREADY_USED_WITH_DROPS =
+    public static final String
+            DESCRIPTION_COMPUTER_CCTV_ALREADY_USED_WITH_DROPS =
             ""; //CAMBIARE
 
     /**
@@ -710,7 +748,8 @@ public final class Description {
      * Descrizione dell'oggetto contenitore "fisso"
      * sprovvisto di gameItem per il suo funzionamento.
      */
-    public static final String DESCRIPTION_COMPUTER_CCTV_USABLE_BUT_ITEM_REMOVED =
+    public static final String
+            DESCRIPTION_COMPUTER_CCTV_USABLE_BUT_ITEM_REMOVED =
             "Ti siedi, cosa vuoi farci con un computer senza internet?";
 
     //Descrizione relativa ai gameItemContainer già aperti
@@ -770,6 +809,12 @@ public final class Description {
     public static final String OPENED_DESCRIPTION_GLASS_CABINET =
             "La vetrina con le ante centrali aperte!";
 
+    /**
+     * Descrizione dell'oggetto contenitore
+     * "ventola" già aperto.
+     */
+    public static final String OPENED_DESCRIPTION_FAN_LAUNDRY =
+            "Descrizione ventola aperta";
 
     //public static final String OPENED_DESCRIPTION_BOX =
     // "La scatola che conteneva <<oggetto>>";
@@ -1004,7 +1049,6 @@ public final class Description {
      */
     public static final int ID_TV_53 = 123;
 
-
     /**
      * ID dell'oggetto contenitore "scarpiera".
      */
@@ -1065,6 +1109,25 @@ public final class Description {
      */
     public static final int ID_CHAIR_CCTV = 135;
 
+    /**
+     * ID dell'oggetto contenitore "cassaforte" della stanza "AGGIUNGERE".
+     */
+    public static final int ID_STRONGBOX_NOME_STANZA = 136;
+
+    /**
+     * ID dell'oggetto contenitore "ventola".
+     */
+    public static final int ID_FAN_LAUNDRY = 137;
+
+    /**
+     * ID dell'oggetto contenitore "lavatrice".
+     */
+    public static final int ID_WASHING_MACHINE = 138;
+
+    /**
+     * ID dell'oggetto contenitore "aspirapolvere".
+     */
+    public static final int ID_VACUUM_CLEANER = 139;
 
     ////////// CAMBIARE
     /**
@@ -1832,4 +1895,30 @@ public final class Description {
      * 00:09:05.
      */
     public static final int GAME_TIME_ZERO_FIRST_NUMBER = 10;
+
+    /**
+     * Indica il numero di secondi trascorsi dall'inizio del gioco
+     * per permettere il calcolo definitivo di questi.
+     * Es. 50 sec. equivalgono a 50 secondi,
+     * mentre 70 sec. equivalgono a 10 sec. (con 1 minuto).
+     */
+    public static final int GAME_TIME_SECOND_PASSED_60 = 60;
+
+    /**
+     * Indica il numero di secondi trascorsi dall'inizio del gioco
+     * per permettere il calcolo definitivo di questi e delle (eventuali)
+     * ore.
+     * Es. 3620 sec. equivalgono a 20 secondi (con 1 ora).
+     */
+    public static final int GAME_TIME_SECOND_PASSED_3600 = 3600;
+
+    /**
+     * Indica l'avvio del task dopo 1000 ms, ovvero 1 secondo.
+     */
+    public static final int GAME_TIME_DELAY_TIMER = 1000;
+
+    /**
+     * Indica il periodo di ripetizione del task (sempre 1 secondo).
+     */
+    public static final int GAME_TIME_PERIOD_TIMER = 1000;
 }

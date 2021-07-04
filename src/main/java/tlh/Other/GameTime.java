@@ -10,91 +10,139 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- * Classe realizzata per calcolare il tempo impiegato dal giocatore per
- * concludere il gioco
+ * Classe realizzata per calcolare il tempo
+ * impiegato dal giocatore per concludere il gioco.
  */
 public class GameTime implements Serializable {
 
-    private int secondPassed = 0; // Tempo passato in secondi
-    private Timer time;           // Timer per lo scorrere del tempo
-    private TimerTask task;       // Task che fa avanzare il Timer
-    private boolean active = false; // Indica se il timer è attivo o meno
+    /**
+     * Tempo calcolato in secondi.
+     */
+    private int secondPassed = 0;
 
     /**
-     * Istanzia timer e task, imposta lo stato ad attivo e fa partire il timer
+     * Timer per lo scorrere del tempo.
+     */
+    private Timer time;
+
+    /**
+     * Task che fa avanzare il Timer.
+     */
+    private TimerTask task;
+
+    /**
+     * Indica se il timer è attivo o meno.
+     */
+    private boolean active = false;
+
+    /**
+     * Istanzia timer e task, imposta lo stato
+     * ad attivo e fa partire il timer.
      */
     public void start() {
         time = new Timer();
         task = new TimerTask() {
             @Override
             public void run() {
-                // ad ogni secondo il contatore dovrà incrementarsi
+                // Ad ogni secondo il contatore dovrà incrementarsi.
                 secondPassed++;
 
             }
 
         };
         active = true;
-        time.scheduleAtFixedRate(task, 1000, 1000);    //avvia il task dopo 1 secondo e lo ripete ogni secondo
+        //Avvia il task dopo 1 secondo e lo ripete ogni secondo.
+        time.scheduleAtFixedRate(task, Description.GAME_TIME_DELAY_TIMER,
+                Description.GAME_TIME_PERIOD_TIMER);
 
     }
 
     /**
-     * Ferma il contatore del tempo
+     * Ferma il contatore del tempo.
      *
-     * @return booleano che indica se si è fermato correttamente
+     * @return booleano che indica se si è fermato correttamente.
      */
     public boolean cancel() {
 
         // Se l'ha fermato correttamente
         if (task.cancel()) {
-
             this.setActive(false); // lo stato non è più attivo
             return true;
-
         }
+
         return false;
     }
 
-    // Metodi get e set
-
+    /**
+     * @return tempo calcolato in secondi.
+     */
     public int getSecondPassed() {
         return secondPassed;
     }
 
-    public void setSecondPassed(int secondPassed) {
-        this.secondPassed = secondPassed;
+    /**
+     * Imposta il tempo calcolato in secondi.
+     *
+     * @param sPassed
+     */
+    public void setSecondPassed(final int sPassed) {
+        this.secondPassed = sPassed;
     }
 
+    /**
+     * @return Timer per lo scorrere del tempo.
+     */
     public Timer getTimer() {
         return time;
     }
 
-    public void setTimer(Timer time) {
-        this.time = time;
+    /**
+     * Imposta il Timer per lo scorrere del tempo.
+     *
+     * @param t
+     */
+    public void setTimer(final Timer t) {
+        this.time = t;
     }
 
+    /**
+     * @return Task che fa avanzare il Timer.
+     */
     public TimerTask getTask() {
         return task;
     }
 
-    public void setTask(TimerTask task) {
-        this.task = task;
+    /**
+     * Imposta il task che fa avanzare il Timer.
+     *
+     * @param t
+     */
+    public void setTask(final TimerTask t) {
+        this.task = t;
     }
 
+    /**
+     * @return booleano (vero se il timer è attivo,
+     * falso altrimenti).
+     */
     public boolean isActive() {
         return active;
     }
 
-    public void setActive(boolean active) {
-        this.active = active;
+    /**
+     * Imposta il timer (se attivo o meno).
+     *
+     * @param tActive
+     */
+    public void setActive(final boolean tActive) {
+        this.active = tActive;
     }
 
     /**
      * Conversione del tempo calcolato in secondi nel formato
-     * ore(h),minuti(m),secondi(s)
+     * ore(h), minuti(m), secondi(s).
      *
-     * @return Stringa che indica il tempo
+     * @return Stringa che indica il tempo.
      */
     public String getTime() {
 
@@ -105,30 +153,32 @@ public class GameTime implements Serializable {
         String strHours;
         String strMinutes;
         String strSeconds;
-        String time;
+        String gameTime;
 
-        if (secondPassed >= 3600) {
+        if (secondPassed >= Description.GAME_TIME_SECOND_PASSED_3600) {
 
-            hours = secondPassed / 3600;
-            remainderOfHours = secondPassed % 3600;
+            hours = secondPassed / Description.GAME_TIME_SECOND_PASSED_3600;
+            remainderOfHours = secondPassed
+                    % Description.GAME_TIME_SECOND_PASSED_3600;
 
-            if (remainderOfHours >= 60) {
+            if (remainderOfHours >= Description.GAME_TIME_SECOND_PASSED_60) {
 
-                minutes = remainderOfHours / 60;
-                seconds = remainderOfHours % 60;
+                minutes = remainderOfHours
+                        / Description.GAME_TIME_SECOND_PASSED_60;
+                seconds = remainderOfHours
+                        % Description.GAME_TIME_SECOND_PASSED_60;
 
             } else {
-
                 seconds = remainderOfHours;
             }
 
-        } else if (secondPassed >= 60) {
+        } else if (secondPassed >= Description.GAME_TIME_SECOND_PASSED_60) {
 
             hours = 0;
-            minutes = secondPassed / 60;
-            seconds = secondPassed % 60;
+            minutes = secondPassed / Description.GAME_TIME_SECOND_PASSED_60;
+            seconds = secondPassed % Description.GAME_TIME_SECOND_PASSED_60;
 
-        } else if (secondPassed < 60) {
+        } else if (secondPassed < Description.GAME_TIME_SECOND_PASSED_60) {
 
             hours = 0;
             minutes = 0;
@@ -136,36 +186,25 @@ public class GameTime implements Serializable {
         }
 
         if (seconds < Description.GAME_TIME_ZERO_FIRST_NUMBER) {
-
             strSeconds = "0" + Integer.toString(seconds);
-
         } else {
-
             strSeconds = Integer.toString(seconds);
         }
 
         if (minutes < Description.GAME_TIME_ZERO_FIRST_NUMBER) {
-
             strMinutes = "0" + Integer.toString(minutes);
-
         } else {
-
             strMinutes = Integer.toString(minutes);
         }
 
         if (hours < Description.GAME_TIME_ZERO_FIRST_NUMBER) {
-
             strHours = "0" + Integer.toString(hours);
-
         } else {
-
             strHours = Integer.toString(hours);
         }
 
-        time = strHours + "h" + strMinutes + "m" + strSeconds + "s";
+        gameTime = strHours + "h" + strMinutes + "m" + strSeconds + "s";
 
-        return time;
+        return gameTime;
     }
-
 }
-

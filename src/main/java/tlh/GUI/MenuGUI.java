@@ -299,8 +299,8 @@ public class MenuGUI extends javax.swing.JFrame {
 
                 g.appendToPane(g.getJtpReadingArea(),
                         "\nCaricamento partita completato.\n\n", Color.cyan);
-                g.getJtpReadingArea().setCaretPosition(g.getJtpReadingArea().getDocument()
-                        .getLength());
+                g.getJtpReadingArea().setCaretPosition(g.getJtpReadingArea().
+                        getDocument().getLength());
             }
 
         } catch (Exception e) {
