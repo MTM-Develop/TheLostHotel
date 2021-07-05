@@ -58,21 +58,25 @@ public class TheLostHotel extends GameManager {
                             output.append("Non puoi andare lì!\n");
                         } else if (room.getLockedBy().equals("")) { // Controlla che non sia bloccata.
 
-                            // Si sposta nella stanza designata.
-                            this.getGame().setCurrentRoom(room);
+                            if (!room.isImpossibleToAccessDirectly()) {
+                                // Si sposta nella stanza designata.
+                                this.getGame().setCurrentRoom(room);
 
-                            // Controlla se si è finito il gioco in maniera "lecita"
-                            //this.advancePlot();
+                                // Controlla se si è finito il gioco in maniera "lecita"
+                                //this.advancePlot();
 
-                            output.append("-- " + this.getGame().getCurrentRoom().getName() + " --" + "\n\n");
+                                output.append("-- " + this.getGame().getCurrentRoom().getName() + " --" + "\n\n");
 
-                            if (!room.isVisited()) {
-                                output.append(this.getGame().getCurrentRoom().getDescription() + "\n");
+                                if (!room.isVisited()) {
+                                    output.append(this.getGame().getCurrentRoom().getDescription() + "\n");
+                                } else {
+                                    output.append(this.getGame().getCurrentRoom().getVisitedDescription() + "\n");
+                                }
+                                room.setVisited(true);
+
                             } else {
-                                output.append(this.getGame().getCurrentRoom().getVisitedDescription() + "\n");
+                                output.append("Non puoi andare lì!\n");
                             }
-
-                            room.setVisited(true);
 
                         } else {
                             output.append("Questa stanza è chiusa!\n");
@@ -205,7 +209,7 @@ public class TheLostHotel extends GameManager {
                                         output.append("Non puoi usare questo oggetto (ora/così).\n");
                                     } else {
                                         output.append("Messaggio di passaggio segreto (si potrebbe anche togliere)...\n\n"); //CAMBIARE
-                                        this.getGame().setCurrentRoom(this.getGame().getCurrentRoom().getSouth()); //CAMBIARE
+                                        this.getGame().setCurrentRoom(this.getGame().getCurrentRoom().getNorth()); //CAMBIARE
 
                                         output.append("-- " + this.getGame().getCurrentRoom().getName() + " --" + "\n\n");
 
@@ -321,7 +325,22 @@ public class TheLostHotel extends GameManager {
                                                 if (((GameItemContainer) iC).isSecretAccess()) {
                                                     output.append("Descrizione da mettere quando ha già aperto la ventola...\n");
                                                 } else {
-                                                    output.append("L'oggetto è stato aperto, ma è vuoto!\n");
+                                                    if (iC.getName().equals("finestra")) {
+                                                        output.append("Descrizione (dire qualcosa su come sia arrivato in questo posto).\n\n");
+                                                        this.getGame().setCurrentRoom(this.getGame().getCurrentRoom().getWest()); //CAMBIARE NEL CASO
+
+                                                        output.append("-- " + this.getGame().getCurrentRoom().getName() + " --" + "\n\n");
+
+                                                        if (!this.getGame().getCurrentRoom().isVisited()) {
+                                                            output.append(this.getGame().getCurrentRoom().getDescription() + "\n");
+                                                        } else {
+                                                            output.append(this.getGame().getCurrentRoom().getVisitedDescription() + "\n");
+                                                        }
+
+                                                        this.getGame().getCurrentRoom().setVisited(true);
+                                                    } else {
+                                                        output.append("L'oggetto è stato aperto, ma è vuoto!\n");
+                                                    }
                                                 }
 
                                                 if (iC.getName().equals("cestino") && ((GameItemContainer) iC).isClosed()) {
@@ -399,7 +418,6 @@ public class TheLostHotel extends GameManager {
 
                                             if (((GameItemContainer) iC).isSecretAccess()) {
                                                 output.append("Descrizione da mettere quando apre la ventola...\n");
-                                                //this.getGame().getCurrentRoom().setNorth(this.getGame().getCurrentRoom().getSouth()); //CAMBIARE
                                             } else {
                                                 output.append("L'oggetto è stato aperto, ma è vuoto!\n");
                                             }

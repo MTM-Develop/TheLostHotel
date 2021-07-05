@@ -70,6 +70,12 @@ public class Room implements Serializable {
     private String lockedBy = "";
 
     /**
+     * Indica se è impossibile accedere alla stanza
+     * direttamente (tramite nord, sud, est, ovest).
+     */
+    private boolean impossibleToAccessDirectly = false;
+
+    /**
      * Immagine raffigurante la stanza
      * che verrà visualizzata nell'interfaccia grafica.
      */
@@ -248,6 +254,23 @@ public class Room implements Serializable {
      */
     public void setEast(final Room rEast) {
         this.east = rEast;
+    }
+
+    /**
+     * @return booleano (vero se è impossibile
+     * accedere direttamente alla stanza, falso altrimenti).
+     */
+    public boolean isImpossibleToAccessDirectly() {
+        return impossibleToAccessDirectly;
+    }
+
+    /**
+     * Imposta lo stato della stanza (impossibile da accedere direttamente).
+     *
+     * @param impossibleToAccessDirectly
+     */
+    public void setImpossibleToAccessDirectly(boolean impossibleToAccessDirectly) {
+        this.impossibleToAccessDirectly = impossibleToAccessDirectly;
     }
 
     /**

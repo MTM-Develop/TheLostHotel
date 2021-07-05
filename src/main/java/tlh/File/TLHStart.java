@@ -197,6 +197,26 @@ public class TLHStart {
                 "resources//img//gameItem//paperPass4CCTV.png");
         paperPass4.setItemImage(imgPaperPass4);
 
+        GameItem paperRoom63 = new GameItem(
+                Description.ID_PAPER_0, "foglio0", //CAMBIARE NOME
+                Description.DESCRIPTION_PAPER_0); //CAMBIARE
+        paperRoom63.setAlias(new String[]{"nota0", "carta0",
+                "note0", "appunti0"}); //CAMBIARE
+        ImageIcon imgPaperRoom63 = new ImageIcon(
+                "resources//img//gameItem//paperHallwayColumbus.png"); //CAMBIARE
+        paperRoom63.setItemImage(imgPaperRoom63);
+
+        GameItem rifle = new GameItemContainer(
+                Description.ID_RIFLE,
+                "fucile", Description.DESCRIPTION_RIFLE); //CAMBIARE
+        rifle.setAlias(new String[]{"schioppo", "archibugio",
+                "carabina", "doppietta", "moschetto"}); //aggiungere anche "arma"?
+        ImageIcon imgRifle = new ImageIcon(
+                "resources//img//gameItem//rifle.png"); //CAMBIARE
+        rifle.setItemImage(imgRifle);
+        rifle.setPickupable(true); //DA VALUTARE
+
+        // OGGETTI CONTENITORI
         GameItemContainer button = new GameItemContainer(
                 Description.ID_BUTTON, "bottone", //CAMBIARE ID
                 Description.DESCRIPTION_KNIFE); //CAMBIARE
@@ -449,6 +469,8 @@ public class TLHStart {
                 Description.ID_WINDOW53,
                 "finestra", Description.DESCRIPTION_WINDOW53);
         window53.setAlias(new String[]{"vetrina"});
+        window53.setOpenedDescription(
+                Description.OPENED_DESCRIPTION_WINDOW53); //CAMBIARE
         window53.setiCNotInsertable(true);
 
         GameItemContainer dresser53 = new GameItemContainer(
@@ -555,9 +577,6 @@ public class TLHStart {
         vacuumCleaner.setiCNotOpenable(true); //DA VALUTARE
         vacuumCleaner.setiCNotInsertable(true); //DA VALUTARE
 
-        //FERRO DA STIRO RIMOSSO PERCHE' E' PIU' DI UNA PAROLA
-        //TAPPETI DA METTERE?
-
         GameItemContainer strongboxCCTV = new GameItemContainer(
                 Description.ID_STRONGBOX_CCTV,
         "cassaforte", Description.DESCRIPTION_STRONGBOX_CCTV);
@@ -569,6 +588,39 @@ public class TLHStart {
                 Description.DESCRIPTION_STRONGBOX_UNLOCKED_CCTV);
         strongboxCCTV.add(keyBar); //CAMBIARE
 
+        GameItemContainer book = new GameItemContainer(
+                Description.ID_BOOK,
+                "libro", Description.DESCRIPTION_BOOK); //CAMBIARE
+        book.setAlias(new String[]{"quaderno", "rubrica",
+                "agenda", "taccuino"}); //aggiungere altri
+        book.setOpenedDescription(
+                Description.OPENED_DESCRIPTION_BOOK); //CAMBIARE
+        book.setLockedBy("");
+        book.setiCNotInsertable(true);
+        book.add(paperRoom63);
+
+        GameItemContainer mirror = new GameItemContainer(
+                Description.ID_MIRROR,
+                "specchio", Description.DESCRIPTION_MIRROR); //CAMBIARE
+        mirror.setAlias(new String[]{"riflesso", "vetro"}); //aggiungere altri
+        mirror.setiCNotOpenable(true);
+        mirror.setiCNotInsertable(true);
+        //MOVABLE?
+
+        GameItemContainer guitar = new GameItemContainer(
+                Description.ID_GUITAR,
+                "chitarra", Description.DESCRIPTION_GUITAR); //CAMBIARE
+        guitar.setiCNotOpenable(true);
+        guitar.setiCNotInsertable(true);
+
+        GameItemContainer clock = new GameItemContainer(
+                Description.ID_CLOCK,
+                "orologio", Description.DESCRIPTION_CLOCK); //CAMBIARE
+        //clock.setAlias(new String[]{"riflesso", "vetro"}); //aggiungere altri
+        //cronometro, oriolo, clessidra, gnomone, meridiana, pendola, sveglia
+        clock.setiCNotOpenable(true);
+        clock.setiCNotInsertable(true);
+        //MOVABLE?
 
         //Stanze
         Room room79 = new Room(Description.ID_ROOM_79, "Stanza 79",
@@ -704,6 +756,31 @@ public class TLHStart {
         cctv.addItem(chairCCTV);
         cctv.addItem(strongboxCCTV);
 
+        Room room63 = new Room(Description.ID_ROOM_63, "Stanza 63",
+                Description.DESCRIPTION_ROOM_63); //CAMBIARE
+        room63.setLookDescription(Description.LOOK_ROOM_63); //CAMBIARE
+        room63.setRoomImage(new ImageIcon("resources//img//room//room63.png"));
+        room63.setVisitedDescription(Description.DESCRIPTION_VISITED_ROOM_63); //CAMBIARE
+        room63.addItem(book);
+        room63.addItem(rifle);
+        room63.addItem(mirror);
+        room63.addItem(guitar);
+        room63.addItem(clock);
+
+        Room room13 = new Room(Description.ID_ROOM_13, "Stanza 13",
+                Description.DESCRIPTION_ROOM_13); //CAMBIARE
+        room13.setLookDescription(Description.LOOK_ROOM_13); //CAMBIARE
+        room13.setRoomImage(new ImageIcon("resources//img//room//room63.png")); //CAMBIARE IMMAGINE
+        room13.setVisitedDescription(Description.DESCRIPTION_VISITED_ROOM_13); //CAMBIARE
+        room13.setImpossibleToAccessDirectly(true);
+
+        Room garden = new Room(Description.ID_GARDEN, "Giardino",
+                Description.DESCRIPTION_GARDEN); //CAMBIARE
+        garden.setLookDescription(Description.LOOK_GARDEN); //CAMBIARE
+        garden.setRoomImage(new ImageIcon("resources//img//room//relaxRoom.png")); //CAMBIARE IMMAGINE
+        garden.setVisitedDescription(Description.DESCRIPTION_VISITED_GARDEN); //CAMBIARE
+        garden.setImpossibleToAccessDirectly(true);
+
         g.setCurrentRoom(room79);
         room79.setNorth(hallway);
         room79.setWest(bathroom79);
@@ -718,14 +795,17 @@ public class TLHStart {
         hallwayColumbus.setNorth(laundry);
         hallwayColumbus.setSouth(room53);
         room53.setNorth(hallwayColumbus);
+        room53.setWest(garden);
         relaxRoom.setSouth(hallway);
         relaxRoom.setEast(cctv);
         cctv.setWest(relaxRoom);
         bar.setEast(hallwayColumbus);
         bar.setNorth(kitchen); //CAMBIARE
         kitchen.setSouth(bar); //CAMBIARE
+        bar.setSouth(room63); //CAMBIARE
+        room63.setNorth(bar); //CAMBIARE
         laundry.setSouth(hallwayColumbus);
-
+        laundry.setNorth(room13);
 
         //Comandi
         Command north = new Command("nord", CommandType.NORD);

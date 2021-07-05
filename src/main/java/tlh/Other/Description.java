@@ -92,6 +92,24 @@ public final class Description {
                     + "Lo si nota dalle tante postazioni. "
                     + "Forse era anche una sala per lo studio.";
 
+    /**
+     * Descrizione della stanza "stanza 63".
+     */
+    public static final String DESCRIPTION_ROOM_63 =
+            ""; //CAMBIARE
+
+    /**
+     * Descrizione della stanza "stanza 13".
+     */
+    public static final String DESCRIPTION_ROOM_13 =
+            ""; //CAMBIARE
+
+    /**
+     * Descrizione della stanza "giardino".
+     */
+    public static final String DESCRIPTION_GARDEN =
+            ""; //CAMBIARE
+
     //Descrizioni relative a stanze/luoghi già visitati
     /**
      * Descrizione della stanza "stanza 79" già visitata.
@@ -159,6 +177,24 @@ public final class Description {
     public static final String DESCRIPTION_VISITED_CCTV =
             "La sala CCTV da dove si controllano "
             + "le aree pubbliche dell'hotel.";
+
+    /**
+     * Descrizione della stanza "stanza 63" già visitata.
+     */
+    public static final String DESCRIPTION_VISITED_ROOM_63 =
+            ""; //CAMBIARE
+
+    /**
+     * Descrizione della stanza "stanza 13" già visitata.
+     */
+    public static final String DESCRIPTION_VISITED_ROOM_13 =
+            ""; //CAMBIARE
+
+    /**
+     * Descrizione della stanza "giardino" già visitata.
+     */
+    public static final String DESCRIPTION_VISITED_GARDEN =
+            ""; //CAMBIARE
 
     //Descrizione più dettagliata per ogni stanza/luogo
     /**
@@ -250,6 +286,24 @@ public final class Description {
             + "Alcuni computer sembrano mancare. "
             + "La vetrata di fronte a te è enorme, "
             + "sembra occupare tutta la stanza...";
+
+    /**
+     * Descrizione più dettagliata della stanza "stanza 63".
+     */
+    public static final String LOOK_ROOM_63 =
+            ""; //CAMBIARE
+
+    /**
+     * Descrizione più dettagliata della stanza "stanza 13".
+     */
+    public static final String LOOK_ROOM_13 =
+            ""; //CAMBIARE
+
+    /**
+     * Descrizione più dettagliata della stanza "giardino".
+     */
+    public static final String LOOK_GARDEN =
+            ""; //CAMBIARE
 
     //Descrizione relativa agli oggetti
     /**
@@ -511,6 +565,12 @@ public final class Description {
             "La penna USB che hai trovato nel computer della stanza 53.";
 
     /**
+     * Descrizione dell'oggetto "foglio" della "Stanza 53".
+     */
+    public static final String DESCRIPTION_PAPER_STANZA_53 =
+            ""; //CAMBIARE
+
+    /**
      * Descrizione dell'oggetto contenitore "computer".
      */
     public static final String DESCRIPTION_COMPUTER =
@@ -553,9 +613,8 @@ public final class Description {
      * Descrizione dell'oggetto contenitore "finestra" della stanza 53.
      */
     public static final String DESCRIPTION_WINDOW53 =
-            "Una finestra abbastanza sporca,"
+            "Una finestra abbastanza sporca, "
             + "non riesci a vedere che c'è aldilà...";
-
 
     /**
      * Descrizione dell'oggetto contenitore "appendiabiti" della stanza 53.
@@ -654,12 +713,48 @@ public final class Description {
             "Sul foglio è riportata una combinazione di cifre...";
 
     /**
+     * Descrizione dell'oggetto "foglio0".
+     */
+    public static final String DESCRIPTION_PAPER_0 =
+            "Descrizione che fa riferimento alla cassaforte presente nella CCTV."; //CAMBIARE DESCRIZIONE E NOME
+
+    /**
+     * Descrizione dell'oggetto "fucile".
+     */
+    public static final String DESCRIPTION_RIFLE =
+            "Descrizione fucile."; //CAMBIARE
+
+    /**
      * Descrizione dell'oggetto contenitore "cassaforte"
      * della stanza "CCTV".
      */
     public static final String DESCRIPTION_STRONGBOX_CCTV =
             "Una cassaforte chiusa da una combinazione. "
             + "Sembrano essere richieste 6 cifre.";
+
+    /**
+     * Descrizione dell'oggetto contenitore "libro".
+     */
+    public static final String DESCRIPTION_BOOK =
+            "Descrizione libro chiuso."; //CAMBIARE
+
+    /**
+     * Descrizione dell'oggetto contenitore "specchio".
+     */
+    public static final String DESCRIPTION_MIRROR =
+            "Descrizione specchio."; //CAMBIARE
+
+    /**
+     * Descrizione dell'oggetto contenitore "chitarra".
+     */
+    public static final String DESCRIPTION_GUITAR =
+            "Descrizione chitarra."; //CAMBIARE
+
+    /**
+     * Descrizione dell'oggetto contenitore "orologio".
+     */
+    public static final String DESCRIPTION_CLOCK =
+            "Descrizione orologio."; //CAMBIARE
 
     /**
      * Descrizione dell'oggetto contenitore "cassaforte"
@@ -821,6 +916,12 @@ public final class Description {
             "La cassa del bar Columbus aperta!";
 
     /**
+     * Descrizione dell'oggetto contenitore "finestra" già aperto.
+     */
+    public static final String OPENED_DESCRIPTION_WINDOW53 =
+            "Descrizione finestra aperta."; //CAMBIARE
+
+    /**
      * Descrizione dell'oggetto contenitore "comò" già aperto.
      */
     public static final String OPENED_DESCRIPTION_DRESSER53 =
@@ -846,6 +947,13 @@ public final class Description {
      */
     public static final String OPENED_DESCRIPTION_PRINTER =
             "La stampante della CCTV con il coperchio sollevato!";
+
+    /**
+     * Descrizione dell'oggetto contenitore
+     * "libro" già aperto.
+     */
+    public static final String OPENED_DESCRIPTION_BOOK =
+            "Descrizione libro aperto."; //CAMBIARE
 
     //public static final String OPENED_DESCRIPTION_BOX =
     // "La scatola che conteneva <<oggetto>>";
@@ -985,6 +1093,16 @@ public final class Description {
      * ID dell'oggetto "foglio25".
      */
     public static final int ID_PAPER_PASS4_CCTV = 20;
+
+    /**
+     * ID dell'oggetto "foglio0".
+     */
+    public static final int ID_PAPER_0 = 21; //CAMBIARE NOME
+
+    /**
+     * ID dell'oggetto "fucile".
+     */
+    public static final int ID_RIFLE = 22;
 
     //ID oggetti contenitori
     /**
@@ -1190,7 +1308,27 @@ public final class Description {
     /**
      * ID dell'oggetto contenitore "forno".
      */
-    public static final int ID_FURNACE= 140;
+    public static final int ID_FURNACE = 140;
+
+    /**
+     * ID dell'oggetto contenitore "libro".
+     */
+    public static final int ID_BOOK = 141;
+
+    /**
+     * ID dell'oggetto contenitore "specchio".
+     */
+    public static final int ID_MIRROR = 142;
+
+    /**
+     * ID dell'oggetto contenitore "chitarra".
+     */
+    public static final int ID_GUITAR = 143;
+
+    /**
+     * ID dell'oggetto contenitore "orologio".
+     */
+    public static final int ID_CLOCK = 144;
 
     ////////// CAMBIARE
     /**
@@ -1253,6 +1391,21 @@ public final class Description {
      * ID della stanza "cctv".
      */
     public static final int ID_CCTV = 1010;
+
+    /**
+     * ID della stanza "stanza 63".
+     */
+    public static final int ID_ROOM_63 = 1011;
+
+    /**
+     * ID della stanza "stanza 13".
+     */
+    public static final int ID_ROOM_13 = 1012;
+
+    /**
+     * ID della stanza "giardino".
+     */
+    public static final int ID_GARDEN = 1013;
 
     //Magic Number
     /**
