@@ -29,7 +29,7 @@ public class TLHStart {
         //Items dell'inventario
         GameItem cellphone = new GameItem(Description.ID_CELLPHONE, "cellulare",
                 Description.DESCRIPTION_CELLPHONE);
-        cellphone.setAlias(new String[]{"telefono", "telefonino"});
+        cellphone.setAlias(new String[]{"telefonino"});
         ImageIcon imgCellphone = new ImageIcon(
                 "resources//img//gameItem//cellphone.png");
         cellphone.setItemImage(imgCellphone);
@@ -123,7 +123,7 @@ public class TLHStart {
         ImageIcon imgKey33 = new ImageIcon(
                 "resources//img//gameItem//key33.png");
         key33.setItemImage(imgKey33);
-        key33.setConsumable((byte) 1);
+        key33.setConsumable((byte) 1); //cambiare
 
         GameItem token = new GameItem(Description.ID_TOKEN, "gettone",
                 Description.DESCRIPTION_TOKEN);
@@ -131,7 +131,7 @@ public class TLHStart {
         ImageIcon imgToken = new ImageIcon(
                 "resources//img//gameItem//token.png");
         token.setItemImage(imgToken);
-        token.setConsumable((byte) 1);
+        token.setConsumable((byte) 1); //da usare
 
         GameItem keyBar = new GameItem(Description.ID_KEY_BAR, "chiave47",
                 Description.DESCRIPTION_KEY_BAR);
@@ -154,7 +154,7 @@ public class TLHStart {
         hook.setAlias(new String[]{"punta", "uncino", "gancetto"});
         ImageIcon imgHook = new ImageIcon(
                 "resources//img//gameItem//hook.png");
-        hook.setItemImage(imgHook);
+        hook.setItemImage(imgHook); //da usare
 
         GameItem pass = new GameItem(2131, Description.PASSWORD_STRONGBOX_CCTV, ""); //CAMBIARE
         pass.setConsumable((byte) 1); //serve?
@@ -198,10 +198,10 @@ public class TLHStart {
         paperPass4.setItemImage(imgPaperPass4);
 
         GameItem paperRoom63 = new GameItem(
-                Description.ID_PAPER_0, "foglio0", //CAMBIARE NOME
-                Description.DESCRIPTION_PAPER_0); //CAMBIARE
-        paperRoom63.setAlias(new String[]{"nota0", "carta0",
-                "note0", "appunti0"}); //CAMBIARE
+                Description.ID_PAPER_63, "foglio63",
+                Description.DESCRIPTION_PAPER_63); //CAMBIARE
+        paperRoom63.setAlias(new String[]{"nota63", "carta63",
+                "note63", "appunti63"});
         ImageIcon imgPaperRoom63 = new ImageIcon(
                 "resources//img//gameItem//paperHallwayColumbus.png"); //CAMBIARE
         paperRoom63.setItemImage(imgPaperRoom63);
@@ -210,11 +210,12 @@ public class TLHStart {
                 Description.ID_RIFLE,
                 "fucile", Description.DESCRIPTION_RIFLE); //CAMBIARE
         rifle.setAlias(new String[]{"schioppo", "archibugio",
-                "carabina", "doppietta", "moschetto"}); //aggiungere anche "arma"?
+                "carabina", "doppietta", "moschetto", "arma"});
         ImageIcon imgRifle = new ImageIcon(
-                "resources//img//gameItem//rifle.png"); //CAMBIARE
+                "resources//img//gameItem//rifle.png");
         rifle.setItemImage(imgRifle);
-        rifle.setPickupable(true); //DA VALUTARE
+        rifle.setPickupable(true);
+
 
         // OGGETTI CONTENITORI
         GameItemContainer button = new GameItemContainer(
@@ -557,8 +558,9 @@ public class TLHStart {
 
         GameItemContainer fanLaundry = new GameItemContainer(
                 Description.ID_FAN_LAUNDRY,
-                "ventola", Description.DESCRIPTION_FAN_LAUNDRY); //CAMBIARE
-        fanLaundry.setLockedBy(knife.getName()); //CAMBIARE
+                "ventola", Description.DESCRIPTION_FAN_LAUNDRY);
+        fanLaundry.setAlias(new String[]{"grata"});
+        fanLaundry.setLockedBy(hook.getName());
         fanLaundry.setOpenedDescription(Description.OPENED_DESCRIPTION_FAN_LAUNDRY); //CAMBIARE
         fanLaundry.setiCNotInsertable(true);
         fanLaundry.setSecretAccess(true);
@@ -590,37 +592,36 @@ public class TLHStart {
 
         GameItemContainer book = new GameItemContainer(
                 Description.ID_BOOK,
-                "libro", Description.DESCRIPTION_BOOK); //CAMBIARE
+                "libro", Description.DESCRIPTION_BOOK);
         book.setAlias(new String[]{"quaderno", "rubrica",
-                "agenda", "taccuino"}); //aggiungere altri
+                "agenda", "taccuino"});
         book.setOpenedDescription(
-                Description.OPENED_DESCRIPTION_BOOK); //CAMBIARE
+                Description.OPENED_DESCRIPTION_BOOK);
         book.setLockedBy("");
         book.setiCNotInsertable(true);
         book.add(paperRoom63);
 
         GameItemContainer mirror = new GameItemContainer(
                 Description.ID_MIRROR,
-                "specchio", Description.DESCRIPTION_MIRROR); //CAMBIARE
-        mirror.setAlias(new String[]{"riflesso", "vetro"}); //aggiungere altri
+                "specchio", Description.DESCRIPTION_MIRROR);
+        mirror.setAlias(new String[]{"riflesso", "vetro"});
         mirror.setiCNotOpenable(true);
         mirror.setiCNotInsertable(true);
         //MOVABLE?
 
         GameItemContainer guitar = new GameItemContainer(
                 Description.ID_GUITAR,
-                "chitarra", Description.DESCRIPTION_GUITAR); //CAMBIARE
+                "chitarra", Description.DESCRIPTION_GUITAR);
         guitar.setiCNotOpenable(true);
         guitar.setiCNotInsertable(true);
 
         GameItemContainer clock = new GameItemContainer(
                 Description.ID_CLOCK,
-                "orologio", Description.DESCRIPTION_CLOCK); //CAMBIARE
-        //clock.setAlias(new String[]{"riflesso", "vetro"}); //aggiungere altri
-        //cronometro, oriolo, clessidra, gnomone, meridiana, pendola, sveglia
+                "orologio", Description.DESCRIPTION_CLOCK);
+        clock.setAlias(new String[]{"pendolo", "sveglia"});
         clock.setiCNotOpenable(true);
         clock.setiCNotInsertable(true);
-        //MOVABLE?
+        clock.setMovable(true);
 
         //Stanze
         Room room79 = new Room(Description.ID_ROOM_79, "Stanza 79",
@@ -757,10 +758,10 @@ public class TLHStart {
         cctv.addItem(strongboxCCTV);
 
         Room room63 = new Room(Description.ID_ROOM_63, "Stanza 63",
-                Description.DESCRIPTION_ROOM_63); //CAMBIARE
-        room63.setLookDescription(Description.LOOK_ROOM_63); //CAMBIARE
+                Description.DESCRIPTION_ROOM_63);
+        room63.setLookDescription(Description.LOOK_ROOM_63);
         room63.setRoomImage(new ImageIcon("resources//img//room//room63.png"));
-        room63.setVisitedDescription(Description.DESCRIPTION_VISITED_ROOM_63); //CAMBIARE
+        room63.setVisitedDescription(Description.DESCRIPTION_VISITED_ROOM_63);
         room63.addItem(book);
         room63.addItem(rifle);
         room63.addItem(mirror);
@@ -781,6 +782,14 @@ public class TLHStart {
         garden.setVisitedDescription(Description.DESCRIPTION_VISITED_GARDEN); //CAMBIARE
         garden.setImpossibleToAccessDirectly(true);
 
+        Room hallwayClippings = new Room(Description.ID_HALLWAY_CLIPPINGS, "Corridoio Clippings",
+                Description.DESCRIPTION_HALLWAY_CLIPPINGS);
+        hallwayClippings.setLookDescription(Description.LOOK_HALLWAY_CLIPPINGS);
+        hallwayClippings.setRoomImage(new ImageIcon(
+                "resources//img//room//hallwayClippings.png"));
+        hallwayClippings.setVisitedDescription(Description.DESCRIPTION_VISITED_HALLWAY_CLIPPINGS);
+        hallwayClippings.setLockedBy(""); //chiave
+
         g.setCurrentRoom(room79);
         room79.setNorth(hallway);
         room79.setWest(bathroom79);
@@ -792,20 +801,25 @@ public class TLHStart {
         gameRoom.setWest(hallway);
         hallwayColumbus.setEast(hallway);
         hallwayColumbus.setWest(bar);
-        hallwayColumbus.setNorth(laundry);
+        hallwayColumbus.setNorth(hallwayClippings);
         hallwayColumbus.setSouth(room53);
+        hallwayClippings.setSouth(hallwayColumbus);
         room53.setNorth(hallwayColumbus);
         room53.setWest(garden);
+        garden.setEast(room63);
+        room53.setSouth(room63);
+        room63.setNorth(room53);
         relaxRoom.setSouth(hallway);
-        relaxRoom.setEast(cctv);
-        cctv.setWest(relaxRoom);
         bar.setEast(hallwayColumbus);
-        bar.setNorth(kitchen); //CAMBIARE
-        kitchen.setSouth(bar); //CAMBIARE
-        bar.setSouth(room63); //CAMBIARE
-        room63.setNorth(bar); //CAMBIARE
-        laundry.setSouth(hallwayColumbus);
-        laundry.setNorth(room13);
+        hallwayClippings.setEast(cctv);
+        cctv.setWest(hallwayClippings);
+        hallwayClippings.setWest(kitchen);
+        kitchen.setEast(hallwayClippings);
+        hallwayClippings.setNorth(laundry);
+        laundry.setSouth(hallwayClippings);
+        //laundry.setNorth(hall);
+        //hall.setNorth(room13)
+        //apportare modifiche
 
         //Comandi
         Command north = new Command("nord", CommandType.NORD);

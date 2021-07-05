@@ -74,7 +74,9 @@ public final class Description {
      * Descrizione della stanza "lavanderia".
      */
     public static final String DESCRIPTION_LAUNDRY =
-            ""; //cambiare
+            "La stanza dedicata alla pulizia generale dell'hotel. "
+            + "Vieni attratta dal buon profumo. "
+            + "Usano lo stesso prodotto che usava tua mamma.";
 
     /**
      * Descrizione della stanza "stanza 53".
@@ -96,7 +98,8 @@ public final class Description {
      * Descrizione della stanza "stanza 63".
      */
     public static final String DESCRIPTION_ROOM_63 =
-            ""; //CAMBIARE
+            "Un'ennesima stanza, forse la più ambigua di tutte finora. "
+            + "Lo deduci dalla diversità degli oggetti presenti in essa.";
 
     /**
      * Descrizione della stanza "stanza 13".
@@ -108,6 +111,12 @@ public final class Description {
      * Descrizione della stanza "giardino".
      */
     public static final String DESCRIPTION_GARDEN =
+            ""; //CAMBIARE
+
+    /**
+     * Descrizione della stanza "corridoio Clippings".
+     */
+    public static final String DESCRIPTION_HALLWAY_CLIPPINGS=
             ""; //CAMBIARE
 
     //Descrizioni relative a stanze/luoghi già visitati
@@ -163,7 +172,7 @@ public final class Description {
      * Descrizione della stanza "lavenderia" già visitata.
      */
     public static final String DESCRIPTION_VISITED_LAUNDRY =
-            ""; //CAMBIAREE
+            "La lavanderia dell'hotel. Almeno l'igiene dei clienti veniva tutelata!";
 
     /**
      * Descrizione della stanza "stanza 53" già visitata.
@@ -182,7 +191,7 @@ public final class Description {
      * Descrizione della stanza "stanza 63" già visitata.
      */
     public static final String DESCRIPTION_VISITED_ROOM_63 =
-            ""; //CAMBIARE
+            "La stanza d'hotel più strana che tu abbia mai visto prima.";
 
     /**
      * Descrizione della stanza "stanza 13" già visitata.
@@ -194,6 +203,12 @@ public final class Description {
      * Descrizione della stanza "giardino" già visitata.
      */
     public static final String DESCRIPTION_VISITED_GARDEN =
+            ""; //CAMBIARE
+
+    /**
+     * Descrizione della stanza "corridoio Clippings" già visitata.
+     */
+    public static final String DESCRIPTION_VISITED_HALLWAY_CLIPPINGS =
             ""; //CAMBIARE
 
     //Descrizione più dettagliata per ogni stanza/luogo
@@ -267,7 +282,10 @@ public final class Description {
      * Descrizione più dettagliata della stanza "lavanderia".
      */
     public static final String LOOK_LAUNDRY =
-            ""; //cambiare
+            "Una lavanderia profumata ma allo stesso tempo si respira aria calda. "
+            + "Presenta una schiera di lavatrici non funzionanti, "
+            + "anche se alcuni tappeti sono bagnati. "
+            + "Sarà l'umidità (dovuta al caldo) o un recente lavaggio?";
 
     /**
      * Descrizione più dettagliata della stanza "stanza 53".
@@ -291,7 +309,12 @@ public final class Description {
      * Descrizione più dettagliata della stanza "stanza 63".
      */
     public static final String LOOK_ROOM_63 =
-            ""; //CAMBIARE
+            "Una stanza abbastanza illuminata. "
+            + "Presenta un tavolo centrale e una zona relax "
+            + "con un divano alla vista molto confortevole. "
+            + "In un angolo della stanza è presente una scrivania "
+            + "con una chitarra alla sua sinistra. "
+            + "Ci sarà qualcosa di effettivamente utile?";
 
     /**
      * Descrizione più dettagliata della stanza "stanza 13".
@@ -303,6 +326,12 @@ public final class Description {
      * Descrizione più dettagliata della stanza "giardino".
      */
     public static final String LOOK_GARDEN =
+            ""; //CAMBIARE
+
+    /**
+     * Descrizione più dettagliata della stanza "corridoio Clippings".
+     */
+    public static final String LOOK_HALLWAY_CLIPPINGS =
             ""; //CAMBIARE
 
     //Descrizione relativa agli oggetti
@@ -713,16 +742,21 @@ public final class Description {
             "Sul foglio è riportata una combinazione di cifre...";
 
     /**
-     * Descrizione dell'oggetto "foglio0".
+     * Descrizione dell'oggetto "foglio63".
      */
-    public static final String DESCRIPTION_PAPER_0 =
-            "Descrizione che fa riferimento alla cassaforte presente nella CCTV."; //CAMBIARE DESCRIZIONE E NOME
+    public static final String DESCRIPTION_PAPER_63 =
+            "Un pezzo di carta piegato che hai trovato nel libro. \n"
+            + "Sembra far riferimento a qualcosa in una particolare stanza! \n"
+            + "\"C'è una ▓▓ssa▓▓rt▓ nella C▓T▓ \n"
+            + "Hai ▓▓▓▓gno di 4 fog▓▓ per apr▓▓▓▓\"\n"
+            + "Non capisci da chi potrebbe essere stato scritto...";
 
     /**
      * Descrizione dell'oggetto "fucile".
      */
     public static final String DESCRIPTION_RIFLE =
-            "Descrizione fucile."; //CAMBIARE
+            "Un fucile a muro. Sembra risalire alla Seconda Guerra Mondiale. "
+            + "È enorme. Ma poi che ci fa un fucile carico in una stanza?";
 
     /**
      * Descrizione dell'oggetto contenitore "cassaforte"
@@ -736,25 +770,29 @@ public final class Description {
      * Descrizione dell'oggetto contenitore "libro".
      */
     public static final String DESCRIPTION_BOOK =
-            "Descrizione libro chiuso."; //CAMBIARE
+            "Il libro presente ai piedi della scrivania. "
+            + "Noti sporgere qualcosa di bianco.";
 
     /**
      * Descrizione dell'oggetto contenitore "specchio".
      */
     public static final String DESCRIPTION_MIRROR =
-            "Descrizione specchio."; //CAMBIARE
+            "Ti avvicini ad esso per capire quello che sta succedendo. "
+            + "Ti ci allontani per lo stesso motivo.";
 
     /**
      * Descrizione dell'oggetto contenitore "chitarra".
      */
     public static final String DESCRIPTION_GUITAR =
-            "Descrizione chitarra."; //CAMBIARE
+            "Una chitarra in legno, appena accordata. "
+            + "Manca il plettro. In un'altra situazione "
+            + "magari ti saresti fermato a suonarla...";
 
     /**
      * Descrizione dell'oggetto contenitore "orologio".
      */
     public static final String DESCRIPTION_CLOCK =
-            "Descrizione orologio."; //CAMBIARE
+            "Un orologio a muro. Si è bloccato alle 2.";
 
     /**
      * Descrizione dell'oggetto contenitore "cassaforte"
@@ -953,7 +991,7 @@ public final class Description {
      * "libro" già aperto.
      */
     public static final String OPENED_DESCRIPTION_BOOK =
-            "Descrizione libro aperto."; //CAMBIARE
+            "Il libro con la copertina arancione aperto.";
 
     //public static final String OPENED_DESCRIPTION_BOX =
     // "La scatola che conteneva <<oggetto>>";
@@ -1095,9 +1133,9 @@ public final class Description {
     public static final int ID_PAPER_PASS4_CCTV = 20;
 
     /**
-     * ID dell'oggetto "foglio0".
+     * ID dell'oggetto "foglio63".
      */
-    public static final int ID_PAPER_0 = 21; //CAMBIARE NOME
+    public static final int ID_PAPER_63 = 21;
 
     /**
      * ID dell'oggetto "fucile".
@@ -1406,6 +1444,11 @@ public final class Description {
      * ID della stanza "giardino".
      */
     public static final int ID_GARDEN = 1013;
+
+    /**
+     * ID della stanza "corridoio Clippings".
+     */
+    public static final int ID_HALLWAY_CLIPPINGS = 1014;
 
     //Magic Number
     /**
