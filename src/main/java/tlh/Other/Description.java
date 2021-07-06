@@ -84,7 +84,7 @@ public final class Description {
     public static final String DESCRIPTION_ROOM_53 =
             "Un'altra stanza dell'hotel. "
             + "Pensi che costi molto, lo noti dalla quantità di oggetti "
-            + "presenti al suo interno.";
+            + "presenti al suo interno. Strano sia aperta..."; //CAMBIARE
 
     /**
      * Descrizione della stanza "cctv".
@@ -97,8 +97,9 @@ public final class Description {
     /**
      * Descrizione della stanza "stanza 63".
      */
-    public static final String DESCRIPTION_ROOM_63 =
-            "Un'ennesima stanza, forse la più ambigua di tutte finora. "
+    public static final String DESCRIPTION_ROOM_63 =  //CAMBIARE
+            "Sei andato a Est e ti trovi in un'altra stanza... Strano no? "
+            + "Un'ennesima stanza, forse la più ambigua di tutte finora. "
             + "Lo deduci dalla diversità degli oggetti presenti in essa.";
 
     /**
@@ -111,13 +112,17 @@ public final class Description {
      * Descrizione della stanza "giardino".
      */
     public static final String DESCRIPTION_GARDEN =
-            "Incredibilmente riesci a trovare un po' di verde in questo strano posto."
-            + "Noti che non è un semplice giardino dato che ci sono vari attrezzi."; //Controllare
+            "Per fortuna sei un tipo curioso e aprendo la finestra "
+            + "ti ritrovi in questo posto particolare. "
+            + "Incredibilmente riesci a trovare un po' di verde "
+            + "in questo strano posto. Noti che non è un semplice "
+            + "giardino dato che ci sono vari attrezzi.";
+    //CAMBIARE (HO AGGIUNTO ANCHE IL MESSAGGIO QUANDO APRI LA FINESTRA)
 
     /**
      * Descrizione della stanza "corridoio Clippings".
      */
-    public static final String DESCRIPTION_HALLWAY_CLIPPINGS=
+    public static final String DESCRIPTION_HALLWAY_CLIPPINGS =
             ""; //CAMBIARE
 
     //Descrizioni relative a stanze/luoghi già visitati
@@ -173,7 +178,8 @@ public final class Description {
      * Descrizione della stanza "lavenderia" già visitata.
      */
     public static final String DESCRIPTION_VISITED_LAUNDRY =
-            "La lavanderia dell'hotel. Almeno l'igiene dei clienti veniva tutelata!";
+            "La lavanderia dell'hotel. "
+            + "Almeno l'igiene dei clienti veniva tutelata!";
 
     /**
      * Descrizione della stanza "stanza 53" già visitata.
@@ -283,7 +289,8 @@ public final class Description {
      * Descrizione più dettagliata della stanza "lavanderia".
      */
     public static final String LOOK_LAUNDRY =
-            "Una lavanderia profumata ma allo stesso tempo si respira aria calda. "
+            "Una lavanderia profumata ma allo stesso tempo "
+            + "si respira aria calda. "
             + "Presenta una schiera di lavatrici non funzionanti, "
             + "anche se alcuni tappeti sono bagnati. "
             + "Sarà l'umidità (dovuta al caldo) o un recente lavaggio?";
@@ -328,8 +335,8 @@ public final class Description {
      */
     public static final String LOOK_GARDEN =
             "Uno splendido giardino super arredato. Vi è una piscina, "
-            + "degli attrezzi per la palestra e un area svago."
-            + "Quasi quasi non vorresti andare via da qui..."; //Controllare
+            + "degli attrezzi per la palestra e un'area svago. "
+            + "Quasi quasi non vorresti andar via da qui...";
 
     /**
      * Descrizione più dettagliata della stanza "corridoio Clippings".
@@ -762,6 +769,12 @@ public final class Description {
             + "È enorme. Ma poi che ci fa un fucile carico in una stanza?";
 
     /**
+     * Descrizione dell'oggetto "chiave63".
+     */
+    public static final String DESCRIPTION_KEY_63 =
+            "Una chiave con inciso il numero di una stanza.";
+
+    /**
      * Descrizione dell'oggetto contenitore "cassaforte"
      * della stanza "CCTV".
      */
@@ -801,7 +814,8 @@ public final class Description {
      * Descrizione dell'oggetto contenitore "altalena".
      */
     public static final String DESCRIPTION_SWING =
-            "Un'altalena di ferro, è un po arruginita ma molto carina nel contesto."; //cambiare
+            "Un'altalena di ferro, è un po' arruginita "
+            + "ma molto carina nel contesto.";
 
     /**
      * Descrizione dell'oggetto contenitore "sdraio".
@@ -809,36 +823,43 @@ public final class Description {
     public static final String DESCRIPTION_DECKCHAIR =
             "Una comoda sdraio di legno. "
             + "Ti ci riposeresti facilmente se non fosse che "
-            + "vuoi uscire da questo posto..."; //cambiare
+            + "vuoi uscire da questo posto...";
 
     /**
      * Descrizione dell'oggetto contenitore "cyclette".
      */
     public static final String DESCRIPTION_EXERCISE_BIKE =
             "Un ultimo modello di cyclette... "
-            + "Troppi segnali, dovrei inziare "
-            + "un po' di palestra?"; //cambiare
+            + "Troppi segnali, dovresti inziare "
+            + "un po' di palestra?";
 
     /**
      * Descrizione dell'oggetto contenitore "panca".
      */
     public static final String DESCRIPTION_BENCH =
-            "Una panca piana dotata di bilanciere di 20 kg e dei pesi da 25."
-                    + "Ci davano dentro a quanto pare."; //cambiare
+            "Una panca piana dotata di bilanciere di 20 kg e dei pesi da 25. "
+                    + "Ci davano dentro a quanto pare.";
 
     /**
      * Descrizione dell'oggetto contenitore "piscina".
      */
     public static final String DESCRIPTION_POOL =
             "Una vasta piscina piena d'acqua gelata. Dato che non sei "
-            + "un fenomeno a nuotare non ti ci avvicini nemmeno..."; //cambiare
+            + "un fenomeno a nuotare non ti ci avvicini nemmeno...";
 
     /**
-     * Descrizione dell'oggetto contenitore "lampada".
+     * Descrizione dell'oggetto contenitore "lampione".
      */
     public static final String DESCRIPTION_LIGHT_POLE =
-            "Uno splendido lampadario in questo spazio verde. "
-            + "Effettivamente un po' di luce fa sempre comodo!"; //cambiare
+            "Uno splendido lampione in questo spazio verde. "
+            + "Effettivamente un po' di luce fa sempre comodo!";
+
+    /**
+     * Descrizione dell'oggetto contenitore "finestra" del giardino.
+     */
+    public static final String DESCRIPTION_WINDOW_GARDEN =
+            "La finestra da dove sei sbucato qui."; //CAMBIARE
+
     /**
      * Descrizione dell'oggetto contenitore "cassaforte"
      * (sbloccato) della stanza "CCTV".
@@ -1076,6 +1097,13 @@ public final class Description {
     public static final String MOVED_DESCRIPTION_FAN =
             "Il ventilatore che hai spostato prima!";
 
+    /**
+     * Descrizione dell'oggetto contenitore "sdraio"
+     * già spostato.
+     */
+    public static final String MOVED_DESCRIPTION_DECKCHAIR =
+            ""; //CAMBIARE
+
     //ID oggetti
     /**
      * ID dell'oggetto "cellulare".
@@ -1186,6 +1214,17 @@ public final class Description {
      * ID dell'oggetto "fucile".
      */
     public static final int ID_RIFLE = 22;
+
+    /**
+     * ID della password utile per
+     * sbloccare la cassaforte della CCTV.
+     */
+    public static final int ID_PASSWORD_STRONGBOX_CCTV = 23;
+
+    /**
+     * ID dell'oggetto "chiave63".
+     */
+    public static final int ID_KEY63 = 24;
 
     //ID oggetti contenitori
     /**
@@ -1439,9 +1478,14 @@ public final class Description {
     public static final int ID_POOL = 149;
 
     /**
-     * ID dell'oggetto contenitore "lampada".
+     * ID dell'oggetto contenitore "lampione".
      */
     public static final int ID_LIGHT_POLE = 150;
+
+    /**
+     * ID dell'oggetto contenitore "finestra" del giardino.
+     */
+    public static final int ID_WINDOW_GARDEN = 151;
 
     ////////// CAMBIARE
     /**

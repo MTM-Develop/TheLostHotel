@@ -76,6 +76,12 @@ public class Room implements Serializable {
     private boolean impossibleToAccessDirectly = false;
 
     /**
+     * Indica se si può accedere in una stanza
+     * bloccata tramite una porta (sbloccata).
+     */
+    private boolean anOpenDoor = false;
+
+    /**
      * Immagine raffigurante la stanza
      * che verrà visualizzata nell'interfaccia grafica.
      */
@@ -267,10 +273,29 @@ public class Room implements Serializable {
     /**
      * Imposta lo stato della stanza (impossibile da accedere direttamente).
      *
-     * @param impossibleToAccessDirectly
+     * @param impossibleToAD
      */
-    public void setImpossibleToAccessDirectly(boolean impossibleToAccessDirectly) {
-        this.impossibleToAccessDirectly = impossibleToAccessDirectly;
+    public void setImpossibleToAccessDirectly(final boolean impossibleToAD) {
+        this.impossibleToAccessDirectly = impossibleToAD;
+    }
+
+    /**
+     *
+     * @return booleano (vero se si può accedere alla stanza bloccata
+     * tramite una porta sbloccata, falso altrimenti).
+     */
+    public boolean isAnOpenDoor() {
+        return anOpenDoor;
+    }
+
+    /**
+     * Imposta lo stato della stanza (bloccata, se si può accedere
+     * tramite una porta sbloccata).
+     *
+     * @param anODoor
+     */
+    public void setAnOpenDoor(final boolean anODoor) {
+        this.anOpenDoor = anODoor;
     }
 
     /**

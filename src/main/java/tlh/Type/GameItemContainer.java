@@ -82,6 +82,11 @@ public class GameItemContainer extends GameItem implements Serializable {
     private boolean secretAccess = false;
 
     /**
+     * Indica se è già stato inserito qualcosa in un contenitore.
+     */
+    private boolean itemAlreadyIntoIC = false;
+
+    /**
      * Descrizione del contenitore (quando viene aperto).
      */
     private String openedDescription;
@@ -342,10 +347,28 @@ public class GameItemContainer extends GameItem implements Serializable {
      * Imposta lo stato del contenitore (se prevede un
      * accesso segreto o meno).
      *
-     * @param secretAccess
+     * @param secrAccess
      */
-    public void setSecretAccess(boolean secretAccess) {
-        this.secretAccess = secretAccess;
+    public void setSecretAccess(final boolean secrAccess) {
+        this.secretAccess = secrAccess;
+    }
+
+    /**
+     * @return booleano (vero se è stato già inserito
+     * qualcosa nel contenitore, falso altrimenti).
+     */
+    public boolean isItemAlreadyIntoIC() {
+        return itemAlreadyIntoIC;
+    }
+
+    /**
+     * Imposta lo stato del contenitore
+     * (se è stato già inserito qualcosa o meno).
+     *
+     * @param iAlreadyIntoIC
+     */
+    public void setItemAlreadyIntoIC(final boolean iAlreadyIntoIC) {
+        this.itemAlreadyIntoIC = iAlreadyIntoIC;
     }
 
     /**

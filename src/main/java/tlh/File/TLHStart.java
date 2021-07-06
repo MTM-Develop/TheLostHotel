@@ -156,8 +156,13 @@ public class TLHStart {
                 "resources//img//gameItem//hook.png");
         hook.setItemImage(imgHook); //da usare
 
-        GameItem pass = new GameItem(2131, Description.PASSWORD_STRONGBOX_CCTV, ""); //CAMBIARE
-        pass.setConsumable((byte) 1); //serve?
+        GameItem pass = new GameItem(
+                Description.ID_PASSWORD_STRONGBOX_CCTV,
+                Description.PASSWORD_STRONGBOX_CCTV, "");
+        //CAMBIARE SE NECESSARIO
+        pass.setConsumable((byte) 1);
+        // serve setConsumable? Credo di no
+        // così la capienza rimane quella con la password.
         pass.setGIPassword(true);
         g.getInventory().add(pass);
 
@@ -203,7 +208,8 @@ public class TLHStart {
         paperRoom63.setAlias(new String[]{"nota63", "carta63",
                 "note63", "appunti63"});
         ImageIcon imgPaperRoom63 = new ImageIcon(
-                "resources//img//gameItem//paperHallwayColumbus.png"); //CAMBIARE
+                "resources//img//gameItem//paperHallwayColumbus.png");
+        //CAMBIARE IMMAGINE NEL CASO
         paperRoom63.setItemImage(imgPaperRoom63);
 
         GameItem rifle = new GameItemContainer(
@@ -215,6 +221,15 @@ public class TLHStart {
                 "resources//img//gameItem//rifle.png");
         rifle.setItemImage(imgRifle);
         rifle.setPickupable(true);
+
+        GameItem key63 = new GameItem(Description.ID_KEY63, "chiave63",
+                Description.DESCRIPTION_KEY_63);
+        //KEY63 o KEY53? XD
+        key63.setAlias(new String[]{"chiavi63"});
+        ImageIcon imgKey63 = new ImageIcon(
+                "resources//img//gameItem//key33.png"); //CAMBIARE IMMAGINE
+        key63.setItemImage(imgKey63);
+        key63.setConsumable((byte) 1);
 
 
         // OGGETTI CONTENITORI
@@ -253,6 +268,7 @@ public class TLHStart {
                 "pittura", "affresco"});
         paint79.add(key79);
         paint79.setMovable(true);
+        paint79.setiCNotInsertable(true);
 
         GameItemContainer furnitureBathroom79 = new GameItemContainer(
                 Description.ID_FURNITURE_BATHROOM_79, "cestino",
@@ -286,18 +302,7 @@ public class TLHStart {
         slot.setUsableWithDrops(true);
         slot.add(handle);
         slot.setiCNotOpenable(true);
-
-        /*GameItemContainer changeMachine = new GameItemContainer(
-                Description.ID_CHANGE_MACHINE, "cambiamonete",
-                Description.DESCRIPTION_CHANGE_MACHINE);
-        changeMachine.setAlias(new String[]{"cambiovaluta"});
-        changeMachine.setDescriptionUsableWithDrops(
-                Description.DESCRIPTION_CHANGE_MACHINE_USABLE_WITH_DROPS);
-        changeMachine.setDescriptionAlreadyUsedWithDrops(
-                Description.DESCRIPTION_CHANGE_MACHINE_ALREADY_USED_WITH_DROPS);
-        changeMachine.setUsableWithDrops(true);
-        changeMachine.add(cardGameRoom);
-        changeMachine.setiCNotOpenable(true);*/
+        slot.setiCNotInsertable(true);
 
         GameItemContainer changeMachine = new GameItemContainer(
                 Description.ID_CHANGE_MACHINE, "cambiamonete",
@@ -331,6 +336,7 @@ public class TLHStart {
         furnace.setAlias(new String[]{"forni", "fornace", "fornaci"});
         furnace.setLockedBy("");
         furnace.add(paperPass3);
+        //LASCIAMO CHE SI POSSONO INSERIRE OGGETTI NEL FORNO O NO?
 
         GameItemContainer remoteControl = new GameItemContainer(
                 Description.ID_REMOTE_CONTROL, "telecomando",
@@ -352,24 +358,26 @@ public class TLHStart {
                 "televisione", Description.DESCRIPTION_TV);
         tv.setAlias(new String[]{"tv", "televisore"});
         tv.setiCNotOpenable(true);
+        tv.setiCNotInsertable(true); //CAPIRE SE INSERIRE USB O MENO
 
         GameItemContainer sofa = new GameItemContainer(Description.ID_SOFA,
                 "divano", Description.DESCRIPTION_SOFA);
         sofa.setAlias(new String[]{"poltrona", "sofa"});
         sofa.setiCNotOpenable(true);
+        sofa.setiCNotInsertable(true);
 
         GameItemContainer plantRelaxRoom = new GameItemContainer(
                 Description.ID_PLANT_RELAX_ROOM, "pianta",
                 Description.DESCRIPTION_PLANT);
         plantRelaxRoom.setAlias(new String[]{"piantina"});
         plantRelaxRoom.setiCNotOpenable(true);
+        plantRelaxRoom.setiCNotInsertable(true);
 
         GameItemContainer fan = new GameItemContainer(Description.ID_FAN,
                 "ventilatore", Description.DESCRIPTION_FAN);
         fan.setMovedDescription(Description.MOVED_DESCRIPTION_FAN);
         fan.setAlias(new String[]{"ventola"});
         fan.setMovable(true);
-        fan.setiCNotOpenable(true);
         fan.setiCNotInsertable(true);
         fan.add(paperPass2);
 
@@ -389,7 +397,7 @@ public class TLHStart {
         plantHallwayColumbus.setAlias(new String[]{"piantina"});
         plantHallwayColumbus.setMovable(true);
         plantHallwayColumbus.add(paperHallwayColumbus);
-        plantHallwayColumbus.setiCNotOpenable(true);
+        plantHallwayColumbus.setiCNotInsertable(true);
 
         GameItemContainer table = new GameItemContainer(Description.ID_TABLE,
                 "tavolo", Description.DESCRIPTION_TABLE);
@@ -401,6 +409,7 @@ public class TLHStart {
                 "bicchiere", Description.DESCRIPTION_GLASS);
         glass.setAlias(new String[]{"bicchieri", "calice", "flute", "calici"});
         glass.setiCNotOpenable(true);
+        glass.setiCNotInsertable(true);
 
         /*GameItemContainer speakers = new GameItemContainer(
         Description.ID_SPEAKERS, "cassa",
@@ -414,7 +423,7 @@ public class TLHStart {
         cup.setMovedDescription(Description.MOVED_DESCRIPTION_CUP);
         cup.setMovable(true);
         cup.add(token);
-        cup.setiCNotOpenable(true);
+        cup.setiCNotInsertable(true);
 
         GameItemContainer displayCase = new GameItemContainer(
                 Description.ID_DISPLAY_CASE, "vetrina",
@@ -423,6 +432,7 @@ public class TLHStart {
                 "bacheca", "teca"}); //vetriera, vetrata
         displayCase.setOpenedDescription(
                 Description.OPENED_DESCRIPTION_DISPLAY_CASE);
+        //INSERTABLE SI O NO?
         displayCase.setLockedBy(handle.getName());
         displayCase.add(key33);
 
@@ -430,6 +440,7 @@ public class TLHStart {
                 Description.ID_CASH_DESK, "cassa",
                 Description.DESCRIPTION_CASH_DESK);
         cashDesk.setOpenedDescription(Description.OPENED_DESCRIPTION_CASH_DESK);
+        //INSERTABLE SI O NO?
         cashDesk.setLockedBy(""); //cambiare con chiave
         cashDesk.add(paperPass1);
 
@@ -478,7 +489,7 @@ public class TLHStart {
         GameItemContainer window53 = new GameItemContainer(
                 Description.ID_WINDOW53,
                 "finestra", Description.DESCRIPTION_WINDOW53);
-        window53.setAlias(new String[]{"vetrina"});
+        window53.setAlias(new String[]{"vetro"}); //vetrina
         window53.setOpenedDescription(
                 Description.OPENED_DESCRIPTION_WINDOW53); //CAMBIARE
         window53.setiCNotInsertable(true);
@@ -502,7 +513,6 @@ public class TLHStart {
         coatHook53.add(hook);
         coatHook53.setMovable(true);
         coatHook53.setiCNotInsertable(true);
-        coatHook53.setiCNotOpenable(true);
 
         GameItemContainer printer = new GameItemContainer(
                 Description.ID_PRINTER,
@@ -526,7 +536,7 @@ public class TLHStart {
                 "cristalliera", "armadio", "vetrata"});
         glassCabinet.setOpenedDescription(
                 Description.OPENED_DESCRIPTION_GLASS_CABINET);
-
+        //INSERTABLE SI O NO?
         glassCabinet.setLockedBy(""); //aggiungere qualcosa;
         //glassCabinet.add();
 
@@ -570,7 +580,8 @@ public class TLHStart {
                 "ventola", Description.DESCRIPTION_FAN_LAUNDRY);
         fanLaundry.setAlias(new String[]{"grata"});
         fanLaundry.setLockedBy(hook.getName());
-        fanLaundry.setOpenedDescription(Description.OPENED_DESCRIPTION_FAN_LAUNDRY); //CAMBIARE
+        fanLaundry.setOpenedDescription(
+                Description.OPENED_DESCRIPTION_FAN_LAUNDRY); //CAMBIARE
         fanLaundry.setiCNotInsertable(true);
         fanLaundry.setSecretAccess(true);
 
@@ -631,7 +642,7 @@ public class TLHStart {
         //aggiungere descrizione per il move
         clock.setiCNotOpenable(true);
         clock.setiCNotInsertable(true);
-        clock.setMovable(true);
+        clock.setMovable(true); ///////VALUTARE
 
         GameItemContainer swing = new GameItemContainer(
                 Description.ID_SWING,
@@ -644,6 +655,10 @@ public class TLHStart {
                 Description.ID_DECKCHAIR,
                 "sdraio", Description.DESCRIPTION_DECKCHAIR);
         deckchair.setAlias(new String[]{"lettino"});
+        deckchair.setMovedDescription(Description.MOVED_DESCRIPTION_DECKCHAIR);
+        //CAMBIARE DESCRIZIONE
+        deckchair.setMovable(true);
+        deckchair.add(key63); //VEDERE SE VA BENE
         deckchair.setiCNotOpenable(true);
         deckchair.setiCNotInsertable(true);
 
@@ -657,7 +672,6 @@ public class TLHStart {
         GameItemContainer bench = new GameItemContainer(
                 Description.ID_BENCH,
                 "panca", Description.DESCRIPTION_BENCH);
-        //bench.setAlias(new String[]{"lettino"}); trovare altri ma non ce ne sono gagaga
         bench.setiCNotOpenable(true);
         bench.setiCNotInsertable(true);
 
@@ -670,10 +684,18 @@ public class TLHStart {
 
         GameItemContainer lightPole = new GameItemContainer(
                 Description.ID_LIGHT_POLE,
-                "Lampada", Description.DESCRIPTION_LIGHT_POLE);
-        lightPole.setAlias(new String[]{"lampadario", "palo", "luce"}); //forse cambiare
+                "lampione", Description.DESCRIPTION_LIGHT_POLE);
+        lightPole.setAlias(new String[]{"lampada", "lampadario",
+                "palo", "luce"});
         lightPole.setiCNotOpenable(true);
         lightPole.setiCNotInsertable(true);
+
+        GameItemContainer windowGarden = new GameItemContainer(
+                Description.ID_WINDOW_GARDEN,
+                "finestra", Description.DESCRIPTION_WINDOW_GARDEN); //CAMBIARE
+        windowGarden.setAlias(new String[]{"vetro"}); //vetrina
+        windowGarden.setiCNotOpenable(true);
+        windowGarden.setiCNotInsertable(true);
 
         //Stanze
         Room room79 = new Room(Description.ID_ROOM_79, "Stanza 79",
@@ -704,7 +726,7 @@ public class TLHStart {
         hallway.setRoomImage(new ImageIcon(
                 "resources//img//room//hallway.png"));
         hallway.setVisitedDescription(Description.DESCRIPTION_VISITED_HALLWAY);
-        hallway.setLockedBy(""); //chiave
+        hallway.setLockedBy(""); //chiave79
 
         Room gameRoom = new Room(Description.ID_GAMEROOM, "Sala giochi",
                 Description.DESCRIPTION_GAMEROOM);
@@ -713,7 +735,7 @@ public class TLHStart {
                 "resources//img//room//gameRoom.png"));
         gameRoom.setVisitedDescription(
                 Description.DESCRIPTION_VISITED_GAMEROOM);
-        gameRoom.setLockedBy("");
+        gameRoom.setLockedBy(""); //VALUTARE
         gameRoom.addItem(slot);
         gameRoom.addItem(changeMachine);
 
@@ -734,7 +756,7 @@ public class TLHStart {
                 "resources//img//room//relaxRoom.png"));
         relaxRoom.setVisitedDescription(
                 Description.DESCRIPTION_VISITED_RELAX_ROOM);
-        gameRoom.setLockedBy("");
+        gameRoom.setLockedBy(""); //VALUTARE
         relaxRoom.addItem(remoteControl);
         relaxRoom.addItem(tv);
         relaxRoom.addItem(sofa);
@@ -749,7 +771,7 @@ public class TLHStart {
                 "resources//img//room//hallwayColumbus.png"));
         hallwayColumbus.setVisitedDescription(
                 Description.DESCRIPTION_VISITED_HALLWAY_COLUMBUS);
-        hallwayColumbus.setLockedBy(""); //chiave
+        hallwayColumbus.setLockedBy(""); //chiaveColombus o //VALUTARE
         hallwayColumbus.addItem(plantHallwayColumbus);
         //hallwayOvest.addItem(box);
 
@@ -758,7 +780,7 @@ public class TLHStart {
         bar.setLookDescription(Description.LOOK_BAR);
         bar.setRoomImage(new ImageIcon("resources//img//room//bar.png"));
         bar.setVisitedDescription(Description.DESCRIPTION_VISITED_BAR);
-        bar.setLockedBy(""); //chiave
+        bar.setLockedBy(""); //chiave o //VALUTARE
         bar.addItem(table);
         bar.addItem(glass);
         //bar.addItem(speakers);
@@ -774,12 +796,13 @@ public class TLHStart {
                 "resources//img//room//laundry.png"));
         laundry.setVisitedDescription(Description.DESCRIPTION_VISITED_LAUNDRY);
         laundry.setLockedBy(""/*cardGameRoom.getName()*/);
+        //chiave che trova nella cassaforte o //VALUTARE
         laundry.addItem(fanLaundry);
         laundry.addItem(washingMachine);
         laundry.addItem(vacuumCleaner);
 
         Room room53 = new Room(Description.ID_ROOM_53, "Stanza 53",
-                Description.DESCRIPTION_ROOM_53);
+                Description.DESCRIPTION_ROOM_53); //CAMBIARE
         room53.setLookDescription(Description.LOOK_ROOM_53);
         room53.setRoomImage(new ImageIcon("resources//img//room//room53.png"));
         room53.setVisitedDescription(Description.DESCRIPTION_VISITED_ROOM_53);
@@ -792,6 +815,8 @@ public class TLHStart {
         room53.addItem(window53);
         room53.addItem(coatHook53);
         room53.addItem(dresser53);
+        room53.setLockedBy(key63.getName()); //o key53?
+        room53.setAnOpenDoor(true);
 
         Room cctv = new Room(Description.ID_CCTV, "CCTV",
                 Description.DESCRIPTION_CCTV);
@@ -800,6 +825,7 @@ public class TLHStart {
                 "resources//img//room//cctv.png"));
         cctv.setVisitedDescription(Description.DESCRIPTION_VISITED_CCTV);
         cctv.setLockedBy(""/*cardGameRoom.getName()*/);
+        //VALUTARE TESSERA (DIVERSI GRADI IN BASE ALL'IMPORTANZA DELLA STANZA)
         cctv.addItem(printer);
         cctv.addItem(whiteboard);
         cctv.addItem(glassCabinet);
@@ -810,7 +836,7 @@ public class TLHStart {
         cctv.addItem(strongboxCCTV);
 
         Room room63 = new Room(Description.ID_ROOM_63, "Stanza 63",
-                Description.DESCRIPTION_ROOM_63);
+                Description.DESCRIPTION_ROOM_63); //CAMBIARE
         room63.setLookDescription(Description.LOOK_ROOM_63);
         room63.setRoomImage(new ImageIcon("resources//img//room//room63.png"));
         room63.setVisitedDescription(Description.DESCRIPTION_VISITED_ROOM_63);
@@ -819,19 +845,16 @@ public class TLHStart {
         room63.addItem(mirror);
         room63.addItem(guitar);
         room63.addItem(clock);
-
-        Room room13 = new Room(Description.ID_ROOM_13, "Stanza 13",
-                Description.DESCRIPTION_ROOM_13); //CAMBIARE
-        room13.setLookDescription(Description.LOOK_ROOM_13); //CAMBIARE
-        room13.setRoomImage(new ImageIcon("resources//img//room//room63.png")); //CAMBIARE IMMAGINE
-        room13.setVisitedDescription(Description.DESCRIPTION_VISITED_ROOM_13); //CAMBIARE
-        room13.setImpossibleToAccessDirectly(true);
+        //room63.setLockedBy(key63.getName()); //VALUTARE ATTENTAMENTE
+        //lBy FARE ATTENZIONE (problema ovest per giardino e nord per la 53)
 
         Room garden = new Room(Description.ID_GARDEN, "Giardino",
                 Description.DESCRIPTION_GARDEN); //CAMBIARE
-        garden.setLookDescription(Description.LOOK_GARDEN); //CAMBIARE
-        garden.setRoomImage(new ImageIcon("resources//img//room//garden.png")); //CAMBIARE IMMAGINE
-        garden.setVisitedDescription(Description.DESCRIPTION_VISITED_GARDEN); //CAMBIARE
+        garden.setLookDescription(Description.LOOK_GARDEN);
+        garden.setRoomImage(new ImageIcon(
+                "resources//img//room//garden.png"));
+        garden.setVisitedDescription(Description.DESCRIPTION_VISITED_GARDEN);
+        //CAMBIARE VISITED
         garden.setImpossibleToAccessDirectly(true);
         garden.addItem(swing);
         garden.addItem(deckchair);
@@ -839,14 +862,30 @@ public class TLHStart {
         garden.addItem(bench);
         garden.addItem(pool);
         garden.addItem(lightPole);
+        garden.addItem(windowGarden);
+        garden.setLockedBy(""); //DOVREBBE ANDAR BENE
 
-        Room hallwayClippings = new Room(Description.ID_HALLWAY_CLIPPINGS, "Corridoio Clippings",
-                Description.DESCRIPTION_HALLWAY_CLIPPINGS);
-        hallwayClippings.setLookDescription(Description.LOOK_HALLWAY_CLIPPINGS);
+        Room hallwayClippings = new Room(
+                Description.ID_HALLWAY_CLIPPINGS, "Corridoio Clippings",
+                Description.DESCRIPTION_HALLWAY_CLIPPINGS); //CAMBIARE
+        hallwayClippings.setLookDescription(
+                Description.LOOK_HALLWAY_CLIPPINGS); //CAMBIARE
         hallwayClippings.setRoomImage(new ImageIcon(
                 "resources//img//room//hallwayClippings.png"));
-        hallwayClippings.setVisitedDescription(Description.DESCRIPTION_VISITED_HALLWAY_CLIPPINGS);
-        hallwayClippings.setLockedBy(""); //chiave
+        hallwayClippings.setVisitedDescription(
+                Description.DESCRIPTION_VISITED_HALLWAY_CLIPPINGS); //CAMBIARE
+        hallwayClippings.setLockedBy(""); //chiaveClippings o //VALUTARE
+
+        //HALL E POI ROOM13
+
+        Room room13 = new Room(Description.ID_ROOM_13, "Stanza 13",
+                Description.DESCRIPTION_ROOM_13); //CAMBIARE
+        room13.setLookDescription(Description.LOOK_ROOM_13); //CAMBIARE
+        room13.setRoomImage(new ImageIcon(
+                "resources//img//room//room63.png")); //CAMBIARE IMMAGINE
+        room13.setVisitedDescription(Description.DESCRIPTION_VISITED_ROOM_13);
+        //CAMBIARE VISITED
+        room13.setImpossibleToAccessDirectly(true);
 
         g.setCurrentRoom(room79);
         room79.setNorth(hallway);
@@ -867,6 +906,7 @@ public class TLHStart {
         garden.setEast(room63);
         room53.setSouth(room63);
         room63.setNorth(room53);
+        room63.setWest(garden);
         relaxRoom.setSouth(hallway);
         bar.setEast(hallwayColumbus);
         hallwayClippings.setEast(cctv);
@@ -909,6 +949,7 @@ public class TLHStart {
         g.getCommands().add(open);
 
         Command use = new Command("usa", CommandType.USE);
+        use.setAlias(new String[]{"utilizza"});
         g.getCommands().add(use);
 
         Command move = new Command("sposta", CommandType.MOVE);
@@ -916,7 +957,8 @@ public class TLHStart {
         g.getCommands().add(move);
 
         Command pickUp = new Command("prendi", CommandType.PICK_UP);
-        pickUp.setAlias(new String[]{"raccogli"});
+        pickUp.setAlias(new String[]{"raccogli", "afferra",
+                "agguanta", "piglia"});
         g.getCommands().add(pickUp);
 
         Command drop = new Command("lascia", CommandType.DROP);
@@ -933,6 +975,8 @@ public class TLHStart {
         g.getCommands().add(quit);*/
 
         Command insert = new Command("inserisci", CommandType.INSERT);
+        insert.setAlias(new String[]{"immetti", "infila",
+                "introduci", "metti"});
         g.getCommands().add(insert);
 
     }
