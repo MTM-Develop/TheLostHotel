@@ -287,7 +287,7 @@ public class TLHStart {
         slot.add(handle);
         slot.setiCNotOpenable(true);
 
-        GameItemContainer changeMachine = new GameItemContainer(
+        /*GameItemContainer changeMachine = new GameItemContainer(
                 Description.ID_CHANGE_MACHINE, "cambiamonete",
                 Description.DESCRIPTION_CHANGE_MACHINE);
         changeMachine.setAlias(new String[]{"cambiovaluta"});
@@ -297,6 +297,15 @@ public class TLHStart {
                 Description.DESCRIPTION_CHANGE_MACHINE_ALREADY_USED_WITH_DROPS);
         changeMachine.setUsableWithDrops(true);
         changeMachine.add(cardGameRoom);
+        changeMachine.setiCNotOpenable(true);*/
+
+        GameItemContainer changeMachine = new GameItemContainer(
+                Description.ID_CHANGE_MACHINE, "cambiamonete",
+                Description.DESCRIPTION_CHANGE_MACHINE); //CAMBIAREEE
+        changeMachine.setAlias(new String[]{"cambiovaluta", "cambiavaluta"});
+        //changeMachine.setdescr //DESCRIZIONE SECONDARIA
+        changeMachine.add(cardGameRoom);
+        changeMachine.setiCNotInsertable(true);
         changeMachine.setiCNotOpenable(true);
 
         GameItemContainer radio = new GameItemContainer(Description.ID_RADIO,
@@ -619,9 +628,52 @@ public class TLHStart {
                 Description.ID_CLOCK,
                 "orologio", Description.DESCRIPTION_CLOCK);
         clock.setAlias(new String[]{"pendolo", "sveglia"});
+        //aggiungere descrizione per il move
         clock.setiCNotOpenable(true);
         clock.setiCNotInsertable(true);
         clock.setMovable(true);
+
+        GameItemContainer swing = new GameItemContainer(
+                Description.ID_SWING,
+                "altalena", Description.DESCRIPTION_SWING);
+        swing.setAlias(new String[]{"dondolo"});
+        swing.setiCNotOpenable(true);
+        swing.setiCNotInsertable(true);
+
+        GameItemContainer deckchair = new GameItemContainer(
+                Description.ID_DECKCHAIR,
+                "sdraio", Description.DESCRIPTION_DECKCHAIR);
+        deckchair.setAlias(new String[]{"lettino"});
+        deckchair.setiCNotOpenable(true);
+        deckchair.setiCNotInsertable(true);
+
+        GameItemContainer exerciseBike = new GameItemContainer(
+                Description.ID_EXERCISE_BIKE,
+                "cyclette", Description.DESCRIPTION_EXERCISE_BIKE);
+        exerciseBike.setAlias(new String[]{"bicicletta", "bici"});
+        exerciseBike.setiCNotOpenable(true);
+        exerciseBike.setiCNotInsertable(true);
+
+        GameItemContainer bench = new GameItemContainer(
+                Description.ID_BENCH,
+                "panca", Description.DESCRIPTION_BENCH);
+        //bench.setAlias(new String[]{"lettino"}); trovare altri ma non ce ne sono gagaga
+        bench.setiCNotOpenable(true);
+        bench.setiCNotInsertable(true);
+
+        GameItemContainer pool = new GameItemContainer(
+                Description.ID_POOL,
+                "piscina", Description.DESCRIPTION_POOL);
+        pool.setAlias(new String[]{"vasca"});
+        pool.setiCNotOpenable(true);
+        pool.setiCNotInsertable(true);
+
+        GameItemContainer lightPole = new GameItemContainer(
+                Description.ID_LIGHT_POLE,
+                "Lampada", Description.DESCRIPTION_LIGHT_POLE);
+        lightPole.setAlias(new String[]{"lampadario", "palo", "luce"}); //forse cambiare
+        lightPole.setiCNotOpenable(true);
+        lightPole.setiCNotInsertable(true);
 
         //Stanze
         Room room79 = new Room(Description.ID_ROOM_79, "Stanza 79",
@@ -778,9 +830,15 @@ public class TLHStart {
         Room garden = new Room(Description.ID_GARDEN, "Giardino",
                 Description.DESCRIPTION_GARDEN); //CAMBIARE
         garden.setLookDescription(Description.LOOK_GARDEN); //CAMBIARE
-        garden.setRoomImage(new ImageIcon("resources//img//room//relaxRoom.png")); //CAMBIARE IMMAGINE
+        garden.setRoomImage(new ImageIcon("resources//img//room//garden.png")); //CAMBIARE IMMAGINE
         garden.setVisitedDescription(Description.DESCRIPTION_VISITED_GARDEN); //CAMBIARE
         garden.setImpossibleToAccessDirectly(true);
+        garden.addItem(swing);
+        garden.addItem(deckchair);
+        garden.addItem(exerciseBike);
+        garden.addItem(bench);
+        garden.addItem(pool);
+        garden.addItem(lightPole);
 
         Room hallwayClippings = new Room(Description.ID_HALLWAY_CLIPPINGS, "Corridoio Clippings",
                 Description.DESCRIPTION_HALLWAY_CLIPPINGS);

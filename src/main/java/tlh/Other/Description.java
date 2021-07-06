@@ -111,7 +111,8 @@ public final class Description {
      * Descrizione della stanza "giardino".
      */
     public static final String DESCRIPTION_GARDEN =
-            ""; //CAMBIARE
+            "Incredibilmente riesci a trovare un po' di verde in questo strano posto."
+            + "Noti che non è un semplice giardino dato che ci sono vari attrezzi."; //Controllare
 
     /**
      * Descrizione della stanza "corridoio Clippings".
@@ -203,7 +204,7 @@ public final class Description {
      * Descrizione della stanza "giardino" già visitata.
      */
     public static final String DESCRIPTION_VISITED_GARDEN =
-            ""; //CAMBIARE
+            "Il giardino accessibile dalla finestra della stanza 53";
 
     /**
      * Descrizione della stanza "corridoio Clippings" già visitata.
@@ -326,7 +327,9 @@ public final class Description {
      * Descrizione più dettagliata della stanza "giardino".
      */
     public static final String LOOK_GARDEN =
-            ""; //CAMBIARE
+            "Uno splendido giardino super arredato. Vi è una piscina, "
+            + "degli attrezzi per la palestra e un area svago."
+            + "Quasi quasi non vorresti andare via da qui..."; //Controllare
 
     /**
      * Descrizione più dettagliata della stanza "corridoio Clippings".
@@ -794,6 +797,48 @@ public final class Description {
     public static final String DESCRIPTION_CLOCK =
             "Un orologio a muro. Si è bloccato alle 2.";
 
+    /**
+     * Descrizione dell'oggetto contenitore "altalena".
+     */
+    public static final String DESCRIPTION_SWING =
+            "Un'altalena di ferro, è un po arruginita ma molto carina nel contesto."; //cambiare
+
+    /**
+     * Descrizione dell'oggetto contenitore "sdraio".
+     */
+    public static final String DESCRIPTION_DECKCHAIR =
+            "Una comoda sdraio di legno. "
+            + "Ti ci riposeresti facilmente se non fosse che "
+            + "vuoi uscire da questo posto..."; //cambiare
+
+    /**
+     * Descrizione dell'oggetto contenitore "cyclette".
+     */
+    public static final String DESCRIPTION_EXERCISE_BIKE =
+            "Un ultimo modello di cyclette... "
+            + "Troppi segnali, dovrei inziare "
+            + "un po' di palestra?"; //cambiare
+
+    /**
+     * Descrizione dell'oggetto contenitore "panca".
+     */
+    public static final String DESCRIPTION_BENCH =
+            "Una panca piana dotata di bilanciere di 20 kg e dei pesi da 25."
+                    + "Ci davano dentro a quanto pare."; //cambiare
+
+    /**
+     * Descrizione dell'oggetto contenitore "piscina".
+     */
+    public static final String DESCRIPTION_POOL =
+            "Una vasta piscina piena d'acqua gelata. Dato che non sei "
+            + "un fenomeno a nuotare non ti ci avvicini nemmeno..."; //cambiare
+
+    /**
+     * Descrizione dell'oggetto contenitore "lampada".
+     */
+    public static final String DESCRIPTION_LIGHT_POLE =
+            "Uno splendido lampadario in questo spazio verde. "
+            + "Effettivamente un po' di luce fa sempre comodo!"; //cambiare
     /**
      * Descrizione dell'oggetto contenitore "cassaforte"
      * (sbloccato) della stanza "CCTV".
@@ -1367,6 +1412,36 @@ public final class Description {
      * ID dell'oggetto contenitore "orologio".
      */
     public static final int ID_CLOCK = 144;
+
+    /**
+     * ID dell'oggetto contenitore "altalena".
+     */
+    public static final int ID_SWING = 145;
+
+    /**
+     * ID dell'oggetto contenitore "sdraio".
+     */
+    public static final int ID_DECKCHAIR = 146;
+
+    /**
+     * ID dell'oggetto contenitore "cyclette".
+     */
+    public static final int ID_EXERCISE_BIKE = 147;
+
+    /**
+     * ID dell'oggetto contenitore "panca".
+     */
+    public static final int ID_BENCH = 148;
+
+    /**
+     * ID dell'oggetto contenitore "piscina".
+     */
+    public static final int ID_POOL = 149;
+
+    /**
+     * ID dell'oggetto contenitore "lampada".
+     */
+    public static final int ID_LIGHT_POLE = 150;
 
     ////////// CAMBIARE
     /**
