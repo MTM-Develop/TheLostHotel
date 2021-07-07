@@ -115,15 +115,24 @@ public final class Description {
             "Per fortuna sei un tipo curioso e aprendo la finestra "
             + "ti ritrovi in questo posto particolare. "
             + "Incredibilmente riesci a trovare un po' di verde "
-            + "in questo strano posto. Noti che non è un semplice "
+            + "in questo hotel. Noti che non è un semplice "
             + "giardino dato che ci sono vari attrezzi.";
-    //CAMBIARE (HO AGGIUNTO ANCHE IL MESSAGGIO QUANDO APRI LA FINESTRA)
 
     /**
      * Descrizione della stanza "corridoio Clippings".
      */
     public static final String DESCRIPTION_HALLWAY_CLIPPINGS =
             ""; //CAMBIARE
+
+    /**
+     * Descrizione della stanza "hall".
+     */
+    public static final String DESCRIPTION_HALL =
+            "La ventola della lavanderia ti ha portato qui. "
+            + "Ti sembra assurdo come una hall abbia "
+            + "un collegamento del genere. "
+            + "Fa caldissimo qui dentro, sembra che l'apparato "
+            + "di ventilazione sia guasto...";
 
     //Descrizioni relative a stanze/luoghi già visitati
     /**
@@ -210,7 +219,7 @@ public final class Description {
      * Descrizione della stanza "giardino" già visitata.
      */
     public static final String DESCRIPTION_VISITED_GARDEN =
-            "Il giardino accessibile dalla finestra della stanza 53";
+            "Il giardino che unisce le stanze 53 e 63.";
 
     /**
      * Descrizione della stanza "corridoio Clippings" già visitata.
@@ -343,6 +352,18 @@ public final class Description {
      */
     public static final String LOOK_HALLWAY_CLIPPINGS =
             ""; //CAMBIARE
+
+    /**
+     * Descrizione più dettagliata della stanza "hall".
+     */
+    public static final String LOOK_HALL =
+            "Una fantastica hall illuminata. "
+            + "Aria calda proviene delle due ventole di fronte a te. \n"
+            + "Non sai se considerarlo un bene, perlomeno hai trovato questa stanza. "
+            + "Poi si sa, le hall sono sempre vicine all'uscita.\n "
+            + "Sembra essere molto accogliente, "
+            + "lo si nota dalle poltrone situate su entrambi i lati e "
+            + "dal pianoforte sulla destra. ";
 
     //Descrizione relativa agli oggetti
     /**
@@ -554,8 +575,11 @@ public final class Description {
             "Un tris di calici di vino. "
             + "Su uno di essi ci sono macchie di rossetto rosso.";
 
-    //public static final String DESCRIPTION_SPEAKERS =
-    // "Due casse enormi. Sicuramente alimentavano le serate una volta...";
+    /**
+     * Descrizione dell'oggetto contenitore "cassa".
+     */
+    public static final String DESCRIPTION_SPEAKER =
+            "Due casse enormi. Riproducevano musica da ricevimenti...";
 
     /**
      * Descrizione dell'oggetto contenitore "tazza".
@@ -858,7 +882,39 @@ public final class Description {
      * Descrizione dell'oggetto contenitore "finestra" del giardino.
      */
     public static final String DESCRIPTION_WINDOW_GARDEN =
-            "La finestra da dove sei sbucato qui."; //CAMBIARE
+            "La finestra da dove sei sbucato.";
+
+    /**
+     * Descrizione dell'oggetto contenitore "lampadario" della hall.
+     */
+    public static final String DESCRIPTION_CHANDELIER =
+            ""; //CAMBIARE
+
+    /**
+     * Descrizione dell'oggetto contenitore "ampolla" della hall.
+     */
+    public static final String DESCRIPTION_AMPOULE =
+            ""; //CAMBIARE
+
+    /**
+     * Descrizione dell'oggetto contenitore "fisso" della hall.
+     */
+    public static final String DESCRIPTION_LANDLINE_PHONE =
+            ""; //CAMBIARE
+
+    /**
+     * Descrizione dell'oggetto contenitore "pianoforte" della hall.
+     */
+    public static final String DESCRIPTION_PIANO =
+            ""; //CAMBIARE
+
+    /**
+     * Descrizione dell'oggetto contenitore "cassaforte"
+     * della stanza "hall".
+     */
+    public static final String DESCRIPTION_STRONGBOX_HALL =
+            "Una cassaforte chiusa da una combinazione. "
+                    + "Sembrano essere richieste  cifre."; //cambiare con cifre
 
     /**
      * Descrizione dell'oggetto contenitore "cassaforte"
@@ -869,9 +925,22 @@ public final class Description {
             + "a trovare la combinazione giusta.";
 
     /**
+     * Descrizione dell'oggetto contenitore "cassaforte"
+     * (sbloccato) della stanza "hall".
+     */
+    public static final String DESCRIPTION_STRONGBOX_UNLOCKED_HALL =
+            "La cassaforte aperta, forse sei il primo "
+                    + "a trovare la combinazione giusta."; //cambiare
+
+    /**
      * Password della cassaforte situata nella stanza "CCTV".
      */
     public static final String PASSWORD_STRONGBOX_CCTV = "522727";
+
+    /**
+     * Password della cassaforte situata nella stanza "hall".
+     */
+    public static final String PASSWORD_STRONGBOX_HALL = ""; //CAMBIARE
 
     /**
      * Descrizione dell'oggetto contenitore "slot" non appena viene utilizzato.
@@ -1043,7 +1112,7 @@ public final class Description {
      * "ventola" già aperto.
      */
     public static final String OPENED_DESCRIPTION_FAN_LAUNDRY =
-            "Descrizione ventola aperta";
+            "La ventola senza grata... Porterà da qualche parte?";
 
     /**
      * Descrizione dell'oggetto contenitore
@@ -1225,6 +1294,12 @@ public final class Description {
      * ID dell'oggetto "chiave63".
      */
     public static final int ID_KEY63 = 24;
+
+    /**
+     * ID della password utile per
+     * sbloccare la cassaforte della hall.
+     */
+    public static final int ID_PASSWORD_STRONGBOX_HALL = 25;
 
     //ID oggetti contenitori
     /**
@@ -1487,6 +1562,36 @@ public final class Description {
      */
     public static final int ID_WINDOW_GARDEN = 151;
 
+    /**
+     * ID dell'oggetto contenitore "cassa" della hall.
+     */
+    public static final int ID_SPEAKER = 152;
+
+    /**
+     * ID dell'oggetto contenitore "lampadario" della hall.
+     */
+    public static final int ID_CHANDELIER = 153;
+
+    /**
+     * ID dell'oggetto contenitore "ampolla" della hall.
+     */
+    public static final int ID_AMPOULE = 154;
+
+    /**
+     * ID dell'oggetto contenitore "fisso" della hall.
+     */
+    public static final int ID_LANDLINE_PHONE = 155;
+
+    /**
+     * ID dell'oggetto contenitore "pianoforte" della hall.
+     */
+    public static final int ID_PIANO = 156;
+
+    /**
+     * ID dell'oggetto contenitore "cassaforte" della hall.
+     */
+    public static final int ID_STRONGBOX_HALL = 157;
+
     ////////// CAMBIARE
     /**
      * ID dell'oggetto contenitore "bottone".
@@ -1568,6 +1673,11 @@ public final class Description {
      * ID della stanza "corridoio Clippings".
      */
     public static final int ID_HALLWAY_CLIPPINGS = 1014;
+
+    /**
+     * ID della stanza "hall".
+     */
+    public static final int ID_HALL = 1015;
 
     //Magic Number
     /**

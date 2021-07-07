@@ -159,12 +159,14 @@ public class TLHStart {
         GameItem pass = new GameItem(
                 Description.ID_PASSWORD_STRONGBOX_CCTV,
                 Description.PASSWORD_STRONGBOX_CCTV, "");
-        //CAMBIARE SE NECESSARIO
-        pass.setConsumable((byte) 1);
-        // serve setConsumable? Credo di no
-        // così la capienza rimane quella con la password.
         pass.setGIPassword(true);
         g.getInventory().add(pass);
+
+        GameItem passHall = new GameItem(
+                Description.ID_PASSWORD_STRONGBOX_HALL,
+                Description.PASSWORD_STRONGBOX_HALL, "");
+        passHall.setGIPassword(true);
+        g.getInventory().add(passHall);
 
         GameItem paperPass1 = new GameItem(
                 Description.ID_PAPER_PASS1_CCTV, "foglio03",
@@ -411,12 +413,6 @@ public class TLHStart {
         glass.setiCNotOpenable(true);
         glass.setiCNotInsertable(true);
 
-        /*GameItemContainer speakers = new GameItemContainer(
-        Description.ID_SPEAKERS, "cassa",
-        Description.DESCRIPTION_SPEAKERS);
-        speakers.setAlias(new String[]{"casse", "stereo"});
-        speakers.setiCNotOpenable(true);*/
-
         GameItemContainer cup = new GameItemContainer(Description.ID_CUP,
                 "tazza", Description.DESCRIPTION_CUP);
         cup.setAlias(new String[]{"tazze", "tazzina", "tazzine"});
@@ -581,7 +577,7 @@ public class TLHStart {
         fanLaundry.setAlias(new String[]{"grata"});
         fanLaundry.setLockedBy(hook.getName());
         fanLaundry.setOpenedDescription(
-                Description.OPENED_DESCRIPTION_FAN_LAUNDRY); //CAMBIARE
+                Description.OPENED_DESCRIPTION_FAN_LAUNDRY);
         fanLaundry.setiCNotInsertable(true);
         fanLaundry.setSecretAccess(true);
 
@@ -697,6 +693,52 @@ public class TLHStart {
         windowGarden.setiCNotOpenable(true);
         windowGarden.setiCNotInsertable(true);
 
+        GameItemContainer speaker = new GameItemContainer(
+                Description.ID_SPEAKER, "cassa",
+                Description.DESCRIPTION_SPEAKER);
+        speaker.setAlias(new String[]{"casse", "stereo"});
+        speaker.setiCNotOpenable(true);
+        speaker.setiCNotInsertable(true);
+
+        GameItemContainer chandelier = new GameItemContainer(
+                Description.ID_CHANDELIER,
+                "lampadario", Description.DESCRIPTION_CHANDELIER);
+        chandelier.setAlias(new String[]{"lampada", "luce", "lumiera"});
+        chandelier.setiCNotOpenable(true);
+        chandelier.setiCNotInsertable(true);
+
+        GameItemContainer ampoule = new GameItemContainer(
+                Description.ID_AMPOULE,
+                "ampolla", Description.DESCRIPTION_AMPOULE);
+        ampoule.setAlias(new String[]{"boccia"});
+        ampoule.setiCNotOpenable(true);
+        ampoule.setiCNotInsertable(true);
+
+        GameItemContainer landlinePhone= new GameItemContainer(
+                Description.ID_LANDLINE_PHONE,
+                "fisso", Description.DESCRIPTION_LANDLINE_PHONE);
+        landlinePhone.setAlias(new String[]{"telefono"});
+        landlinePhone.setiCNotOpenable(true);
+        landlinePhone.setiCNotInsertable(true);
+
+        GameItemContainer piano = new GameItemContainer(
+                Description.ID_PIANO,
+                "pianoforte", Description.DESCRIPTION_PIANO);
+        piano.setAlias(new String[]{"piano"});
+        piano.setiCNotOpenable(true);
+        piano.setiCNotInsertable(true);
+
+        GameItemContainer strongboxHall = new GameItemContainer(
+                Description.ID_STRONGBOX_HALL,
+                "cassaforte", Description.DESCRIPTION_STRONGBOX_HALL);
+        strongboxHall.setLockedBy("");
+        strongboxHall.setPasswordLocked(true);
+        strongboxHall.setPasswordLockedBy(
+                Description.PASSWORD_STRONGBOX_HALL);
+        strongboxHall.setPasswordUnlockedDescription(
+                Description.DESCRIPTION_STRONGBOX_UNLOCKED_HALL);
+        //strongboxHall.add(keyBar); //CAMBIARE CON  CHIAVE  13
+
         //Stanze
         Room room79 = new Room(Description.ID_ROOM_79, "Stanza 79",
                 Description.DESCRIPTION_ROOM_79);
@@ -783,7 +825,6 @@ public class TLHStart {
         bar.setLockedBy(""); //chiave o //VALUTARE
         bar.addItem(table);
         bar.addItem(glass);
-        //bar.addItem(speakers);
         bar.addItem(cup);
         bar.addItem(displayCase);
         bar.addItem(cashDesk);
@@ -876,7 +917,18 @@ public class TLHStart {
                 Description.DESCRIPTION_VISITED_HALLWAY_CLIPPINGS); //CAMBIARE
         hallwayClippings.setLockedBy(""); //chiaveClippings o //VALUTARE
 
-        //HALL E POI ROOM13
+        Room hall = new Room(Description.ID_HALL,
+                "Hall", Description.DESCRIPTION_HALL);
+        hall.setLookDescription(Description.LOOK_HALL);
+        hall.setRoomImage(new ImageIcon(
+                "resources//img//room//hall.png"));
+        hall.setImpossibleToAccessDirectly(true);
+        hall.addItem(speaker);
+        hall.addItem(chandelier);
+        hall.addItem(ampoule);
+        hall.addItem(landlinePhone);
+        hall.addItem(piano);
+        hall.addItem(strongboxHall);
 
         Room room13 = new Room(Description.ID_ROOM_13, "Stanza 13",
                 Description.DESCRIPTION_ROOM_13); //CAMBIARE
@@ -915,7 +967,7 @@ public class TLHStart {
         kitchen.setEast(hallwayClippings);
         hallwayClippings.setNorth(laundry);
         laundry.setSouth(hallwayClippings);
-        //laundry.setNorth(hall);
+        laundry.setNorth(hall);
         //hall.setNorth(room13)
         //apportare modifiche
 
