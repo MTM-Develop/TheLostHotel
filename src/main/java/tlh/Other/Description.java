@@ -799,6 +799,12 @@ public final class Description {
             "Una chiave con inciso il numero di una stanza.";
 
     /**
+     * Descrizione dell'oggetto "chiave13".
+     */
+    public static final String DESCRIPTION_KEY_13 =
+            "Una chiave con inciso il numero di una stanza.";
+
+    /**
      * Descrizione dell'oggetto contenitore "cassaforte"
      * della stanza "CCTV".
      */
@@ -1301,6 +1307,11 @@ public final class Description {
      */
     public static final int ID_PASSWORD_STRONGBOX_HALL = 25;
 
+    /**
+     * ID dell'oggetto "chiave13".
+     */
+    public static final int ID_KEY13 = 26;
+
     //ID oggetti contenitori
     /**
      * ID dell'oggetto contenitore "mobile".
@@ -1591,12 +1602,6 @@ public final class Description {
      * ID dell'oggetto contenitore "cassaforte" della hall.
      */
     public static final int ID_STRONGBOX_HALL = 157;
-
-    ////////// CAMBIARE
-    /**
-     * ID dell'oggetto contenitore "bottone".
-     */
-    public static final int ID_BUTTON = 45324533;
 
     //ID stanze
     /**

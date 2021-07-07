@@ -33,7 +33,8 @@ public class TLHStart {
         ImageIcon imgCellphone = new ImageIcon(
                 "resources//img//gameItem//cellphone.png");
         cellphone.setItemImage(imgCellphone);
-        //g.getInventory().add(cellulare);
+        cellphone.setIndispensable(true); //CAMBIARE
+        //g.getInventory().add(cellphone);
 
         GameItem wallet = new GameItem(Description.ID_WALLET, "portafoglio",
                 Description.DESCRIPTION_WALLET);
@@ -86,7 +87,6 @@ public class TLHStart {
                 "resources//img//gameItem//key79.png");
         key79.setItemImage(imgKey79);
         key79.setConsumable((byte) 1);
-        //g.getInventory().add(chiave79);
 
         GameItem handle = new GameItem(Description.ID_HANDLE, "maniglia",
                 Description.DESCRIPTION_HANDLE);
@@ -117,13 +117,13 @@ public class TLHStart {
         map.setItemImage(imgMap);
         g.getInventory().add(map);
 
-        GameItem key33 = new GameItem(Description.ID_KEY33, "chiave33",
+        /*GameItem key33 = new GameItem(Description.ID_KEY33, "chiave33",
                 Description.DESCRIPTION_KEY_33);
         key33.setAlias(new String[]{"chiavi33"});
         ImageIcon imgKey33 = new ImageIcon(
                 "resources//img//gameItem//key33.png");
         key33.setItemImage(imgKey33);
-        key33.setConsumable((byte) 1); //cambiare
+        key33.setConsumable((byte) 1); //cambiare*/
 
         GameItem token = new GameItem(Description.ID_TOKEN, "gettone",
                 Description.DESCRIPTION_TOKEN);
@@ -229,18 +229,17 @@ public class TLHStart {
         //KEY63 o KEY53? XD
         key63.setAlias(new String[]{"chiavi63"});
         ImageIcon imgKey63 = new ImageIcon(
-                "resources//img//gameItem//key33.png"); //CAMBIARE IMMAGINE
+                "resources//img//gameItem//key63.png");
         key63.setItemImage(imgKey63);
         key63.setConsumable((byte) 1);
 
-
-        // OGGETTI CONTENITORI
-        GameItemContainer button = new GameItemContainer(
-                Description.ID_BUTTON, "bottone", //CAMBIARE ID
-                Description.DESCRIPTION_KNIFE); //CAMBIARE
-        button.setAlias(new String[]{"pulsante"}); //CAMBIARE
-        button.setPushable(true);
-        button.setiCNotOpenable(true);
+        GameItem key13 = new GameItem(Description.ID_KEY13, "chiave13",
+                Description.DESCRIPTION_KEY_13);
+        key13.setAlias(new String[]{"chiavi13"});
+        ImageIcon imgKey13 = new ImageIcon(
+                "resources//img//gameItem//key13.png");
+        key13.setItemImage(imgKey13);
+        key13.setConsumable((byte) 1);
 
         //ItemContainer e oggetti della stanza
         GameItemContainer furniture79 = new GameItemContainer(
@@ -430,7 +429,7 @@ public class TLHStart {
                 Description.OPENED_DESCRIPTION_DISPLAY_CASE);
         //INSERTABLE SI O NO?
         displayCase.setLockedBy(handle.getName());
-        displayCase.add(key33);
+        //displayCase.add(key33); //CAMBIARE
 
         GameItemContainer cashDesk = new GameItemContainer(
                 Description.ID_CASH_DESK, "cassa",
@@ -750,7 +749,6 @@ public class TLHStart {
         room79.addItem(paint79);
         room79.addItem(bed79);
         room79.addItem(coatHook79);
-        room79.addItem(button);
 
         Room bathroom79 = new Room(Description.ID_BATHROOM_79,
                 "Bagno stanza 79", Description.DESCRIPTION_BATHROOM_79);
@@ -1016,15 +1014,6 @@ public class TLHStart {
         Command drop = new Command("lascia", CommandType.DROP);
         drop.setAlias(new String[]{"molla", "abbandona"});
         g.getCommands().add(drop);
-
-        Command push = new Command("premi", CommandType.PUSH);
-        push.setAlias(new String[]{"spingi"});
-        g.getCommands().add(push);
-
-        /*Command quit = new Command("abbandona", CommandType.QUIT);
-        quit.setAlias(new String[]{"arrenditi", "termina", "ammazzati",
-        "suicidati", "resa"});
-        g.getCommands().add(quit);*/
 
         Command insert = new Command("inserisci", CommandType.INSERT);
         insert.setAlias(new String[]{"immetti", "infila",

@@ -251,17 +251,29 @@ public class TheLostHotel extends GameManager {
                                     if (((GameItemContainer) gameItem).isClosed()) {
                                         output.append("Non puoi usare questo oggetto (ora/così).\n");
                                     } else {
-                                        this.getGame().setCurrentRoom(this.getGame().getCurrentRoom().getNorth());
+                                        boolean continueGame = false;
 
-                                        output.append("-- " + this.getGame().getCurrentRoom().getName() + " --" + "\n\n");
-
-                                        if (!this.getGame().getCurrentRoom().isVisited()) {
-                                            output.append(this.getGame().getCurrentRoom().getDescription() + "\n");
-                                        } else {
-                                            output.append(this.getGame().getCurrentRoom().getVisitedDescription() + "\n");
+                                        for (GameItem g : this.getGame().getInventory().getInventoryList()) {
+                                            if (g.isIndispensable()) {
+                                                continueGame = true;
+                                            }
                                         }
 
-                                        this.getGame().getCurrentRoom().setVisited(true);
+                                        if (continueGame) {
+                                            this.getGame().setCurrentRoom(this.getGame().getCurrentRoom().getNorth());
+
+                                            output.append("-- " + this.getGame().getCurrentRoom().getName() + " --" + "\n\n");
+
+                                            if (!this.getGame().getCurrentRoom().isVisited()) {
+                                                output.append(this.getGame().getCurrentRoom().getDescription() + "\n");
+                                            } else {
+                                                output.append(this.getGame().getCurrentRoom().getVisitedDescription() + "\n");
+                                            }
+
+                                            this.getGame().getCurrentRoom().setVisited(true);
+                                        } else {
+                                            output.append("Prima di proseguire è necessario un oggetto chiave (mappa cassaforte).\n");
+                                        }
                                     }
                                 } else {
                                     output.append("Non puoi usare questo oggetto (ora/così).\n");
@@ -384,7 +396,7 @@ public class TheLostHotel extends GameManager {
                                                     }
                                                 }
 
-                                                if (iC.getName().equals("cestino") && ((GameItemContainer) iC).isClosed()) {
+                                                if (iC.getName().equals("cestino") && ((GameItemContainer) iC).isClosed() && !this.getGame().getCurrentRoom().getEast().getNorth().isVisited()) {
                                                     output.append("\nN.B: Non in tutte le stanze sono presenti degli oggetti...\n"
                                                             + "In altre dovrai essere tu in grado di trovarli!");
                                                 }
@@ -459,7 +471,7 @@ public class TheLostHotel extends GameManager {
 
                                             if (((GameItemContainer) iC).isSecretAccess()) {
                                                 output.append("Chi lo avrebbe mai detto che un gancio aprisse una ventola?\n"
-                                                        + "Un passaggio segreto appare davanti ai tuoi occhi.");
+                                                        + "Un passaggio segreto appare davanti ai tuoi occhi.\n");
                                             } else {
                                                 output.append("L'oggetto è stato aperto, ma è vuoto!\n");
                                             }
@@ -659,45 +671,6 @@ public class TheLostHotel extends GameManager {
                         output.append("Specifica correttamente l'oggetto che vuoi lasciare.\n");
                     }
                     break;
-
-                /*case PUSH:
-                    if (pOutput.containsWordType(WordType.ROOM_OBJ) && pOutput.size() == 2) {
-
-                        // Controlla che l'oggetto si possa spingere
-                        if (!Objects.isNull(gameItem) && gameItem.isPushable()) {
-
-                            gameItem.setPush(!gameItem.isPush());
-                            // Aggiunge l'oggetto all'inventario e lo rimuove dalla stanza
-
-                            output.append("Hai premuto il pulsante " + gameItem.getName() + ".\n"); //CAMBIARE
-
-                        } else {
-
-                            output.append("Premi... cosa?\n");
-
-                        }
-                    } else if (pOutput.containsWordType(WordType.INVENTORY_OBJ) && pOutput.size() == 2) {
-
-                        output.append("Premi... cosa?\n");
-
-                    } else if (pOutput.containsWordType(WordType.ROOM_OBJ) && pOutput.size() > 2) {
-
-                        output.append("Uno alla volta...\n");
-
-                    } else{
-                        output.append("Premi... cosa?\n");
-                    }
-                    break;*/
-
-                /*case QUIT:
-                    if(!pOutput.containsWordType(WordType.ERROR)) {
-
-                        //JOptionPane.showConfirmDialog(, "W", "w", JOptionPane.YES_NO_OPTION);
-
-                        output.append("MESSAGGIO ABBANDONO\n");
-                    }else
-                        output.append("Forse intendevi \"abbandona\"?\n");
-                    break;*/
 
                 case INSERT:
                     //pOutput.size() è 5...

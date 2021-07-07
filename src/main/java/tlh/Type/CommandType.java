@@ -55,15 +55,7 @@ public enum CommandType implements Serializable {
      */
     DROP,
     /**
-     * Comando 'spingi'.
-     */
-    PUSH,
-    /**
      * Comando 'inserisci'.
      */
     INSERT
-
-    //TALK_TO, GIVE,
-    //INSERT_PASS_ARCHIVE, INSERT_HEX, QUIT
-    //CAMBIARE
 }

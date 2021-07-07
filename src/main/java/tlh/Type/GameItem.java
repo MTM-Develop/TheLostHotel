@@ -71,16 +71,6 @@ public class GameItem implements Serializable {
     private boolean picked = false;
 
     /**
-     * Indica se si può spingere/premere.
-     */
-    private boolean pushable = false;
-
-    /**
-     * Indica se è stato spinto/premuto.
-     */
-    private boolean push = false;
-
-    /**
      * Indica se droppa oggetti dopo il suo utilizzo.
      */
     private boolean usableWithDrops = false; //METTERE IN GameItemContainer?
@@ -94,6 +84,12 @@ public class GameItem implements Serializable {
      * Indica se rappresenta una password.
      */
     private boolean isGIPassword = false;
+
+    /**
+     * Indica se è indispensabile
+     * al fine del proseguio del gioco.
+     */
+    private boolean indispensable = false; //CAMBIARE
 
     /**
      * Immagine raffigurante l'oggetto.
@@ -315,39 +311,6 @@ public class GameItem implements Serializable {
     }
 
     /**
-     * @return booleano (vero se è possibile premere il gameItem,
-     * falso altrimenti).
-     */
-    public boolean isPushable() {
-        return pushable;
-    }
-
-    /**
-     * Imposta lo stato del gameItem (se è possibile premerlo o meno).
-     *
-     * @param p
-     */
-    public void setPushable(final boolean p) {
-        this.pushable = p;
-    }
-
-    /**
-     * @return booleano (vero se il gameItem è stato premuto, falso altrimenti).
-     */
-    public boolean isPush() {
-        return push;
-    }
-
-    /**
-     * Imposta lo stato del gameItem (se è stato premuto o meno).
-     *
-     * @param p
-     */
-    public void setPush(final boolean p) {
-        this.push = p;
-    }
-
-    /**
      * @return booleano (vero se il gameItem è usabile e,
      * non appena viene utilizzato, droppa uno o più gameItem,
      * falso altrimenti).
@@ -400,6 +363,24 @@ public class GameItem implements Serializable {
     }
 
     /**
+     * @return booleano (vero se il gameItem è indispensabile
+     * al fine del proseguio del gioco, falso altrimenti).
+     */
+    public boolean isIndispensable() {
+        return indispensable;
+    }
+
+    /**
+     * Imposta lo stato del gameItem (se è indispensabile
+     * al fine del proseguio del gioco o meno).
+     *
+     * @param indispensable
+     */
+    public void setIndispensable(boolean indispensable) {
+        this.indispensable = indispensable;
+    }
+
+    /**
      * @return immagine del gameItem.
      */
     public ImageIcon getItemImage() {
@@ -435,7 +416,7 @@ public class GameItem implements Serializable {
      * @return booleano (vero se i due gameItem sono uguali, falso altrimenti).
      */
     @Override
-    public boolean equals(final Object o) {
+    public boolean equals(Object o) {
         if (this == o) {
             return true;
         }
@@ -443,16 +424,18 @@ public class GameItem implements Serializable {
             return false;
         }
         GameItem gameItem = (GameItem) o;
-        return id == gameItem.id && consumable == gameItem.consumable
+        return id == gameItem.id
+                && consumable == gameItem.consumable
                 && pickupable == gameItem.pickupable
                 && picked == gameItem.picked
-                && pushable == gameItem.pushable && push == gameItem.push
                 && usableWithDrops == gameItem.usableWithDrops
-                && used == gameItem.used && Objects.equals(name, gameItem.name)
+                && used == gameItem.used
+                && isGIPassword == gameItem.isGIPassword
+                && Objects.equals(name, gameItem.name)
                 && Objects.equals(description, gameItem.description)
                 && Objects.equals(alias, gameItem.alias)
                 && Objects.equals(descriptionUsableWithDrops,
-                        gameItem.descriptionUsableWithDrops)
+                gameItem.descriptionUsableWithDrops)
                 && Objects.equals(descriptionAlreadyUsedWithDrops,
                 gameItem.descriptionAlreadyUsedWithDrops)
                 && Objects.equals(descriptionUsableButItemRemoved,
