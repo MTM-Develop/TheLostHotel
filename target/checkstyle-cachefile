@@ -1,18 +1,18 @@
-#Wed Jul 07 16:02:00 CEST 2021
-configuration*?=26A285C2CE3D07C27D52846D347F07EA01225C38
-C\:\\Users\\gaetano\\Desktop\\UNI\\MAP\\TheLostHotel\\src\\main\\java\\tlh\\Other\\GameInteraction.java=1625663226622
-C\:\\Users\\gaetano\\Desktop\\UNI\\MAP\\TheLostHotel\\src\\main\\java\\tlh\\Type\\GameItemContainer.java=1625663226630
-C\:\\Users\\gaetano\\Desktop\\UNI\\MAP\\TheLostHotel\\src\\main\\java\\tlh\\GUI\\InventoryGUI.java=1625663226619
-C\:\\Users\\gaetano\\Desktop\\UNI\\MAP\\TheLostHotel\\src\\main\\java\\tlh\\Type\\CommandType.java=1625664980227
-C\:\\Users\\gaetano\\Desktop\\UNI\\MAP\\TheLostHotel\\src\\main\\java\\tlh\\Other\\GameTime.java=1625663226623
-C\:\\Users\\gaetano\\Desktop\\UNI\\MAP\\TheLostHotel\\src\\main\\java\\tlh\\Parser\\Parser.java=1625663226626
-C\:\\Users\\gaetano\\Desktop\\UNI\\MAP\\TheLostHotel\\src\\main\\java\\tlh\\Type\\Room.java=1625663226631
-C\:\\Users\\gaetano\\Desktop\\UNI\\MAP\\TheLostHotel\\src\\main\\java\\tlh\\Other\\MenuManager.java=1625663226624
-C\:\\Users\\gaetano\\Desktop\\UNI\\MAP\\TheLostHotel\\src\\main\\java\\tlh\\Type\\Inventory.java=1625663226630
-C\:\\Users\\gaetano\\Desktop\\UNI\\MAP\\TheLostHotel\\src\\main\\java\\tlh\\Other\\GameManager.java=1625663226623
+#Wed Jul 07 19:36:12 CEST 2021
+configuration*?=4BB18E4C6A9530BD1F587F003E642AC8B6E2DD9F
+C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\GUI\\InventoryGUI.java=1625674046709
+C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\Other\\GameTime.java=1625667347880
+C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\Other\\GameDescription.java=1625667347877
+C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\Parser\\Parser.java=1625667347885
+C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\GUI\\MenuGUI.java=1625667347874
+C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\Parser\\WordType.java=1625667347887
+C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\Type\\Inventory.java=1625674393995
+C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\Other\\GameInteraction.java=1625667347879
+C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\Type\\CommandType.java=1625667347889
+C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\Other\\MenuManager.java=1625667347882
+C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\Parser\\ParserOutput.java=1625667347886
 module-resource*?\:checkstyle-xpath-suppressions.xml=C48C47E54FFC81943B9125A01460CF3A2CC7F6AC
-C\:\\Users\\gaetano\\Desktop\\UNI\\MAP\\TheLostHotel\\src\\main\\java\\tlh\\Parser\\WordType.java=1625663226627
 module-resource*?\:checkstyle-suppressions.xml=966C3CB906354799EC434BA83DA2321596D8879C
-C\:\\Users\\gaetano\\Desktop\\UNI\\MAP\\TheLostHotel\\src\\main\\java\\tlh\\GUI\\MenuGUI.java=1625663226620
-C\:\\Users\\gaetano\\Desktop\\UNI\\MAP\\TheLostHotel\\src\\main\\java\\tlh\\Other\\GameDescription.java=1625663226622
-C\:\\Users\\gaetano\\Desktop\\UNI\\MAP\\TheLostHotel\\src\\main\\java\\tlh\\Parser\\ParserOutput.java=1625663226626
+C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\Other\\GameManager.java=1625667347879
+C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\Type\\Room.java=1625667347893
+C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\Type\\GameItemContainer.java=1625667347891

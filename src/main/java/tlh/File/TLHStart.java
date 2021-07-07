@@ -33,7 +33,6 @@ public class TLHStart {
         ImageIcon imgCellphone = new ImageIcon(
                 "resources//img//gameItem//cellphone.png");
         cellphone.setItemImage(imgCellphone);
-        cellphone.setIndispensable(true); //CAMBIARE
         //g.getInventory().add(cellphone);
 
         GameItem wallet = new GameItem(Description.ID_WALLET, "portafoglio",
@@ -148,13 +147,15 @@ public class TLHStart {
         ImageIcon imgUsb = new ImageIcon(
                 "resources//img//gameItem//usb.png");
         usb.setItemImage(imgUsb);
+        usb.setConsumable((byte) 1);
 
         GameItem hook = new GameItem(Description.ID_HOOK, "gancio",
                 Description.DESCRIPTION_HOOK);
         hook.setAlias(new String[]{"punta", "uncino", "gancetto"});
         ImageIcon imgHook = new ImageIcon(
                 "resources//img//gameItem//hook.png");
-        hook.setItemImage(imgHook); //da usare
+        hook.setItemImage(imgHook);
+        hook.setConsumable((byte) 1);
 
         GameItem pass = new GameItem(
                 Description.ID_PASSWORD_STRONGBOX_CCTV,
@@ -240,6 +241,35 @@ public class TLHStart {
                 "resources//img//gameItem//key13.png");
         key13.setItemImage(imgKey13);
         key13.setConsumable((byte) 1);
+
+        GameItem stone = new GameItem(Description.ID_STONE, "pietra",
+                Description.DESCRIPTION_STONE);
+        stone.setAlias(new String[]{"pietre", "pietroline", "pietrine", "pietrolina", "pietrina", "ciottolo"});
+        ImageIcon imgStone = new ImageIcon(
+                "resources//img//gameItem//stone.png");
+        stone.setItemImage(imgStone);
+        stone.setPickupable(true);
+
+        GameItem photo = new GameItem(Description.ID_PHOTO, "foto",
+                Description.DESCRIPTION_PHOTO);
+        photo.setAlias(new String[]{"screen", "immagine", "fotografia"});
+        ImageIcon imgPhoto = new ImageIcon(
+                "resources//img//gameItem//photo.png");
+        photo.setItemImage(imgPhoto);
+        photo.setIndispensable(true);
+        photo.setGIPassword(true);
+        g.getInventory().add(photo);
+
+        GameItem paperRoomBar = new GameItem(
+                Description.ID_PAPER_BAR, "foglio47",
+                Description.DESCRIPTION_PAPER_BAR); //CAMBIARE
+        paperRoomBar.setAlias(new String[]{"nota47", "carta47",
+                "note47", "appunti47"});
+        ImageIcon imgPaperRoomBar = new ImageIcon(
+                "resources//img//gameItem//paperHallwayColumbus.png");
+        //CAMBIARE IMMAGINE NEL CASO
+        paperRoomBar.setItemImage(imgPaperRoomBar);
+        paperRoomBar.setIndispensable(true);
 
         //ItemContainer e oggetti della stanza
         GameItemContainer furniture79 = new GameItemContainer(
@@ -429,7 +459,7 @@ public class TLHStart {
                 Description.OPENED_DESCRIPTION_DISPLAY_CASE);
         //INSERTABLE SI O NO?
         displayCase.setLockedBy(handle.getName());
-        //displayCase.add(key33); //CAMBIARE
+        displayCase.add(paperRoomBar);
 
         GameItemContainer cashDesk = new GameItemContainer(
                 Description.ID_CASH_DESK, "cassa",
@@ -561,6 +591,7 @@ public class TLHStart {
         laptopCCTV.setAlias(new String[]{"pc", "notebook", "laptop",
                 "calcolatore", "elaboratore", "computer"});
         laptopCCTV.setiCNotOpenable(true);
+        laptopCCTV.setiCNotInsertable(true);
 
         GameItemContainer chairCCTV = new GameItemContainer(
                 Description.ID_CHAIR_CCTV, "sedia",
@@ -927,6 +958,7 @@ public class TLHStart {
         hall.addItem(landlinePhone);
         hall.addItem(piano);
         hall.addItem(strongboxHall);
+        hall.addItem(stone);
 
         Room room13 = new Room(Description.ID_ROOM_13, "Stanza 13",
                 Description.DESCRIPTION_ROOM_13); //CAMBIARE

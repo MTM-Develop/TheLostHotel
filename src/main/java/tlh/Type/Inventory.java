@@ -79,7 +79,7 @@ public class Inventory implements Serializable {
         if (!inventoryList.isEmpty()) {
             for (GameItem i : inventoryList) {
 
-                if (!i.isGIPassword()) {
+                if (!i.isGIPassword() || i.isItemCorrectlyAdded()) {
                     invList.append("\n- ").append(i.getName());
                 }
             }

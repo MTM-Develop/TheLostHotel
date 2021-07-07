@@ -251,15 +251,17 @@ public class TheLostHotel extends GameManager {
                                     if (((GameItemContainer) gameItem).isClosed()) {
                                         output.append("Non puoi usare questo oggetto (ora/così).\n");
                                     } else {
-                                        boolean continueGame = false;
+                                        int continueGame = 0;
 
                                         for (GameItem g : this.getGame().getInventory().getInventoryList()) {
                                             if (g.isIndispensable()) {
-                                                continueGame = true;
+                                                continueGame ++;
                                             }
                                         }
 
-                                        if (continueGame) {
+                                            output.append(continueGame);
+
+                                        if (continueGame == 3) {
                                             this.getGame().setCurrentRoom(this.getGame().getCurrentRoom().getNorth());
 
                                             output.append("-- " + this.getGame().getCurrentRoom().getName() + " --" + "\n\n");
@@ -272,7 +274,8 @@ public class TheLostHotel extends GameManager {
 
                                             this.getGame().getCurrentRoom().setVisited(true);
                                         } else {
-                                            output.append("Prima di proseguire è necessario un oggetto chiave (mappa cassaforte).\n");
+                                            output.append("ATTENZIONE: Prima di proseguire sono necessari alcuni oggetti chiave. "
+                                                    + "Controlla di aver tutto con te, non si potrà più tornare indietro!\n");
                                         }
                                     }
                                 } else {
@@ -306,7 +309,35 @@ public class TheLostHotel extends GameManager {
                                         + "Adesso dipende solo da te!\n"); //oppure "Buona fortuna!"
                             }
 
-                        } else if (gameItem.isGIPassword()) {
+                        } else if(gameItem.getName().equals("cellulare") && this.getGame().getCurrentRoom().getName().equals("CCTV"))
+                        {
+                            boolean continua = false;
+                            //da vedere se hai inserito la chiavetta nel fisso
+                            for (GameItem g : this.getGame().getCurrentRoom().getItemList().getInventoryList()) {
+                                if(g instanceof GameItemContainer)
+                                {
+                                    if (g.getName().equals("fisso") && !((GameItemContainer) g).getcItemList().getInventoryList().isEmpty()) {
+                                        continua = true;
+                                    }
+                                }
+                            }
+                            if(continua)
+                            {
+                                for (GameItem g : this.getGame().getInventory().getInventoryList()) {
+                                    if (g.getName().equals("foto")) {
+                                        g.setItemCorrectlyAdded(true);
+                                    }
+                                }
+
+                                output.append("Hai scattato la foto allo schermo!\n");
+
+                            }
+                            else
+                            {
+                                output.append("Non puoi usare questo oggetto ora/così!\n");
+                            }
+                        }
+                        else if (gameItem.isGIPassword()) {
                             output.append("Specifica correttamente l'oggetto che vuoi usare.\n");
                         } else {
                             output.append("Non puoi usare questo oggetto ora/così!\n");
@@ -377,7 +408,7 @@ public class TheLostHotel extends GameManager {
                                             } else {
 
                                                 if (((GameItemContainer) iC).isSecretAccess()) {
-                                                    //output.append(""); forse da rimuovere
+                                                    output.append("Hai già aperto questo oggetto! \n");
                                                 } else {
                                                     if (iC.getName().equals("finestra")) {
                                                         this.getGame().setCurrentRoom(this.getGame().getCurrentRoom().getWest());
@@ -654,7 +685,17 @@ public class TheLostHotel extends GameManager {
                             output.append("Specifica correttamente l'oggetto che vuoi lasciare.\n");
                         }
                     } else if (pOutput.containsWordType(WordType.INVENTORY_OBJ) && gameItem.isGIPassword() && pOutput.size() == 2) {
-                        output.append("Specifica correttamente l'oggetto che vuoi lasciare.\n");
+                        if(gameItem.getName().equals("foto"))
+                        {
+                            this.getGame().getInventory().remove(gameItem);
+                            this.getGame().getCurrentRoom().addItem(gameItem);
+
+                            gameItem.setPickupable(true);
+
+                            output.append("Hai lasciato l'oggetto " + gameItem.getName() + ".\n");
+                        }
+                        else
+                            output.append("Specifica correttamente l'oggetto che vuoi lasciare.\n");
                     } else if (pOutput.containsWordType(WordType.ROOM_OBJ) && pOutput.size() == 2) {
 
                         if (gameItem instanceof GameItemContainer) {
@@ -749,7 +790,15 @@ public class TheLostHotel extends GameManager {
                                                     + " in " + iC.getName() + ".\n");
 
                                             ((GameItemContainer) iC).add(gameItem);
-                                            this.getGame().getInventory().remove(gameItem);
+
+
+                                            gameItem.consume();
+
+                                            // Se l'oggetto è stato consumato, lo rimuove dall'inventario.
+                                            if (gameItem.isConsumed()) {
+                                                this.getGame().getInventory().remove(gameItem);
+                                                output.append("\nL'oggetto " + gameItem.getName() + " è stato rimosso.\n");
+                                            }
 
                                             //CONTINUARE DA QUI PER ALTRI OGGETTI
                                         } else if(gameItem.isGIPassword()) {

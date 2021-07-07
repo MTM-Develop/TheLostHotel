@@ -62,7 +62,8 @@ public class InventoryGUI extends javax.swing.JDialog {
                 jbImage.setFocusable(false);
 
                 ImageIcon img = i.getItemImage();
-                if (!i.isGIPassword()) {
+                if (!i.isGIPassword() || i.isItemCorrectlyAdded()) {
+
                     jbImage.setIcon(img);
                     jbImage.setSize(Description.INV_GUI_WIDTH_JB_IMG,
                             Description.INV_GUI_HEIGHT_JB_IMG);

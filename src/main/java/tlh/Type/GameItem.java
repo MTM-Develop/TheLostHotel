@@ -89,7 +89,13 @@ public class GameItem implements Serializable {
      * Indica se è indispensabile
      * al fine del proseguio del gioco.
      */
-    private boolean indispensable = false; //CAMBIARE
+    private boolean indispensable = false;
+
+    /**
+     * Indica se è stato correttamente
+     * inserito nell'inventario.
+     */
+    private boolean itemCorrectlyAdded = false;
 
     /**
      * Immagine raffigurante l'oggetto.
@@ -378,6 +384,24 @@ public class GameItem implements Serializable {
      */
     public void setIndispensable(boolean indispensable) {
         this.indispensable = indispensable;
+    }
+
+    /**
+     * @return booleano (vero se il gameItem è stato correttamente
+     * inserito nell'inventario, falso altrimenti).
+     */
+    public boolean isItemCorrectlyAdded() {
+        return itemCorrectlyAdded;
+    }
+
+    /**
+     * Imposta lo stato del gameItem (se è stato
+     * correttamente inserito nell'inventario o meno).
+     *
+     * @param itemCorrectlyAdded
+     */
+    public void setItemCorrectlyAdded(boolean itemCorrectlyAdded) {
+        this.itemCorrectlyAdded = itemCorrectlyAdded;
     }
 
     /**
