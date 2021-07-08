@@ -234,14 +234,6 @@ public class TLHStart {
         key63.setItemImage(imgKey63);
         key63.setConsumable((byte) 1);
 
-        GameItem key13 = new GameItem(Description.ID_KEY13, "chiave13",
-                Description.DESCRIPTION_KEY_13);
-        key13.setAlias(new String[]{"chiavi13"});
-        ImageIcon imgKey13 = new ImageIcon(
-                "resources//img//gameItem//key13.png");
-        key13.setItemImage(imgKey13);
-        key13.setConsumable((byte) 1);
-
         GameItem stone = new GameItem(Description.ID_STONE, "pietra",
                 Description.DESCRIPTION_STONE);
         stone.setAlias(new String[]{"pietre", "pietroline", "pietrine", "pietrolina", "pietrina", "ciottolo"});
@@ -270,6 +262,14 @@ public class TLHStart {
         //CAMBIARE IMMAGINE NEL CASO
         paperRoomBar.setItemImage(imgPaperRoomBar);
         paperRoomBar.setIndispensable(true);
+
+        GameItem key13 = new GameItem(Description.ID_KEY13, "chiave13",
+                Description.DESCRIPTION_KEY_13);
+        key13.setAlias(new String[]{"chiavi13"});
+        ImageIcon imgKey13 = new ImageIcon(
+                "resources//img//gameItem//key13.png");
+        key13.setItemImage(imgKey13);
+        key13.setConsumable((byte) 1);
 
         //ItemContainer e oggetti della stanza
         GameItemContainer furniture79 = new GameItemContainer(
@@ -760,14 +760,14 @@ public class TLHStart {
 
         GameItemContainer strongboxHall = new GameItemContainer(
                 Description.ID_STRONGBOX_HALL,
-                "cassaforte", Description.DESCRIPTION_STRONGBOX_HALL);
+                "cassaforte", Description.DESCRIPTION_STRONGBOX_HALL); //CAMBIARE NEL CASO
         strongboxHall.setLockedBy("");
         strongboxHall.setPasswordLocked(true);
         strongboxHall.setPasswordLockedBy(
                 Description.PASSWORD_STRONGBOX_HALL);
         strongboxHall.setPasswordUnlockedDescription(
-                Description.DESCRIPTION_STRONGBOX_UNLOCKED_HALL);
-        //strongboxHall.add(keyBar); //CAMBIARE CON  CHIAVE  13
+                Description.DESCRIPTION_STRONGBOX_UNLOCKED_HALL); //CAMBIARE NEL CASO
+        strongboxHall.add(key13);
 
         //Stanze
         Room room79 = new Room(Description.ID_ROOM_79, "Stanza 79",
@@ -915,8 +915,6 @@ public class TLHStart {
         room63.addItem(mirror);
         room63.addItem(guitar);
         room63.addItem(clock);
-        //room63.setLockedBy(key63.getName()); //VALUTARE ATTENTAMENTE
-        //lBy FARE ATTENZIONE (problema ovest per giardino e nord per la 53)
 
         Room garden = new Room(Description.ID_GARDEN, "Giardino",
                 Description.DESCRIPTION_GARDEN); //CAMBIARE
@@ -967,7 +965,7 @@ public class TLHStart {
                 "resources//img//room//room63.png")); //CAMBIARE IMMAGINE
         room13.setVisitedDescription(Description.DESCRIPTION_VISITED_ROOM_13);
         //CAMBIARE VISITED
-        room13.setImpossibleToAccessDirectly(true);
+        room13.setLockedBy(key13.getName());
 
         g.setCurrentRoom(room79);
         room79.setNorth(hallway);
@@ -998,7 +996,8 @@ public class TLHStart {
         hallwayClippings.setNorth(laundry);
         laundry.setSouth(hallwayClippings);
         laundry.setNorth(hall);
-        //hall.setNorth(room13)
+        hall.setWest(room13);
+        room13.setEast(hall); //Si può rimuovere perchè la Hall è di tipo "ImpossibleToAccessDirectly" e anche perchè è la stanza finale
         //apportare modifiche
 
         //Comandi

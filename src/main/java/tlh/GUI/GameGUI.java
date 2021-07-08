@@ -39,6 +39,7 @@ import java.io.FileInputStream;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  *
@@ -541,7 +542,7 @@ public class GameGUI extends javax.swing.JFrame {
         } //FARE ALTRI CONTROLLI*/ //AGGIUNGERLO ALLA FINE
 
         //Utilizzato per bloccare lo scorrimento
-        //al fine di visualizzare correttamente la trama del gioco.
+        //al fine di visualizzare correttamente la trama di gioco.
         DefaultCaret caret = (DefaultCaret) jtpReadingArea.getCaret();
         caret.setUpdatePolicy(DefaultCaret.NEVER_UPDATE);
 
@@ -871,9 +872,9 @@ public class GameGUI extends javax.swing.JFrame {
             s = new StringBuilder("\n");
 
             // Prende il testo scritto dall'utente e lo stampa sul jTextPane.
-            String command = jtCommand.getText();
+            String command = jtCommand.getText().toLowerCase().replaceAll("\\s+", " "); //SISTEMARE
 
-            appendToPane(jtpReadingArea, "\n>> " + command.toLowerCase()
+            appendToPane(jtpReadingArea, "\n>> " + command
                     + "\n", Color.red);
 
             jtpReadingArea.setCaretPosition(0);

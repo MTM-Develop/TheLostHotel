@@ -920,8 +920,8 @@ public final class Description {
      * della stanza "hall".
      */
     public static final String DESCRIPTION_STRONGBOX_HALL =
-            "Una cassaforte chiusa da una combinazione. "
-                    + "Sembrano essere richieste  cifre."; //cambiare con cifre
+            "Un'altra cassaforte chiusa da una combinazione. "
+                    + "Sembrano essere richieste sempre 6 cifre.";
 
     /**
      * Descrizione dell'oggetto "pietra".
@@ -973,7 +973,7 @@ public final class Description {
     /**
      * Password della cassaforte situata nella stanza "hall".
      */
-    public static final String PASSWORD_STRONGBOX_HALL = ""; //CAMBIARE
+    public static final String PASSWORD_STRONGBOX_HALL = "12"; //CAMBIARE
 
     /**
      * Descrizione dell'oggetto contenitore "slot" non appena viene utilizzato.

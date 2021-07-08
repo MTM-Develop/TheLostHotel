@@ -251,17 +251,15 @@ public class TheLostHotel extends GameManager {
                                     if (((GameItemContainer) gameItem).isClosed()) {
                                         output.append("Non puoi usare questo oggetto (ora/così).\n");
                                     } else {
-                                        int continueGame = 0;
+                                        int continueGame = 0; //verifica se ha i due oggetti principali per proseguire
 
                                         for (GameItem g : this.getGame().getInventory().getInventoryList()) {
-                                            if (g.isIndispensable()) {
+                                            if (g.isIndispensable() && g.isItemCorrectlyAdded()) {
                                                 continueGame ++;
                                             }
                                         }
 
-                                            output.append(continueGame);
-
-                                        if (continueGame == 3) {
+                                        if (continueGame == 2) { //MAPPA DELLA CASSAFORTE DELLA HALL E FOTO DEL FISSO DELLA CCTV
                                             this.getGame().setCurrentRoom(this.getGame().getCurrentRoom().getNorth());
 
                                             output.append("-- " + this.getGame().getCurrentRoom().getName() + " --" + "\n\n");
@@ -632,6 +630,10 @@ public class TheLostHotel extends GameManager {
                                 this.getGame().getInventory().add(gameItem);
                                 this.getGame().getCurrentRoom().removeItem(gameItem);
 
+                                if (gameItem.isIndispensable()) {
+                                    gameItem.setItemCorrectlyAdded(true);
+                                }
+
                                 gameItem.setPicked(true);
                                 output.append("L'oggetto è stato aggiunto al tuo inventario.\n");
                             } else {
@@ -832,7 +834,8 @@ public class TheLostHotel extends GameManager {
                                                 output.append("\nL'oggetto " + gameItem.getName() + " è stato rimosso.\n");
                                             }
                                         } else if (((GameItemContainer) iC).isPasswordLocked()) {
-                                            if (this.getGame().getCurrentRoom().getName().equals("CCTV") && gameItem.getName().equals(Description.PASSWORD_STRONGBOX_CCTV)) {
+                                            if ((this.getGame().getCurrentRoom().getName().equals("CCTV") && gameItem.getName().equals(Description.PASSWORD_STRONGBOX_CCTV))
+                                                || (this.getGame().getCurrentRoom().getName().equals("Hall") && gameItem.getName().equals(Description.PASSWORD_STRONGBOX_HALL))) {
                                                 if (!((GameItemContainer) iC).isPasswordUnlocked()) {
                                                     output.append("Password esatta. Hai sbloccato la " + iC.getName() + "!\n");
                                                     ((GameItemContainer) iC).setPasswordUnlocked(true);
