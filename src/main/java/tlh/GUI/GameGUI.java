@@ -208,6 +208,8 @@ public class GameGUI extends javax.swing.JFrame {
         jmiFastText = new JCheckBoxMenuItem();
         jmCommands = new javax.swing.JMenu();
         jmiCommands = new javax.swing.JMenuItem();
+        jmMusic = new javax.swing.JMenu();
+        jmiMusic = new JCheckBoxMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(Description.GAME_GUI_WIDTH,
@@ -237,73 +239,73 @@ public class GameGUI extends javax.swing.JFrame {
                         javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
                                 jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(
-                                        javax.swing.GroupLayout.
-                                                Alignment.TRAILING)
-                                .addComponent(jbNorth,
-                                    javax.swing.GroupLayout.PREFERRED_SIZE,
-                                        Description.
-                                                GAME_GUI_SIZE_CONTAINER_X_JB,
-                                    javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jbWest,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE,
-                                        Description.
-                                                GAME_GUI_SIZE_CONTAINER_X_JB,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.
-                                            ComponentPlacement.UNRELATED)
-                                    .addComponent(jbSouth,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE,
-                                        Description.
-                                                GAME_GUI_SIZE_CONTAINER_X_JB,
-                                        javax.swing.GroupLayout.
-                                                PREFERRED_SIZE)))
-                                .addPreferredGap(
-                                        javax.swing.LayoutStyle.
-                                                ComponentPlacement.UNRELATED)
-                                .addComponent(jbEast,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE,
-                                        Description.
-                                                GAME_GUI_SIZE_CONTAINER_X_JB,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(Description.
-                                                GAME_GUI_SIZE_CONTAINER_GAP_JB,
-                                        Description.
-                                                GAME_GUI_SIZE_CONTAINER_GAP_JB,
-                                        Description.
-                                                GAME_GUI_SIZE_CONTAINER_GAP_JB))
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addGroup(jPanel1Layout.createParallelGroup(
+                                                javax.swing.GroupLayout.
+                                                        Alignment.TRAILING)
+                                                .addComponent(jbNorth,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        Description.
+                                                                GAME_GUI_SIZE_CONTAINER_X_JB,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                                        .addComponent(jbWest,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                Description.
+                                                                        GAME_GUI_SIZE_CONTAINER_X_JB,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.
+                                                                ComponentPlacement.UNRELATED)
+                                                        .addComponent(jbSouth,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                Description.
+                                                                        GAME_GUI_SIZE_CONTAINER_X_JB,
+                                                                javax.swing.GroupLayout.
+                                                                        PREFERRED_SIZE)))
+                                        .addPreferredGap(
+                                                javax.swing.LayoutStyle.
+                                                        ComponentPlacement.UNRELATED)
+                                        .addComponent(jbEast,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                Description.
+                                                        GAME_GUI_SIZE_CONTAINER_X_JB,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(Description.
+                                                        GAME_GUI_SIZE_CONTAINER_GAP_JB,
+                                                Description.
+                                                        GAME_GUI_SIZE_CONTAINER_GAP_JB,
+                                                Description.
+                                                        GAME_GUI_SIZE_CONTAINER_GAP_JB))
         );
         jPanel1Layout.setVerticalGroup(
                 jPanel1Layout.createParallelGroup(
                         javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(
-                                    javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jbNorth,
-                                    javax.swing.GroupLayout.PREFERRED_SIZE,
-                                    Description.GAME_GUI_SIZE_CONTAINER_Y_JB,
-                                    javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(
-                                    javax.swing.LayoutStyle.
-                                            ComponentPlacement.UNRELATED)
-                                .addComponent(jbSouth,
-                                    javax.swing.GroupLayout.PREFERRED_SIZE,
-                                    Description.GAME_GUI_SIZE_CONTAINER_Y_JB,
-                                    javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jbEast,
-                                    javax.swing.GroupLayout.PREFERRED_SIZE,
-                                    Description.GAME_GUI_SIZE_CONTAINER_Y_JB,
-                                    javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jbWest,
-                                    javax.swing.GroupLayout.PREFERRED_SIZE,
-                                    Description.GAME_GUI_SIZE_CONTAINER_Y_JB,
-                                    javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addContainerGap(
-                                    Description.GAME_GUI_SIZE_CONTAINER_Y_JB,
-                                    Short.MAX_VALUE))
+                                .addGroup(jPanel1Layout.createParallelGroup(
+                                        javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jbNorth,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        Description.GAME_GUI_SIZE_CONTAINER_Y_JB,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(
+                                                        javax.swing.LayoutStyle.
+                                                                ComponentPlacement.UNRELATED)
+                                                .addComponent(jbSouth,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        Description.GAME_GUI_SIZE_CONTAINER_Y_JB,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jbEast,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                Description.GAME_GUI_SIZE_CONTAINER_Y_JB,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jbWest,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                Description.GAME_GUI_SIZE_CONTAINER_Y_JB,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(
+                                        Description.GAME_GUI_SIZE_CONTAINER_Y_JB,
+                                        Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
@@ -523,6 +525,17 @@ public class GameGUI extends javax.swing.JFrame {
         jmCommands.add(jmiCommands);
         jMenuBar1.add(jmCommands);
 
+        jmMusic.setText("Musica");
+        jmiMusic.setText("Abilita musica"); //CAMBIARE
+        /*KeyStroke keyStrokeFastText = KeyStroke.getKeyStroke(
+                KeyEvent.VK_F, KeyEvent.CTRL_DOWN_MASK);
+        jmiMusic.setAccelerator(keyStrokeFastText);*/
+        jmiMusic.addActionListener(e -> jmiMusicActionPerformed());
+        jmiMusic.setState(true);
+
+        jmMusic.add(jmiMusic);
+        jMenuBar1.add(jmMusic);
+
         setJMenuBar(jMenuBar1);
 
         pack();
@@ -596,18 +609,18 @@ public class GameGUI extends javax.swing.JFrame {
                         Description.GAME_GUI_CODE_RGB_G_JTP, 0));
         appendToPane(jtpReadingArea, "00:33\n", Color.red);
         appendToPane(jtpReadingArea, "\n"
-                + "È ormai mezzanotte inoltrata. È iniziato a piovere, "
-                + "il freddo e la stanchezza si fanno sentire.\n"
-                + "Sembra che il viaggio che aspettavate da una vita "
-                + "stia diventando un incubo!\n"
-                + "Quando in lontananza Ethan vede una struttura "
-                + "mezza illuminata ed esclama: "
-                + "\"È un hotel, magari potremmo passare "
-                + "la nottata qui e chiedere aiuto\".\n"
-                + "Così, non avendo altre possibilità, "
-                + "vi rassegnate e decidete di entrare.\n"
-                + "Prima di abbandonare l'auto, riempi il tuo zaino "
-                + "con un paio di oggetti che potrebbero esserti utili...\n\n",
+                        + "È ormai mezzanotte inoltrata. È iniziato a piovere, "
+                        + "il freddo e la stanchezza si fanno sentire.\n"
+                        + "Sembra che il viaggio che aspettavate da una vita "
+                        + "stia diventando un incubo!\n"
+                        + "Quando in lontananza Ethan vede una struttura "
+                        + "mezza illuminata ed esclama: "
+                        + "\"È un hotel, magari potremmo passare "
+                        + "la nottata qui e chiedere aiuto\".\n"
+                        + "Così, non avendo altre possibilità, "
+                        + "vi rassegnate e decidete di entrare.\n"
+                        + "Prima di abbandonare l'auto, riempi il tuo zaino "
+                        + "con un paio di oggetti che potrebbero esserti utili...\n\n",
                 Color.white);
 
         caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
@@ -683,16 +696,18 @@ public class GameGUI extends javax.swing.JFrame {
             jmOptions.setFont(fontGameBar);
             jmText.setFont(fontGameBar);
             jmCommands.setFont(fontGameBar);
+            jmMusic.setFont(fontGameBar);
             jmiSave.setFont(fontGameBar);
             jmiQuit.setFont(fontGameBar);
             jmiFastText.setFont(fontGameBar);
             jmiCommands.setFont(fontGameBar);
+            jmiMusic.setFont(fontGameBar);
 
         } catch (FontFormatException | IOException ex) {
             JOptionPane.showMessageDialog(this,
                     "Errore: " + ex.getMessage(),
                     "Font non caricato correttamente; "
-                    + "è stato impostato un font di default.",
+                            + "è stato impostato un font di default.",
                     JOptionPane.ERROR_MESSAGE);
         }
     }
@@ -809,60 +824,68 @@ public class GameGUI extends javax.swing.JFrame {
     private void jmiCommandsActionPerformed() {
         JOptionPane.showMessageDialog(this,
                 "\t\t-- Come giocare a The Lost Hotel --\n"
-                + "\n"
-                + "E' possibile usare questi comandi testuali "
-                + "anche senza premere i relativi pulsanti:\n"
-                + "\n"
-                + ">> nord - Spostati in direzione nord\n"
-                + ">> est - Spostati in direzione est\n"
-                + ">> sud - Spostati in direzione sud\n"
-                + ">> ovest - Spostati in direzione ovest\n"
-                + ">> inventario - Consente di visualizzare "
-                + "l'inventario con i relativi oggetti\n"
-                + ">> salva (valido solo tramite pulsante) - "
-                + "Salva la partita corrente\n"
-                + ">> esci (valido solo tramite pulsante) - "
-                + "Permette di ritornare al menù principale "
-                + "ed eventualmente salvare la partita corrente\n"
-                + "\n"
-                + "Altri comandi:\n"
-                + "\n"
-                + ">> aiuto - Consente di visualizzare "
-                + "l'elenco dei comando riconosciuti\n"
-                + ">> osserva - Permette di guardarti intorno "
-                + "ed esaminare l'ambiente circostante\n"
-                + ">> osserva [oggetto/oggetto contenitore] - "
-                + "Permette di esaminare un oggetto dell'inventario "
-                + "o un oggetto contenitore della stanza corrente\n"
-                + ">> usa [oggetto/oggetto contenitore] - "
-                + "Usa un oggetto dell'inventario o della stanza corrente\n"
-                + ">> apri [oggetto contenitore] - "
-                + "Apri un oggetto contenitore\n"
-                + ">> apri [oggetto contenitore] con [oggetto] - "
-                + "Apri un oggetto contenitore bloccato con un oggetto\n"
-                + ">> sposta [oggetto/oggetto contenitore] - "
-                + "Sposta un oggetto della stanza\n"
-                + ">> prendi [oggetto] - Prendi un oggetto a terra "
-                + "nella stanza o in un contenitore\n"
-                + ">> lascia [oggetto] - Lascia un oggetto "
-                + "nella stanza corrente\n"
-                + ">> inserisci [oggetto] in [oggetto contenitore] - "
-                + "Permette di inserire un oggetto in un oggetto contenitore "
-                + "(non bloccato)\n\n"
-                + "Altri comandi più specifici dovranno "
-                + "essere trovati dal giocatore.\n"
-                + "N.B: Occhio agli oggetti non presenti nelle immagini!\n\n"
-                + "SUGGERIMENTO:\n"
-                + "È possibile risalire ai comandi eseguiti posizionandosi "
-                + "sull'area di inserimento dei comandi.\n"
-                + "   - Premendo la freccia in giù, "
-                + "è possibile scorrere i vari comandi eseguiti.\n\n"
-                + "N.B: In caso in cui si carichi una partita esistente, "
-                + "i comandi eseguiti verranno persi!\n"
-                + "\n\n"
-                + "Per salvare o caricare una partita, sovrascrivere il file "
+                        + "\n"
+                        + "E' possibile usare questi comandi testuali "
+                        + "anche senza premere i relativi pulsanti:\n"
+                        + "\n"
+                        + ">> nord - Spostati in direzione nord\n"
+                        + ">> est - Spostati in direzione est\n"
+                        + ">> sud - Spostati in direzione sud\n"
+                        + ">> ovest - Spostati in direzione ovest\n"
+                        + ">> inventario - Consente di visualizzare "
+                        + "l'inventario con i relativi oggetti\n"
+                        + ">> salva (valido solo tramite pulsante) - "
+                        + "Salva la partita corrente\n"
+                        + ">> esci (valido solo tramite pulsante) - "
+                        + "Permette di ritornare al menù principale "
+                        + "ed eventualmente salvare la partita corrente\n"
+                        + "\n"
+                        + "Altri comandi:\n"
+                        + "\n"
+                        + ">> aiuto - Consente di visualizzare "
+                        + "l'elenco dei comando riconosciuti\n"
+                        + ">> osserva - Permette di guardarti intorno "
+                        + "ed esaminare l'ambiente circostante\n"
+                        + ">> osserva [oggetto/oggetto contenitore] - "
+                        + "Permette di esaminare un oggetto dell'inventario "
+                        + "o un oggetto contenitore della stanza corrente\n"
+                        + ">> usa [oggetto/oggetto contenitore] - "
+                        + "Usa un oggetto dell'inventario o della stanza corrente\n"
+                        + ">> apri [oggetto contenitore] - "
+                        + "Apri un oggetto contenitore\n"
+                        + ">> apri [oggetto contenitore] con [oggetto] - "
+                        + "Apri un oggetto contenitore bloccato con un oggetto\n"
+                        + ">> sposta [oggetto/oggetto contenitore] - "
+                        + "Sposta un oggetto della stanza\n"
+                        + ">> prendi [oggetto] - Prendi un oggetto a terra "
+                        + "nella stanza o in un contenitore\n"
+                        + ">> lascia [oggetto] - Lascia un oggetto "
+                        + "nella stanza corrente\n"
+                        + ">> inserisci [oggetto] in [oggetto contenitore] - "
+                        + "Permette di inserire un oggetto in un oggetto contenitore "
+                        + "(non bloccato)\n\n"
+                        + "Altri comandi più specifici dovranno "
+                        + "essere trovati dal giocatore.\n"
+                        + "N.B: Occhio agli oggetti non presenti nelle immagini!\n\n"
+                        + "SUGGERIMENTO:\n"
+                        + "È possibile risalire ai comandi eseguiti posizionandosi "
+                        + "sull'area di inserimento dei comandi.\n"
+                        + "   - Premendo la freccia in giù, "
+                        + "è possibile scorrere i vari comandi eseguiti.\n\n"
+                        + "N.B: In caso in cui si carichi una partita esistente, "
+                        + "i comandi eseguiti verranno persi!\n"
+                        + "\n\n"
+                        + "Per salvare o caricare una partita, sovrascrivere il file "
                         + "TheLostHotel.dat\n", "Lista comandi",
                 JOptionPane.PLAIN_MESSAGE);
+    }
+
+    private void jmiMusicActionPerformed() {
+        if (this.jmiMusic.getState()) {
+            menu.getgInteraction().getGameManager().getMusic().volumeAbsoluteControl(0.0); //CAMBIARE (0.1)
+        } else {
+            menu.getgInteraction().getGameManager().getMusic().volumeAbsoluteControl(0.0);
+        }
     }
 
     private void sendCommandByTextField() {
@@ -977,6 +1000,7 @@ public class GameGUI extends javax.swing.JFrame {
         jmiQuit.setEnabled(enable);
         jmiFastText.setEnabled(enable);
         jmiCommands.setEnabled(enable);
+        jmiMusic.setEnabled(enable); //DA METTERE?
         //}
     }
 
@@ -1186,6 +1210,17 @@ public class GameGUI extends javax.swing.JFrame {
      * la lista dei comandi riconosciuti dal gioco.
      */
     private javax.swing.JMenuItem jmiCommands;
+
+    /**
+     * Sezione "musica" del JMenuBar.
+     */
+    private javax.swing.JMenu jmMusic;
+
+    /**
+     * Sotto-sezione di "musica" per attivare
+     * o meno la musica di gioco.
+     */
+    private javax.swing.JCheckBoxMenuItem jmiMusic;
 
     /**
      * Oggetto utile per scrollare la jtCommand

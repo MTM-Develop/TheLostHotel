@@ -627,7 +627,7 @@ public class TLHStart {
 
         GameItemContainer strongboxCCTV = new GameItemContainer(
                 Description.ID_STRONGBOX_CCTV,
-        "cassaforte", Description.DESCRIPTION_STRONGBOX_CCTV);
+                "cassaforte", Description.DESCRIPTION_STRONGBOX_CCTV);
         strongboxCCTV.setLockedBy("");
         strongboxCCTV.setPasswordLocked(true);
         strongboxCCTV.setPasswordLockedBy(

@@ -14,8 +14,10 @@ public abstract class GameManager {
      */
     private GameDescription game;
 
-    // Musica di sottofondo del gioco
-    //private PlayMusic music = new PlayMusic();
+    /**
+     * Musica di sottofondo del gioco.
+     */
+    private Music music = new Music();
 
     /**
      * Costruttore.
@@ -26,12 +28,18 @@ public abstract class GameManager {
         this.game = g;
     }
 
-    /*public GameManager(Game g, String url ) {
+    /**
+     * Costruttore.
+     *
+     * @param g
+     * @param url
+     */
+    public GameManager(GameDescription g, String url ) {
         this.game = g;
 
         // Caricamento della musica
-        //music.playSound(url);
-    }*/
+        music.playSound(url);
+    }
 
     /**
      * @return entità di gioco.
@@ -49,13 +57,21 @@ public abstract class GameManager {
         this.game = g;
     }
 
-    /*public PlayMusic getMusic() {
+    /**
+     * @return musica del gioco.
+     */
+    public Music getMusic() {
         return music;
     }
 
-    public void setMusic(PlayMusic music) {
+    /**
+     * Imposta la musica del gioco.
+     *
+     * @param music
+     */
+    public void setMusic(Music music) {
         this.music = music;
-    }*/
+    }
 
     /**
      * Esegue il comando dell'utente, se corretto rispetto

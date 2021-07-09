@@ -14,19 +14,19 @@ public final class Description {
      */
     public static final String DESCRIPTION_ROOM_79 =
             "Ore 2:32. Non riesci a prendere sonno.\n"
-            + "Continui a pensare a ciò che vi è successo poco fa.\n"
-            + "\"Dove sono Ethan e John?\", ti chiedi.\n"
-            + "Forse sarebbe meglio andarli a cercare "
-            + "e non restare con le mani in mano...";
+                    + "Continui a pensare a ciò che vi è successo poco fa.\n"
+                    + "\"Dove sono Ethan e John?\", ti chiedi.\n"
+                    + "Forse sarebbe meglio andarli a cercare "
+                    + "e non restare con le mani in mano...";
 
     /**
      * Descrizione della stanza "bagno Stanza 79".
      */
     public static final String DESCRIPTION_BATHROOM_79 =
             "Un bagno, tutte le stanze d'hotel che si \n"
-            + "rispettano ne possiedono uno.\n"
-            + "Sembra meglio di quello di casa tua.\n"
-            + "Chissà se ci sia qualcosa di utile!";
+                    + "rispettano ne possiedono uno.\n"
+                    + "Sembra meglio di quello di casa tua.\n"
+                    + "Chissà se ci sia qualcosa di utile!";
 
     /**
      * Descrizione della stanza "corridoio".
@@ -39,52 +39,52 @@ public final class Description {
      */
     public static final String DESCRIPTION_GAMEROOM =
             "Il tuo passato da ludopatico ti ha portato "
-            + "in questa arredata sala giochi. "
-            + "Sarà il caso di fermarsi a giocare o andare avanti?";
+                    + "in questa arredata sala giochi. "
+                    + "Sarà il caso di fermarsi a giocare o andare avanti?";
 
     /**
      * Descrizione della stanza "cucina".
      */
     public static final String DESCRIPTION_KITCHEN =
             "Una fredda e umida cucina.\n"
-            + "Ti chiedi come hanno fatto a cucinarci qui dentro.";
+                    + "Ti chiedi come hanno fatto a cucinarci qui dentro.";
 
     /**
      * Descrizione della stanza "stanza Relax".
      */
     public static final String DESCRIPTION_RELAX_ROOM =
             "Una stanza che sembra essere accogliente e ospitale.\n"
-            + "Sarà di certo piaciuta ai clienti dell'hotel!";
+                    + "Sarà di certo piaciuta ai clienti dell'hotel!";
 
     /**
      * Descrizione della stanza "corridoio Columbus".
      */
     public static final String DESCRIPTION_HALLWAY_COLUMBUS =
             "Un lungo corridoio simile a quello visitato prima.\n"
-            + "Sembrano essere tutti uguali...";
+                    + "Sembrano essere tutti uguali...";
 
     /**
      * Descrizione della stanza "bar".
      */
     public static final String DESCRIPTION_BAR =
             "Il bar dell'hotel. Posto molto chic, lo noti dal pavimento.\n"
-            + "Deduci che venivano organizzate feste qui...";
+                    + "Deduci che venivano organizzate feste qui...";
 
     /**
      * Descrizione della stanza "lavanderia".
      */
     public static final String DESCRIPTION_LAUNDRY =
             "La stanza dedicata alla pulizia generale dell'hotel. "
-            + "Vieni attratto dal buon profumo. "
-            + "Usano lo stesso prodotto che usava tua mamma.";
+                    + "Vieni attratto dal buon profumo. "
+                    + "Usano lo stesso prodotto che usava tua mamma.";
 
     /**
      * Descrizione della stanza "stanza 53".
      */
     public static final String DESCRIPTION_ROOM_53 =
             "Un'altra stanza dell'hotel. "
-            + "Pensi che costi molto, lo noti dalla quantità di oggetti "
-            + "presenti al suo interno. Strano sia aperta...";
+                    + "Pensi che costi molto, lo noti dalla quantità di oggetti "
+                    + "presenti al suo interno. Strano sia aperta...";
 
     /**
      * Descrizione della stanza "cctv".
@@ -99,8 +99,8 @@ public final class Description {
      */
     public static final String DESCRIPTION_ROOM_63 =
             "Sei andato a Est e ti trovi in un'altra stanza... Strano no? "
-            + "Forse la più ambigua di tutte finora. "
-            + "Lo deduci dalla diversità degli oggetti presenti in essa.";
+                    + "Forse la più ambigua di tutte finora. "
+                    + "Lo deduci dalla diversità degli oggetti presenti in essa.";
 
     /**
      * Descrizione della stanza "stanza 13".
@@ -113,10 +113,10 @@ public final class Description {
      */
     public static final String DESCRIPTION_GARDEN =
             "Per fortuna sei un tipo curioso e aprendo la finestra "
-            + "ti ritrovi in questo posto particolare. "
-            + "Incredibilmente riesci a trovare un po' di verde "
-            + "in questo hotel. Noti che non è un semplice "
-            + "giardino dato che ci sono vari attrezzi.";
+                    + "ti ritrovi in questo posto particolare. "
+                    + "Incredibilmente riesci a trovare un po' di verde "
+                    + "in questo hotel. Noti che non è un semplice "
+                    + "giardino dato che ci sono vari attrezzi.";
 
     /**
      * Descrizione della stanza "corridoio Clippings".
@@ -129,10 +129,10 @@ public final class Description {
      */
     public static final String DESCRIPTION_HALL =
             "La ventola della lavanderia ti ha portato qui. "
-            + "Ti sembra assurdo come una hall abbia "
-            + "un collegamento del genere. "
-            + "Fa caldissimo qui dentro, sembra che l'apparato "
-            + "di ventilazione sia guasto...";
+                    + "Ti sembra assurdo come una hall abbia "
+                    + "un collegamento del genere. "
+                    + "Fa caldissimo qui dentro, sembra che l'apparato "
+                    + "di ventilazione sia guasto...";
 
     //Descrizioni relative a stanze/luoghi già visitati
     /**
@@ -188,7 +188,7 @@ public final class Description {
      */
     public static final String DESCRIPTION_VISITED_LAUNDRY =
             "La lavanderia dell'hotel. "
-            + "Almeno l'igiene dei clienti veniva tutelata!";
+                    + "Almeno l'igiene dei clienti veniva tutelata!";
 
     /**
      * Descrizione della stanza "stanza 53" già visitata.
@@ -201,7 +201,7 @@ public final class Description {
      */
     public static final String DESCRIPTION_VISITED_CCTV =
             "La sala CCTV da dove si controllano "
-            + "le aree pubbliche dell'hotel.";
+                    + "le aree pubbliche dell'hotel.";
 
     /**
      * Descrizione della stanza "stanza 63" già visitata.
@@ -233,105 +233,105 @@ public final class Description {
      */
     public static final String LOOK_ROOM_79 =
             "Accanto al letto dove hai \"passato\" la notte\n"
-            + "noti un piccolo comodino.\n"
-            + "Sarebbe il caso di controllare?";
+                    + "noti un piccolo comodino.\n"
+                    + "Sarebbe il caso di controllare?";
 
     /**
      * Descrizione più dettagliata della stanza "bagno Stanza 79".
      */
     public static final String LOOK_BATHROOM_79 =
             "Cosa vuoi che ci sia di così utile "
-            + "in un bagno d'hotel abbandonato?\n"
-            + "Un cestino e solo tanta puzza... "
-            + "devi ringraziare che la luce funzioni.";
+                    + "in un bagno d'hotel abbandonato?\n"
+                    + "Un cestino e solo tanta puzza... "
+                    + "devi ringraziare che la luce funzioni.";
 
     /**
      * Descrizione più dettagliata della stanza "corridoio".
      */
     public static final String LOOK_HALLWAY =
             "Il corridoio sembra essere molto lungo e cupo.\n"
-            + "Ci sono diverse porte... Sarà il caso di entrarci? ";
+                    + "Ci sono diverse porte... Sarà il caso di entrarci? ";
 
     /**
      * Descrizione più dettagliata della stanza "sala Giochi".
      */
     public static final String LOOK_GAMEROOM =
             "Un'immensa sala giochi, provvista di 3 slot e\n"
-            + "2 grandi cambiamonete. "
-            + "Alcune delle slot sembrano ancora funzionare!";
+                    + "2 grandi cambiamonete. "
+                    + "Alcune delle slot sembrano ancora funzionare!";
 
     /**
      * Descrizione più dettagliata della stanza "cucina".
      */
     public static final String LOOK_KITCHEN =
             "Non appena entrato nella cucina vieni attirato "
-            + "da una musichetta gracchiata e da una puzza di fumo...\n"
-            + "Ti ritrovi in questa cucina malmessa "
-            + "con mobili antiquati e pentole arruginite. ";
+                    + "da una musichetta gracchiata e da una puzza di fumo...\n"
+                    + "Ti ritrovi in questa cucina malmessa "
+                    + "con mobili antiquati e pentole arruginite. ";
 
     /**
      * Descrizione più dettagliata della stanza "stanza Relax".
      */
     public static final String LOOK_RELAX_ROOM =
             "Una scura stanza che presenta un'enorme televisione a muro.\n"
-            + "C'è tutto lo spazio e il confort per guardare un film.\n"
-            + "\"Chissa se la TV funzioni...\", ti chiedi.";
+                    + "C'è tutto lo spazio e il confort per guardare un film.\n"
+                    + "\"Chissa se la TV funzioni...\", ti chiedi.";
 
     /**
      * Descrizione più dettagliata della stanza "corridoio Columbus".
      */
     public static final String LOOK_HALLWAY_COLUMBUS =
             "Un altro corridoio, il parquet sembra essere più consumato\n"
-            + "rispetto a quello di prima. "
-            + "Quantomeno è presente qualcosa.";
+                    + "rispetto a quello di prima. "
+                    + "Quantomeno è presente qualcosa.";
 
     /**
      * Descrizione più dettagliata della stanza "bar".
      */
     public static final String LOOK_BAR =
             "Una volta entrato nella stanza rimani abbagliato dalle tante "
-            + "luci presenti. Noti subito un enorme bancone "
-            + "e dei bicchieri sparsi e alcuni rotti. "
-            + "Ci avranno dato giù pesante!";
+                    + "luci presenti. Noti subito un enorme bancone "
+                    + "e dei bicchieri sparsi e alcuni rotti. "
+                    + "Ci avranno dato giù pesante!";
 
     /**
      * Descrizione più dettagliata della stanza "lavanderia".
      */
     public static final String LOOK_LAUNDRY =
             "Una lavanderia profumata ma allo stesso tempo "
-            + "si respira aria calda. "
-            + "Presenta una schiera di lavatrici non funzionanti, "
-            + "anche se alcuni tappeti sono bagnati. "
-            + "Sarà l'umidità (dovuta al caldo) o un recente lavaggio?";
+                    + "si respira aria calda. "
+                    + "Presenta una schiera di lavatrici non funzionanti, "
+                    + "anche se alcuni tappeti sono bagnati. "
+                    + "Sarà l'umidità (dovuta al caldo) o un recente lavaggio?";
 
     /**
      * Descrizione più dettagliata della stanza "stanza 53".
      */
     public static final String LOOK_ROOM_53 =
             "Un vasta e ampia stanza si presenta davanti ai tuoi occhi. "
-            + "È molto più arredata della tua. "
-            + "Chissà cosa possa nascondersi qui. "
-            + "Noti il letto sfatto...";
+                    + "È molto più arredata della tua. "
+                    + "Chissà cosa possa nascondersi qui. "
+                    + "Noti il letto sfatto...";
 
     /**
      * Descrizione più dettagliata della stanza "cctv".
      */
     public static final String LOOK_CCTV =
             "La stanza si presenta con una schiera di postazioni. "
-            + "Alcuni computer sembrano mancare. "
-            + "La vetrata di fronte a te è enorme, "
-            + "sembra occupare tutta la stanza...";
+                    + "Alcuni computer sembrano mancare. "
+                    + "La vetrata di fronte a te è enorme, "
+                    + "sembra occupare tutta la stanza...";
 
     /**
      * Descrizione più dettagliata della stanza "stanza 63".
      */
     public static final String LOOK_ROOM_63 =
             "Una stanza abbastanza illuminata. "
-            + "Presenta un tavolo centrale e una zona relax "
-            + "con un divano alla vista molto confortevole. "
-            + "In un angolo della stanza è presente una scrivania "
-            + "con una chitarra alla sua sinistra. "
-            + "Ci sarà qualcosa di effettivamente utile?";
+                    + "Presenta un tavolo centrale e una zona relax "
+                    + "con un divano alla vista molto confortevole. "
+                    + "In un angolo della stanza è presente una scrivania "
+                    + "con una chitarra alla sua sinistra. "
+                    + "Ci sarà qualcosa di effettivamente utile?";
 
     /**
      * Descrizione più dettagliata della stanza "stanza 13".
@@ -344,27 +344,27 @@ public final class Description {
      */
     public static final String LOOK_GARDEN =
             "Uno splendido giardino super arredato. Vi è una piscina, "
-            + "degli attrezzi per la palestra e un'area svago. "
-            + "Quasi quasi non vorresti andar via da qui...";
+                    + "degli attrezzi per la palestra e un'area svago. "
+                    + "Quasi quasi non vorresti andar via da qui...";
 
     /**
      * Descrizione più dettagliata della stanza "corridoio Clippings".
      */
     public static final String LOOK_HALLWAY_CLIPPINGS =
             "Si intravedono tre porte. Sarà il caso di fermarsi a controllarle "
-            + "o cercare una via di fuga al più presto?";
+                    + "o cercare una via di fuga al più presto?";
 
     /**
      * Descrizione più dettagliata della stanza "hall".
      */
     public static final String LOOK_HALL =
             "Una fantastica hall illuminata. "
-            + "Aria calda proviene delle due ventole di fronte a te. \n"
-            + "Non sai se considerarlo un bene, perlomeno hai trovato questa stanza. "
-            + "Poi si sa, le hall sono sempre vicine all'uscita.\n"
-            + "Sembra essere molto accogliente, "
-            + "lo si nota dalle poltrone situate su entrambi i lati e "
-            + "dal pianoforte sulla destra. ";
+                    + "Aria calda proviene delle due ventole di fronte a te. \n"
+                    + "Non sai se considerarlo un bene, perlomeno hai trovato questa stanza. "
+                    + "Poi si sa, le hall sono sempre vicine all'uscita.\n"
+                    + "Sembra essere molto accogliente, "
+                    + "lo si nota dalle poltrone situate su entrambi i lati e "
+                    + "dal pianoforte sulla destra. ";
 
     //Descrizione relativa agli oggetti
     /**
@@ -372,35 +372,35 @@ public final class Description {
      */
     public static final String DESCRIPTION_CELLPHONE =
             "Il tuo ossessionato telefono. Te lo porti dappertutto.\n"
-            + "Lo hai pagato un sacco!";
+                    + "Lo hai pagato un sacco!";
 
     /**
      * Descrizione dell'oggetto "portafoglio".
      */
     public static final String DESCRIPTION_WALLET =
             "Mai partire senza portafoglio... ricco di soldi. \n"
-            + "Ma saranno utili in un hotel abbandonato?";
+                    + "Ma saranno utili in un hotel abbandonato?";
 
     /**
      * Descrizione dell'oggetto "accendino".
      */
     public static final String DESCRIPTION_LIGHTER =
             "Per un fumatore come te è impossibile non avere un accendino "
-            + "a portata di mano...";
+                    + "a portata di mano...";
 
     /**
      * Descrizione dell'oggetto "bibita".
      */
     public static final String DESCRIPTION_DRINK =
             "Una bevanda gassata che hai preso da un autogrill "
-            + "durante il viaggio.";
+                    + "durante il viaggio.";
 
     /**
      * Descrizione dell'oggetto "coltellino".
      */
     public static final String DESCRIPTION_KNIFE =
             "Il coltellino svizzero che ti ha regalato tuo nonno...\n"
-            + "Avresti voluto aprirci le birre in vacanza!";
+                    + "Avresti voluto aprirci le birre in vacanza!";
 
     /**
      * Descrizione dell'oggetto "chiave79".
@@ -413,15 +413,15 @@ public final class Description {
      */
     public static final String DESCRIPTION_FURNITURE_79 =
             "Un classico mobile presente nella tua stanza, "
-            + "sembra contenere qualcosa "
-            + "al suo interno.";
+                    + "sembra contenere qualcosa "
+                    + "al suo interno.";
 
     /**
      * Descrizione dell'oggetto "armadio".
      */
     public static final String DESCRIPTION_WARDROBE_79 =
             "Un armadio imponente che occupa mezza stanza!\n"
-            + "Sembra essere bloccato da qualcosa <<oggetto>> "; //agg ogg
+                    + "Sembra essere bloccato da qualcosa <<oggetto>> "; //agg ogg
 
     /**
      * Descrizione dell'oggetto "quadro".
@@ -434,7 +434,7 @@ public final class Description {
      */
     public static final String DESCRIPTION_FURNITURE_BATHROOM_79 =
             "Un cestino da bagno. Sei abbastanza curioso di "
-            + "sapere cosa ci sia al suo interno?";
+                    + "sapere cosa ci sia al suo interno?";
 
     /**
      * Descrizione dell'oggetto "letto".
@@ -453,7 +453,7 @@ public final class Description {
      */
     public static final String DESCRIPTION_SLOT =
             "Una slot ancora funzionante. "
-            + "Lo capisci dalla musichetta che proviene da essa!";
+                    + "Lo capisci dalla musichetta che proviene da essa!";
 
     /**
      * Descrizione dell'oggetto "maniglia".
@@ -466,8 +466,8 @@ public final class Description {
      */
     public static final String DESCRIPTION_CARD_GAMEROOM =
             "Una tessera magnetica dimenticata "
-            + "da qualcuno nella sala giochi.\n"
-            + "Potrebbe sbloccare alcune stanze!";
+                    + "da qualcuno nella sala giochi.\n"
+                    + "Potrebbe sbloccare alcune stanze!";
 
     /**
      * Descrizione dell'oggetto "batterie".
@@ -480,8 +480,8 @@ public final class Description {
      */
     public static final String DESCRIPTION_CHANGE_MACHINE =
             "Una macchina cambiamonete ancora in funzione, "
-            + "qualcuno avrà lasciato "
-            + "la sua tessera dentro.";
+                    + "qualcuno avrà lasciato "
+                    + "la sua tessera dentro.";
 
     /**
      * Descrizione dell'oggetto "telecomando".
@@ -494,8 +494,8 @@ public final class Description {
      */
     public static final String DESCRIPTION_TV =
             "Una tv di ultima generazione.\n"
-            + "Non ti spieghi come non ci siano "
-            + "i bottoni laterali per accenderla.";
+                    + "Non ti spieghi come non ci siano "
+                    + "i bottoni laterali per accenderla.";
 
     /**
      * Descrizione dell'oggetto "radio".
@@ -508,14 +508,14 @@ public final class Description {
      */
     public static final String DESCRIPTION_FURNACE =
             "Osservando il forno centrale noti una cappa di fumo nero... "
-            + "Ecco da dove veniva la puzza di bruciato!";
+                    + "Ecco da dove veniva la puzza di bruciato!";
 
     /**
      * Descrizione dell'oggetto "divano".
      */
     public static final String DESCRIPTION_SOFA =
             "Un comodo divano verde. "
-            + "Ideale per rilassarsi anche se un po' consumato.";
+                    + "Ideale per rilassarsi anche se un po' consumato.";
 
     /**
      * Descrizione dell'oggetto "pianta".
@@ -534,27 +534,27 @@ public final class Description {
      */
     public static final String DESCRIPTION_MAP =
             "La planimetria parziale dell'hotel, è un po' consumata.\n"
-            + "Mostra alcune stanze e non tutte sono visibili.\n"
-            + "\"Ti trovi qui: C▓▓▓▓▓▓▓;\n" //corridoio
-            + "▓▓▓: Stanza▓9;\n" //stanza79
-            + "▓▓▓: ▓▓▓▓▓▓▓▓▓▓▓▓;\n" //gaming room
-            + "NO▓▓: Stanza ▓▓▓a▓;\n" //relax
-            + "OVEST: ▓▓▓▓▓▓▓oio ▓▓▓▓;\n" //corridoio Columbus
-            + "▓▓▓: ▓▓▓▓▓79;\n" //bagno79
-            + "▓▓▓: ▓▓▓▓▓▓▓3;\"\n"; //stanza amico .3
+                    + "Mostra alcune stanze e non tutte sono visibili.\n"
+                    + "\"Ti trovi qui: C▓▓▓▓▓▓▓;\n" //corridoio
+                    + "▓▓▓: Stanza▓9;\n" //stanza79
+                    + "▓▓▓: ▓▓▓▓▓▓▓▓▓▓▓▓;\n" //gaming room
+                    + "NO▓▓: Stanza ▓▓▓a▓;\n" //relax
+                    + "OVEST: ▓▓▓▓▓▓▓oio ▓▓▓▓;\n" //corridoio Columbus
+                    + "▓▓▓: ▓▓▓▓▓79;\n" //bagno79
+                    + "▓▓▓: ▓▓▓▓▓▓▓3;\"\n"; //stanza amico .3
 
     /**
      * Descrizione dell'oggetto "foglio" del "corridoio Columbus".
      */
     public static final String DESCRIPTION_PAPER_HALLWAY_COLUMBUS =
             "Un pezzo di carta stroppiciato...\n"
-            + "sembra esserci scritto qualcosa: \" ... "
-            + "Non so ▓▓▓e sia ▓▓▓sibile ma non c'è u▓a via d'uscita.\n"
-            + "In ▓▓▓▓▓ stanze ho trovato qu▓▓▓▓sa "
-            + "che mi conduce ad ▓▓▓ ce▓ta ▓▓▓▓za..\n"
-            + "La chiamano sta▓▓▓ ▓3, sembra s▓▓▓▓▓a!\n"
-            + "13 ge▓n▓io  03:▓1\" \n"
-            + "Dalla scrittura sembra trattarsi di John."; //da ultimare
+                    + "sembra esserci scritto qualcosa: \" ... "
+                    + "Non so ▓▓▓e sia ▓▓▓sibile ma non c'è u▓a via d'uscita.\n"
+                    + "In ▓▓▓▓▓ stanze ho trovato qu▓▓▓▓sa "
+                    + "che mi conduce ad ▓▓▓ ce▓ta ▓▓▓▓za..\n"
+                    + "La chiamano sta▓▓▓ ▓3, sembra s▓▓▓▓▓a!\n"
+                    + "13 ge▓n▓io  03:▓1\" \n"
+                    + "Dalla scrittura sembra trattarsi di John."; //da ultimare
 
     /**
      * Descrizione dell'oggetto "chiave33".
@@ -567,14 +567,14 @@ public final class Description {
      */
     public static final String DESCRIPTION_TABLE =
             "Dei tavolini di vetro. Sembrano poco curati.\n"
-            + "Chissa quanti ci hanno bevuto e vomitato qui sopra!";
+                    + "Chissa quanti ci hanno bevuto e vomitato qui sopra!";
 
     /**
      * Descrizione dell'oggetto contenitore "bicchiere".
      */
     public static final String DESCRIPTION_GLASS =
             "Un tris di calici di vino. "
-            + "Su uno di essi ci sono macchie di rossetto rosso.";
+                    + "Su uno di essi ci sono macchie di rossetto rosso.";
 
     /**
      * Descrizione dell'oggetto contenitore "cassa".
@@ -587,16 +587,16 @@ public final class Description {
      */
     public static final String DESCRIPTION_CUP =
             "Due tazzine di ceramica. Una è ancora sporca di caffè.\n"
-            + "L'altra non sembra essere stabile.";
+                    + "L'altra non sembra essere stabile.";
 
     /**
      * Descrizione dell'oggetto contenitore "vetrina".
      */
     public static final String DESCRIPTION_DISPLAY_CASE =
             "Una splendida vetrina contenente un sacco di "
-            + "pregiati liquori e vini. "
-            + "Sei sul punto di aprirla e prepararti qualcosa da bere. "
-            + "Purtroppo è chiusa!";
+                    + "pregiati liquori e vini. "
+                    + "Sei sul punto di aprirla e prepararti qualcosa da bere. "
+                    + "Purtroppo è chiusa!";
 
     /**
      * Descrizione dell'oggetto contenitore "cassa".
@@ -613,7 +613,7 @@ public final class Description {
      */
     public static final String DESCRIPTION_TOKEN =
             "Il gettone che hai trovato sotto la tazzina. "
-            + "Qualcuno sarà passato poco fa dalla Sala Giochi.";
+                    + "Qualcuno sarà passato poco fa dalla Sala Giochi.";
 
     /**
      * Descrizione dell'oggetto "chiave47".
@@ -633,8 +633,8 @@ public final class Description {
      */
     public static final String DESCRIPTION_COMPUTER =
             "Il computer sul tavolo della stanza. "
-            + "Noti un pop-up in basso a destra. "
-            + "Cosa potrebbe essere?";
+                    + "Noti un pop-up in basso a destra. "
+                    + "Cosa potrebbe essere?";
 
     /**
      * Descrizione dell'oggetto contenitore "letto" della stanza 53.
@@ -659,7 +659,7 @@ public final class Description {
      */
     public static final String DESCRIPTION_SHOE_RACK =
             "Una scarpiera di ferro, non sembra "
-            + "che qualcuno l'abbia mai utilizzata!";
+                    + "che qualcuno l'abbia mai utilizzata!";
 
     /**
      * Descrizione dell'oggetto contenitore "poltrona" della stanza 53.
@@ -672,7 +672,7 @@ public final class Description {
      */
     public static final String DESCRIPTION_WINDOW53 =
             "Una finestra abbastanza sporca, "
-            + "non riesci a vedere che c'è aldilà...";
+                    + "non riesci a vedere che c'è aldilà...";
 
     /**
      * Descrizione dell'oggetto contenitore "appendiabiti" della stanza 53.
@@ -685,7 +685,7 @@ public final class Description {
      */
     public static final String DESCRIPTION_HOOK =
             "Il gancio che si è staccato"
-            + "dall'appendiabiti mentre lo stavi spostando";
+                    + "dall'appendiabiti mentre lo stavi spostando";
 
     /**
      * Descrizione dell'oggetto contenitore "comò" della stanza 53.
@@ -705,43 +705,43 @@ public final class Description {
      */
     public static final String DESCRIPTION_WHITEBOARD =
             "Una lavagna bianca. "
-            + "Ti ricorda quella di scuola.";
+                    + "Ti ricorda quella di scuola.";
 
     /**
      * Descrizione dell'oggetto contenitore "vetrina" della stanza cctv.
      */
     public static final String DESCRIPTION_GLASS_CABINET =
             "Una maestosa vetrina scura e cupa. "
-            + "Non riesci a vedere cosa c'è al suo interno.";
+                    + "Non riesci a vedere cosa c'è al suo interno.";
 
     /**
      * Descrizione dell'oggetto contenitore "tavolo" della stanza cctv.
      */
     public static final String DESCRIPTION_TABLE_CCTV =
             "Delle scrivanie in legno. "
-            + "Il mio falegname le farebbe meglio con 2 spicci!";
+                    + "Il mio falegname le farebbe meglio con 2 spicci!";
 
     /**
      * Descrizione dell'oggetto contenitore "fisso" della stanza cctv.
      */
     public static final String DESCRIPTION_COMPUTER_CCTV =
             "L'unico fisso della stanza. "
-            + "È ancora acceso...";
+                    + "È ancora acceso...";
 
     /**
      * Descrizione dell'oggetto contenitore "portatile" della stanza cctv.
      */
     public static final String DESCRIPTION_LAPTOP_CCTV =
             "Dei computer portatili di buona qualità. "
-            + "Strano siano ancora qui.";
+                    + "Strano siano ancora qui.";
 
     /**
      * Descrizione dell'oggetto contenitore "sedia" della stanza cctv.
      */
     public static final String DESCRIPTION_CHAIR_CCTV =
             "Delle sedie girovoli. "
-            + "Ti domandi come possano essere "
-            + "in un hotel abbandonato.";
+                    + "Ti domandi come possano essere "
+                    + "in un hotel abbandonato.";
 
     /**
      * Descrizione dell'oggetto contenitore "ventola".
@@ -754,14 +754,14 @@ public final class Description {
      */
     public static final String DESCRIPTION_WASHING_MACHINE =
             "Una schiera di lavatrici bianche di ultima generazione. "
-            + "Sono tutte spente.";
+                    + "Sono tutte spente.";
 
     /**
      * Descrizione dell'oggetto contenitore "aspirapolvere".
      */
     public static final String DESCRIPTION_VACUUM_CLEANER =
             "Un'aspirapolvere mai utilizzata. "
-            + "Ci sarà mai entrato qualcuno qui?";
+                    + "Ci sarà mai entrato qualcuno qui?";
 
     /**
      * Descrizione degli oggetti "foglio"
@@ -775,17 +775,17 @@ public final class Description {
      */
     public static final String DESCRIPTION_PAPER_63 =
             "Un pezzo di carta piegato che hai trovato nel libro. \n"
-            + "Sembra far riferimento a qualcosa in una particolare stanza! \n"
-            + "\"C'è una ▓▓ssa▓▓rt▓ nella C▓T▓ \n"
-            + "Hai ▓▓▓▓gno di 4 fog▓▓ per apr▓▓▓▓\"\n"
-            + "Non capisci da chi potrebbe essere stato scritto...";
+                    + "Sembra far riferimento a qualcosa in una particolare stanza! \n"
+                    + "\"C'è una ▓▓ssa▓▓rt▓ nella C▓T▓ \n"
+                    + "Hai ▓▓▓▓gno di 4 fog▓▓ per apr▓▓▓▓\"\n"
+                    + "Non capisci da chi potrebbe essere stato scritto...";
 
     /**
      * Descrizione dell'oggetto "fucile".
      */
     public static final String DESCRIPTION_RIFLE =
             "Un fucile a muro. Sembra risalire alla Seconda Guerra Mondiale. "
-            + "È enorme. Ma poi che ci fa un fucile carico in una stanza?";
+                    + "È enorme. Ma poi che ci fa un fucile carico in una stanza?";
 
     /**
      * Descrizione dell'oggetto "chiave63".
@@ -805,29 +805,29 @@ public final class Description {
      */
     public static final String DESCRIPTION_STRONGBOX_CCTV =
             "Una cassaforte chiusa da una combinazione. "
-            + "Sembrano essere richieste 6 cifre.";
+                    + "Sembrano essere richieste 6 cifre.";
 
     /**
      * Descrizione dell'oggetto contenitore "libro".
      */
     public static final String DESCRIPTION_BOOK =
             "Il libro presente ai piedi della scrivania. "
-            + "Noti sporgere qualcosa di bianco.";
+                    + "Noti sporgere qualcosa di bianco.";
 
     /**
      * Descrizione dell'oggetto contenitore "specchio".
      */
     public static final String DESCRIPTION_MIRROR =
             "Ti avvicini ad esso per capire quello che sta succedendo. "
-            + "Ti ci allontani per lo stesso motivo.";
+                    + "Ti ci allontani per lo stesso motivo.";
 
     /**
      * Descrizione dell'oggetto contenitore "chitarra".
      */
     public static final String DESCRIPTION_GUITAR =
             "Una chitarra in legno, appena accordata. "
-            + "Manca il plettro. In un'altra situazione "
-            + "magari ti saresti fermato a suonarla...";
+                    + "Manca il plettro. In un'altra situazione "
+                    + "magari ti saresti fermato a suonarla...";
 
     /**
      * Descrizione dell'oggetto contenitore "orologio".
@@ -840,23 +840,23 @@ public final class Description {
      */
     public static final String DESCRIPTION_SWING =
             "Un'altalena di ferro, è un po' arruginita "
-            + "ma molto carina nel contesto.";
+                    + "ma molto carina nel contesto.";
 
     /**
      * Descrizione dell'oggetto contenitore "sdraio".
      */
     public static final String DESCRIPTION_DECKCHAIR =
             "Una comoda sdraio di legno. "
-            + "Ti ci riposeresti facilmente se non fosse che "
-            + "vuoi uscire da questo posto...";
+                    + "Ti ci riposeresti facilmente se non fosse che "
+                    + "vuoi uscire da questo posto...";
 
     /**
      * Descrizione dell'oggetto contenitore "cyclette".
      */
     public static final String DESCRIPTION_EXERCISE_BIKE =
             "Un ultimo modello di cyclette... "
-            + "Troppi segnali, dovresti inziare "
-            + "un po' di palestra?";
+                    + "Troppi segnali, dovresti inziare "
+                    + "un po' di palestra?";
 
     /**
      * Descrizione dell'oggetto contenitore "panca".
@@ -870,14 +870,14 @@ public final class Description {
      */
     public static final String DESCRIPTION_POOL =
             "Una vasta piscina piena d'acqua gelata. Dato che non sei "
-            + "un fenomeno a nuotare non ti ci avvicini nemmeno...";
+                    + "un fenomeno a nuotare non ti ci avvicini nemmeno...";
 
     /**
      * Descrizione dell'oggetto contenitore "lampione".
      */
     public static final String DESCRIPTION_LIGHT_POLE =
             "Uno splendido lampione in questo spazio verde. "
-            + "Effettivamente un po' di luce fa sempre comodo!";
+                    + "Effettivamente un po' di luce fa sempre comodo!";
 
     /**
      * Descrizione dell'oggetto contenitore "finestra" del giardino.
@@ -890,30 +890,30 @@ public final class Description {
      */
     public static final String DESCRIPTION_CHANDELIER =
             "Un imponente lampadario centrale. "
-            + "Illumina tutta la hall, che è la stanza più grande che hai visto finora.";
+                    + "Illumina tutta la hall, che è la stanza più grande che hai visto finora.";
 
     /**
      * Descrizione dell'oggetto contenitore "ampolla" della hall.
      */
     public static final String DESCRIPTION_AMPOULE =
             "Un' ampolla di vetro, l'acqua c'è ancora. "
-            + "All'esterno è zeppa di polvere, non si vede bene al suo interno. "
-            + "Noti solo qualche pietra, ci sarà anche qualche pesciolino?";
+                    + "All'esterno è zeppa di polvere, non si vede bene al suo interno. "
+                    + "Noti solo qualche pietra, ci sarà anche qualche pesciolino?";
 
     /**
      * Descrizione dell'oggetto contenitore "fisso" della hall.
      */
     public static final String DESCRIPTION_LANDLINE_PHONE =
             "Un telefono fisso che sembra non funzionare. "
-            + "Pensi sia staccato, lo deduci dal fastidioso suono che emette.";
+                    + "Pensi sia staccato, lo deduci dal fastidioso suono che emette.";
 
     /**
      * Descrizione dell'oggetto contenitore "pianoforte" della hall.
      */
     public static final String DESCRIPTION_PIANO =
             "Un maestoso pianoforte. Forse il pezzo più pregiato dell'hotel. "
-            + "Ecco perchè è stato messo nella hall. "
-            + "Sicuramente per fare bella figura con i clienti."; //possibilita di aggiungere musica
+                    + "Ecco perchè è stato messo nella hall. "
+                    + "Sicuramente per fare bella figura con i clienti."; //possibilita di aggiungere musica
 
     /**
      * Descrizione dell'oggetto contenitore "cassaforte"
@@ -940,13 +940,13 @@ public final class Description {
      */
     public static final String DESCRIPTION_PAPER_BAR =
             "Aprendo il foglio noti un chiaro messaggio:\n"
-            + "\"L'hotel è gestito da un informatico pazzo, "
-            + "maniaco della conversione dei numeri.\n"
-            + "Ha nascosto nella hall una cassaforte "
-            + "che è bloccata da una combinazione di 6 cifre.\n"
-            + "Chissà se anche la password di questa cassaforte "
-            + "sarà frutto della sua pazzia sulla conversione.\"\n"
-            + "Forse è stato scritto da un dipendente.";
+                    + "\"L'hotel è gestito da un informatico pazzo, "
+                    + "maniaco della conversione dei numeri.\n"
+                    + "Ha nascosto nella hall una cassaforte "
+                    + "che è bloccata da una combinazione di 6 cifre.\n"
+                    + "Chissà se anche la password di questa cassaforte "
+                    + "sarà frutto della sua pazzia sulla conversione.\"\n"
+                    + "Forse è stato scritto da un dipendente.";
 
 
     /**
@@ -955,7 +955,7 @@ public final class Description {
      */
     public static final String DESCRIPTION_STRONGBOX_UNLOCKED_CCTV =
             "La cassaforte aperta, forse sei il primo "
-            + "a trovare la combinazione giusta.";
+                    + "a trovare la combinazione giusta.";
 
     /**
      * Descrizione dell'oggetto contenitore "cassaforte"
@@ -980,7 +980,7 @@ public final class Description {
      */
     public static final String DESCRIPTION_SLOT_USABLE_WITH_DROPS =
             "Hai girato troppo forte! "
-            + "La maniglia si è rotta ed è caduta!";
+                    + "La maniglia si è rotta ed è caduta!";
 
     /**
      * Descrizione dell'oggetto contenitore "slot" già utilizzato.
@@ -994,7 +994,7 @@ public final class Description {
      */
     public static final String DESCRIPTION_CHANGE_MACHINE_USABLE_WITH_DROPS =
             "Grazie alle tue elevate capacità informatiche "
-            + "hai estratto la tessera... hai solo premuto un tasto!";
+                    + "hai estratto la tessera... hai solo premuto un tasto!";
 
     /**
      * Descrizione dell'oggetto contenitore "cambiamonete" già utilizzato.
@@ -1009,8 +1009,8 @@ public final class Description {
      */
     public static final String DESCRIPTION_REMOTE_CONTROL_USABLE_WITH_DROPS =
             "Sei riuscito ad accendere la TV "
-            + "e sono comparse delle scritte poco chiare! "
-            + "Per oggi niente film...";
+                    + "e sono comparse delle scritte poco chiare! "
+                    + "Per oggi niente film...";
 
     /**
      * Descrizione dell'oggetto contenitore "fisso"
@@ -1018,8 +1018,8 @@ public final class Description {
      */
     public static final String DESCRIPTION_COMPUTER_CCTV_USABLE_WITH_DROPS =
             "Inserendo la chiavetta noti una sequenza di numeri e lettere. "
-            + "Pensi che possano essere utili, le dovresti salvare da qualche parte.\n"
-            + "Giusto?";
+                    + "Pensi che possano essere utili, le dovresti salvare da qualche parte.\n"
+                    + "Giusto?";
 
     /**
      * Descrizione dell'oggetto contenitore "telecomando" già utilizzato.
@@ -1041,9 +1041,9 @@ public final class Description {
      */
     public static final String DESCRIPTION_RADIO_USABLE_WITH_DROPS =
             "\"So.. n...a st..za .3\", "
-            + "questo è ciò che riesci a malapena a sentire dalla radio! \n"
-            + "Pensi che si possa trattare di Ethan, "
-            + "sarà meglio trovare la mappa dell'hotel!";
+                    + "questo è ciò che riesci a malapena a sentire dalla radio! \n"
+                    + "Pensi che si possa trattare di Ethan, "
+                    + "sarà meglio trovare la mappa dell'hotel!";
 
     /**
      * Descrizione dell'oggetto contenitore "radio" già utilizzato.
@@ -1108,7 +1108,7 @@ public final class Description {
      * Descrizione dell'oggetto contenitore "telecomando" già aperto.
      */
     public static final String OPENED_DESCRIPTION_REMOTE_CONTROL =
-            "Un telecomando sprovvisto di pile.";
+            "Un telecomando sprovvisto di pile."; //CAMBIARE (non si sa se sono state rimosse le pile, ma solo che lo ha aperto)
 
     /**
      * Descrizione dell'oggetto contenitore "vetrina" già aperto.
@@ -1128,7 +1128,7 @@ public final class Description {
      */
     public static final String OPENED_DESCRIPTION_WINDOW53 =
             "La finestra che hai aperto poco fa e dà accesso al giardino."
-            + "Con il vento si è chiusa.";
+                    + "Con il vento si è chiusa.";
 
     /**
      * Descrizione dell'oggetto contenitore "comò" già aperto.

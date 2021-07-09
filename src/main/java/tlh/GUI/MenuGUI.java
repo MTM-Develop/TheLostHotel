@@ -80,6 +80,7 @@ public class MenuGUI extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jmOptions = new javax.swing.JMenu();
         jmMusic = new javax.swing.JMenu();
+        jmiMusic = new javax.swing.JCheckBoxMenuItem();
         jmiNewGame = new javax.swing.JMenuItem();
         jmiLoadGame = new javax.swing.JMenuItem();
 
@@ -181,6 +182,15 @@ public class MenuGUI extends javax.swing.JFrame {
         jmMusic.setText("Musica");
         jmMusic.setMnemonic(KeyEvent.VK_M);
 
+        jmiMusic.setText("Abilita musica"); //CAMBIARE
+        /*KeyStroke keyStrokeFastText = KeyStroke.getKeyStroke(
+                KeyEvent.VK_F, KeyEvent.CTRL_DOWN_MASK);
+        jmiMusic.setAccelerator(keyStrokeFastText);*/
+        jmiMusic.addActionListener(e -> jmiMusicActionPerformed());
+        jmiMusic.setState(true);
+
+        jmMusic.add(jmiMusic);
+
         jMenuBar1.add(jmOptions);
         jMenuBar1.add(jmMusic);
 
@@ -209,6 +219,14 @@ public class MenuGUI extends javax.swing.JFrame {
         pack();
     } // </editor-fold>//GEN-END:initComponents
 
+    private void jmiMusicActionPerformed() {
+        if (this.jmiMusic.getState()) {
+            menu.getgInteraction().getGameManager().getMusic().volumeAbsoluteControl(0.0); //CAMBIARE (0.1)
+        } else {
+            menu.getgInteraction().getGameManager().getMusic().volumeAbsoluteControl(0.0);
+        }
+    }
+
     /**
      * Viene inizializzato il gioco con un determinato font per i caratteri,
      * caricato da file.
@@ -233,6 +251,7 @@ public class MenuGUI extends javax.swing.JFrame {
             jMenuBar1.setFont(fontMenuBar);
             jmOptions.setFont(fontMenuBar);
             jmMusic.setFont(fontMenuBar);
+            jmiMusic.setFont(fontMenuBar);
             jmiNewGame.setFont(fontMenuBar);
             jmiLoadGame.setFont(fontMenuBar);
         } catch (FontFormatException | IOException ex) {
@@ -345,6 +364,11 @@ public class MenuGUI extends javax.swing.JFrame {
      * Sezione "musica" del JMenuBar.
      */
     private javax.swing.JMenu jmMusic;
+
+    /**
+     * Sotto-sezione di "musica" per abilitare / disabilitare la musica.
+     */
+    private javax.swing.JCheckBoxMenuItem jmiMusic;
 
     /**
      * Sotto-sezione di "opzioni" per avviare una nuova partita.

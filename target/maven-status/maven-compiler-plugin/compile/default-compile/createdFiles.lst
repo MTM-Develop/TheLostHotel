@@ -1,5 +1,6 @@
 tlh\Type\Room.class
 tlh\Other\Main.class
+tlh\Other\Music.class
 tlh\GUI\GameGUI$1.class
 tlh\Type\CommandType.class
 tlh\GUI\MenuGUI$4.class
@@ -19,6 +20,7 @@ tlh\Parser\ParserOutput.class
 tlh\Other\GameManager.class
 tlh\Other\GameInteraction.class
 tlh\Other\TheLostHotel.class
+tlh\Other\Music$1.class
 tlh\Type\GameItemContainer.class
 tlh\GUI\MenuGUI$5.class
 tlh\Type\GameItem.class

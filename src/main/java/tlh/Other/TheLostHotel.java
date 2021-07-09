@@ -16,9 +16,10 @@ public class TheLostHotel extends GameManager {
      * Costruttore.
      *
      * @param game
+     * @param url per caricare la musica.
      */
-    public TheLostHotel(final GameDescription game) {
-        super(game);
+    public TheLostHotel(final GameDescription game, String url) {
+        super(game, url);
     }
 
     /**
@@ -683,6 +684,10 @@ public class TheLostHotel extends GameManager {
 
                             output.append("Hai lasciato l'oggetto " + gameItem.getName() + ".\n");
 
+                            /////////////////////
+                            this.getMusic().playSound("resources//music//giygas.wav"); //ESEMPIO CAMBIO MUSICA
+                            /////////////////////
+
                         } else {
                             output.append("Specifica correttamente l'oggetto che vuoi lasciare.\n");
                         }
@@ -774,8 +779,8 @@ public class TheLostHotel extends GameManager {
                                             }
 
                                             ///////////////////////////////////
-                                            this.getGame().getgTime().cancel(); //ESEMPIO FINE GIOCO.
-                                            output.append(provaFine());
+                                            //this.getGame().getgTime().cancel(); //ESEMPIO FINE GIOCO.
+                                            //output.append(provaFine());
                                             ///////////////////////////////////
 
                                         } else if (iC.getName().equals("radio") && gameItem.getName().equals("batterie") && !((GameItemContainer) iC).getLockedBy().equals("")) {
@@ -835,7 +840,7 @@ public class TheLostHotel extends GameManager {
                                             }
                                         } else if (((GameItemContainer) iC).isPasswordLocked()) {
                                             if ((this.getGame().getCurrentRoom().getName().equals("CCTV") && gameItem.getName().equals(Description.PASSWORD_STRONGBOX_CCTV))
-                                                || (this.getGame().getCurrentRoom().getName().equals("Hall") && gameItem.getName().equals(Description.PASSWORD_STRONGBOX_HALL))) {
+                                                    || (this.getGame().getCurrentRoom().getName().equals("Hall") && gameItem.getName().equals(Description.PASSWORD_STRONGBOX_HALL))) {
                                                 if (!((GameItemContainer) iC).isPasswordUnlocked()) {
                                                     output.append("Password esatta. Hai sbloccato la " + iC.getName() + "!\n");
                                                     ((GameItemContainer) iC).setPasswordUnlocked(true);

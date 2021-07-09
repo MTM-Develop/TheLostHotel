@@ -40,7 +40,7 @@ public class Main {
         //</editor-fold>
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            GameManager gameManager = new TheLostHotel(new GameDescription());
+            GameManager gameManager = new TheLostHotel(new GameDescription(), "resources//music//soundtrack.wav"); //CAMBIARE
 
             new MenuGUI(gameManager).setVisible(true);
         });
