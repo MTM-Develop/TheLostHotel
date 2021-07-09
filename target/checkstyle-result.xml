@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="8.29">
-<file name="C:\Users\gaetano\TheLostHotel\src\main\java\tlh\Database\DB.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Database\DB.java">
 <error line="1" severity="error" message="Missing package-info.java file." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck"/>
 </file>
-<file name="C:\Users\gaetano\TheLostHotel\src\main\java\tlh\File\File.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\File\File.java">
 <error line="1" severity="error" message="Missing package-info.java file." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck"/>
 </file>
-<file name="C:\Users\gaetano\TheLostHotel\src\main\java\tlh\File\TLHStart.java">
-<error line="27" column="5" severity="error" message="Method length is 1,028 lines (max allowed is 150)." source="com.puppycrawl.tools.checkstyle.checks.sizes.MethodLengthCheck"/>
-<error line="239" severity="error" message="Line is longer than 80 characters (found 111)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="747" column="40" severity="error" message="&apos;=&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="763" severity="error" message="Line is longer than 80 characters (found 90)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="769" severity="error" message="Line is longer than 80 characters (found 85)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="1000" severity="error" message="Line is longer than 80 characters (found 136)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\File\TLHStart.java">
+<error line="27" column="5" severity="error" message="Method length is 1,017 lines (max allowed is 150)." source="com.puppycrawl.tools.checkstyle.checks.sizes.MethodLengthCheck"/>
+<error line="231" severity="error" message="Line is longer than 80 characters (found 111)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="737" column="40" severity="error" message="&apos;=&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="989" severity="error" message="Line is longer than 80 characters (found 136)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 </file>
-<file name="C:\Users\gaetano\TheLostHotel\src\main\java\tlh\GUI\GameGUI.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\GUI\GameGUI.java">
 <error line="1" severity="error" message="Missing package-info.java file." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck"/>
 <error line="42" column="8" severity="error" message="Unused import - java.util.Arrays." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
 <error line="180" column="5" severity="error" message="Method length is 360 lines (max allowed is 150)." source="com.puppycrawl.tools.checkstyle.checks.sizes.MethodLengthCheck"/>
@@ -64,20 +62,17 @@
 <error line="875" severity="error" message="Line is longer than 80 characters (found 82)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="878" severity="error" message="Line is longer than 80 characters (found 86)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="885" severity="error" message="Line is longer than 80 characters (found 107)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="885" column="86" severity="error" message="&apos;0.1&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
 <error line="887" severity="error" message="Line is longer than 80 characters (found 90)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="898" severity="error" message="Line is longer than 80 characters (found 99)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 </file>
-<file name="C:\Users\gaetano\TheLostHotel\src\main\java\tlh\GUI\InventoryGUI.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\GUI\InventoryGUI.java">
 </file>
-<file name="C:\Users\gaetano\TheLostHotel\src\main\java\tlh\GUI\MenuGUI.java">
-<error line="224" severity="error" message="Line is longer than 80 characters (found 107)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="226" severity="error" message="Line is longer than 80 characters (found 90)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\GUI\MenuGUI.java">
 </file>
-<file name="C:\Users\gaetano\TheLostHotel\src\main\java\tlh\Other\Description.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Other\Description.java">
 <error line="1" severity="error" message="File length is 2,462 lines (max allowed is 2,000)." source="com.puppycrawl.tools.checkstyle.checks.sizes.FileLengthCheck"/>
 <error line="1" severity="error" message="Missing package-info.java file." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck"/>
-<error line="86" severity="error" message="Line is longer than 80 characters (found 81)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="103" severity="error" message="Line is longer than 80 characters (found 82)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="363" severity="error" message="Line is longer than 80 characters (found 94)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="424" severity="error" message="Line is longer than 80 characters (found 82)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="778" severity="error" message="Line is longer than 80 characters (found 87)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
@@ -90,29 +85,28 @@
 <error line="930" severity="error" message="Line is longer than 80 characters (found 91)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="1021" severity="error" message="Line is longer than 80 characters (found 95)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="1044" severity="error" message="Line is longer than 80 characters (found 84)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="1111" severity="error" message="Line is longer than 80 characters (found 128)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="1210" severity="error" message="Line is longer than 80 characters (found 83)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 </file>
-<file name="C:\Users\gaetano\TheLostHotel\src\main\java\tlh\Other\GameDescription.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Other\GameDescription.java">
 </file>
-<file name="C:\Users\gaetano\TheLostHotel\src\main\java\tlh\Other\GameInteraction.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Other\GameInteraction.java">
 </file>
-<file name="C:\Users\gaetano\TheLostHotel\src\main\java\tlh\Other\GameManager.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Other\GameManager.java">
 <error line="37" column="24" severity="error" message="Parameter g should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="37" column="43" severity="error" message="Parameter url should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="37" column="54" severity="error" message="&apos;)&apos; is preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheck"/>
 <error line="72" column="26" severity="error" message="Parameter music should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="72" column="32" severity="error" message="&apos;music&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
 </file>
-<file name="C:\Users\gaetano\TheLostHotel\src\main\java\tlh\Other\GameTime.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Other\GameTime.java">
 </file>
-<file name="C:\Users\gaetano\TheLostHotel\src\main\java\tlh\Other\Main.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Other\Main.java">
 <error line="5" column="1" severity="error" message="Utility classes should not have a public or default constructor." source="com.puppycrawl.tools.checkstyle.checks.design.HideUtilityClassConstructorCheck"/>
-<error line="43" severity="error" message="Line is longer than 80 characters (found 125)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="43" severity="error" message="Line is longer than 80 characters (found 114)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 </file>
-<file name="C:\Users\gaetano\TheLostHotel\src\main\java\tlh\Other\MenuManager.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Other\MenuManager.java">
 </file>
-<file name="C:\Users\gaetano\TheLostHotel\src\main\java\tlh\Other\Music.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Other\Music.java">
 <error line="20" severity="error" message="First sentence should end with a period." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheck"/>
 <error line="25" severity="error" message="First sentence should end with a period." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheck"/>
 <error line="44" severity="error" message="Line is longer than 80 characters (found 125)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
@@ -129,7 +123,7 @@
 <error line="101" severity="error" message="Line is longer than 80 characters (found 114)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="103" severity="error" message="Line is longer than 80 characters (found 83)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 </file>
-<file name="C:\Users\gaetano\TheLostHotel\src\main\java\tlh\Other\TheLostHotel.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Other\TheLostHotel.java">
 <error line="21" column="53" severity="error" message="Parameter url should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="28" severity="error" message="Line is longer than 80 characters (found 81)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="33" column="5" severity="error" message="Method length is 947 lines (max allowed is 150)." source="com.puppycrawl.tools.checkstyle.checks.sizes.MethodLengthCheck"/>
@@ -171,8 +165,8 @@
 <error line="171" severity="error" message="Line is longer than 80 characters (found 100)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="174" severity="error" message="Line is longer than 80 characters (found 96)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="175" severity="error" message="Line is longer than 80 characters (found 111)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="176" severity="error" message="Line is longer than 80 characters (found 108)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="178" severity="error" message="Line is longer than 80 characters (found 146)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="176" severity="error" message="Line is longer than 80 characters (found 137)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="178" severity="error" message="Line is longer than 80 characters (found 104)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="181" severity="error" message="Line is longer than 80 characters (found 100)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="185" severity="error" message="Line is longer than 80 characters (found 100)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="186" severity="error" message="Line is longer than 80 characters (found 107)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
@@ -213,7 +207,7 @@
 <error line="257" severity="error" message="Line is longer than 80 characters (found 109)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="258" severity="error" message="Line is longer than 80 characters (found 98)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="259" column="62" severity="error" message="&apos;++&apos; is preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceBeforeCheck"/>
-<error line="263" severity="error" message="Line is longer than 80 characters (found 128)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="263" severity="error" message="Line is longer than 80 characters (found 137)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="264" severity="error" message="Line is longer than 80 characters (found 118)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="266" severity="error" message="Line is longer than 80 characters (found 126)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="268" severity="error" message="Line is longer than 80 characters (found 95)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
@@ -463,7 +457,7 @@
 <error line="858" severity="error" message="Line is longer than 80 characters (found 86)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="860" severity="error" message="Line is longer than 80 characters (found 91)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="861" severity="error" message="Line is longer than 80 characters (found 112)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="862" severity="error" message="Line is longer than 80 characters (found 137)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="862" severity="error" message="Line is longer than 80 characters (found 138)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="864" severity="error" message="Line is longer than 80 characters (found 131)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="868" severity="error" message="Line is longer than 80 characters (found 104)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="869" severity="error" message="Line is longer than 80 characters (found 99)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
@@ -511,31 +505,31 @@
 <error line="967" severity="error" message="Line is longer than 80 characters (found 97)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="983" severity="error" message="Line is longer than 80 characters (found 87)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 </file>
-<file name="C:\Users\gaetano\TheLostHotel\src\main\java\tlh\Parser\InvalidStringException.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Parser\InvalidStringException.java">
 <error line="1" severity="error" message="Missing package-info.java file." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck"/>
 </file>
-<file name="C:\Users\gaetano\TheLostHotel\src\main\java\tlh\Parser\Parser.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Parser\Parser.java">
 </file>
-<file name="C:\Users\gaetano\TheLostHotel\src\main\java\tlh\Parser\ParserOutput.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Parser\ParserOutput.java">
 </file>
-<file name="C:\Users\gaetano\TheLostHotel\src\main\java\tlh\Parser\WordType.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Parser\WordType.java">
 </file>
-<file name="C:\Users\gaetano\TheLostHotel\src\main\java\tlh\Type\Command.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Type\Command.java">
 <error line="1" severity="error" message="Missing package-info.java file." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck"/>
 </file>
-<file name="C:\Users\gaetano\TheLostHotel\src\main\java\tlh\Type\CommandType.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Type\CommandType.java">
 </file>
-<file name="C:\Users\gaetano\TheLostHotel\src\main\java\tlh\Type\GameItem.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Type\GameItem.java">
 <error line="385" column="34" severity="error" message="Parameter indispensable should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="385" column="42" severity="error" message="&apos;indispensable&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
 <error line="403" column="39" severity="error" message="Parameter itemCorrectlyAdded should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="403" column="47" severity="error" message="&apos;itemCorrectlyAdded&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
 <error line="443" column="27" severity="error" message="Parameter o should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 </file>
-<file name="C:\Users\gaetano\TheLostHotel\src\main\java\tlh\Type\GameItemContainer.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Type\GameItemContainer.java">
 </file>
-<file name="C:\Users\gaetano\TheLostHotel\src\main\java\tlh\Type\Inventory.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Type\Inventory.java">
 </file>
-<file name="C:\Users\gaetano\TheLostHotel\src\main\java\tlh\Type\Room.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Type\Room.java">
 </file>
 </checkstyle>

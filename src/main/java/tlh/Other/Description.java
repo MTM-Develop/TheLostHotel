@@ -75,32 +75,32 @@ public final class Description {
      */
     public static final String DESCRIPTION_LAUNDRY =
             "La stanza dedicata alla pulizia generale dell'hotel. "
-                    + "Vieni attratto dal buon profumo. "
-                    + "Usano lo stesso prodotto che usava tua mamma.";
+            + "Vieni attratto dal buon profumo. "
+            + "Usano lo stesso prodotto che usava tua mamma.";
 
     /**
      * Descrizione della stanza "stanza 53".
      */
     public static final String DESCRIPTION_ROOM_53 =
             "Un'altra stanza dell'hotel. "
-                    + "Pensi che costi molto, lo noti dalla quantità di oggetti "
-                    + "presenti al suo interno. Strano sia aperta...";
+            + "Pensi che costi molto, lo noti dalla quantità di oggetti "
+            + "presenti al suo interno. Strano sia aperta...";
 
     /**
      * Descrizione della stanza "cctv".
      */
     public static final String DESCRIPTION_CCTV =
             "Per essere una CCTV, questa stanza è molto arredata. "
-                    + "Lo si nota dalle tante postazioni. "
-                    + "Forse era anche una sala per lo studio.";
+            + "Lo si nota dalle tante postazioni. "
+            + "Forse era anche una sala per lo studio.";
 
     /**
      * Descrizione della stanza "stanza 63".
      */
     public static final String DESCRIPTION_ROOM_63 =
             "Sei andato a Est e ti trovi in un'altra stanza... Strano no? "
-                    + "Forse la più ambigua di tutte finora. "
-                    + "Lo deduci dalla diversità degli oggetti presenti in essa.";
+            + "Forse la più ambigua di tutte finora. "
+            + "Lo deduci dalla diversità degli oggetti presenti in essa.";
 
     /**
      * Descrizione della stanza "stanza 13".
@@ -113,10 +113,10 @@ public final class Description {
      */
     public static final String DESCRIPTION_GARDEN =
             "Per fortuna sei un tipo curioso e aprendo la finestra "
-                    + "ti ritrovi in questo posto particolare. "
-                    + "Incredibilmente riesci a trovare un po' di verde "
-                    + "in questo hotel. Noti che non è un semplice "
-                    + "giardino dato che ci sono vari attrezzi.";
+            + "ti ritrovi in questo posto particolare. "
+            + "Incredibilmente riesci a trovare un po' di verde "
+            + "in questo hotel. Noti che non è un semplice "
+            + "giardino dato che ci sono vari attrezzi.";
 
     /**
      * Descrizione della stanza "corridoio Clippings".
@@ -352,7 +352,7 @@ public final class Description {
      */
     public static final String LOOK_HALLWAY_CLIPPINGS =
             "Si intravedono tre porte. Sarà il caso di fermarsi a controllarle "
-                    + "o cercare una via di fuga al più presto?";
+            + "o cercare una via di fuga al più presto?";
 
     /**
      * Descrizione più dettagliata della stanza "hall".
@@ -480,8 +480,8 @@ public final class Description {
      */
     public static final String DESCRIPTION_CHANGE_MACHINE =
             "Una macchina cambiamonete ancora in funzione, "
-                    + "qualcuno avrà lasciato "
-                    + "la sua tessera dentro.";
+            + "qualcuno avrà lasciato "
+            + "la sua tessera dentro.";
 
     /**
      * Descrizione dell'oggetto "telecomando".
@@ -508,14 +508,14 @@ public final class Description {
      */
     public static final String DESCRIPTION_FURNACE =
             "Osservando il forno centrale noti una cappa di fumo nero... "
-                    + "Ecco da dove veniva la puzza di bruciato!";
+            + "Ecco da dove veniva la puzza di bruciato!";
 
     /**
      * Descrizione dell'oggetto "divano".
      */
     public static final String DESCRIPTION_SOFA =
             "Un comodo divano verde. "
-                    + "Ideale per rilassarsi anche se un po' consumato.";
+            + "Ideale per rilassarsi anche se un po' consumato.";
 
     /**
      * Descrizione dell'oggetto "pianta".
@@ -921,7 +921,7 @@ public final class Description {
      */
     public static final String DESCRIPTION_STRONGBOX_HALL =
             "Un'altra cassaforte chiusa da una combinazione. "
-                    + "Sembrano essere richieste sempre 6 cifre.";
+            + "Sembrano essere richieste sempre 6 cifre.";
 
     /**
      * Descrizione dell'oggetto "pietra".
@@ -940,13 +940,13 @@ public final class Description {
      */
     public static final String DESCRIPTION_PAPER_BAR =
             "Aprendo il foglio noti un chiaro messaggio:\n"
-                    + "\"L'hotel è gestito da un informatico pazzo, "
-                    + "maniaco della conversione dei numeri.\n"
-                    + "Ha nascosto nella hall una cassaforte "
-                    + "che è bloccata da una combinazione di 6 cifre.\n"
-                    + "Chissà se anche la password di questa cassaforte "
-                    + "sarà frutto della sua pazzia sulla conversione.\"\n"
-                    + "Forse è stato scritto da un dipendente.";
+            + "\"L'hotel è gestito da un informatico pazzo, "
+            + "maniaco della conversione dei numeri.\n"
+            + "Ha nascosto nella hall una cassaforte "
+            + "che è bloccata da una combinazione di 6 cifre.\n"
+            + "Chissà se anche la password di questa cassaforte "
+            + "sarà frutto della sua pazzia sulla conversione.\"\n"
+            + "Forse è stato scritto da un dipendente.";
 
 
     /**
@@ -962,8 +962,8 @@ public final class Description {
      * (sbloccato) della stanza "hall".
      */
     public static final String DESCRIPTION_STRONGBOX_UNLOCKED_HALL =
-            "La cassaforte aperta, forse sei il primo "
-                    + "a trovare la combinazione giusta."; //cambiare
+            "La cassaforte aperta, devi essere davvero un ladro "
+            + "esperto!";
 
     /**
      * Password della cassaforte situata nella stanza "CCTV".
@@ -973,7 +973,7 @@ public final class Description {
     /**
      * Password della cassaforte situata nella stanza "hall".
      */
-    public static final String PASSWORD_STRONGBOX_HALL = "12"; //CAMBIARE
+    public static final String PASSWORD_STRONGBOX_HALL = "573874";
 
     /**
      * Descrizione dell'oggetto contenitore "slot" non appena viene utilizzato.
@@ -1009,8 +1009,8 @@ public final class Description {
      */
     public static final String DESCRIPTION_REMOTE_CONTROL_USABLE_WITH_DROPS =
             "Sei riuscito ad accendere la TV "
-                    + "e sono comparse delle scritte poco chiare! "
-                    + "Per oggi niente film...";
+            + "e sono comparse delle scritte poco chiare! " //forse cambiare
+            + "Per oggi niente film...";
 
     /**
      * Descrizione dell'oggetto contenitore "fisso"
@@ -1108,7 +1108,7 @@ public final class Description {
      * Descrizione dell'oggetto contenitore "telecomando" già aperto.
      */
     public static final String OPENED_DESCRIPTION_REMOTE_CONTROL =
-            "Un telecomando sprovvisto di pile."; //CAMBIARE (non si sa se sono state rimosse le pile, ma solo che lo ha aperto)
+            "Un telecomando con il coperchio delle batterie aperto.";
 
     /**
      * Descrizione dell'oggetto contenitore "vetrina" già aperto.
@@ -1128,7 +1128,7 @@ public final class Description {
      */
     public static final String OPENED_DESCRIPTION_WINDOW53 =
             "La finestra che hai aperto poco fa e dà accesso al giardino."
-                    + "Con il vento si è chiusa.";
+            + "Con il vento si è chiusa.";
 
     /**
      * Descrizione dell'oggetto contenitore "comò" già aperto.

@@ -173,9 +173,9 @@ public class TheLostHotel extends GameManager {
                                             } else {
                                                 if (gameItem.getName().equals("cambiamonete")) {
                                                     if (((GameItemContainer) gameItem).isItemAlreadyIntoIC()) {
-                                                        output.append("DESCRIZIONE CON GETTONE INSERITO\n");
+                                                        output.append("Il cambiamonete in cui hai inserito il gettone. Hai sbancato!\n");
                                                     } else {
-                                                        output.append("DESCRIZIONE NORMALE\n"); //output.append(gameItem.getDescription() + "\n");
+                                                        output.append(gameItem.getDescription() + "\n");
                                                     }
                                                 } else {
                                                     output.append(gameItem.getDescription() + "\n");
@@ -260,7 +260,7 @@ public class TheLostHotel extends GameManager {
                                             }
                                         }
 
-                                        if (continueGame == 2) { //MAPPA DELLA CASSAFORTE DELLA HALL E FOTO DEL FISSO DELLA CCTV
+                                        if (continueGame <= 2) { //MAPPA DELLA CASSAFORTE DELLA HALL E FOTO DEL FISSO DELLA CCTV cambiare
                                             this.getGame().setCurrentRoom(this.getGame().getCurrentRoom().getNorth());
 
                                             output.append("-- " + this.getGame().getCurrentRoom().getName() + " --" + "\n\n");
@@ -859,7 +859,7 @@ public class TheLostHotel extends GameManager {
 
                                                 if (gameItem.getName().equals("gettone")) {
                                                     output.append("Hai inserito l'oggetto " + gameItem.getName()
-                                                            + " in " + iC.getName() + ". Sembra essere caduto qualcosa...\n"); //CAMBIARE
+                                                            + " nel " + iC.getName() + ". Sembra essere caduto qualcosa...\n"); //CAMBIARE
 
                                                     for (GameItem g : ((GameItemContainer) iC).getcItemList().getInventoryList()) {
                                                         g.setPickupable(true);

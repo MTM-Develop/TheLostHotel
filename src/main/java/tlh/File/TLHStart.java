@@ -116,14 +116,6 @@ public class TLHStart {
         map.setItemImage(imgMap);
         g.getInventory().add(map);
 
-        /*GameItem key33 = new GameItem(Description.ID_KEY33, "chiave33",
-                Description.DESCRIPTION_KEY_33);
-        key33.setAlias(new String[]{"chiavi33"});
-        ImageIcon imgKey33 = new ImageIcon(
-                "resources//img//gameItem//key33.png");
-        key33.setItemImage(imgKey33);
-        key33.setConsumable((byte) 1); //cambiare*/
-
         GameItem token = new GameItem(Description.ID_TOKEN, "gettone",
                 Description.DESCRIPTION_TOKEN);
         token.setAlias(new String[]{"token", "moneta"});
@@ -207,7 +199,7 @@ public class TLHStart {
 
         GameItem paperRoom63 = new GameItem(
                 Description.ID_PAPER_63, "foglio63",
-                Description.DESCRIPTION_PAPER_63); //CAMBIARE
+                Description.DESCRIPTION_PAPER_63);
         paperRoom63.setAlias(new String[]{"nota63", "carta63",
                 "note63", "appunti63"});
         ImageIcon imgPaperRoom63 = new ImageIcon(
@@ -217,7 +209,7 @@ public class TLHStart {
 
         GameItem rifle = new GameItemContainer(
                 Description.ID_RIFLE,
-                "fucile", Description.DESCRIPTION_RIFLE); //CAMBIARE
+                "fucile", Description.DESCRIPTION_RIFLE);
         rifle.setAlias(new String[]{"schioppo", "archibugio",
                 "carabina", "doppietta", "moschetto", "arma"});
         ImageIcon imgRifle = new ImageIcon(
@@ -254,7 +246,7 @@ public class TLHStart {
 
         GameItem paperRoomBar = new GameItem(
                 Description.ID_PAPER_BAR, "foglio47",
-                Description.DESCRIPTION_PAPER_BAR); //CAMBIARE
+                Description.DESCRIPTION_PAPER_BAR);
         paperRoomBar.setAlias(new String[]{"nota47", "carta47",
                 "note47", "appunti47"});
         ImageIcon imgPaperRoomBar = new ImageIcon(
@@ -361,13 +353,12 @@ public class TLHStart {
 
         GameItemContainer furnace = new GameItemContainer(
                 Description.ID_FURNACE,
-                "forno", Description.DESCRIPTION_FURNACE); //CAMBIARE
+                "forno", Description.DESCRIPTION_FURNACE);
         furnace.setOpenedDescription(
                 Description.OPENED_DESCRIPTION_FURNACE);
         furnace.setAlias(new String[]{"forni", "fornace", "fornaci"});
         furnace.setLockedBy("");
         furnace.add(paperPass3);
-        //LASCIAMO CHE SI POSSONO INSERIRE OGGETTI NEL FORNO O NO?
 
         GameItemContainer remoteControl = new GameItemContainer(
                 Description.ID_REMOTE_CONTROL, "telecomando",
@@ -516,7 +507,7 @@ public class TLHStart {
                 "finestra", Description.DESCRIPTION_WINDOW53);
         window53.setAlias(new String[]{"vetro"}); //vetrina
         window53.setOpenedDescription(
-                Description.OPENED_DESCRIPTION_WINDOW53); //CAMBIARE
+                Description.OPENED_DESCRIPTION_WINDOW53);
         window53.setiCNotInsertable(true);
 
         GameItemContainer dresser53 = new GameItemContainer(
@@ -526,8 +517,8 @@ public class TLHStart {
                 "canterano", "como"});
         dresser53.setOpenedDescription(
                 Description.OPENED_DESCRIPTION_DRESSER53);
-        dresser53.setLockedBy(""); //cambiare
-        //dresser53.add(socks);
+        dresser53.setLockedBy("");
+        //dresser53.add(socks); //forse aggiungere
 
         GameItemContainer coatHook53 = new GameItemContainer(
                 Description.ID_COATHOOK53, "appendiabiti",
@@ -634,7 +625,7 @@ public class TLHStart {
                 Description.PASSWORD_STRONGBOX_CCTV);
         strongboxCCTV.setPasswordUnlockedDescription(
                 Description.DESCRIPTION_STRONGBOX_UNLOCKED_CCTV);
-        strongboxCCTV.add(keyBar); //CAMBIARE
+        strongboxCCTV.add(keyBar); //CAMBIARE con chiave laundry
 
         GameItemContainer book = new GameItemContainer(
                 Description.ID_BOOK,
@@ -682,9 +673,8 @@ public class TLHStart {
                 "sdraio", Description.DESCRIPTION_DECKCHAIR);
         deckchair.setAlias(new String[]{"lettino"});
         deckchair.setMovedDescription(Description.MOVED_DESCRIPTION_DECKCHAIR);
-        //CAMBIARE DESCRIZIONE
         deckchair.setMovable(true);
-        deckchair.add(key63); //VEDERE SE VA BENE
+        deckchair.add(key63);
         deckchair.setiCNotOpenable(true);
         deckchair.setiCNotInsertable(true);
 
@@ -718,7 +708,7 @@ public class TLHStart {
 
         GameItemContainer windowGarden = new GameItemContainer(
                 Description.ID_WINDOW_GARDEN,
-                "finestra", Description.DESCRIPTION_WINDOW_GARDEN); //CAMBIARE
+                "finestra", Description.DESCRIPTION_WINDOW_GARDEN);
         windowGarden.setAlias(new String[]{"vetro"}); //vetrina
         windowGarden.setiCNotOpenable(true);
         windowGarden.setiCNotInsertable(true);
@@ -760,13 +750,13 @@ public class TLHStart {
 
         GameItemContainer strongboxHall = new GameItemContainer(
                 Description.ID_STRONGBOX_HALL,
-                "cassaforte", Description.DESCRIPTION_STRONGBOX_HALL); //CAMBIARE NEL CASO
+                "cassaforte", Description.DESCRIPTION_STRONGBOX_HALL);
         strongboxHall.setLockedBy("");
         strongboxHall.setPasswordLocked(true);
         strongboxHall.setPasswordLockedBy(
                 Description.PASSWORD_STRONGBOX_HALL);
         strongboxHall.setPasswordUnlockedDescription(
-                Description.DESCRIPTION_STRONGBOX_UNLOCKED_HALL); //CAMBIARE NEL CASO
+                Description.DESCRIPTION_STRONGBOX_UNLOCKED_HALL);
         strongboxHall.add(key13);
 
         //Stanze
@@ -872,7 +862,7 @@ public class TLHStart {
         laundry.addItem(vacuumCleaner);
 
         Room room53 = new Room(Description.ID_ROOM_53, "Stanza 53",
-                Description.DESCRIPTION_ROOM_53); //CAMBIARE
+                Description.DESCRIPTION_ROOM_53);
         room53.setLookDescription(Description.LOOK_ROOM_53);
         room53.setRoomImage(new ImageIcon("resources//img//room//room53.png"));
         room53.setVisitedDescription(Description.DESCRIPTION_VISITED_ROOM_53);
@@ -906,7 +896,7 @@ public class TLHStart {
         cctv.addItem(strongboxCCTV);
 
         Room room63 = new Room(Description.ID_ROOM_63, "Stanza 63",
-                Description.DESCRIPTION_ROOM_63); //CAMBIARE
+                Description.DESCRIPTION_ROOM_63);
         room63.setLookDescription(Description.LOOK_ROOM_63);
         room63.setRoomImage(new ImageIcon("resources//img//room//room63.png"));
         room63.setVisitedDescription(Description.DESCRIPTION_VISITED_ROOM_63);
@@ -917,12 +907,11 @@ public class TLHStart {
         room63.addItem(clock);
 
         Room garden = new Room(Description.ID_GARDEN, "Giardino",
-                Description.DESCRIPTION_GARDEN); //CAMBIARE
+                Description.DESCRIPTION_GARDEN);
         garden.setLookDescription(Description.LOOK_GARDEN);
         garden.setRoomImage(new ImageIcon(
                 "resources//img//room//garden.png"));
         garden.setVisitedDescription(Description.DESCRIPTION_VISITED_GARDEN);
-        //CAMBIARE VISITED
         garden.setImpossibleToAccessDirectly(true);
         garden.addItem(swing);
         garden.addItem(deckchair);
@@ -931,17 +920,17 @@ public class TLHStart {
         garden.addItem(pool);
         garden.addItem(lightPole);
         garden.addItem(windowGarden);
-        garden.setLockedBy(""); //DOVREBBE ANDAR BENE
+        garden.setLockedBy("");
 
         Room hallwayClippings = new Room(
                 Description.ID_HALLWAY_CLIPPINGS, "Corridoio Clippings",
-                Description.DESCRIPTION_HALLWAY_CLIPPINGS); //CAMBIARE
+                Description.DESCRIPTION_HALLWAY_CLIPPINGS);
         hallwayClippings.setLookDescription(
-                Description.LOOK_HALLWAY_CLIPPINGS); //CAMBIARE
+                Description.LOOK_HALLWAY_CLIPPINGS);
         hallwayClippings.setRoomImage(new ImageIcon(
                 "resources//img//room//hallwayClippings.png"));
         hallwayClippings.setVisitedDescription(
-                Description.DESCRIPTION_VISITED_HALLWAY_CLIPPINGS); //CAMBIARE
+                Description.DESCRIPTION_VISITED_HALLWAY_CLIPPINGS);
         hallwayClippings.setLockedBy(""); //chiaveClippings o //VALUTARE
 
         Room hall = new Room(Description.ID_HALL,
@@ -962,7 +951,7 @@ public class TLHStart {
                 Description.DESCRIPTION_ROOM_13); //CAMBIARE
         room13.setLookDescription(Description.LOOK_ROOM_13); //CAMBIARE
         room13.setRoomImage(new ImageIcon(
-                "resources//img//room//room63.png")); //CAMBIARE IMMAGINE
+                "resources//img//room//room13.png")); //CAMBIARE IMMAGINE
         room13.setVisitedDescription(Description.DESCRIPTION_VISITED_ROOM_13);
         //CAMBIARE VISITED
         room13.setLockedBy(key13.getName());
