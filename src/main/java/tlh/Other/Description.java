@@ -924,6 +924,35 @@ public final class Description {
             + "Sembrano essere richieste sempre 6 cifre.";
 
     /**
+     * Descrizione dell'oggetto contenitore "quadro"
+     * della stanza 13.
+     */
+    public static final String DESCRIPTION_PAINT_13 =
+            "Lo stesso quadro presente nella tua stanza "
+            + "all'inizio dell'avventura.";
+
+    /**
+     * Descrizione dell'oggetto contenitore "camino".
+     */
+    public static final String DESCRIPTION_FIREPLACE =
+            "Un camino spento poco fa, "
+            + "si sente puzza di bruciato nell'aria.";
+
+    /**
+     * Descrizione dell'oggetto contenitore "televisione"
+     * della stanza 13.
+     */
+    public static final String DESCRIPTION_TV_13 =
+            "Una televisione spenta, è presente un proiettile.";
+
+    /**
+     * Descrizione dell'oggetto contenitore "orologio"
+     * della stanza 13.
+     */
+    public static final String DESCRIPTION_CLOCK_13 =
+            "Un orologio a muro. Segna ancora le 2.";
+
+    /**
      * Descrizione dell'oggetto "pietra".
      */
     public static final String DESCRIPTION_STONE =
@@ -1647,6 +1676,28 @@ public final class Description {
      * ID dell'oggetto contenitore "cassaforte" della hall.
      */
     public static final int ID_STRONGBOX_HALL = 157;
+
+    /**
+     * ID dell'oggetto contenitore "quadro" della stanza 13.
+     */
+    public static final int ID_PAINT_13 = 158;
+
+    /**
+     * ID dell'oggetto contenitore "camino".
+     */
+    public static final int ID_FIREPLACE = 159;
+
+    /**
+     * ID dell'oggetto contenitore "televisione"
+     * della stanza 13.
+     */
+    public static final int ID_TV_13 = 160;
+
+    /**
+     * ID dell'oggetto contenitore "orologio"
+     * della stanza 13.
+     */
+    public static final int ID_CLOCK_13 = 161;
 
     //ID stanze
     /**

@@ -38,7 +38,7 @@ public abstract class GameManager {
         this.game = g;
 
         // Caricamento della musica
-        music.playSound(url);
+        music.playSound(url, true);
     }
 
     /**

@@ -27,41 +27,33 @@ public class Music {
      *
      * @param url path del file
      */
-    public synchronized void playSound(final String url) {
+    public synchronized void playSound(final String url, boolean first) {
 
-        Thread musicThread = new Thread(new Runnable() {
+        Thread musicThread = new Thread(() -> {
+            try {
 
-            @Override
-            public void run() {
-                try {
+                Clip clip = AudioSystem.getClip();
 
-                    Clip clip = null;
+                // La risorsa del try with resource si chiuderà da sola poiché implementa l'interfaccia AutoCloseable
+                try (AudioInputStream inputStream = AudioSystem.getAudioInputStream(
+                        new BufferedInputStream(new FileInputStream(url)))) {
 
-                    if (!url.equals("resources//music//giygas.wav")) {
+                    if (first) {
+                        clip.open(inputStream);   //acquisizione della risorsa di input
+                        Thread.sleep(3000);  //thread fermo per 3 secondi
 
-                        clip = AudioSystem.getClip();
-
-                        // La risorsa del try with resource si chiuderà da sola poiché implementa l'interfaccia AutoCloseable
-                        try (AudioInputStream inputStream = AudioSystem.getAudioInputStream(
-                                new BufferedInputStream(new FileInputStream(url)))) {
-
-                            clip.open(inputStream);   //acquisizione della risorsa di input
-                            Thread.sleep(3000);  //thread fermo per 3 secondi
-
-                            clip.start();        //parte la musica
-                            clip.loop(Clip.LOOP_CONTINUOUSLY);   //musica in loop all'infinito
-
-                        } catch (IOException e) {
-                            JOptionPane.showMessageDialog(null, " File non trovato: Music Error");
-                        }
+                        clip.start();        //parte la musica
+                        clip.loop(Clip.LOOP_CONTINUOUSLY);   //musica in loop all'infinito
                     } else {
                         //clip.stop();
                     }
 
-                } catch (Exception e) {
-
-                    JOptionPane.showMessageDialog(null, " Music Error");
+                } catch (IOException e) {
+                    JOptionPane.showMessageDialog(null, " File non trovato: Music Error");
                 }
+            } catch (Exception e) {
+
+                JOptionPane.showMessageDialog(null, " Music Error");
             }
         });
 

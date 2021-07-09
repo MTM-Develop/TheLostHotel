@@ -199,7 +199,7 @@ public class TheLostHotel extends GameManager {
                                                 + "Per sbloccarli è necessario inserire il comando:\n\"apri [oggetto contenitore] con [oggetto]\"\n");
                                     }
 
-                                    if (gameItem.getName().equals("quadro") && !((GameItemContainer) gameItem).isMoved()) {
+                                    if (gameItem.getName().equals("quadro") && !((GameItemContainer) gameItem).isMoved() && this.getGame().getCurrentRoom().getName().equals("Stanza 79")) {
                                         output.append("\nN.B: Alcuni oggetti possono essere spostati con il comando:\n"
                                                 + "sposta [oggetto da spostare]\n"
                                                 + "Potresti trovarci qualcosa.\n");
@@ -223,8 +223,13 @@ public class TheLostHotel extends GameManager {
                     } else if (pOutput.containsWordType(WordType.INVENTORY_OBJ) && pOutput.size() > 2) {
                         output.append("Uno alla volta...\n");
                     } else {
-                        output.append("Specifica correttamente l'oggetto che vuoi esaminare, "
-                                + "altrimenti digita \"osserva\" per guardarti intorno.\n");
+
+                        if (this.getGame().getCurrentRoom().getName().equals("Stanza 13") && pOutput.getString(WordType.ERROR).equals("uomini")) { //FARE GAMEITEM?
+                            output.append("Descrizione uomini.\n"); //CAMBIARE
+                        } else {
+                            output.append("Specifica correttamente l'oggetto che vuoi esaminare, "
+                                    + "altrimenti digita \"osserva\" per guardarti intorno.\n");
+                        }
                     }
                     break;
 
@@ -685,7 +690,7 @@ public class TheLostHotel extends GameManager {
                             output.append("Hai lasciato l'oggetto " + gameItem.getName() + ".\n");
 
                             /////////////////////
-                            this.getMusic().playSound("resources//music//giygas.wav"); //ESEMPIO CAMBIO MUSICA
+                            //this.getMusic().playSound("resources//music//music.wav", false); //ESEMPIO CAMBIO MUSICA
                             /////////////////////
 
                         } else {

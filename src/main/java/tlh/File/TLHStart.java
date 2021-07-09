@@ -759,6 +759,36 @@ public class TLHStart {
                 Description.DESCRIPTION_STRONGBOX_UNLOCKED_HALL);
         strongboxHall.add(key13);
 
+        GameItemContainer paint13 = new GameItemContainer(
+                Description.ID_PAINT_13, "quadro",
+                Description.DESCRIPTION_PAINT_13);
+        paint13.setAlias(new String[]{"riquadro", "figura",
+                "pittura", "affresco"});
+        paint13.setiCNotOpenable(true);
+        paint13.setiCNotInsertable(true);
+
+        GameItemContainer fireplace = new GameItemContainer(
+                Description.ID_FIREPLACE, "camino",
+                Description.DESCRIPTION_FIREPLACE);
+        fireplace.setAlias(new String[]{"caminetto", "focolare",
+                "caminetto", "ciminiera"});
+        fireplace.setiCNotOpenable(true);
+        fireplace.setiCNotInsertable(true);
+
+        GameItemContainer tv13 = new GameItemContainer(
+                Description.ID_TV_13, "televisione",
+                Description.DESCRIPTION_TV_13);
+        tv13.setAlias(new String[]{"tv", "televisore"});
+        tv13.setiCNotOpenable(true);
+        tv13.setiCNotInsertable(true);
+
+        GameItemContainer clock13 = new GameItemContainer(
+                Description.ID_CLOCK_13,
+                "orologio", Description.DESCRIPTION_CLOCK_13);
+        clock13.setAlias(new String[]{"pendolo", "sveglia"});
+        clock13.setiCNotOpenable(true);
+        clock13.setiCNotInsertable(true);
+
         //Stanze
         Room room79 = new Room(Description.ID_ROOM_79, "Stanza 79",
                 Description.DESCRIPTION_ROOM_79);
@@ -954,7 +984,11 @@ public class TLHStart {
                 "resources//img//room//room13.png")); //CAMBIARE IMMAGINE
         room13.setVisitedDescription(Description.DESCRIPTION_VISITED_ROOM_13);
         //CAMBIARE VISITED
-        room13.setLockedBy(key13.getName());
+        room13.setLockedBy(""); //key13.getName()
+        room13.addItem(paint13);
+        room13.addItem(fireplace);
+        room13.addItem(tv13);
+        room13.addItem(clock13);
 
         g.setCurrentRoom(room79);
         room79.setNorth(hallway);

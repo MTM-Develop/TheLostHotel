@@ -20,7 +20,6 @@ tlh\Parser\ParserOutput.class
 tlh\Other\GameManager.class
 tlh\Other\GameInteraction.class
 tlh\Other\TheLostHotel.class
-tlh\Other\Music$1.class
 tlh\Type\GameItemContainer.class
 tlh\GUI\MenuGUI$5.class
 tlh\Type\GameItem.class
