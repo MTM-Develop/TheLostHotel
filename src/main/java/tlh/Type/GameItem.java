@@ -98,6 +98,18 @@ public class GameItem implements Serializable {
     private boolean itemCorrectlyAdded = false;
 
     /**
+     * Indica se rappresenta
+     * una persona.
+     */
+    private boolean isPerson = false;
+
+    /**
+     * Indica se rappresenta un oggetto
+     * fondamentale per la vittoria del gioco.
+     */
+    private boolean isKeyToWin = false;
+
+    /**
      * Immagine raffigurante l'oggetto.
      */
     private ImageIcon itemImage;
@@ -402,6 +414,42 @@ public class GameItem implements Serializable {
      */
     public void setItemCorrectlyAdded(boolean itemCorrectlyAdded) {
         this.itemCorrectlyAdded = itemCorrectlyAdded;
+    }
+
+    /**
+     * @return booleano (vero se il gameItem rappresenta
+     * una persona, falso altrimenti).
+     */
+    public boolean isPerson() {
+        return isPerson;
+    }
+
+    /**
+     * Imposta lo stato del gameItem (se rappresenta
+     * una persona o meno).
+     *
+     * @param person
+     */
+    public void setPerson(boolean person) {
+        isPerson = person;
+    }
+
+    /**
+     * @return booleano (vero se il gameItem rappresenta
+     * un oggetto fondamentale per la vittoria del gioco, falso altrimenti).
+     */
+    public boolean isKeyToWin() {
+        return isKeyToWin;
+    }
+
+    /**
+     * Imposta lo stato del gameItem (se rappresenta
+     * un oggetto fondamentale per la vittoria del gioco o meno).
+     *
+     * @param keyToWin
+     */
+    public void setKeyToWin(boolean keyToWin) {
+        isKeyToWin = keyToWin;
     }
 
     /**

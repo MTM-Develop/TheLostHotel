@@ -106,7 +106,12 @@ public final class Description {
      * Descrizione della stanza "stanza 13".
      */
     public static final String DESCRIPTION_ROOM_13 =
-            ""; //CAMBIARE
+            "Chi l'avrebbe mai detto... "
+            + "Dopo ore hai ritrovato i tuoi amici. "
+            + "Ethan è al centro della stanza circondato da uomini armati. "
+            + "John è accasciato a terra, non capisci se stia dormendo o sia morto. "
+            + "Non credi ai tuoi occhi. "
+            + "Cosa dovresti fare?";
 
     /**
      * Descrizione della stanza "giardino".
@@ -208,12 +213,6 @@ public final class Description {
      */
     public static final String DESCRIPTION_VISITED_ROOM_63 =
             "La stanza d'hotel più strana che tu abbia mai visto prima.";
-
-    /**
-     * Descrizione della stanza "stanza 13" già visitata.
-     */
-    public static final String DESCRIPTION_VISITED_ROOM_13 =
-            ""; //CAMBIARE
 
     /**
      * Descrizione della stanza "giardino" già visitata.
@@ -337,7 +336,10 @@ public final class Description {
      * Descrizione più dettagliata della stanza "stanza 13".
      */
     public static final String LOOK_ROOM_13 =
-            ""; //CAMBIARE
+            "Una stanza caratterizata da pareti e pavimento molto cupi. "
+            + "Forse non si tratta di una semplice stanza per pernottare. "
+            + "Presenta un camino, una scrivania con sopra una tv e uno scaffale a muro. "
+            + "Ancora non ti capaciti chi siano quegli uomini vestiti di bianco.";
 
     /**
      * Descrizione più dettagliata della stanza "giardino".
@@ -784,8 +786,8 @@ public final class Description {
      * Descrizione dell'oggetto "fucile".
      */
     public static final String DESCRIPTION_RIFLE =
-            "Un fucile a muro. Sembra risalire alla Seconda Guerra Mondiale. "
-                    + "È enorme. Ma poi che ci fa un fucile carico in una stanza?";
+            "Un fucile. Sembra risalire alla Seconda Guerra Mondiale. "
+                    + "È enorme e sembra carico.";
 
     /**
      * Descrizione dell'oggetto "chiave63".
@@ -977,6 +979,35 @@ public final class Description {
             + "sarà frutto della sua pazzia sulla conversione.\"\n"
             + "Forse è stato scritto da un dipendente.";
 
+    /**
+     * Descrizione della persona "ethan" della stanza 13.
+     */
+    public static final String DESCRIPTION_ETHAN =
+            "\"Eravamo qui solo perchè la nostra auto ha dato problemi... "
+            + "Non siamo dei ladri. "
+            + "Non c'era bisogno di spararlo, "
+            + "bastardi!\"\n"
+            + "Esclama Ethan.";
+
+    /**
+     * Descrizione della persona "john" della stanza 13.
+     */
+    public static final String DESCRIPTION_JOHN =
+            "Il tuo caro vecchio amico John. "
+            + "Doveva essere un semplice viaggio tra amici. "
+            + "Ma adesso non c'è più. "
+            + "Dovresti vendicare quel bravo ragazzo...";
+
+    /**
+     * Descrizione degli "uomini" della stanza 13.
+     */
+    public static final String DESCRIPTION_COPS =
+            "\"Non ci interessa delle tue minchiate! "
+            + "Non potete mettere piede qui dentro. "
+            + "Il tuo amico stava parlando un pò troppo. "
+            + "Il colpo ci è scappato, tanto non lo saprà nessuno "
+            + "e tu farai la stessa fine.\"\n"
+            + "Sbottano gli uomini vestiti di bianco.";
 
     /**
      * Descrizione dell'oggetto contenitore "cassaforte"
@@ -1386,6 +1417,21 @@ public final class Description {
      */
     public static final int ID_PAPER_BAR = 29;
 
+    /**
+     * ID della persona "ethan" della stanza 13.
+     */
+    public static final int ID_ETHAN = 30;
+
+    /**
+     * ID della persona "john" della stanza 13.
+     */
+    public static final int ID_JOHN = 31;
+
+    /**
+     * ID degli "uomini" della stanza 13.
+     */
+    public static final int ID_COPS = 32;
+
     //ID oggetti contenitori
     /**
      * ID dell'oggetto contenitore "mobile".
@@ -1779,6 +1825,18 @@ public final class Description {
      * ID della stanza "hall".
      */
     public static final int ID_HALL = 1015;
+
+    /**
+     * Percorso dell'immagine della stanza 13
+     * in caso di vittoria (fucile presente).
+     */
+    public static final String pathRoom13Win = "resources//img//room//room13Win.png";
+
+    /**
+     * Percorso dell'immagine della stanza 13
+     * in caso di vittoria (fucile assente).
+     */
+    public static final String pathRoom13Lose = "resources//img//room//room13Lose.png";
 
     //Magic Number
     /**

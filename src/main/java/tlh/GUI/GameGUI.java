@@ -1074,15 +1074,22 @@ public class GameGUI extends javax.swing.JFrame {
                     //gInteraction.getGameManager().getGame().getPlayer()
                     gInteraction.getGameManager().getGame().
                             getgTime().getTime());
-            JOptionPane.showMessageDialog(this,
-                    db.topScores(), "OK",
-                    JOptionPane.WARNING_MESSAGE);
+            /*JOptionPane.showMessageDialog(this,
+                    db.topScores(), "Tempo di completamento", JOptionPane.INFORMATION_MESSAGE);*/
+            if(fastText) {
+                appendToPane(jtpReadingArea, db.topScores(), Color.GREEN);
+                enableComponents(false);
+            }
+            else
+            {
+                s.append(db.topScores());
+            }
 
-            //enableComponents(false);
+
             // Lo rimuovo così alcuni oggetti sono utilizzabili
             // (es. esci e salva).
             // P.S. Problema con salva (renderlo notEnabled?).
-            jtCommand.setEditable(false);
+            /*jtCommand.setEditable(false);
             jbEast.setEnabled(false);
             jbNorth.setEnabled(false);
             jbSendCommand.setEnabled(false);
@@ -1090,6 +1097,7 @@ public class GameGUI extends javax.swing.JFrame {
             jbWest.setEnabled(false);
             jmiFastText.setEnabled(false);
             jmiCommands.setEnabled(false);
+            jmiMusic.setEnabled(false);*/
 
         } catch (SQLException | ParseException e) {
             JOptionPane.showMessageDialog(this,

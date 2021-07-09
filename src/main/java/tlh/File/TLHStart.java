@@ -216,6 +216,7 @@ public class TLHStart {
                 "resources//img//gameItem//rifle.png");
         rifle.setItemImage(imgRifle);
         rifle.setPickupable(true);
+        rifle.setKeyToWin(true);
 
         GameItem key63 = new GameItem(Description.ID_KEY63, "chiave63",
                 Description.DESCRIPTION_KEY_63);
@@ -789,6 +790,20 @@ public class TLHStart {
         clock13.setiCNotOpenable(true);
         clock13.setiCNotInsertable(true);
 
+        GameItem ethan = new GameItem(Description.ID_ETHAN, "ethan",
+                Description.DESCRIPTION_ETHAN);
+        ethan.setPerson(true);
+
+        GameItem john = new GameItem(Description.ID_JOHN, "john",
+                Description.DESCRIPTION_JOHN);
+        john.setPerson(true);
+
+        GameItem cops = new GameItem(Description.ID_COPS, "uomini",
+                Description.DESCRIPTION_COPS);
+        cops.setAlias(new String[]{"polizia", "poliziotti"});
+        cops.setPerson(true);
+
+
         //Stanze
         Room room79 = new Room(Description.ID_ROOM_79, "Stanza 79",
                 Description.DESCRIPTION_ROOM_79);
@@ -978,19 +993,20 @@ public class TLHStart {
         hall.addItem(stone);
 
         Room room13 = new Room(Description.ID_ROOM_13, "Stanza 13",
-                Description.DESCRIPTION_ROOM_13); //CAMBIARE
-        room13.setLookDescription(Description.LOOK_ROOM_13); //CAMBIARE
+                Description.DESCRIPTION_ROOM_13);
+        room13.setLookDescription(Description.LOOK_ROOM_13);
         room13.setRoomImage(new ImageIcon(
-                "resources//img//room//room13.png")); //CAMBIARE IMMAGINE
-        room13.setVisitedDescription(Description.DESCRIPTION_VISITED_ROOM_13);
-        //CAMBIARE VISITED
+                "resources//img//room//room13Rifle.png"));
         room13.setLockedBy(""); //key13.getName()
         room13.addItem(paint13);
         room13.addItem(fireplace);
         room13.addItem(tv13);
         room13.addItem(clock13);
+        room13.addItem(ethan);
+        room13.addItem(john);
+        room13.addItem(cops);
 
-        g.setCurrentRoom(room79);
+        g.setCurrentRoom(hall); //stanza79
         room79.setNorth(hallway);
         room79.setWest(bathroom79);
         bathroom79.setEast(room79);

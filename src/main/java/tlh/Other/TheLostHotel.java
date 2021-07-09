@@ -7,6 +7,7 @@ import tlh.Type.GameItem;
 import tlh.Type.GameItemContainer;
 import tlh.Type.Room;
 
+import javax.swing.*;
 import java.util.Iterator;
 import java.util.Objects;
 
@@ -39,6 +40,7 @@ public class TheLostHotel extends GameManager {
         Room room = null;
         GameItem gameItem = null;
         StringBuilder output = new StringBuilder();
+        boolean endGame = false;
 
         // Se un singolo item viene sfruttato nella richiesta lo salva.
         gameItem = this.findGameItem(pOutput);
@@ -65,11 +67,36 @@ public class TheLostHotel extends GameManager {
                                     output.append("Questa stanza è chiusa!\n");
                                 } else {
                                     // Si sposta nella stanza designata.
+                                    boolean winGame = false;
+
+                                    for (GameItem g : this.getGame().getInventory().getInventoryList()) {
+                                        if (g.isKeyToWin()) {
+                                            winGame = true;
+                                        }
+                                    }
+
                                     this.getGame().setCurrentRoom(room);
 
-                                    // Controlla se si è finito il gioco in maniera "lecita"
-                                    //this.advancePlot();
+                                    if(!winGame)
+                                    {
+                                        if(this.getGame().getCurrentRoom().getName().equals("Stanza 13"))
+                                        {
+                                            this.getGame().getCurrentRoom().setRoomImage(new ImageIcon(
+                                                    Description.pathRoom13Lose));
+                                            this.getGame().getCurrentRoom().setDescription("Una volta entrato nella stanza vieni accerchiato "
+                                                    + "da tre uomini armati. Noti con la coda dell'occhio John accasciato al suolo e Ethan "
+                                                    + "circondato e con le pistole puntate addosso. \n"
+                                                    + "\"Ci hanno scambiati per ladri e hanno ucciso il nostro amico.\", esclama Ethan.\n"
+                                                    + "Con un fucile sarebbe andata diversamente...\n"
+                                                    + "Venite portati via e arrestati dagli uomini in bianco.\n\n\n"
+                                                    + "RICEVERAI UNA PENALIZZAZIONE \nSUL PUNTEGGIO FINALE (1 ora).");
+                                            //fine gioco
 
+                                            endGame = true;
+                                            this.getGame().getgTime().setSecondPassed(this.getGame().getgTime().getSecondPassed() + 3600); //penalita di 1 ora
+
+                                        }
+                                    }
                                     output.append("-- " + this.getGame().getCurrentRoom().getName() + " --" + "\n\n");
 
                                     if (!room.isVisited()) {
@@ -78,14 +105,13 @@ public class TheLostHotel extends GameManager {
                                         output.append(this.getGame().getCurrentRoom().getVisitedDescription() + "\n");
                                     }
                                     room.setVisited(true);
+                                    if(endGame)
+                                        output.append(endGame());
                                 }
 
                             } else {
                                 if (room.getName().equals("Giardino") && command.name().equalsIgnoreCase("ovest") && this.getGame().getCurrentRoom().getName().equals("Stanza 63")) {
                                     this.getGame().setCurrentRoom(room);
-
-                                    // Controlla se si è finito il gioco in maniera "lecita"
-                                    //this.advancePlot();
 
                                     output.append("-- " + this.getGame().getCurrentRoom().getName() + " --" + "\n\n");
 
@@ -103,9 +129,6 @@ public class TheLostHotel extends GameManager {
                         } else {
                             if (room.isAnOpenDoor() && command.name().equalsIgnoreCase("sud")) {
                                 this.getGame().setCurrentRoom(room);
-
-                                // Controlla se si è finito il gioco in maniera "lecita"
-                                //this.advancePlot();
 
                                 output.append("-- " + this.getGame().getCurrentRoom().getName() + " --" + "\n\n");
 
@@ -206,7 +229,12 @@ public class TheLostHotel extends GameManager {
                                     }
                                 } else if (gameItem.isPickupable()) {
                                     output.append("Devi prendere l'oggetto prima di poterlo esaminare!\n");
-                                } else {
+                                }
+                                else if(gameItem.isPerson())
+                                {
+                                    output.append(gameItem.getDescription() + "\n");
+                                }
+                                else {
                                     output.append("Specifica correttamente l'oggetto che vuoi esaminare, "
                                             + "altrimenti digita \"osserva\" per guardarti intorno.\n");
                                 }
@@ -221,15 +249,10 @@ public class TheLostHotel extends GameManager {
                             output.append("Uno alla volta...\n");
                         }
                     } else if (pOutput.containsWordType(WordType.INVENTORY_OBJ) && pOutput.size() > 2) {
-                        output.append("Uno alla volta...\n");
+                            output.append("Uno alla volta...\n");
                     } else {
-
-                        if (this.getGame().getCurrentRoom().getName().equals("Stanza 13") && pOutput.getString(WordType.ERROR).equals("uomini")) { //FARE GAMEITEM?
-                            output.append("Descrizione uomini.\n"); //CAMBIARE
-                        } else {
                             output.append("Specifica correttamente l'oggetto che vuoi esaminare, "
-                                    + "altrimenti digita \"osserva\" per guardarti intorno.\n");
-                        }
+                            + "altrimenti digita \"osserva\" per guardarti intorno.\n");
                     }
                     break;
 
@@ -340,6 +363,15 @@ public class TheLostHotel extends GameManager {
                             {
                                 output.append("Non puoi usare questo oggetto ora/così!\n");
                             }
+                        }
+                        else if(this.getGame().getCurrentRoom().getName().equals("Stanza 13") && pOutput.getString(WordType.INVENTORY_OBJ).equals("fucile"))
+                        {
+                            this.getGame().getCurrentRoom().setRoomImage(new ImageIcon(
+                                    Description.pathRoom13Win));
+                            output.append("Hai sparato in aria e hai fatto scappare due dei tre uomini che tenevano in ostaggio Ethan. "
+                                    + "L'altro, ha cercato di fare lo spavaldo della situazione ed hai vendicato il tuo amico. "
+                                    + "Non potevano delle pistoline avere la meglio su un fucile del genere.\n");
+                            //fine gioco.
                         }
                         else if (gameItem.isGIPassword()) {
                             output.append("Specifica correttamente l'oggetto che vuoi usare.\n");
@@ -984,8 +1016,10 @@ public class TheLostHotel extends GameManager {
         }
     }
 
-    private String provaFine() {
-        return "\n\nTEMPO COMPLETAMENTO GIOCO: " + this.getGame().getgTime().getTime();
+    private String endGame() {
+        //JOptionPane.showMessageDialog();
+        this.getGame().getgTime().cancel();
+        return "\n\nTEMPO COMPLETAMENTO GIOCO: " + this.getGame().getgTime().getTime() + "\n";
     }
 
     private GameItem findGameItem(final ParserOutput pOutput) {
