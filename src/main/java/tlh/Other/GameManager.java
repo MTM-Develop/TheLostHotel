@@ -34,7 +34,7 @@ public abstract class GameManager {
      * @param g
      * @param url
      */
-    public GameManager(GameDescription g, String url ) {
+    public GameManager(final GameDescription g, final String url) {
         this.game = g;
 
         // Caricamento della musica
@@ -67,10 +67,10 @@ public abstract class GameManager {
     /**
      * Imposta la musica del gioco.
      *
-     * @param music
+     * @param gMusic
      */
-    public void setMusic(Music music) {
-        this.music = music;
+    public void setMusic(final Music gMusic) {
+        this.music = gMusic;
     }
 
     /**

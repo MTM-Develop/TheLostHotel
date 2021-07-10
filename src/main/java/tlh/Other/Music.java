@@ -18,7 +18,7 @@ import javax.sound.sampled.Mixer;
 import javax.swing.JOptionPane;
 
 /**
- * Classe per inserire la musica
+ * Classe per inserire la musica.
  */
 public class Music {
 
@@ -29,9 +29,9 @@ public class Music {
     private Clip clip;
 
     /**
-     * Fa partire un thread che riproduce la musica, caricandola da file
+     * Fa partire un thread che riproduce la musica, caricandola da file.
      *
-     * @param url path del file
+     * @param url path del file.
      */
     public synchronized void playSound(final String url) {
 
@@ -40,19 +40,23 @@ public class Music {
 
                 clip = AudioSystem.getClip();
 
-                // La risorsa del try with resource si chiuderà da sola poiché implementa l'interfaccia AutoCloseable
-                try (AudioInputStream inputStream = AudioSystem.getAudioInputStream(
+                try (AudioInputStream inputStream =
+                             AudioSystem.getAudioInputStream(
                         new BufferedInputStream(new FileInputStream(url)))) {
 
-                    clip.open(inputStream);   //acquisizione della risorsa di input
+                    clip.open(inputStream);
+                    //acquisizione della risorsa di input
                     Thread.sleep(3000);  //thread fermo per 3 secondi
 
                     clip.start();        //parte la musica
-                    clip.loop(Clip.LOOP_CONTINUOUSLY);   //musica in loop all'infinito
+                    clip.loop(Clip.LOOP_CONTINUOUSLY); //musica in loop
 
                 } catch (IOException e) {
-                    JOptionPane.showMessageDialog(null, " File non trovato: Music Error");
+                    JOptionPane.showMessageDialog(null,
+                            " File non trovato: Music Error");
                 }
+            } catch (RuntimeException e) {
+                throw e;
             } catch (Exception e) {
 
                 JOptionPane.showMessageDialog(null, " Music Error");
@@ -65,12 +69,12 @@ public class Music {
     }
 
     /**
-     * Metodo per mettere al massimo il volume della musica o per mutarla
+     * Metodo per mettere al massimo il volume della musica o per mutarla.
      *
      * @param valueToPlusMinus indica a quanto sarà settato il volume della
-     * musica
+     * musica.
      */
-    public void volumeAbsoluteControl(Double valueToPlusMinus) {
+    public void volumeAbsoluteControl(final Double valueToPlusMinus) {
 
         Mixer.Info[] mixers = AudioSystem.getMixerInfo();
 
@@ -89,12 +93,15 @@ public class Music {
                     line.open();
                 }
 
-                FloatControl volControl = (FloatControl) line.getControl(FloatControl.Type.VOLUME);
+                FloatControl volControl = (FloatControl) line.getControl(
+                        FloatControl.Type.VOLUME);
 
                 Double volumeToCut = valueToPlusMinus;
-                //se volumeToCut è 0.0 allora la musica verrà mutata,se è 1.0 la musica verrà aumentata al massimo
+                // se volumeToCut è 0.0 allora la musica verrà mutata,
+                // se è 1.0 la musica verrà aumentata al massimo.
                 float changedCalc = (float) ((double) volumeToCut);
-                volControl.setValue(changedCalc);  //imposta il volume della musica
+                volControl.setValue(changedCalc);
+                //imposta il volume della musica.
 
             } catch (LineUnavailableException | IllegalArgumentException e) {
             } finally {
@@ -116,9 +123,9 @@ public class Music {
     /**
      * Imposta la clip per la musica del gioco.
      *
-     * @param clip
+     * @param c
      */
-    public void setClip(Clip clip) {
-        this.clip = clip;
+    public void setClip(final Clip c) {
+        this.clip = c;
     }
 }

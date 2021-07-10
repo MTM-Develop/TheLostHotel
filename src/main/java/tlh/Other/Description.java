@@ -109,7 +109,8 @@ public final class Description {
             "Chi l'avrebbe mai detto... "
             + "Dopo ore hai ritrovato i tuoi amici. "
             + "Ethan è al centro della stanza circondato da uomini armati. "
-            + "John è accasciato a terra, non capisci se stia dormendo o sia morto. "
+            + "John è accasciato a terra, non capisci "
+            + "se stia dormendo o sia morto. "
             + "Non credi ai tuoi occhi. "
             + "Cosa dovresti fare?";
 
@@ -338,8 +339,10 @@ public final class Description {
     public static final String LOOK_ROOM_13 =
             "Una stanza caratterizata da pareti e pavimento molto cupi. "
             + "Forse non si tratta di una semplice stanza per pernottare. "
-            + "Presenta un camino, una scrivania con sopra una tv e uno scaffale a muro. "
-            + "Ancora non ti capaciti chi siano quegli uomini vestiti di bianco.";
+            + "Presenta un camino, una scrivania con sopra "
+            + "una tv e uno scaffale a muro. "
+            + "Ancora non ti capaciti chi siano "
+            + "quegli uomini vestiti di bianco.";
 
     /**
      * Descrizione più dettagliata della stanza "giardino".
@@ -362,7 +365,8 @@ public final class Description {
     public static final String LOOK_HALL =
             "Una fantastica hall illuminata. "
                     + "Aria calda proviene delle due ventole di fronte a te. \n"
-                    + "Non sai se considerarlo un bene, perlomeno hai trovato questa stanza. "
+                    + "Non sai se considerarlo un bene, "
+                    + "perlomeno hai trovato questa stanza. "
                     + "Poi si sa, le hall sono sempre vicine all'uscita.\n"
                     + "Sembra essere molto accogliente, "
                     + "lo si nota dalle poltrone situate su entrambi i lati e "
@@ -423,7 +427,8 @@ public final class Description {
      */
     public static final String DESCRIPTION_WARDROBE_79 =
             "Un armadio imponente che occupa mezza stanza!\n"
-                    + "Sembra essere bloccato da qualcosa <<oggetto>> "; //agg ogg
+                    + "Sembra essere bloccato da qualcosa <<oggetto>> ";
+                                                            //agg ogg
 
     /**
      * Descrizione dell'oggetto "quadro".
@@ -787,7 +792,8 @@ public final class Description {
      */
     public static final String DESCRIPTION_PAPER_63 =
             "Un pezzo di carta piegato che hai trovato nel libro. \n"
-                    + "Sembra far riferimento a qualcosa in una particolare stanza! \n"
+                    + "Sembra far riferimento a qualcosa "
+                    + "in una particolare stanza! \n"
                     + "\"C'è una ▓▓ssa▓▓rt▓ nella C▓T▓ \n"
                     + "Hai ▓▓▓▓gno di 4 fog▓▓ per apr▓▓▓▓\"\n"
                     + "Non capisci da chi potrebbe essere stato scritto...";
@@ -901,22 +907,26 @@ public final class Description {
      */
     public static final String DESCRIPTION_CHANDELIER =
             "Un imponente lampadario centrale. "
-                    + "Illumina tutta la hall, che è la stanza più grande che hai visto finora.";
+                    + "Illumina tutta la hall, che è la stanza "
+                    + "più grande che hai visto finora.";
 
     /**
      * Descrizione dell'oggetto contenitore "ampolla" della hall.
      */
     public static final String DESCRIPTION_AMPOULE =
             "Un' ampolla di vetro, l'acqua c'è ancora. "
-                    + "All'esterno è zeppa di polvere, non si vede bene al suo interno. "
-                    + "Noti solo qualche pietra, ci sarà anche qualche pesciolino?";
+                    + "All'esterno è zeppa di polvere, "
+                    + "non si vede bene al suo interno. "
+                    + "Noti solo qualche pietra, "
+                    + "ci sarà anche qualche pesciolino?";
 
     /**
      * Descrizione dell'oggetto contenitore "fisso" della hall.
      */
     public static final String DESCRIPTION_LANDLINE_PHONE =
             "Un telefono fisso che sembra non funzionare. "
-                    + "Pensi sia staccato, lo deduci dal fastidioso suono che emette.";
+                    + "Pensi sia staccato, lo deduci "
+                    + "dal fastidioso suono che emette.";
 
     /**
      * Descrizione dell'oggetto contenitore "pianoforte" della hall.
@@ -924,7 +934,7 @@ public final class Description {
     public static final String DESCRIPTION_PIANO =
             "Un maestoso pianoforte. Forse il pezzo più pregiato dell'hotel. "
                     + "Ecco perchè è stato messo nella hall. "
-                    + "Sicuramente per fare bella figura con i clienti."; //possibilita di aggiungere musica
+                    + "Sicuramente per fare bella figura con i clienti.";
 
     /**
      * Descrizione dell'oggetto contenitore "cassaforte"
@@ -967,7 +977,8 @@ public final class Description {
      * Descrizione dell'oggetto "pietra".
      */
     public static final String DESCRIPTION_STONE =
-            "Una pietra con inciso una sequenza di lettere e numeri leggermente sbiaditi.";
+            "Una pietra con inciso una sequenza di "
+            + "lettere e numeri leggermente sbiaditi.";
 
     /**
      * Descrizione dell'oggetto "foto".
@@ -1094,7 +1105,8 @@ public final class Description {
      */
     public static final String DESCRIPTION_COMPUTER_CCTV_USABLE_WITH_DROPS =
             "Inserendo la chiavetta noti una sequenza di numeri e lettere. "
-                    + "Pensi che possano essere utili, le dovresti salvare da qualche parte.\n"
+                    + "Pensi che possano essere utili, "
+                    + "le dovresti salvare da qualche parte.\n"
                     + "Giusto?";
 
     /**
@@ -1117,7 +1129,8 @@ public final class Description {
      */
     public static final String DESCRIPTION_RADIO_USABLE_WITH_DROPS =
             "\"So.. n...a st..za .3\", "
-                    + "questo è ciò che riesci a malapena a sentire dalla radio! \n"
+                    + "questo è ciò che riesci a malapena "
+                    + "a sentire dalla radio! \n"
                     + "Pensi che si possa trattare di Ethan, "
                     + "sarà meglio trovare la mappa dell'hotel!";
 
@@ -1283,7 +1296,8 @@ public final class Description {
      * già spostato.
      */
     public static final String MOVED_DESCRIPTION_DECKCHAIR =
-            "La sdraio che hai spostato casualmente verso il bordo della piscina.";
+            "La sdraio che hai spostato casualmente "
+            + "verso il bordo della piscina.";
 
     //ID oggetti
     /**
@@ -1861,13 +1875,15 @@ public final class Description {
      * Percorso dell'immagine della stanza 13
      * in caso di vittoria (fucile presente).
      */
-    public static final String pathRoom13Win = "resources//img//room//room13Win.png";
+    public static final String PATH_ROOM13_WIN =
+            "resources//img//room//room13Win.png";
 
     /**
      * Percorso dell'immagine della stanza 13
      * in caso di vittoria (fucile assente).
      */
-    public static final String pathRoom13Lose = "resources//img//room//room13Lose.png";
+    public static final String PATH_ROOM13_LOSE =
+            "resources//img//room//room13Lose.png";
 
     //Magic Number
     /**

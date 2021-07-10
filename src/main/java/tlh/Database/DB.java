@@ -5,6 +5,7 @@
  */
 package tlh.Database;
 
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -37,8 +38,8 @@ public class DB {
     /**
      * Query di selezione.
      */
-    private static final String SELECT_TABLE = "SELECT name, time, vote FROM scores "
-            + "ORDER BY time LIMIT 3";
+    private static final String SELECT_TABLE = "SELECT name, time, "
+            + "vote FROM scores ORDER BY time LIMIT 3";
 
     /**
      * Query di inserimento.
@@ -51,16 +52,26 @@ public class DB {
     /**
      * Si connette al db locale.
      *
-     * @throws SQLException
      */
     public void connect() throws SQLException {
 
-        con = DriverManager.getConnection(
-                "jdbc:h2:./resources/database/scores");
+        Statement stm = null;
 
-        Statement stm = con.createStatement();
-        stm.executeUpdate(CREATE_TABLE);
-        stm.close();
+        try {
+            con = DriverManager.getConnection(
+                    "jdbc:h2:./resources/database/scores");
+
+            stm = con.createStatement();
+            stm.executeUpdate(CREATE_TABLE);
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null,
+                    "Error: " + e.getMessage(),
+                    e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        } finally {
+            if (stm != null) {
+                stm.close();
+            }
+        }
     }
 
 
@@ -81,30 +92,40 @@ public class DB {
      * @param s nome del giocatore.
      * @param t punteggio del giocatore (in questo caso il tempo).
      * @throws SQLException
-     * @throws ParseException
      */
-    public void insertScore(final String s, final String t)
-            throws SQLException, ParseException {
-        reconnect();
-        PreparedStatement prstm = con.prepareStatement(INSERT_VALUES);
-        prstm.setString(1, s);
+    public void insertScore(final String s, final String t) throws SQLException {
 
-        // Converte la stringa in tempo.
-        DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
-        Time time = new Time(dateFormat.parse(
-                t.replaceAll("[hms]", ":")).getTime());
-        prstm.setTime(2, time);
+        PreparedStatement prstm = null;
 
-        String vote = null;
-        if (time.toLocalTime().isBefore(LocalTime.of(0, 20))) {
-            vote = "A+";
-        } else { //CONTINUARE CON ALTRI CONTROLLI SUL VOTO DA DARE
-            vote = "B";
+        try {
+            reconnect();
+            prstm = con.prepareStatement(INSERT_VALUES);
+            prstm.setString(1, s);
+
+            // Converte la stringa in tempo.
+            DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+            Time time = new Time(dateFormat.parse(
+                    t.replaceAll("[hms]", ":")).getTime());
+            prstm.setTime(2, time);
+
+            String vote = null;
+            if (time.toLocalTime().isBefore(LocalTime.of(0, 20))) {
+                vote = "A+";
+            } else { //CONTINUARE CON ALTRI CONTROLLI SUL VOTO DA DARE
+                vote = "B";
+            }
+            prstm.setString(3, vote);
+
+            prstm.executeUpdate();
+        } catch (SQLException | ParseException e) {
+            JOptionPane.showMessageDialog(null,
+                    "Error: " + e.getMessage(),
+                    e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        } finally {
+            if (prstm != null) {
+                prstm.close();
+            }
         }
-        prstm.setString(3, vote);
-
-        prstm.executeUpdate();
-        prstm.close();
     }
 
     /**
@@ -115,25 +136,40 @@ public class DB {
      * @throws SQLException
      */
     public String topScores() throws SQLException {
-        reconnect();
 
-        StringBuilder results = new StringBuilder();
-        Statement stm = con.createStatement();
-        ResultSet resSet = stm.executeQuery(SELECT_TABLE);
+        StringBuilder results = null;
+        Statement stm = null;
+        ResultSet resSet = null;
 
-        while (resSet.next()) {
+        try {
+            reconnect();
 
-            results.append(resSet.getString(1)).
-                    append("\t").
-                    append(resSet.getTime(2)).
-                    append("\t").
-                    append(resSet.getString(3)).
-                    append("\n\n");
+            results = new StringBuilder();
+            stm = con.createStatement();
+            resSet = stm.executeQuery(SELECT_TABLE);
+
+            while (resSet.next()) {
+
+                results.append(resSet.getString(1)).
+                        append("\t").
+                        append(resSet.getTime(2)).
+                        append("\t").
+                        append(resSet.getString(3)).
+                        append("\n\n");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null,
+                    "Error: " + e.getMessage(),
+                    e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        } finally {
+            if (stm != null) {
+                stm.close();
+            }
+            if (resSet != null) {
+                resSet.close();
+            }
         }
-
-        resSet.close();
-        stm.close();
-
+        assert results != null;
         return results.toString();
     }
 

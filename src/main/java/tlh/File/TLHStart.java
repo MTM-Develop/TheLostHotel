@@ -33,7 +33,7 @@ public class TLHStart {
         ImageIcon imgCellphone = new ImageIcon(
                 "resources//img//gameItem//cellphone.png");
         cellphone.setItemImage(imgCellphone);
-        //g.getInventory().add(cellphone);
+        g.getInventory().add(cellphone);
 
         GameItem wallet = new GameItem(Description.ID_WALLET, "portafoglio",
                 Description.DESCRIPTION_WALLET);
@@ -43,7 +43,7 @@ public class TLHStart {
         wallet.setItemImage(imgWallet);
         wallet.setPickupable(true);
         wallet.setConsumable((byte) 1);
-        g.getInventory().add(wallet);
+        //g.getInventory().add(wallet);
 
         GameItem lighter = new GameItem(Description.ID_LIGHTER, "accendino",
                 Description.DESCRIPTION_LIGHTER);
@@ -221,7 +221,6 @@ public class TLHStart {
 
         GameItem key63 = new GameItem(Description.ID_KEY63, "chiave63",
                 Description.DESCRIPTION_KEY_63);
-        //KEY63 o KEY53? XD
         key63.setAlias(new String[]{"chiavi63"});
         ImageIcon imgKey63 = new ImageIcon(
                 "resources//img//gameItem//key63.png");
@@ -230,9 +229,11 @@ public class TLHStart {
 
         GameItem stone = new GameItem(Description.ID_STONE, "pietra",
                 Description.DESCRIPTION_STONE);
-        stone.setAlias(new String[]{"pietre", "pietroline", "pietrine", "pietrolina", "pietrina", "ciottolo"});
+        stone.setAlias(new String[]{"pietre", "pietroline", "sasso",
+                "pietrine", "pietrolina", "pietrina", "ciottolo"});
         ImageIcon imgStone = new ImageIcon(
-                "resources//img//gameItem//stone.png"); //CAMBIARE IMMAGINE (HEX)
+                "resources//img//gameItem//stone.png");
+        //CAMBIARE IMMAGINE (HEX)
         stone.setItemImage(imgStone);
         stone.setPickupable(true);
 
@@ -268,22 +269,22 @@ public class TLHStart {
         GameItem card2 = new GameItem(Description.ID_CARD2,
                 "tessera2", Description.DESCRIPTION_CARD2);
         card2.setAlias(new String[]{"card2", "carta2"});
-        ImageIcon imgCard2= new ImageIcon(
+        ImageIcon imgCard2 = new ImageIcon(
                 "resources//img//gameItem//card1.png"); //CAMBIARE IMMAGINE
         card2.setItemImage(imgCard2);
 
         GameItem card3 = new GameItem(Description.ID_CARD3,
                 "tessera3", Description.DESCRIPTION_CARD3);
         card3.setAlias(new String[]{"card3", "carta3"});
-        ImageIcon imgCard3= new ImageIcon(
+        ImageIcon imgCard3 = new ImageIcon(
                 "resources//img//gameItem//card1.png"); //CAMBIARE IMMAGINE
         card3.setItemImage(imgCard3);
 
-        GameItem keyLaundry = new GameItem(Description.ID_KEY_LAUNDRY, "chiave77",
-                Description.DESCRIPTION_KEY_LAUNDRY);
+        GameItem keyLaundry = new GameItem(Description.ID_KEY_LAUNDRY,
+                "chiave77", Description.DESCRIPTION_KEY_LAUNDRY);
         keyLaundry.setAlias(new String[]{"chiavi77"});
         ImageIcon imgKey77 = new ImageIcon(
-                "resources//img//gameItem//key47.png"); //CAMBIARE CON KEY77
+                "resources//img//gameItem//key77.png");
         keyLaundry.setItemImage(imgKey77);
         keyLaundry.setConsumable((byte) 1);
 
@@ -294,7 +295,7 @@ public class TLHStart {
         furniture79.setOpenedDescription(
                 Description.OPENED_DESCRIPTION_FURNITURE_79);
         furniture79.setAlias(new String[]{"comodino"});
-        furniture79.add(cellphone);
+        furniture79.add(wallet);
         furniture79.setLockedBy("");
 
         GameItemContainer wardrobe79 = new GameItemContainer(
@@ -305,7 +306,7 @@ public class TLHStart {
         wardrobe79.setAlias(new String[]{"guardaroba"});
         //wardrobe79.add(knife);
         wardrobe79.add(lighter);
-        wardrobe79.setLockedBy(wallet.getName());
+        wardrobe79.setLockedBy(wallet.getName()); //CAMBIARE
 
         GameItemContainer paint79 = new GameItemContainer(
                 Description.ID_PAINT_79, "quadro",
@@ -481,7 +482,7 @@ public class TLHStart {
                 Description.DESCRIPTION_CASH_DESK);
         cashDesk.setOpenedDescription(Description.OPENED_DESCRIPTION_CASH_DESK);
         //INSERTABLE SI O NO?
-        cashDesk.setLockedBy(keyBar.getName()); //cambiare con chiave
+        //cashDesk.setLockedBy(keyBar.getName()); //cambiare con chiave
         cashDesk.add(card3);
 
         GameItemContainer computer = new GameItemContainer(
@@ -758,7 +759,7 @@ public class TLHStart {
         ampoule.setiCNotOpenable(true);
         ampoule.setiCNotInsertable(true);
 
-        GameItemContainer landlinePhone= new GameItemContainer(
+        GameItemContainer landlinePhone = new GameItemContainer(
                 Description.ID_LANDLINE_PHONE,
                 "fisso", Description.DESCRIPTION_LANDLINE_PHONE);
         landlinePhone.setAlias(new String[]{"telefono"});
@@ -909,7 +910,7 @@ public class TLHStart {
         bar.setLookDescription(Description.LOOK_BAR);
         bar.setRoomImage(new ImageIcon("resources//img//room//bar.png"));
         bar.setVisitedDescription(Description.DESCRIPTION_VISITED_BAR);
-        bar.setLockedBy(""); //chiave47 bar
+        //bar.setLockedBy(keyBar.getName()); //chiave47 bar
         bar.addItem(table);
         bar.addItem(glass);
         bar.addItem(cup);
@@ -1059,7 +1060,6 @@ public class TLHStart {
         laundry.setSouth(hallwayClippings);
         laundry.setNorth(hall);
         hall.setWest(room13);
-        room13.setEast(hall); //Si può rimuovere perchè la Hall è di tipo "ImpossibleToAccessDirectly" e anche perchè è la stanza finale
         //apportare modifiche
 
         //Comandi

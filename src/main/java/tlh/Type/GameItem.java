@@ -392,10 +392,10 @@ public class GameItem implements Serializable {
      * Imposta lo stato del gameItem (se è indispensabile
      * al fine del proseguio del gioco o meno).
      *
-     * @param indispensable
+     * @param gIndispensable
      */
-    public void setIndispensable(boolean indispensable) {
-        this.indispensable = indispensable;
+    public void setIndispensable(final boolean gIndispensable) {
+        this.indispensable = gIndispensable;
     }
 
     /**
@@ -410,10 +410,10 @@ public class GameItem implements Serializable {
      * Imposta lo stato del gameItem (se è stato
      * correttamente inserito nell'inventario o meno).
      *
-     * @param itemCorrectlyAdded
+     * @param iCorrectlyAdded
      */
-    public void setItemCorrectlyAdded(boolean itemCorrectlyAdded) {
-        this.itemCorrectlyAdded = itemCorrectlyAdded;
+    public void setItemCorrectlyAdded(final boolean iCorrectlyAdded) {
+        this.itemCorrectlyAdded = iCorrectlyAdded;
     }
 
     /**
@@ -428,10 +428,10 @@ public class GameItem implements Serializable {
      * Imposta lo stato del gameItem (se rappresenta
      * una persona o meno).
      *
-     * @param person
+     * @param p
      */
-    public void setPerson(boolean person) {
-        isPerson = person;
+    public void setPerson(final boolean p) {
+        isPerson = p;
     }
 
     /**
@@ -446,10 +446,10 @@ public class GameItem implements Serializable {
      * Imposta lo stato del gameItem (se rappresenta
      * un oggetto fondamentale per la vittoria del gioco o meno).
      *
-     * @param keyToWin
+     * @param kToWin
      */
-    public void setKeyToWin(boolean keyToWin) {
-        isKeyToWin = keyToWin;
+    public void setKeyToWin(final boolean kToWin) {
+        isKeyToWin = kToWin;
     }
 
     /**
@@ -488,7 +488,7 @@ public class GameItem implements Serializable {
      * @return booleano (vero se i due gameItem sono uguali, falso altrimenti).
      */
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
         if (this == o) {
             return true;
         }

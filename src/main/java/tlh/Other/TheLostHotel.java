@@ -84,7 +84,7 @@ public class TheLostHotel extends GameManager {
                                             this.getMusic().getClip().stop();
                                             this.getMusic().playSound("resources//music//soundtrackRoom13.wav");
                                             this.getGame().getCurrentRoom().setRoomImage(new ImageIcon(
-                                                    Description.pathRoom13Lose));
+                                                    Description.PATH_ROOM13_LOSE));
                                             this.getGame().getCurrentRoom().setDescription("Una volta entrato nella stanza vieni accerchiato "
                                                     + "da tre uomini armati. Noti con la coda dell'occhio John accasciato al suolo e Ethan "
                                                     + "circondato e con le pistole puntate addosso. \n"
@@ -390,7 +390,7 @@ public class TheLostHotel extends GameManager {
                         else if(this.getGame().getCurrentRoom().getName().equals("Stanza 13") && pOutput.getString(WordType.INVENTORY_OBJ).equals("fucile"))
                         {
                             this.getGame().getCurrentRoom().setRoomImage(new ImageIcon(
-                                    Description.pathRoom13Win));
+                                    Description.PATH_ROOM13_WIN));
                             output.append("Hai sparato in aria e hai fatto scappare due dei tre uomini che tenevano in ostaggio Ethan. "
                                     + "L'altro, ha cercato di fare lo spavaldo della situazione ed hai vendicato il tuo amico. "
                                     + "Non potevano delle pistoline avere la meglio su un fucile del genere.\n\n");

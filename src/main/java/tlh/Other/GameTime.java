@@ -16,6 +16,11 @@ import java.util.TimerTask;
 public class GameTime implements Serializable {
 
     /**
+     * Numero di versione utilizzato per la deserializzazione.
+     */
+    static final long serialVersionUID = 42L;
+
+    /**
      * Tempo calcolato in secondi.
      */
     private int secondPassed = 0;
@@ -23,17 +28,17 @@ public class GameTime implements Serializable {
     /**
      * Timer per lo scorrere del tempo.
      */
-    private Timer time;
+    private transient Timer time;
 
     /**
      * Task che fa avanzare il Timer.
      */
-    private TimerTask task;
+    private transient TimerTask task;
 
     /**
      * Indica se il timer è attivo o meno.
      */
-    private boolean active = false;
+    private transient boolean active = false;
 
     /**
      * Istanzia timer e task, imposta lo stato
