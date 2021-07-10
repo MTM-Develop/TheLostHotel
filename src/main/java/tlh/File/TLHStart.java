@@ -94,12 +94,12 @@ public class TLHStart {
         handle.setItemImage(imgHandle);
         handle.setConsumable((byte) 1);
 
-        GameItem cardGameRoom = new GameItem(Description.ID_CARD_GAMEROOM,
-                "tessera", Description.DESCRIPTION_CARD_GAMEROOM);
-        cardGameRoom.setAlias(new String[]{"card", "carta"});
-        ImageIcon imgCardGameRoom = new ImageIcon(
-                "resources//img//gameItem//card.png");
-        cardGameRoom.setItemImage(imgCardGameRoom);
+        GameItem card1 = new GameItem(Description.ID_CARD_GAMEROOM,
+                "tessera1", Description.DESCRIPTION_CARD_GAMEROOM);
+        card1.setAlias(new String[]{"card1", "carta1"});
+        ImageIcon imgCard1 = new ImageIcon(
+                "resources//img//gameItem//card1.png");
+        card1.setItemImage(imgCard1);
 
         GameItem batteries = new GameItem(Description.ID_BATTERIES, "batterie",
                 Description.DESCRIPTION_BATTERIES);
@@ -130,7 +130,7 @@ public class TLHStart {
         ImageIcon imgKey47 = new ImageIcon(
                 "resources//img//gameItem//key47.png");
         keyBar.setItemImage(imgKey47);
-        keyBar.setConsumable((byte) 1);
+        keyBar.setConsumable((byte) 2);
 
         GameItem usb = new GameItem(Description.ID_USB, "usb",
                 Description.DESCRIPTION_USB);
@@ -265,19 +265,27 @@ public class TLHStart {
         key13.setItemImage(imgKey13);
         key13.setConsumable((byte) 1);
 
-        GameItem card2 = new GameItem(Description.ID_CARD2, //CARD 2 da capire dove mettere (aggiungere nel nome e descrizione)
-                "tessera2", Description.DESCRIPTION_CARD2); //CAMBIARE
+        GameItem card2 = new GameItem(Description.ID_CARD2,
+                "tessera2", Description.DESCRIPTION_CARD2);
         card2.setAlias(new String[]{"card2", "carta2"});
         ImageIcon imgCard2= new ImageIcon(
-                "resources//img//gameItem//card.png"); //CAMBIARE IMMAGINE
-        card2.setItemImage(imgCard2); //CAPIRE DOVE AGGIUNGERLA
+                "resources//img//gameItem//card1.png"); //CAMBIARE IMMAGINE
+        card2.setItemImage(imgCard2);
 
-        GameItem card3 = new GameItem(Description.ID_CARD3, //CARD 3 da capire dove mettere (aggiungere nel nome e descrizione)
-                "tessera3", Description.DESCRIPTION_CARD3); //CAMBIARE
+        GameItem card3 = new GameItem(Description.ID_CARD3,
+                "tessera3", Description.DESCRIPTION_CARD3);
         card3.setAlias(new String[]{"card3", "carta3"});
         ImageIcon imgCard3= new ImageIcon(
-                "resources//img//gameItem//card.png"); //CAMBIARE IMMAGINE
-        card3.setItemImage(imgCard3); //CAPIRE DOVE AGGIUNGERLA
+                "resources//img//gameItem//card1.png"); //CAMBIARE IMMAGINE
+        card3.setItemImage(imgCard3);
+
+        GameItem keyLaundry = new GameItem(Description.ID_KEY_LAUNDRY, "chiave77",
+                Description.DESCRIPTION_KEY_LAUNDRY);
+        keyLaundry.setAlias(new String[]{"chiavi77"});
+        ImageIcon imgKey77 = new ImageIcon(
+                "resources//img//gameItem//key47.png"); //CAMBIARE CON KEY77
+        keyLaundry.setItemImage(imgKey77);
+        keyLaundry.setConsumable((byte) 1);
 
         //ItemContainer e oggetti della stanza
         GameItemContainer furniture79 = new GameItemContainer(
@@ -348,7 +356,7 @@ public class TLHStart {
                 Description.DESCRIPTION_CHANGE_MACHINE); //CAMBIAREEE
         changeMachine.setAlias(new String[]{"cambiovaluta", "cambiavaluta"});
         //changeMachine.setdescr //DESCRIZIONE SECONDARIA
-        changeMachine.add(cardGameRoom);
+        changeMachine.add(card1);
         changeMachine.setiCNotInsertable(true);
         changeMachine.setiCNotOpenable(true);
 
@@ -473,8 +481,8 @@ public class TLHStart {
                 Description.DESCRIPTION_CASH_DESK);
         cashDesk.setOpenedDescription(Description.OPENED_DESCRIPTION_CASH_DESK);
         //INSERTABLE SI O NO?
-        cashDesk.setLockedBy(""); //cambiare con chiave
-        cashDesk.add(paperPass1);
+        cashDesk.setLockedBy(keyBar.getName()); //cambiare con chiave
+        cashDesk.add(card3);
 
         GameItemContainer computer = new GameItemContainer(
                 Description.ID_COMPUTER, "computer",
@@ -534,7 +542,7 @@ public class TLHStart {
         dresser53.setOpenedDescription(
                 Description.OPENED_DESCRIPTION_DRESSER53);
         dresser53.setLockedBy("");
-        //dresser53.add(socks); //forse aggiungere
+        dresser53.add(card2);
 
         GameItemContainer coatHook53 = new GameItemContainer(
                 Description.ID_COATHOOK53, "appendiabiti",
@@ -641,7 +649,7 @@ public class TLHStart {
                 Description.PASSWORD_STRONGBOX_CCTV);
         strongboxCCTV.setPasswordUnlockedDescription(
                 Description.DESCRIPTION_STRONGBOX_UNLOCKED_CCTV);
-        strongboxCCTV.add(keyBar); //CAMBIARE con chiave laundry
+        strongboxCCTV.add(keyLaundry);
 
         GameItemContainer book = new GameItemContainer(
                 Description.ID_BOOK,
@@ -901,7 +909,7 @@ public class TLHStart {
         bar.setLookDescription(Description.LOOK_BAR);
         bar.setRoomImage(new ImageIcon("resources//img//room//bar.png"));
         bar.setVisitedDescription(Description.DESCRIPTION_VISITED_BAR);
-        bar.setLockedBy(""); //chiave o //VALUTARE
+        bar.setLockedBy(""); //chiave47 bar
         bar.addItem(table);
         bar.addItem(glass);
         bar.addItem(cup);

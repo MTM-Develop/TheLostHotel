@@ -81,6 +81,8 @@ public class TheLostHotel extends GameManager {
                                     {
                                         if(this.getGame().getCurrentRoom().getName().equals("Stanza 13"))
                                         {
+                                            this.getMusic().getClip().stop();
+                                            this.getMusic().playSound("resources//music//soundtrackRoom13.wav");
                                             this.getGame().getCurrentRoom().setRoomImage(new ImageIcon(
                                                     Description.pathRoom13Lose));
                                             this.getGame().getCurrentRoom().setDescription("Una volta entrato nella stanza vieni accerchiato "
@@ -88,15 +90,22 @@ public class TheLostHotel extends GameManager {
                                                     + "circondato e con le pistole puntate addosso. \n"
                                                     + "\"Ci hanno scambiati per ladri e hanno ucciso il nostro amico.\", esclama Ethan.\n"
                                                     + "Con un fucile sarebbe andata diversamente...\n"
-                                                    + "Venite portati via e arrestati dagli uomini in bianco.\n\n\n"
-                                                    + "RICEVERAI UNA PENALIZZAZIONE \nSUL PUNTEGGIO FINALE (1 ora).");
+                                                    + "Venite portati via e arrestati dagli uomini in bianco.\n\n"
+                                                    + "RICEVERAI UNA PENALIZZAZIONE (1 ora).");
                                             //fine gioco
 
                                             endGame = true;
                                             this.getGame().getgTime().setSecondPassed(this.getGame().getgTime().getSecondPassed() + 3600); //penalita di 1 ora
 
                                         }
+                                    } else
+                                    {
+                                        if(this.getGame().getCurrentRoom().getName().equals("Stanza 13")) {
+                                            this.getMusic().getClip().stop();
+                                            this.getMusic().playSound("resources//music//soundtrackRoom13.wav");
+                                        }
                                     }
+
                                     output.append("-- " + this.getGame().getCurrentRoom().getName() + " --" + "\n\n");
 
                                     if (!room.isVisited()) {
@@ -307,7 +316,19 @@ public class TheLostHotel extends GameManager {
                                                     + "Controlla di aver tutto con te, non si potrà più tornare indietro!\n");
                                         }
                                     }
-                                } else {
+                                } else if(gameItem.getName().equals("pianoforte"))
+                                {
+                                    this.getMusic().getClip().stop();
+                                    this.getMusic().playSound("resources//music//soundtrackPiano.wav");
+                                    output.append("Ah, sei anche un pianista? Complimenti!\n");
+                                }
+                                else if(gameItem.getName().equals("chitarra"))
+                                {
+                                    this.getMusic().getClip().stop();
+                                    this.getMusic().playSound("resources//music//soundtrackGuitar.wav");
+                                    output.append("Hai avuto un passato da chitarrista?\n");
+                                }
+                                else {
                                     output.append("Non puoi usare questo oggetto (ora/così).\n");
                                 }
                             } else {
@@ -372,7 +393,7 @@ public class TheLostHotel extends GameManager {
                                     Description.pathRoom13Win));
                             output.append("Hai sparato in aria e hai fatto scappare due dei tre uomini che tenevano in ostaggio Ethan. "
                                     + "L'altro, ha cercato di fare lo spavaldo della situazione ed hai vendicato il tuo amico. "
-                                    + "Non potevano delle pistoline avere la meglio su un fucile del genere.\n");
+                                    + "Non potevano delle pistoline avere la meglio su un fucile del genere.\n\n");
                             //fine gioco.
                             output.append(endGame());
                         }
@@ -724,11 +745,6 @@ public class TheLostHotel extends GameManager {
 
                             output.append("Hai lasciato l'oggetto " + gameItem.getName() + ".\n");
 
-                            /////////////////////
-                            this.getMusic().getClip().stop();
-                            this.getMusic().playSound("resources//music//Hurt.wav"); //ESEMPIO CAMBIO MUSICA
-                            /////////////////////
-
                         } else {
                             output.append("Specifica correttamente l'oggetto che vuoi lasciare.\n");
                         }
@@ -1017,7 +1033,7 @@ public class TheLostHotel extends GameManager {
     private String endGame() {
         //JOptionPane.showMessageDialog();
         this.getGame().getgTime().cancel();
-        return "\n\nTEMPO COMPLETAMENTO GIOCO: " + this.getGame().getgTime().getTime() + "\n";
+        return "TEMPO COMPLETAMENTO GIOCO: " + this.getGame().getgTime().getTime() + "\n";
     }
 
     private GameItem findGameItem(final ParserOutput pOutput) {

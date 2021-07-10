@@ -882,7 +882,7 @@ public class GameGUI extends javax.swing.JFrame {
 
     private void jmiMusicActionPerformed() {
         if (this.jmiMusic.getState()) {
-            menu.getgInteraction().getGameManager().getMusic().volumeAbsoluteControl(0.0); //CAMBIARE (0.1)
+            menu.getgInteraction().getGameManager().getMusic().volumeAbsoluteControl(0.1); //CAMBIARE (0.1)
         } else {
             menu.getgInteraction().getGameManager().getMusic().volumeAbsoluteControl(0.0);
         }

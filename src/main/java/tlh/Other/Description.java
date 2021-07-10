@@ -541,9 +541,9 @@ public final class Description {
                     + "▓▓▓: Stanza▓9;\n" //stanza79
                     + "▓▓▓: ▓▓▓▓▓▓▓▓▓▓▓▓;\n" //gaming room
                     + "NO▓▓: Stanza ▓▓▓a▓;\n" //relax
-                    + "OVEST: ▓▓▓▓▓▓▓oio ▓▓▓▓;\n" //corridoio Columbus
-                    + "▓▓▓: ▓▓▓▓▓79;\n" //bagno79
-                    + "▓▓▓: ▓▓▓▓▓▓▓3;\"\n"; //stanza amico .3
+                    + "OVEST: ▓▓▓▓▓▓oio ▓▓▓▓bus;\n" //corridoio Columbus
+                    + "OVEST - ▓▓D: ▓▓▓▓▓▓53;\n" //stanza53
+                    + "▓▓E▓▓ - NORD: ▓▓▓▓▓▓oio Clippings;\"\n";
 
     /**
      * Descrizione dell'oggetto "foglio" del "corridoio Columbus".
@@ -559,16 +559,20 @@ public final class Description {
                     + "Dalla scrittura sembra trattarsi di John."; //da ultimare
 
     /**
-     * Descrizione dell'oggetto "tessera" della "Stanza".
+     * Descrizione dell'oggetto "tessera2" della "Stanza 53".
      */
     public static final String DESCRIPTION_CARD2 =
-            ""; //CAMBIARE
+            "Una tessera magnetica dimenticata "
+                    + "da qualcuno nel comò della stanza 53. \n"
+                    + "Potrebbe sbloccare altre stanze!";
 
     /**
-     * Descrizione dell'oggetto "tessera" della "Stanza".
+     * Descrizione dell'oggetto "tessera3" del "Bar Columbus".
      */
     public static final String DESCRIPTION_CARD3 =
-            ""; //CAMBIARE
+            "Una tessera magnetica dimenticata "
+                    + "da qualcuno nella cassa del Bar Columbus. \n"
+                    + "Potrebbe sbloccare stanze con accesso riservato!";
 
     /**
      * Descrizione dell'oggetto contenitore "tavolo".
@@ -827,15 +831,14 @@ public final class Description {
      */
     public static final String DESCRIPTION_MIRROR =
             "Ti avvicini ad esso per capire quello che sta succedendo. "
-                    + "Ti ci allontani per lo stesso motivo.";
+            + "Ti ci allontani per lo stesso motivo.";
 
     /**
      * Descrizione dell'oggetto contenitore "chitarra".
      */
     public static final String DESCRIPTION_GUITAR =
             "Una chitarra in legno, appena accordata. "
-                    + "Manca il plettro. In un'altra situazione "
-                    + "magari ti saresti fermato a suonarla...";
+            + "Sarebbe il caso di fermarsi a suonare?";
 
     /**
      * Descrizione dell'oggetto contenitore "orologio".
@@ -848,7 +851,7 @@ public final class Description {
      */
     public static final String DESCRIPTION_SWING =
             "Un'altalena di ferro, è un po' arruginita "
-                    + "ma molto carina nel contesto.";
+            + "ma molto carina nel contesto.";
 
     /**
      * Descrizione dell'oggetto contenitore "sdraio".
@@ -1014,6 +1017,13 @@ public final class Description {
             + "Il colpo ci è scappato, tanto non lo saprà nessuno "
             + "e tu farai la stessa fine.\"\n"
             + "Sbottano gli uomini vestiti di bianco.";
+
+    /**
+     * Descrizione dell'oggetto "chiave77".
+     */
+    public static final String DESCRIPTION_KEY_LAUNDRY =
+            "Una chiave differente dalle altre, su cui è inciso il 77. "
+            + "Potrebbe aprire una stanza del Corridoio Clippings.";
 
     /**
      * Descrizione dell'oggetto contenitore "cassaforte"
@@ -1439,14 +1449,19 @@ public final class Description {
     public static final int ID_COPS = 32;
 
     /**
-     * ID dell'oggetto "tessera" della stanza CAMBIARE.
+     * ID dell'oggetto "tessera2" della stanza 53.
      */
-    public static final int ID_CARD2 = 33; //CAMBIARE
+    public static final int ID_CARD2 = 33;
 
     /**
-     * ID dell'oggetto "tessera" della stanza CAMBIARE.
+     * ID dell'oggetto "tessera3" del Bar Columbus.
      */
-    public static final int ID_CARD3 = 34; //CAMBIARE
+    public static final int ID_CARD3 = 34;
+
+    /**
+     * ID dell'oggetto "chiave77".
+     */
+    public static final int ID_KEY_LAUNDRY = 35;
 
     //ID oggetti contenitori
     /**
