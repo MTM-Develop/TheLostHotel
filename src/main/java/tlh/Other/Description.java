@@ -409,6 +409,21 @@ public final class Description {
                     + "Avresti voluto aprirci le birre in vacanza!";
 
     /**
+     * Descrizione dell'oggetto "fermacapelli".
+     */
+    public static final String DESCRIPTION_HAIR_GRIP =
+            "Un fermacapelli in un mobiletto. \n"
+            + "La ragazza che ha avuto questa stanza era proprio disordinata... \n"
+            + "Sembra essere perfetto per aprire l'armadio.";
+
+    /**
+     * Descrizione dell'oggetto "chiave17".
+     */
+    public static final String DESCRIPTION_KEY_GAMEROOM =
+            "Una chiave su cui è inciso il 17. "
+            + "Potrebbe aprire una stanza del Corridoio.";
+
+    /**
      * Descrizione dell'oggetto "chiave79".
      */
     public static final String DESCRIPTION_KEY_79 =
@@ -525,6 +540,13 @@ public final class Description {
             + "Ideale per rilassarsi anche se un po' consumato.";
 
     /**
+     * Descrizione dell'oggetto "cuscino".
+     */
+    public static final String DESCRIPTION_PILLOW =
+            "Un cuscino verde. "
+                    + "A momenti si mimetizza con il divano.";
+
+    /**
      * Descrizione dell'oggetto "pianta".
      */
     public static final String DESCRIPTION_PLANT =
@@ -561,7 +583,7 @@ public final class Description {
                     + "che mi conduce ad ▓▓▓ ce▓ta ▓▓▓▓za..\n"
                     + "La chiamano sta▓▓▓ ▓3, sembra s▓▓▓▓▓a!\n"
                     + "13 ge▓n▓io  03:▓1\" \n"
-                    + "Dalla scrittura sembra trattarsi di John."; //da ultimare
+                    + "Dalla scrittura sembra trattarsi di John.";
 
     /**
      * Descrizione dell'oggetto "tessera2" della "Stanza 53".
@@ -708,7 +730,7 @@ public final class Description {
      * Descrizione dell'oggetto contenitore "comò" della stanza 53.
      */
     public static final String DESCRIPTION_DRESSER53 =
-            "Un grande comò in legno. Presenta 4 cassetti ma sono bloccati.";
+            "Un grande comò in legno. Presenta 4 cassetti.";
 
     /**
      * Descrizione dell'oggetto contenitore "stampante".
@@ -1253,9 +1275,6 @@ public final class Description {
     public static final String OPENED_DESCRIPTION_BOOK =
             "Il libro con la copertina arancione aperto.";
 
-    //public static final String OPENED_DESCRIPTION_BOX =
-    // "La scatola che conteneva <<oggetto>>";
-
     //Descrizione relativa ai gameItemContainer già spostati
     /**
      * Descrizione dell'oggetto contenitore "quadro" già spostato.
@@ -1298,6 +1317,21 @@ public final class Description {
     public static final String MOVED_DESCRIPTION_DECKCHAIR =
             "La sdraio che hai spostato casualmente "
             + "verso il bordo della piscina.";
+
+    /**
+     * Descrizione dell'oggetto contenitore "cuscino"
+     * già spostato.
+     */
+    public static final String MOVED_DESCRIPTION_PILLOW =
+            "Il comodo cuscino che hai spostato poco fa. "
+            + "Ora è sul pavimento.";
+
+    /**
+     * Descrizione dell'oggetto contenitore "specchio"
+     * già spostato.
+     */
+    public static final String MOVED_DESCRIPTION_MIRROR =
+            "Lo specchio che hai spostato poco fa.";
 
     //ID oggetti
     /**
@@ -1476,6 +1510,16 @@ public final class Description {
      * ID dell'oggetto "chiave77".
      */
     public static final int ID_KEY_LAUNDRY = 35;
+
+    /**
+     * ID dell'oggetto "fermacapelli".
+     */
+    public static final int ID_HAIR_GRIP = 36;
+
+    /**
+     * ID dell'oggetto "chiave17".
+     */
+    public static final int ID_KEY_GAMEROOM = 37;
 
     //ID oggetti contenitori
     /**
@@ -1790,6 +1834,11 @@ public final class Description {
      */
     public static final int ID_CLOCK_13 = 161;
 
+    /**
+     * ID dell'oggetto contenitore "cuscino".
+     */
+    public static final int ID_PILLOW = 162;
+
     //ID stanze
     /**
      * ID della stanza "stanza 79".
@@ -1889,7 +1938,7 @@ public final class Description {
     /**
      * Indica la capacità massima dell'inventario del giocatore.
      */
-    public static final int MAX_INV_CAPACITY = 8; //CAMBIARE
+    public static final int MAX_INV_CAPACITY = 13;
 
     /**
      * Indica la lunghezza di String[] tokens (valore 4 per dei controlli)

@@ -43,7 +43,7 @@ public class TLHStart {
         wallet.setItemImage(imgWallet);
         wallet.setPickupable(true);
         wallet.setConsumable((byte) 1);
-        //g.getInventory().add(wallet);
+        g.getInventory().add(wallet);
 
         GameItem lighter = new GameItem(Description.ID_LIGHTER, "accendino",
                 Description.DESCRIPTION_LIGHTER);
@@ -51,7 +51,7 @@ public class TLHStart {
         ImageIcon imgLighter = new ImageIcon(
                 "resources//img//gameItem//lighter.png");
         lighter.setItemImage(imgLighter);
-        //g.getInventory().add(accendino);
+        g.getInventory().add(lighter);
 
         GameItem paperHallwayColumbus = new GameItem(
                 Description.ID_PAPER_HALLWAY_COLUMBUS, "foglio",
@@ -69,7 +69,7 @@ public class TLHStart {
                 "resources//img//gameItem//drink.png");
         drink.setItemImage(imgDrink);
         drink.setConsumable((byte) 1);
-        //g.getInventory().add(drink);
+        g.getInventory().add(drink);
 
         GameItem knife = new GameItem(Description.ID_KNIFE, "coltellino",
                 Description.DESCRIPTION_KNIFE);
@@ -78,6 +78,22 @@ public class TLHStart {
                 "resources//img//gameItem//knife.png");
         knife.setItemImage(imgKnife);
         g.getInventory().add(knife);
+
+        GameItem hairGrip = new GameItem(Description.ID_HAIR_GRIP, "fermacapelli",
+                Description.DESCRIPTION_HAIR_GRIP);
+        hairGrip.setAlias(new String[]{"ferretto", "fermaglio"});
+        ImageIcon imgHairGrip = new ImageIcon(
+                "resources//img//gameItem//hairGrip.png");
+        hairGrip.setItemImage(imgHairGrip);
+        hairGrip.setConsumable((byte) 1);
+
+        GameItem keyGameRoom = new GameItem(Description.ID_KEY_GAMEROOM,
+                "chiave17", Description.DESCRIPTION_KEY_GAMEROOM);
+        keyGameRoom.setAlias(new String[]{"chiavi17"});
+        ImageIcon imgKey17 = new ImageIcon(
+                "resources//img//gameItem//key17.png");
+        keyGameRoom.setItemImage(imgKey17);
+        keyGameRoom.setConsumable((byte) 1);
 
         GameItem key79 = new GameItem(Description.ID_KEY79, "chiave79",
                 Description.DESCRIPTION_KEY_79);
@@ -94,13 +110,6 @@ public class TLHStart {
         handle.setItemImage(imgHandle);
         handle.setConsumable((byte) 1);
 
-        GameItem card1 = new GameItem(Description.ID_CARD_GAMEROOM,
-                "tessera1", Description.DESCRIPTION_CARD_GAMEROOM);
-        card1.setAlias(new String[]{"card1", "carta1"});
-        ImageIcon imgCard1 = new ImageIcon(
-                "resources//img//gameItem//card1.png");
-        card1.setItemImage(imgCard1);
-
         GameItem batteries = new GameItem(Description.ID_BATTERIES, "batterie",
                 Description.DESCRIPTION_BATTERIES);
         batteries.setAlias(new String[]{"pila", "batteria", "pile"});
@@ -114,7 +123,6 @@ public class TLHStart {
         map.setAlias(new String[]{"cartina", "planimetria", "icnografia"});
         ImageIcon imgMap = new ImageIcon("resources//img//gameItem//map.png");
         map.setItemImage(imgMap);
-        g.getInventory().add(map);
 
         GameItem token = new GameItem(Description.ID_TOKEN, "gettone",
                 Description.DESCRIPTION_TOKEN);
@@ -122,7 +130,7 @@ public class TLHStart {
         ImageIcon imgToken = new ImageIcon(
                 "resources//img//gameItem//token.png");
         token.setItemImage(imgToken);
-        token.setConsumable((byte) 1); //da usare
+        token.setConsumable((byte) 1);
 
         GameItem keyBar = new GameItem(Description.ID_KEY_BAR, "chiave47",
                 Description.DESCRIPTION_KEY_BAR);
@@ -204,7 +212,6 @@ public class TLHStart {
                 "note63", "appunti63"});
         ImageIcon imgPaperRoom63 = new ImageIcon(
                 "resources//img//gameItem//paperHallwayColumbus.png");
-        //CAMBIARE IMMAGINE NEL CASO
         paperRoom63.setItemImage(imgPaperRoom63);
 
         GameItem rifle = new GameItemContainer(
@@ -217,7 +224,6 @@ public class TLHStart {
         rifle.setItemImage(imgRifle);
         rifle.setPickupable(true);
         rifle.setKeyToWin(true);
-        g.getInventory().add(rifle); //RIMUOVERE
 
         GameItem key63 = new GameItem(Description.ID_KEY63, "chiave63",
                 Description.DESCRIPTION_KEY_63);
@@ -233,7 +239,6 @@ public class TLHStart {
                 "pietrine", "pietrolina", "pietrina", "ciottolo"});
         ImageIcon imgStone = new ImageIcon(
                 "resources//img//gameItem//stone.png");
-        //CAMBIARE IMMAGINE (HEX)
         stone.setItemImage(imgStone);
         stone.setPickupable(true);
 
@@ -266,18 +271,25 @@ public class TLHStart {
         key13.setItemImage(imgKey13);
         key13.setConsumable((byte) 1);
 
+        GameItem card1 = new GameItem(Description.ID_CARD_GAMEROOM,
+                "tessera1", Description.DESCRIPTION_CARD_GAMEROOM);
+        card1.setAlias(new String[]{"card1", "carta1"});
+        ImageIcon imgCard1 = new ImageIcon(
+                "resources//img//gameItem//card1.png");
+        card1.setItemImage(imgCard1);
+
         GameItem card2 = new GameItem(Description.ID_CARD2,
                 "tessera2", Description.DESCRIPTION_CARD2);
         card2.setAlias(new String[]{"card2", "carta2"});
         ImageIcon imgCard2 = new ImageIcon(
-                "resources//img//gameItem//card1.png"); //CAMBIARE IMMAGINE
+                "resources//img//gameItem//card2.png");
         card2.setItemImage(imgCard2);
 
         GameItem card3 = new GameItem(Description.ID_CARD3,
                 "tessera3", Description.DESCRIPTION_CARD3);
         card3.setAlias(new String[]{"card3", "carta3"});
         ImageIcon imgCard3 = new ImageIcon(
-                "resources//img//gameItem//card1.png"); //CAMBIARE IMMAGINE
+                "resources//img//gameItem//card3.png");
         card3.setItemImage(imgCard3);
 
         GameItem keyLaundry = new GameItem(Description.ID_KEY_LAUNDRY,
@@ -295,7 +307,7 @@ public class TLHStart {
         furniture79.setOpenedDescription(
                 Description.OPENED_DESCRIPTION_FURNITURE_79);
         furniture79.setAlias(new String[]{"comodino"});
-        furniture79.add(wallet);
+        furniture79.add(hairGrip);
         furniture79.setLockedBy("");
 
         GameItemContainer wardrobe79 = new GameItemContainer(
@@ -304,9 +316,8 @@ public class TLHStart {
         wardrobe79.setOpenedDescription(
                 Description.OPENED_DESCRIPTION_WARDROBE_79);
         wardrobe79.setAlias(new String[]{"guardaroba"});
-        //wardrobe79.add(knife);
-        wardrobe79.add(lighter);
-        wardrobe79.setLockedBy(wallet.getName()); //CAMBIARE
+        wardrobe79.add(keyGameRoom);
+        wardrobe79.setLockedBy(hairGrip.getName());
 
         GameItemContainer paint79 = new GameItemContainer(
                 Description.ID_PAINT_79, "quadro",
@@ -354,10 +365,9 @@ public class TLHStart {
 
         GameItemContainer changeMachine = new GameItemContainer(
                 Description.ID_CHANGE_MACHINE, "cambiamonete",
-                Description.DESCRIPTION_CHANGE_MACHINE); //CAMBIAREEE
+                Description.DESCRIPTION_CHANGE_MACHINE);
         changeMachine.setAlias(new String[]{"cambiovaluta", "cambiavaluta"});
-        //changeMachine.setdescr //DESCRIZIONE SECONDARIA
-        changeMachine.add(card1);
+        changeMachine.add(card2);
         changeMachine.setiCNotInsertable(true);
         changeMachine.setiCNotOpenable(true);
 
@@ -405,13 +415,22 @@ public class TLHStart {
                 "televisione", Description.DESCRIPTION_TV);
         tv.setAlias(new String[]{"tv", "televisore"});
         tv.setiCNotOpenable(true);
-        tv.setiCNotInsertable(true); //CAPIRE SE INSERIRE USB O MENO
+        tv.setiCNotInsertable(true);
 
         GameItemContainer sofa = new GameItemContainer(Description.ID_SOFA,
                 "divano", Description.DESCRIPTION_SOFA);
         sofa.setAlias(new String[]{"poltrona", "sofa"});
         sofa.setiCNotOpenable(true);
         sofa.setiCNotInsertable(true);
+
+        GameItemContainer pillow = new GameItemContainer(Description.ID_PILLOW,
+                "cuscino", Description.DESCRIPTION_PILLOW);
+        pillow.setAlias(new String[]{"cuscini", "cuscinetto", "cuscinetti"});
+        pillow.setMovedDescription(Description.MOVED_DESCRIPTION_PILLOW);
+        pillow.setiCNotOpenable(true);
+        pillow.setMovable(true);
+        pillow.setiCNotInsertable(true);
+        pillow.add(card1);
 
         GameItemContainer plantRelaxRoom = new GameItemContainer(
                 Description.ID_PLANT_RELAX_ROOM, "pianta",
@@ -427,14 +446,6 @@ public class TLHStart {
         fan.setMovable(true);
         fan.setiCNotInsertable(true);
         fan.add(paperPass2);
-
-        /*GameItemContainer box = new GameItemContainer(456456456,
-        "scatola", "boooob");
-        box.setOpenedDescription("booooobb2");
-        box.setAlias(new String[]{"scatolone", "cartone", "box",
-        "contenitore"});
-        box.setLockedBy("");
-        box.add(drink);*/
 
         GameItemContainer plantHallwayColumbus = new GameItemContainer(
                 Description.ID_PLANT_HALLWAY_COLUMBUS, "pianta",
@@ -470,20 +481,20 @@ public class TLHStart {
                 Description.ID_DISPLAY_CASE, "vetrina",
                 Description.DESCRIPTION_DISPLAY_CASE);
         displayCase.setAlias(new String[]{"espositore", "cristalliera",
-                "bacheca", "teca"}); //vetriera, vetrata
+                "bacheca", "teca"});
         displayCase.setOpenedDescription(
                 Description.OPENED_DESCRIPTION_DISPLAY_CASE);
-        //INSERTABLE SI O NO?
         displayCase.setLockedBy(handle.getName());
-        displayCase.add(paperRoomBar);
+        displayCase.add(paperPass1);
+        displayCase.setiCNotInsertable(true);
 
         GameItemContainer cashDesk = new GameItemContainer(
                 Description.ID_CASH_DESK, "cassa",
                 Description.DESCRIPTION_CASH_DESK);
         cashDesk.setOpenedDescription(Description.OPENED_DESCRIPTION_CASH_DESK);
-        //INSERTABLE SI O NO?
-        //cashDesk.setLockedBy(keyBar.getName()); //cambiare con chiave
+        cashDesk.setLockedBy(keyBar.getName());
         cashDesk.add(card3);
+        cashDesk.setiCNotInsertable(true);
 
         GameItemContainer computer = new GameItemContainer(
                 Description.ID_COMPUTER, "computer",
@@ -511,7 +522,7 @@ public class TLHStart {
                 "televisione", Description.DESCRIPTION_TV_53);
         tv53.setAlias(new String[]{"tv", "televisore"});
         tv53.setiCNotOpenable(true);
-        //tv53.setiCNotInsertable(true);
+        tv53.setiCNotInsertable(true);
 
         GameItemContainer shoeRack = new GameItemContainer(
                 Description.ID_SHOE_RACK,
@@ -530,7 +541,7 @@ public class TLHStart {
         GameItemContainer window53 = new GameItemContainer(
                 Description.ID_WINDOW53,
                 "finestra", Description.DESCRIPTION_WINDOW53);
-        window53.setAlias(new String[]{"vetro"}); //vetrina
+        window53.setAlias(new String[]{"vetro"});
         window53.setOpenedDescription(
                 Description.OPENED_DESCRIPTION_WINDOW53);
         window53.setiCNotInsertable(true);
@@ -543,7 +554,7 @@ public class TLHStart {
         dresser53.setOpenedDescription(
                 Description.OPENED_DESCRIPTION_DRESSER53);
         dresser53.setLockedBy("");
-        dresser53.add(card2);
+        dresser53.add(keyBar);
 
         GameItemContainer coatHook53 = new GameItemContainer(
                 Description.ID_COATHOOK53, "appendiabiti",
@@ -577,9 +588,8 @@ public class TLHStart {
                 "cristalliera", "armadio", "vetrata"});
         glassCabinet.setOpenedDescription(
                 Description.OPENED_DESCRIPTION_GLASS_CABINET);
-        //INSERTABLE SI O NO?
-        glassCabinet.setLockedBy(""); //aggiungere qualcosa;
-        //glassCabinet.add();
+        glassCabinet.setLockedBy("");
+        glassCabinet.add(paperRoomBar);
 
         GameItemContainer tableCCTV = new GameItemContainer(
                 Description.ID_TABLE_CCTV,
@@ -631,15 +641,15 @@ public class TLHStart {
                 Description.ID_WASHING_MACHINE, "lavatrice",
                 Description.DESCRIPTION_WASHING_MACHINE);
         washingMachine.setAlias(new String[]{"lavatrici", "lavabiancheria"});
-        washingMachine.setiCNotOpenable(true); //DA VALUTARE
-        washingMachine.setiCNotInsertable(true); //DA VALUTARE
+        washingMachine.setiCNotOpenable(true);
+        washingMachine.setiCNotInsertable(true);
 
         GameItemContainer vacuumCleaner = new GameItemContainer(
                 Description.ID_VACUUM_CLEANER, "aspirapolvere",
                 Description.DESCRIPTION_VACUUM_CLEANER);
         vacuumCleaner.setAlias(new String[]{"aspiratore"});
-        vacuumCleaner.setiCNotOpenable(true); //DA VALUTARE
-        vacuumCleaner.setiCNotInsertable(true); //DA VALUTARE
+        vacuumCleaner.setiCNotOpenable(true);
+        vacuumCleaner.setiCNotInsertable(true);
 
         GameItemContainer strongboxCCTV = new GameItemContainer(
                 Description.ID_STRONGBOX_CCTV,
@@ -667,9 +677,10 @@ public class TLHStart {
                 Description.ID_MIRROR,
                 "specchio", Description.DESCRIPTION_MIRROR);
         mirror.setAlias(new String[]{"riflesso", "vetro"});
-        mirror.setiCNotOpenable(true);
+        mirror.setMovedDescription(Description.MOVED_DESCRIPTION_MIRROR);
         mirror.setiCNotInsertable(true);
-        //MOVABLE?
+        mirror.setMovable(true);
+        mirror.add(map);
 
         GameItemContainer guitar = new GameItemContainer(
                 Description.ID_GUITAR,
@@ -681,10 +692,8 @@ public class TLHStart {
                 Description.ID_CLOCK,
                 "orologio", Description.DESCRIPTION_CLOCK);
         clock.setAlias(new String[]{"pendolo", "sveglia"});
-        //aggiungere descrizione per il move
         clock.setiCNotOpenable(true);
         clock.setiCNotInsertable(true);
-        clock.setMovable(true); ///////VALUTARE
 
         GameItemContainer swing = new GameItemContainer(
                 Description.ID_SWING,
@@ -699,9 +708,8 @@ public class TLHStart {
         deckchair.setAlias(new String[]{"lettino"});
         deckchair.setMovedDescription(Description.MOVED_DESCRIPTION_DECKCHAIR);
         deckchair.setMovable(true);
-        deckchair.add(key63);
-        deckchair.setiCNotOpenable(true);
         deckchair.setiCNotInsertable(true);
+        deckchair.add(key63);
 
         GameItemContainer exerciseBike = new GameItemContainer(
                 Description.ID_EXERCISE_BIKE,
@@ -734,7 +742,7 @@ public class TLHStart {
         GameItemContainer windowGarden = new GameItemContainer(
                 Description.ID_WINDOW_GARDEN,
                 "finestra", Description.DESCRIPTION_WINDOW_GARDEN);
-        windowGarden.setAlias(new String[]{"vetro"}); //vetrina
+        windowGarden.setAlias(new String[]{"vetro"});
         windowGarden.setiCNotOpenable(true);
         windowGarden.setiCNotInsertable(true);
 
@@ -848,7 +856,6 @@ public class TLHStart {
         bathroom79.setVisitedDescription(
                 Description.DESCRIPTION_VISITED_BATHROOM_79);
         bathroom79.addItem(furnitureBathroom79);
-        bathroom79.addItem(batteries);
 
         Room hallway = new Room(Description.ID_HALLWAY, "Corridoio",
                 Description.DESCRIPTION_HALLWAY);
@@ -856,7 +863,7 @@ public class TLHStart {
         hallway.setRoomImage(new ImageIcon(
                 "resources//img//room//hallway.png"));
         hallway.setVisitedDescription(Description.DESCRIPTION_VISITED_HALLWAY);
-        hallway.setLockedBy(""); //chiave79
+        hallway.setLockedBy(key79.getName());
 
         Room gameRoom = new Room(Description.ID_GAMEROOM, "Sala giochi",
                 Description.DESCRIPTION_GAMEROOM);
@@ -865,7 +872,7 @@ public class TLHStart {
                 "resources//img//room//gameRoom.png"));
         gameRoom.setVisitedDescription(
                 Description.DESCRIPTION_VISITED_GAMEROOM);
-        gameRoom.setLockedBy(""); //VALUTARE
+        gameRoom.setLockedBy(keyGameRoom.getName());
         gameRoom.addItem(slot);
         gameRoom.addItem(changeMachine);
 
@@ -875,7 +882,7 @@ public class TLHStart {
         kitchen.setRoomImage(new ImageIcon(
                 "resources//img//room//kitchen.png"));
         kitchen.setVisitedDescription(Description.DESCRIPTION_VISITED_KITCHEN);
-        kitchen.setLockedBy(""/*cardGameRoom.getName()*/);
+        kitchen.setLockedBy(card1.getName());
         kitchen.addItem(radio);
         kitchen.addItem(furnace);
 
@@ -886,12 +893,13 @@ public class TLHStart {
                 "resources//img//room//relaxRoom.png"));
         relaxRoom.setVisitedDescription(
                 Description.DESCRIPTION_VISITED_RELAX_ROOM);
-        gameRoom.setLockedBy(""); //VALUTARE
+        relaxRoom.setLockedBy("");
         relaxRoom.addItem(remoteControl);
         relaxRoom.addItem(tv);
         relaxRoom.addItem(sofa);
         relaxRoom.addItem(plantRelaxRoom);
-        relaxRoom.addItem(fan); //CHIAVE USB
+        relaxRoom.addItem(fan);
+        relaxRoom.addItem(pillow);
 
         Room hallwayColumbus = new Room(Description.ID_HALLWAY_COLUMBUS,
                 "Corridoio Columbus",
@@ -901,22 +909,20 @@ public class TLHStart {
                 "resources//img//room//hallwayColumbus.png"));
         hallwayColumbus.setVisitedDescription(
                 Description.DESCRIPTION_VISITED_HALLWAY_COLUMBUS);
-        hallwayColumbus.setLockedBy(""); //chiaveColombus o //VALUTARE
+        hallwayColumbus.setLockedBy("");
         hallwayColumbus.addItem(plantHallwayColumbus);
-        //hallwayOvest.addItem(box);
 
         Room bar = new Room(Description.ID_BAR, "Bar Columbus",
                 Description.DESCRIPTION_BAR);
         bar.setLookDescription(Description.LOOK_BAR);
         bar.setRoomImage(new ImageIcon("resources//img//room//bar.png"));
         bar.setVisitedDescription(Description.DESCRIPTION_VISITED_BAR);
-        //bar.setLockedBy(keyBar.getName()); //chiave47 bar
+        bar.setLockedBy(keyBar.getName());
         bar.addItem(table);
         bar.addItem(glass);
         bar.addItem(cup);
         bar.addItem(displayCase);
         bar.addItem(cashDesk);
-        //contenitore apribile con la chiave della cassa*/
 
         Room laundry = new Room(Description.ID_LAUNDRY, "Lavanderia",
                 Description.DESCRIPTION_LAUNDRY);
@@ -924,8 +930,7 @@ public class TLHStart {
         laundry.setRoomImage(new ImageIcon(
                 "resources//img//room//laundry.png"));
         laundry.setVisitedDescription(Description.DESCRIPTION_VISITED_LAUNDRY);
-        laundry.setLockedBy(""/*cardGameRoom.getName()*/);
-        //chiave che trova nella cassaforte o //VALUTARE
+        laundry.setLockedBy(keyLaundry.getName());
         laundry.addItem(fanLaundry);
         laundry.addItem(washingMachine);
         laundry.addItem(vacuumCleaner);
@@ -944,7 +949,7 @@ public class TLHStart {
         room53.addItem(window53);
         room53.addItem(coatHook53);
         room53.addItem(dresser53);
-        room53.setLockedBy(key63.getName()); //o key53?
+        room53.setLockedBy(key63.getName());
         room53.setAnOpenDoor(true);
 
         Room cctv = new Room(Description.ID_CCTV, "CCTV",
@@ -953,8 +958,7 @@ public class TLHStart {
         cctv.setRoomImage(new ImageIcon(
                 "resources//img//room//cctv.png"));
         cctv.setVisitedDescription(Description.DESCRIPTION_VISITED_CCTV);
-        cctv.setLockedBy(""/*cardGameRoom.getName()*/);
-        //VALUTARE TESSERA (DIVERSI GRADI IN BASE ALL'IMPORTANZA DELLA STANZA)
+        cctv.setLockedBy(card3.getName());
         cctv.addItem(printer);
         cctv.addItem(whiteboard);
         cctv.addItem(glassCabinet);
@@ -1000,7 +1004,7 @@ public class TLHStart {
                 "resources//img//room//hallwayClippings.png"));
         hallwayClippings.setVisitedDescription(
                 Description.DESCRIPTION_VISITED_HALLWAY_CLIPPINGS);
-        hallwayClippings.setLockedBy(""); //chiaveClippings o //VALUTARE
+        hallwayClippings.setLockedBy(card2.getName());
 
         Room hall = new Room(Description.ID_HALL,
                 "Hall", Description.DESCRIPTION_HALL);
@@ -1021,7 +1025,7 @@ public class TLHStart {
         room13.setLookDescription(Description.LOOK_ROOM_13);
         room13.setRoomImage(new ImageIcon(
                 "resources//img//room//room13Rifle.png"));
-        room13.setLockedBy(""); //key13.getName()
+        room13.setLockedBy(key13.getName());
         room13.addItem(paint13);
         room13.addItem(fireplace);
         room13.addItem(tv13);
@@ -1060,7 +1064,6 @@ public class TLHStart {
         laundry.setSouth(hallwayClippings);
         laundry.setNorth(hall);
         hall.setWest(room13);
-        //apportare modifiche
 
         //Comandi
         Command north = new Command("nord", CommandType.NORD);

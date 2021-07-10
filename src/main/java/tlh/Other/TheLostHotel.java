@@ -299,7 +299,7 @@ public class TheLostHotel extends GameManager {
                                             }
                                         }
 
-                                        if (continueGame <= 2) { //MAPPA DELLA CASSAFORTE DELLA HALL E FOTO DEL FISSO DELLA CCTV cambiare
+                                        if (continueGame == 2) { //MAPPA DELLA CASSAFORTE DELLA HALL E FOTO DEL FISSO DELLA CCTV
                                             this.getGame().setCurrentRoom(this.getGame().getCurrentRoom().getNorth());
 
                                             output.append("-- " + this.getGame().getCurrentRoom().getName() + " --" + "\n\n");
@@ -1033,7 +1033,7 @@ public class TheLostHotel extends GameManager {
     private String endGame() {
         //JOptionPane.showMessageDialog();
         this.getGame().getgTime().cancel();
-        return "TEMPO COMPLETAMENTO GIOCO: " + this.getGame().getgTime().getTime() + "\n";
+        return "TEMPO COMPLETAMENTO GIOCO: " + this.getGame().getgTime().getTime();
     }
 
     private GameItem findGameItem(final ParserOutput pOutput) {

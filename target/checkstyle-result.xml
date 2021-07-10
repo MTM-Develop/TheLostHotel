@@ -1,50 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="8.29">
-<file name="C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\Database\DB.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Database\DB.java">
 <error line="1" severity="error" message="Missing package-info.java file." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck"/>
 <error line="8" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - javax.swing.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
-<error line="96" severity="error" message="Line is longer than 80 characters (found 81)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="112" column="61" severity="error" message="&apos;20&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
-<error line="117" column="29" severity="error" message="&apos;3&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
-<error line="157" column="49" severity="error" message="&apos;3&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="50" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="98" severity="error" message="Line is longer than 80 characters (found 81)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="113" column="61" severity="error" message="&apos;20&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="115" column="68" severity="error" message="&apos;30&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="115" column="73" severity="error" message="&apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="117" column="68" severity="error" message="&apos;35&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="117" column="73" severity="error" message="&apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="119" column="68" severity="error" message="&apos;40&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="119" column="73" severity="error" message="&apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="121" column="72" severity="error" message="&apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="123" column="68" severity="error" message="&apos;20&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="123" column="73" severity="error" message="&apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="128" column="29" severity="error" message="&apos;3&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="168" column="49" severity="error" message="&apos;3&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="196" column="5" severity="error" message="Class &apos;DB&apos; looks like designed for extension (can be subclassed), but the method &apos;getVote&apos; does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class &apos;DB&apos; final or making the method &apos;getVote&apos; static/final/abstract/empty, or adding allowed annotation for the method." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="196" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+<error line="200" column="5" severity="error" message="Class &apos;DB&apos; looks like designed for extension (can be subclassed), but the method &apos;setVote&apos; does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class &apos;DB&apos; final or making the method &apos;setVote&apos; static/final/abstract/empty, or adding allowed annotation for the method." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="200" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+<error line="200" column="25" severity="error" message="Parameter vote should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="200" column="32" severity="error" message="&apos;vote&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
 </file>
-<file name="C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\File\File.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\File\File.java">
 <error line="1" severity="error" message="Missing package-info.java file." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck"/>
 </file>
-<file name="C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\File\TLHStart.java">
-<error line="27" column="5" severity="error" message="Method length is 1,090 lines (max allowed is 150)." source="com.puppycrawl.tools.checkstyle.checks.sizes.MethodLengthCheck"/>
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\File\TLHStart.java">
+<error line="27" column="5" severity="error" message="Method length is 1,093 lines (max allowed is 150)." source="com.puppycrawl.tools.checkstyle.checks.sizes.MethodLengthCheck"/>
+<error line="82" severity="error" message="Line is longer than 80 characters (found 82)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 </file>
-<file name="C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\GUI\GameGUI.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\GUI\GameGUI.java">
 <error line="1" severity="error" message="Missing package-info.java file." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck"/>
 <error line="40" column="8" severity="error" message="Unused import - java.text.ParseException." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
 <error line="179" column="5" severity="error" message="Method length is 360 lines (max allowed is 150)." source="com.puppycrawl.tools.checkstyle.checks.sizes.MethodLengthCheck"/>
-<error line="886" column="54" severity="error" message="&apos;0.1&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="880" column="54" severity="error" message="&apos;0.1&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="1080" severity="error" message="Line is longer than 80 characters (found 86)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="1080" column="50" severity="error" message="&apos;+&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 </file>
-<file name="C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\GUI\InventoryGUI.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\GUI\InventoryGUI.java">
 </file>
-<file name="C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\GUI\MenuGUI.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\GUI\MenuGUI.java">
 </file>
-<file name="C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\Other\Description.java">
-<error line="1" severity="error" message="File length is 2,618 lines (max allowed is 2,000)." source="com.puppycrawl.tools.checkstyle.checks.sizes.FileLengthCheck"/>
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Other\Description.java">
+<error line="1" severity="error" message="File length is 2,667 lines (max allowed is 2,000)." source="com.puppycrawl.tools.checkstyle.checks.sizes.FileLengthCheck"/>
 <error line="1" severity="error" message="Missing package-info.java file." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck"/>
+<error line="416" severity="error" message="Line is longer than 80 characters (found 83)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 </file>
-<file name="C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\Other\GameDescription.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Other\GameDescription.java">
 </file>
-<file name="C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\Other\GameInteraction.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Other\GameInteraction.java">
 </file>
-<file name="C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\Other\GameManager.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Other\GameManager.java">
 </file>
-<file name="C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\Other\GameTime.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Other\GameTime.java">
 </file>
-<file name="C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\Other\Main.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Other\Main.java">
 <error line="5" column="1" severity="error" message="Utility classes should not have a public or default constructor." source="com.puppycrawl.tools.checkstyle.checks.design.HideUtilityClassConstructorCheck"/>
 </file>
-<file name="C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\Other\MenuManager.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Other\MenuManager.java">
 </file>
-<file name="C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\Other\Music.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Other\Music.java">
 <error line="49" column="34" severity="error" message="&apos;3000&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
 </file>
-<file name="C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\Other\TheLostHotel.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Other\TheLostHotel.java">
 <error line="10" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - javax.swing.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
 <error line="22" column="53" severity="error" message="Parameter url should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="29" severity="error" message="Line is longer than 80 characters (found 81)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
@@ -154,7 +174,7 @@
 <error line="296" severity="error" message="Line is longer than 80 characters (found 109)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="297" severity="error" message="Line is longer than 80 characters (found 98)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="298" column="62" severity="error" message="&apos;++&apos; is preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceBeforeCheck"/>
-<error line="302" severity="error" message="Line is longer than 80 characters (found 137)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="302" severity="error" message="Line is longer than 80 characters (found 128)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="303" severity="error" message="Line is longer than 80 characters (found 118)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="305" severity="error" message="Line is longer than 80 characters (found 126)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="307" severity="error" message="Line is longer than 80 characters (found 95)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
@@ -467,28 +487,28 @@
 <error line="1013" severity="error" message="Line is longer than 80 characters (found 92)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="1014" severity="error" message="Line is longer than 80 characters (found 121)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="1018" severity="error" message="Line is longer than 80 characters (found 97)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="1036" severity="error" message="Line is longer than 80 characters (found 90)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="1036" severity="error" message="Line is longer than 80 characters (found 83)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 </file>
-<file name="C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\Parser\InvalidStringException.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Parser\InvalidStringException.java">
 <error line="1" severity="error" message="Missing package-info.java file." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck"/>
 </file>
-<file name="C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\Parser\Parser.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Parser\Parser.java">
 </file>
-<file name="C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\Parser\ParserOutput.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Parser\ParserOutput.java">
 </file>
-<file name="C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\Parser\WordType.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Parser\WordType.java">
 </file>
-<file name="C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\Type\Command.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Type\Command.java">
 <error line="1" severity="error" message="Missing package-info.java file." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck"/>
 </file>
-<file name="C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\Type\CommandType.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Type\CommandType.java">
 </file>
-<file name="C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\Type\GameItem.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Type\GameItem.java">
 </file>
-<file name="C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\Type\GameItemContainer.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Type\GameItemContainer.java">
 </file>
-<file name="C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\Type\Inventory.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Type\Inventory.java">
 </file>
-<file name="C:\Users\gaetano\Desktop\UNI\MAP\TheLostHotel\src\main\java\tlh\Type\Room.java">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Type\Room.java">
 </file>
 </checkstyle>

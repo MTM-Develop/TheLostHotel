@@ -47,6 +47,8 @@ public class DB {
     private static final String INSERT_VALUES =
             "INSERT INTO scores VALUES (?,?,?)";
 
+    private String vote = null; //javadoc
+
     //private static final String QUERY_DROP = "DROP TABLE IF EXISTS scores";
 
     /**
@@ -108,11 +110,20 @@ public class DB {
                     t.replaceAll("[hms]", ":")).getTime());
             prstm.setTime(2, time);
 
-            String vote = null;
             if (time.toLocalTime().isBefore(LocalTime.of(0, 20))) {
                 vote = "A+";
-            } else { //CONTINUARE CON ALTRI CONTROLLI SUL VOTO DA DARE
+            } else if (time.toLocalTime().isBefore(LocalTime.of(0, 30))){
+                vote = "A";
+            } else if (time.toLocalTime().isBefore(LocalTime.of(0, 35))){
+                vote = "B+";
+            } else if (time.toLocalTime().isBefore(LocalTime.of(0, 40))){
                 vote = "B";
+            } else if (time.toLocalTime().isBefore(LocalTime.of(1, 0))){
+                vote = "C+";
+            } else if (time.toLocalTime().isBefore(LocalTime.of(1, 20))){
+                vote = "C";
+            } else {
+                vote = "F";
             }
             prstm.setString(3, vote);
 
@@ -151,9 +162,9 @@ public class DB {
             while (resSet.next()) {
 
                 results.append(resSet.getString(1)).
-                        append("\t").
+                        append("\t\t").
                         append(resSet.getTime(2)).
-                        append("\t").
+                        append("\t\t").
                         append(resSet.getString(3)).
                         append("\n\n");
             }
@@ -182,4 +193,11 @@ public class DB {
         con.close();
     }
 
+    public String getVote() {
+        return vote;
+    }
+
+    public void setVote(String vote) {
+        this.vote = vote;
+    }
 }

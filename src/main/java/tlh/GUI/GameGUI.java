@@ -543,15 +543,9 @@ public class GameGUI extends javax.swing.JFrame {
     private void initGame() {
 
         // Salva il nome del giocatore.
-        /*gInteraction.getGameManager().getGame().setPlayer(
+        gInteraction.getGameManager().getGame().setPlayer(
                 JOptionPane.showInputDialog(this,
                         "Inserisci il tuo nome:"));
-
-        if (gInteraction.getGameManager().getGame().getPlayer().isEmpty()) {
-            JOptionPane.showMessageDialog(this,
-                    "Errore: il nome non può essere vuoto",
-                    "Errore", JOptionPane.ERROR_MESSAGE);
-        } //FARE ALTRI CONTROLLI*/ //AGGIUNGERLO ALLA FINE
 
         //Utilizzato per bloccare lo scorrimento
         //al fine di visualizzare correttamente la trama di gioco.
@@ -1075,13 +1069,15 @@ public class GameGUI extends javax.swing.JFrame {
 
         try {
             // Inserisce il nome del giocatore e il suo tempo nel DB.
-            db.insertScore("NOME GIOCATORE" + " ",
-                    //gInteraction.getGameManager().getGame().getPlayer()
+            db.insertScore(
+                    gInteraction.getGameManager().getGame().getPlayer(),
                     gInteraction.getGameManager().getGame().
                             getgTime().getTime());
             /*JOptionPane.showMessageDialog(this,
                     db.topScores(), "Tempo di completamento",
                     JOptionPane.INFORMATION_MESSAGE);*/
+
+            appendToPane(jtpReadingArea, "VOTO: "+ db.getVote() + "\n\n", Color.CYAN);
 
             if (fastText) {
                 appendToPane(jtpReadingArea, db.topScores(), Color.GREEN);
