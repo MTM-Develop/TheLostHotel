@@ -217,6 +217,7 @@ public class TLHStart {
         rifle.setItemImage(imgRifle);
         rifle.setPickupable(true);
         rifle.setKeyToWin(true);
+        g.getInventory().add(rifle); //RIMUOVERE
 
         GameItem key63 = new GameItem(Description.ID_KEY63, "chiave63",
                 Description.DESCRIPTION_KEY_63);
@@ -231,7 +232,7 @@ public class TLHStart {
                 Description.DESCRIPTION_STONE);
         stone.setAlias(new String[]{"pietre", "pietroline", "pietrine", "pietrolina", "pietrina", "ciottolo"});
         ImageIcon imgStone = new ImageIcon(
-                "resources//img//gameItem//stone.png");
+                "resources//img//gameItem//stone.png"); //CAMBIARE IMMAGINE (HEX)
         stone.setItemImage(imgStone);
         stone.setPickupable(true);
 
@@ -263,6 +264,20 @@ public class TLHStart {
                 "resources//img//gameItem//key13.png");
         key13.setItemImage(imgKey13);
         key13.setConsumable((byte) 1);
+
+        GameItem card2 = new GameItem(Description.ID_CARD2, //CARD 2 da capire dove mettere (aggiungere nel nome e descrizione)
+                "tessera2", Description.DESCRIPTION_CARD2); //CAMBIARE
+        card2.setAlias(new String[]{"card2", "carta2"});
+        ImageIcon imgCard2= new ImageIcon(
+                "resources//img//gameItem//card.png"); //CAMBIARE IMMAGINE
+        card2.setItemImage(imgCard2); //CAPIRE DOVE AGGIUNGERLA
+
+        GameItem card3 = new GameItem(Description.ID_CARD3, //CARD 3 da capire dove mettere (aggiungere nel nome e descrizione)
+                "tessera3", Description.DESCRIPTION_CARD3); //CAMBIARE
+        card3.setAlias(new String[]{"card3", "carta3"});
+        ImageIcon imgCard3= new ImageIcon(
+                "resources//img//gameItem//card.png"); //CAMBIARE IMMAGINE
+        card3.setItemImage(imgCard3); //CAPIRE DOVE AGGIUNGERLA
 
         //ItemContainer e oggetti della stanza
         GameItemContainer furniture79 = new GameItemContainer(
@@ -1006,7 +1021,7 @@ public class TLHStart {
         room13.addItem(john);
         room13.addItem(cops);
 
-        g.setCurrentRoom(hall); //stanza79
+        g.setCurrentRoom(room79);
         room79.setNorth(hallway);
         room79.setWest(bathroom79);
         bathroom79.setEast(room79);

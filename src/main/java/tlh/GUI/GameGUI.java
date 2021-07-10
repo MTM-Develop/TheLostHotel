@@ -527,9 +527,9 @@ public class GameGUI extends javax.swing.JFrame {
 
         jmMusic.setText("Musica");
         jmiMusic.setText("Abilita musica"); //CAMBIARE
-        /*KeyStroke keyStrokeFastText = KeyStroke.getKeyStroke(
-                KeyEvent.VK_F, KeyEvent.CTRL_DOWN_MASK);
-        jmiMusic.setAccelerator(keyStrokeFastText);*/
+        KeyStroke keyStrokeMusic = KeyStroke.getKeyStroke(
+                KeyEvent.VK_M, KeyEvent.CTRL_DOWN_MASK);
+        jmiMusic.setAccelerator(keyStrokeMusic);
         jmiMusic.addActionListener(e -> jmiMusicActionPerformed());
         jmiMusic.setState(true);
 
@@ -882,7 +882,7 @@ public class GameGUI extends javax.swing.JFrame {
 
     private void jmiMusicActionPerformed() {
         if (this.jmiMusic.getState()) {
-            menu.getgInteraction().getGameManager().getMusic().volumeAbsoluteControl(0.1); //CAMBIARE (0.1)
+            menu.getgInteraction().getGameManager().getMusic().volumeAbsoluteControl(0.0); //CAMBIARE (0.1)
         } else {
             menu.getgInteraction().getGameManager().getMusic().volumeAbsoluteControl(0.0);
         }
@@ -987,21 +987,22 @@ public class GameGUI extends javax.swing.JFrame {
     }
 
     private void enableComponents(final boolean enable) {
-        //if (!game.isEnd()) {
-        jtCommand.setEditable(enable);
-        jbEast.setEnabled(enable);
-        jbNorth.setEnabled(enable);
-        jbSendCommand.setEnabled(enable);
-        jbSouth.setEnabled(enable);
-        jbWest.setEnabled(enable);
-        jbSaveGame.setEnabled(enable);
-        jbQuitGame.setEnabled(enable);
-        jmiSave.setEnabled(enable);
-        jmiQuit.setEnabled(enable);
-        jmiFastText.setEnabled(enable);
-        jmiCommands.setEnabled(enable);
-        jmiMusic.setEnabled(enable); //DA METTERE?
-        //}
+        if (gInteraction.getGameManager().getGame().
+                getgTime().isActive()) {
+            jtCommand.setEditable(enable);
+            jbEast.setEnabled(enable);
+            jbNorth.setEnabled(enable);
+            jbSendCommand.setEnabled(enable);
+            jbSouth.setEnabled(enable);
+            jbWest.setEnabled(enable);
+            jbSaveGame.setEnabled(enable);
+            jbQuitGame.setEnabled(enable);
+            jmiSave.setEnabled(enable);
+            jmiQuit.setEnabled(enable);
+            jmiFastText.setEnabled(enable);
+            jmiCommands.setEnabled(enable);
+            jmiMusic.setEnabled(enable);
+        }
     }
 
     /**
@@ -1076,28 +1077,26 @@ public class GameGUI extends javax.swing.JFrame {
                             getgTime().getTime());
             /*JOptionPane.showMessageDialog(this,
                     db.topScores(), "Tempo di completamento", JOptionPane.INFORMATION_MESSAGE);*/
-            if(fastText) {
-                appendToPane(jtpReadingArea, db.topScores(), Color.GREEN);
-                enableComponents(false);
-            }
-            else
-            {
+
+            if (fastText) {
+                appendToPane(jtpReadingArea, db.topScores(), Color.GREEN); //PROBLEMA: Non si legge la descrizione della stanza 13
+            } else {
                 s.append(db.topScores());
             }
 
-
-            // Lo rimuovo così alcuni oggetti sono utilizzabili
-            // (es. esci e salva).
-            // P.S. Problema con salva (renderlo notEnabled?).
-            /*jtCommand.setEditable(false);
+            jtCommand.setEditable(false);
             jbEast.setEnabled(false);
             jbNorth.setEnabled(false);
             jbSendCommand.setEnabled(false);
             jbSouth.setEnabled(false);
             jbWest.setEnabled(false);
+            jbSaveGame.setEnabled(false);
+            jbQuitGame.setEnabled(false);
+            jmiSave.setEnabled(false);
+            jmiQuit.setEnabled(false);
             jmiFastText.setEnabled(false);
             jmiCommands.setEnabled(false);
-            jmiMusic.setEnabled(false);*/
+            jmiMusic.setEnabled(false);
 
         } catch (SQLException | ParseException e) {
             JOptionPane.showMessageDialog(this,

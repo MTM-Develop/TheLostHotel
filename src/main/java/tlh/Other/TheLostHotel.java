@@ -105,8 +105,10 @@ public class TheLostHotel extends GameManager {
                                         output.append(this.getGame().getCurrentRoom().getVisitedDescription() + "\n");
                                     }
                                     room.setVisited(true);
-                                    if(endGame)
+
+                                    if(endGame) {
                                         output.append(endGame());
+                                    }
                                 }
 
                             } else {
@@ -372,6 +374,7 @@ public class TheLostHotel extends GameManager {
                                     + "L'altro, ha cercato di fare lo spavaldo della situazione ed hai vendicato il tuo amico. "
                                     + "Non potevano delle pistoline avere la meglio su un fucile del genere.\n");
                             //fine gioco.
+                            output.append(endGame());
                         }
                         else if (gameItem.isGIPassword()) {
                             output.append("Specifica correttamente l'oggetto che vuoi usare.\n");
@@ -722,7 +725,8 @@ public class TheLostHotel extends GameManager {
                             output.append("Hai lasciato l'oggetto " + gameItem.getName() + ".\n");
 
                             /////////////////////
-                            //this.getMusic().playSound("resources//music//music.wav", false); //ESEMPIO CAMBIO MUSICA
+                            this.getMusic().getClip().stop();
+                            this.getMusic().playSound("resources//music//Hurt.wav"); //ESEMPIO CAMBIO MUSICA
                             /////////////////////
 
                         } else {
@@ -758,7 +762,6 @@ public class TheLostHotel extends GameManager {
                     break;
 
                 case INSERT:
-                    //pOutput.size() è 5...
                     if (pOutput.containsWordType(WordType.ROOM_OBJ) && pOutput.containsWordType(WordType.INVENTORY_OBJ) && pOutput.size() == 5) {
 
                         GameItem iC = null; //contenitore
@@ -814,11 +817,6 @@ public class TheLostHotel extends GameManager {
                                                 this.getGame().getInventory().remove(gameItem);
                                                 output.append("\nL'oggetto " + gameItem.getName() + " è stato rimosso.\n");
                                             }
-
-                                            ///////////////////////////////////
-                                            //this.getGame().getgTime().cancel(); //ESEMPIO FINE GIOCO.
-                                            //output.append(provaFine());
-                                            ///////////////////////////////////
 
                                         } else if (iC.getName().equals("radio") && gameItem.getName().equals("batterie") && !((GameItemContainer) iC).getLockedBy().equals("")) {
                                             output.append("Impossibile inserire questo oggetto perchè la " + iC.getName() + " è chiusa!\n");

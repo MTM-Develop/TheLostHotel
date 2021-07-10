@@ -23,30 +23,32 @@ import javax.swing.JOptionPane;
 public class Music {
 
     /**
+     * CLip per la musica di sottofondo
+     * del gioco.
+     */
+    private Clip clip;
+
+    /**
      * Fa partire un thread che riproduce la musica, caricandola da file
      *
      * @param url path del file
      */
-    public synchronized void playSound(final String url, boolean first) {
+    public synchronized void playSound(final String url) {
 
         Thread musicThread = new Thread(() -> {
             try {
 
-                Clip clip = AudioSystem.getClip();
+                clip = AudioSystem.getClip();
 
                 // La risorsa del try with resource si chiuderà da sola poiché implementa l'interfaccia AutoCloseable
                 try (AudioInputStream inputStream = AudioSystem.getAudioInputStream(
                         new BufferedInputStream(new FileInputStream(url)))) {
 
-                    if (first) {
-                        clip.open(inputStream);   //acquisizione della risorsa di input
-                        Thread.sleep(3000);  //thread fermo per 3 secondi
+                    clip.open(inputStream);   //acquisizione della risorsa di input
+                    Thread.sleep(3000);  //thread fermo per 3 secondi
 
-                        clip.start();        //parte la musica
-                        clip.loop(Clip.LOOP_CONTINUOUSLY);   //musica in loop all'infinito
-                    } else {
-                        //clip.stop();
-                    }
+                    clip.start();        //parte la musica
+                    clip.loop(Clip.LOOP_CONTINUOUSLY);   //musica in loop all'infinito
 
                 } catch (IOException e) {
                     JOptionPane.showMessageDialog(null, " File non trovato: Music Error");
@@ -102,5 +104,21 @@ public class Music {
                 }
             }
         }
+    }
+
+    /**
+     * @return clip per la musica del gioco.
+     */
+    public Clip getClip() {
+        return clip;
+    }
+
+    /**
+     * Imposta la clip per la musica del gioco.
+     *
+     * @param clip
+     */
+    public void setClip(Clip clip) {
+        this.clip = clip;
     }
 }

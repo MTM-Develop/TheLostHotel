@@ -15,6 +15,7 @@ import java.sql.Time;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalTime;
 
 /**
  * Classe che gestisce il jdbc per
@@ -31,19 +32,19 @@ public class DB {
      * Query di creazione.
      */
     private static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS "
-            + "scores (name VARCHAR(25), time TIME)";
+            + "scores (name VARCHAR(25), time TIME, vote VARCHAR(2))";
 
     /**
      * Query di selezione.
      */
-    private static final String SELECT_TABLE = "SELECT name, time FROM scores "
+    private static final String SELECT_TABLE = "SELECT name, time, vote FROM scores "
             + "ORDER BY time LIMIT 3";
 
     /**
      * Query di inserimento.
      */
     private static final String INSERT_VALUES =
-            "INSERT INTO scores VALUES (?,?)";
+            "INSERT INTO scores VALUES (?,?,?)";
 
     //private static final String QUERY_DROP = "DROP TABLE IF EXISTS scores";
 
@@ -94,6 +95,14 @@ public class DB {
                 t.replaceAll("[hms]", ":")).getTime());
         prstm.setTime(2, time);
 
+        String vote = null;
+        if (time.toLocalTime().isBefore(LocalTime.of(0, 20))) {
+            vote = "A+";
+        } else { //CONTINUARE CON ALTRI CONTROLLI SUL VOTO DA DARE
+            vote = "B";
+        }
+        prstm.setString(3, vote);
+
         prstm.executeUpdate();
         prstm.close();
     }
@@ -115,8 +124,10 @@ public class DB {
         while (resSet.next()) {
 
             results.append(resSet.getString(1)).
-                    append("\t\t\t").
+                    append("\t").
                     append(resSet.getTime(2)).
+                    append("\t").
+                    append(resSet.getString(3)).
                     append("\n\n");
         }
 

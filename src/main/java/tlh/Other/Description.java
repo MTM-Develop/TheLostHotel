@@ -464,7 +464,7 @@ public final class Description {
             "La maniglia caduta dalla slot machine...";
 
     /**
-     * Descrizione dell'oggetto "tessera" nella "sala Giochi".
+     * Descrizione dell'oggetto "tessera" della "sala Giochi".
      */
     public static final String DESCRIPTION_CARD_GAMEROOM =
             "Una tessera magnetica dimenticata "
@@ -559,10 +559,16 @@ public final class Description {
                     + "Dalla scrittura sembra trattarsi di John."; //da ultimare
 
     /**
-     * Descrizione dell'oggetto "chiave33".
+     * Descrizione dell'oggetto "tessera" della "Stanza".
      */
-    public static final String DESCRIPTION_KEY_33 =
-            "Una chiave con inciso il numero di una stanza.";
+    public static final String DESCRIPTION_CARD2 =
+            ""; //CAMBIARE
+
+    /**
+     * Descrizione dell'oggetto "tessera" della "Stanza".
+     */
+    public static final String DESCRIPTION_CARD3 =
+            ""; //CAMBIARE
 
     /**
      * Descrizione dell'oggetto contenitore "tavolo".
@@ -686,7 +692,7 @@ public final class Description {
      * Descrizione dell'oggetto "gancio".
      */
     public static final String DESCRIPTION_HOOK =
-            "Il gancio che si è staccato"
+            "Il gancio che si è staccato "
                     + "dall'appendiabiti mentre lo stavi spostando";
 
     /**
@@ -1431,6 +1437,16 @@ public final class Description {
      * ID degli "uomini" della stanza 13.
      */
     public static final int ID_COPS = 32;
+
+    /**
+     * ID dell'oggetto "tessera" della stanza CAMBIARE.
+     */
+    public static final int ID_CARD2 = 33; //CAMBIARE
+
+    /**
+     * ID dell'oggetto "tessera" della stanza CAMBIARE.
+     */
+    public static final int ID_CARD3 = 34; //CAMBIARE
 
     //ID oggetti contenitori
     /**
