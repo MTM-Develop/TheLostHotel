@@ -413,7 +413,8 @@ public final class Description {
      */
     public static final String DESCRIPTION_HAIR_GRIP =
             "Un fermacapelli in un mobiletto. \n"
-            + "La ragazza che ha avuto questa stanza era proprio disordinata... \n"
+            + "La ragazza che ha avuto questa stanza "
+            + "era proprio disordinata... \n"
             + "Sembra essere perfetto per aprire l'armadio.";
 
     /**
@@ -2664,4 +2665,44 @@ public final class Description {
      * Indica il periodo di ripetizione del task (sempre 1 secondo).
      */
     public static final int GAME_TIME_PERIOD_TIMER = 1000;
+
+    /**
+     * Rappresenta "3 secondi" in ms (utilizzato per il thread in Music).
+     */
+    public static final int MUSIC_THREAD_SLEEP = 3000;
+
+    /**
+     * Rappresenta il volume della musica del gioco.
+     */
+    public static final double MUSIC_VOLUME = 0.1;
+
+    /**
+     * Rappresenta l'indice della colonna del DB
+     * per il voto del giocatore.
+     */
+    public static final int VOTE_COLUMN_INDEX = 3;
+
+    /**
+     * Rappresenta il numero di minuti (20) utile
+     * per il calcolo del voto del giocatore.
+     */
+    public static final int BEFORE_MINUTE_20 = 20;
+
+    /**
+     * Rappresenta il numero di minuti (30) utile
+     * per il calcolo del voto del giocatore.
+     */
+    public static final int BEFORE_MINUTE_30 = 30;
+
+    /**
+     * Rappresenta il numero di minuti (35) utile
+     * per il calcolo del voto del giocatore.
+     */
+    public static final int BEFORE_MINUTE_35 = 35;
+
+    /**
+     * Rappresenta il numero di minuti (40) utile
+     * per il calcolo del voto del giocatore.
+     */
+    public static final int BEFORE_MINUTE_40 = 40;
 }

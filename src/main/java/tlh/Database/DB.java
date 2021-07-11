@@ -5,7 +5,9 @@
  */
 package tlh.Database;
 
-import javax.swing.*;
+import tlh.Other.Description;
+
+import javax.swing.JOptionPane;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -47,7 +49,10 @@ public class DB {
     private static final String INSERT_VALUES =
             "INSERT INTO scores VALUES (?,?,?)";
 
-    private String vote = null; //javadoc
+    /**
+     * Rappresenta il voto del giocatore.
+     */
+    private String vote = null;
 
     //private static final String QUERY_DROP = "DROP TABLE IF EXISTS scores";
 
@@ -89,13 +94,14 @@ public class DB {
     }
 
     /**
-     * Inserisce il punteggio di un nuovo giocatore.
+     * Inserisce il punteggio di un nuovo giocatore e il suo relativo voto.
      *
      * @param s nome del giocatore.
      * @param t punteggio del giocatore (in questo caso il tempo).
      * @throws SQLException
      */
-    public void insertScore(final String s, final String t) throws SQLException {
+    public void insertScore(final String s, final String t)
+            throws SQLException {
 
         PreparedStatement prstm = null;
 
@@ -110,22 +116,28 @@ public class DB {
                     t.replaceAll("[hms]", ":")).getTime());
             prstm.setTime(2, time);
 
-            if (time.toLocalTime().isBefore(LocalTime.of(0, 20))) {
+            if (time.toLocalTime().isBefore(LocalTime.of(
+                    0, Description.BEFORE_MINUTE_20))) {
                 vote = "A+";
-            } else if (time.toLocalTime().isBefore(LocalTime.of(0, 30))){
+            } else if (time.toLocalTime().isBefore(LocalTime.of(
+                    0, Description.BEFORE_MINUTE_30))) {
                 vote = "A";
-            } else if (time.toLocalTime().isBefore(LocalTime.of(0, 35))){
+            } else if (time.toLocalTime().isBefore(LocalTime.of(
+                    0, Description.BEFORE_MINUTE_35))) {
                 vote = "B+";
-            } else if (time.toLocalTime().isBefore(LocalTime.of(0, 40))){
+            } else if (time.toLocalTime().isBefore(LocalTime.of(
+                    0, Description.BEFORE_MINUTE_40))) {
                 vote = "B";
-            } else if (time.toLocalTime().isBefore(LocalTime.of(1, 0))){
+            } else if (time.toLocalTime().isBefore(LocalTime.of(
+                    1, 0))) {
                 vote = "C+";
-            } else if (time.toLocalTime().isBefore(LocalTime.of(1, 20))){
+            } else if (time.toLocalTime().isBefore(LocalTime.of(
+                    1, Description.BEFORE_MINUTE_20))) {
                 vote = "C";
             } else {
                 vote = "F";
             }
-            prstm.setString(3, vote);
+            prstm.setString(Description.VOTE_COLUMN_INDEX, vote);
 
             prstm.executeUpdate();
         } catch (SQLException | ParseException e) {
@@ -165,7 +177,8 @@ public class DB {
                         append("\t\t").
                         append(resSet.getTime(2)).
                         append("\t\t").
-                        append(resSet.getString(3)).
+                        append(resSet.getString(
+                                Description.VOTE_COLUMN_INDEX)).
                         append("\n\n");
             }
         } catch (SQLException e) {
@@ -193,11 +206,11 @@ public class DB {
         con.close();
     }
 
+    /**
+     * @return voto del giocatore in base al
+     * tempo di completamento del gioco.
+     */
     public String getVote() {
         return vote;
-    }
-
-    public void setVote(String vote) {
-        this.vote = vote;
     }
 }

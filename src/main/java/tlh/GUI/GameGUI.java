@@ -37,7 +37,6 @@ import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.sql.SQLException;
-import java.text.ParseException;
 import java.util.ArrayList;
 
 /**
@@ -543,9 +542,11 @@ public class GameGUI extends javax.swing.JFrame {
     private void initGame() {
 
         // Salva il nome del giocatore.
-        gInteraction.getGameManager().getGame().setPlayer(
-                JOptionPane.showInputDialog(this,
-                        "Inserisci il tuo nome:"));
+        if (gInteraction.getGameManager().getGame().getPlayer().equals("")) {
+            gInteraction.getGameManager().getGame().setPlayer(
+                    JOptionPane.showInputDialog(this,
+                            "Inserisci il tuo nome:"));
+        }
 
         //Utilizzato per bloccare lo scorrimento
         //al fine di visualizzare correttamente la trama di gioco.
@@ -877,7 +878,7 @@ public class GameGUI extends javax.swing.JFrame {
     private void jmiMusicActionPerformed() {
         if (this.jmiMusic.getState()) {
             menu.getgInteraction().getGameManager().
-                    getMusic().volumeAbsoluteControl(0.1);
+                    getMusic().volumeAbsoluteControl(Description.MUSIC_VOLUME);
         } else {
             menu.getgInteraction().getGameManager().
                     getMusic().volumeAbsoluteControl(0.0);
@@ -1073,15 +1074,13 @@ public class GameGUI extends javax.swing.JFrame {
                     gInteraction.getGameManager().getGame().getPlayer(),
                     gInteraction.getGameManager().getGame().
                             getgTime().getTime());
-            /*JOptionPane.showMessageDialog(this,
-                    db.topScores(), "Tempo di completamento",
-                    JOptionPane.INFORMATION_MESSAGE);*/
-
-            appendToPane(jtpReadingArea, "VOTO: "+ db.getVote() + "\n\n", Color.CYAN);
 
             if (fastText) {
+                appendToPane(jtpReadingArea, "VOTO: "
+                        + db.getVote() + "\n\n", Color.CYAN);
                 appendToPane(jtpReadingArea, db.topScores(), Color.GREEN);
             } else {
+                s.append("VOTO: " + db.getVote() + "\n\n");
                 s.append(db.topScores());
             }
 

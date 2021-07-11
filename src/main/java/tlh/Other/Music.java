@@ -46,7 +46,8 @@ public class Music {
 
                     clip.open(inputStream);
                     //acquisizione della risorsa di input
-                    Thread.sleep(3000);  //thread fermo per 3 secondi
+                    Thread.sleep(Description.MUSIC_THREAD_SLEEP);
+                    //thread fermo per 3 secondi
 
                     clip.start();        //parte la musica
                     clip.loop(Clip.LOOP_CONTINUOUSLY); //musica in loop

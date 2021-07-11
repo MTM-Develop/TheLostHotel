@@ -10,6 +10,7 @@ import tlh.Type.CommandType;
 
 import javax.swing.ImageIcon;
 
+@SuppressWarnings("checkstyle:methodlength")
 public class TLHStart {
 
     /**
@@ -29,7 +30,7 @@ public class TLHStart {
         //Items dell'inventario
         GameItem cellphone = new GameItem(Description.ID_CELLPHONE, "cellulare",
                 Description.DESCRIPTION_CELLPHONE);
-        cellphone.setAlias(new String[]{"telefonino"});
+        cellphone.setAlias(new String[]{"telefonino", "telefono"});
         ImageIcon imgCellphone = new ImageIcon(
                 "resources//img//gameItem//cellphone.png");
         cellphone.setItemImage(imgCellphone);
@@ -79,7 +80,8 @@ public class TLHStart {
         knife.setItemImage(imgKnife);
         g.getInventory().add(knife);
 
-        GameItem hairGrip = new GameItem(Description.ID_HAIR_GRIP, "fermacapelli",
+        GameItem hairGrip = new GameItem(Description.ID_HAIR_GRIP,
+                "fermacapelli",
                 Description.DESCRIPTION_HAIR_GRIP);
         hairGrip.setAlias(new String[]{"ferretto", "fermaglio"});
         ImageIcon imgHairGrip = new ImageIcon(
