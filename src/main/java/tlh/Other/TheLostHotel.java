@@ -910,7 +910,8 @@ public class TheLostHotel extends GameManager {
 
                                                 if (gameItem.getName().equals("gettone")) {
                                                     output.append("Hai inserito l'oggetto " + gameItem.getName()
-                                                            + " nel " + iC.getName() + ". Sembra essere caduto qualcosa...\n"); //CAMBIARE
+                                                            + " nel " + iC.getName() + ".\n È caduto l'oggetto: \n" +
+                                                            "- tessera2\n");
 
                                                     for (GameItem g : ((GameItemContainer) iC).getcItemList().getInventoryList()) {
                                                         g.setPickupable(true);

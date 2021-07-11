@@ -43,6 +43,7 @@ import java.util.ArrayList;
  *
  * @author gaetano
  */
+//@SuppressWarnings({"checkstyle:methodlength","checkstyle:javadocpackage"})
 public class GameGUI extends javax.swing.JFrame {
 
     /**
