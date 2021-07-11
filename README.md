@@ -55,7 +55,7 @@ una minima conoscenza di questa tipologia di applicazione.<br> Inoltre, si tende
 ## Trama del gioco
 Il gioco si presenta con una descrizione della trama, che mostra all'utente una panoramica su ciò che è successo prima del punto di partenza:
 
-    7 gennaio 2000 21:32
+    7 gennaio 2000, 21:32
 
                 L'appuntamento importante è alle porte e decidi di riunirti 
                 con gli amici di sempre (Ethan e John)
@@ -64,7 +64,7 @@ Il gioco si presenta con una descrizione della trama, che mostra all'utente una 
                 una settimana insieme in America.
                 Lo aspettavate dalle scuole medie!
 
-    12 gennaio 2000 22:03
+    12 gennaio 2000, 22:03
         
                 Poichè il viaggio è lungo e stancante, decidete di partire
                 in tarda serata per non perdere il volo.
@@ -74,13 +74,13 @@ Il gioco si presenta con una descrizione della trama, che mostra all'utente una 
                 Quindi, questo estenuante viaggio in macchina 
                 sarà il prezzo da pagare...
 
-    12 gennaio 2000 23:56
+    12 gennaio 2000, 23:56
         
-                Sono passate circa due ore ma sembra "
-                che il viaggio duri il doppio.\n"
-                Siete in una strada di periferia, quando all'improvviso\n"
-                Ethan impreca: \"Spia rossa del motore. "
-                Cazzo, ci voleva solo questa!\"\n"
+                Sono passate circa due ore ma sembra 
+                che il viaggio duri il doppio.
+                Siete in una strada di periferia, quando all'improvviso
+                Ethan impreca: "Spia rossa del motore.
+                Cazzo, ci voleva solo questa!"
                 "Speriamo che la macchina regga fino a destinazione",
                 ribatte John.
                 Passati esattamente 5 minuti, ecco che si intravede
@@ -88,28 +88,25 @@ Il gioco si presenta con una descrizione della trama, che mostra all'utente una 
                 Presi dalla rabbia e disperazione,
                 vi fermate e cerchi subito soccorso.
                 Il telefono, come da previsione, non dà segni di vita.
-                <<Beep - Beep - Beep>> \"Non prende, ovviamente!
+                <<Beep - Beep - Beep>> "Non prende, ovviamente!",
                 esclami.
 
-        appendToPane(jtpReadingArea, "13 gennaio 2000,  ",
-                new Color(Description.GAME_GUI_CODE_RGB_R_JTP,
-                        Description.GAME_GUI_CODE_RGB_G_JTP, 0));
-        appendToPane(jtpReadingArea, "00:33\n", Color.red);
-        appendToPane(jtpReadingArea, "\n"
-                        + "È ormai mezzanotte inoltrata. È iniziato a piovere, "
-                        + "il freddo e la stanchezza si fanno sentire.\n"
-                        + "Sembra che il viaggio che aspettavate da una vita "
-                        + "stia diventando un incubo!\n"
-                        + "Quando in lontananza Ethan vede una struttura "
-                        + "mezza illuminata ed esclama: "
-                        + "\"È un hotel, magari potremmo passare "
-                        + "la nottata qui e chiedere aiuto\".\n"
-                        + "Così, non avendo altre possibilità, "
-                        + "vi rassegnate e decidete di entrare.\n"
-                        + "Prima di abbandonare l'auto, riempi il tuo zaino "
-                        + "con un paio di oggetti che "
-                        + "potrebbero esserti utili...\n\n",
-                Color.white);
+    "13 gennaio 2000, 00:33
+
+                È ormai mezzanotte inoltrata. È iniziato a piovere,
+                il freddo e la stanchezza si fanno sentire.
+                Sembra che il viaggio che aspettavate da una vita 
+                stia diventando un incubo!
+                Quando in lontananza Ethan vede una struttura 
+                mezza illuminata ed esclama:
+                "È un hotel, magari potremmo passare 
+                la nottata qui e chiedere aiuto".
+                Così, non avendo altre possibilità,
+                vi rassegnate e decidete di entrare.
+                Prima di abbandonare l'auto, riempi il tuo zaino 
+                con un paio di oggetti che
+                potrebbero esserti utili...
+
 
 ## Mappa del gioco  
 //inserire immagine mappa di gioco
