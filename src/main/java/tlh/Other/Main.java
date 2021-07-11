@@ -2,6 +2,7 @@ package tlh.Other;
 
 import tlh.GUI.MenuGUI;
 
+@SuppressWarnings({"checkstyle:HideUtilityClassConstructor"})
 public class Main {
 
     /**

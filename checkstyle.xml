@@ -56,10 +56,6 @@
         <property name="optional" value="true"/>
     </module>
 
-    <!-- Checks that a package-info.java file exists for each package.     -->
-    <!-- See https://checkstyle.org/config_javadoc.html#JavadocPackage -->
-    <module name="JavadocPackage"/>
-
     <!-- Checks whether files end with a new line.                        -->
     <!-- See https://checkstyle.org/config_misc.html#NewlineAtEndOfFile -->
     <module name="NewlineAtEndOfFile"/>
@@ -70,7 +66,6 @@
 
     <!-- Checks for Size Violations.                    -->
     <!-- See https://checkstyle.org/config_sizes.html -->
-    <module name="FileLength"/>
     <module name="LineLength">
         <property name="fileExtensions" value="java"/>
     </module>
@@ -196,8 +191,6 @@
                       default="checkstyle-xpath-suppressions.xml" />
             <property name="optional" value="true"/>
         </module>
-
-        <module name="SuppressionCommentFilter"/>
 
     </module>
 

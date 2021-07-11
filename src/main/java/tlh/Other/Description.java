@@ -2705,4 +2705,28 @@ public final class Description {
      * per il calcolo del voto del giocatore.
      */
     public static final int BEFORE_MINUTE_40 = 40;
+
+    /**
+     * Rappresenta la dimensione del ParserOutput per il
+     * comando "inserisci [oggetto] in [oggetto contenitore]".
+     */
+    public static final int POUTPUT_SIZE_INSERT = 5;
+
+    /**
+     * Rappresenta la dimensione del ParserOutput per il
+     * comando "inserisci [password] in cassaforte".
+     */
+    public static final int POUTPUT_SIZE_INSERT_PASS = 4;
+
+    /**
+     * Rappresenta l'indice del GameItemContainer per
+     * il comando "inserisci".
+     */
+    public static final int INDEX_IC_INSERT = 3;
+
+    /**
+     * Rappresenta la penalità (di 1 ora sul tempo
+     * di completamento del gioco) per non aver preso il fucile.
+     */
+    public static final int PENALTY_ONE_HOUR = 3600;
 }

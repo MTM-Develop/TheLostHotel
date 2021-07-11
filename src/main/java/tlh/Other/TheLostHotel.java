@@ -7,10 +7,11 @@ import tlh.Type.GameItem;
 import tlh.Type.GameItemContainer;
 import tlh.Type.Room;
 
-import javax.swing.*;
+import javax.swing.ImageIcon;
 import java.util.Iterator;
 import java.util.Objects;
 
+@SuppressWarnings({"checkstyle:linelength", "checkstyle:methodlength"})
 public class TheLostHotel extends GameManager {
 
     /**
@@ -19,7 +20,7 @@ public class TheLostHotel extends GameManager {
      * @param game
      * @param url per caricare la musica.
      */
-    public TheLostHotel(final GameDescription game, String url) {
+    public TheLostHotel(final GameDescription game, final String url) {
         super(game, url);
     }
 
@@ -77,10 +78,8 @@ public class TheLostHotel extends GameManager {
 
                                     this.getGame().setCurrentRoom(room);
 
-                                    if(!winGame)
-                                    {
-                                        if(this.getGame().getCurrentRoom().getName().equals("Stanza 13"))
-                                        {
+                                    if (!winGame) {
+                                        if (this.getGame().getCurrentRoom().getName().equals("Stanza 13")) {
                                             this.getMusic().getClip().stop();
                                             this.getMusic().playSound("resources//music//soundtrackRoom13.wav");
                                             this.getGame().getCurrentRoom().setRoomImage(new ImageIcon(
@@ -95,12 +94,12 @@ public class TheLostHotel extends GameManager {
                                             //fine gioco
 
                                             endGame = true;
-                                            this.getGame().getgTime().setSecondPassed(this.getGame().getgTime().getSecondPassed() + 3600); //penalita di 1 ora
+                                            //penalità di 1 ora.
+                                            this.getGame().getgTime().setSecondPassed(this.getGame().getgTime().getSecondPassed() + Description.PENALTY_ONE_HOUR);
 
                                         }
-                                    } else
-                                    {
-                                        if(this.getGame().getCurrentRoom().getName().equals("Stanza 13")) {
+                                    } else {
+                                        if (this.getGame().getCurrentRoom().getName().equals("Stanza 13")) {
                                             this.getMusic().getClip().stop();
                                             this.getMusic().playSound("resources//music//soundtrackRoom13.wav");
                                         }
@@ -115,7 +114,7 @@ public class TheLostHotel extends GameManager {
                                     }
                                     room.setVisited(true);
 
-                                    if(endGame) {
+                                    if (endGame) {
                                         output.append(endGame());
                                     }
                                 }
@@ -219,12 +218,12 @@ public class TheLostHotel extends GameManager {
                                             if (((GameItemContainer) gameItem).isPasswordLocked()) {
                                                 if (!((GameItemContainer) gameItem).isPasswordUnlocked()) {
                                                     output.append(((GameItemContainer) gameItem).getDescription() + "\n");
-                                                }
-                                                else {
+                                                } else {
                                                     output.append(((GameItemContainer) gameItem).getPasswordUnlockedDescription() + "\n");
                                                 }
-                                            } else
+                                            } else {
                                                 output.append(((GameItemContainer) gameItem).getOpenedDescription() + "\n");
+                                            }
                                         }
                                     }
 
@@ -240,12 +239,9 @@ public class TheLostHotel extends GameManager {
                                     }
                                 } else if (gameItem.isPickupable()) {
                                     output.append("Devi prendere l'oggetto prima di poterlo esaminare!\n");
-                                }
-                                else if(gameItem.isPerson())
-                                {
+                                } else if (gameItem.isPerson()) {
                                     output.append(gameItem.getDescription() + "\n");
-                                }
-                                else {
+                                } else {
                                     output.append("Specifica correttamente l'oggetto che vuoi esaminare, "
                                             + "altrimenti digita \"osserva\" per guardarti intorno.\n");
                                 }
@@ -295,7 +291,7 @@ public class TheLostHotel extends GameManager {
 
                                         for (GameItem g : this.getGame().getInventory().getInventoryList()) {
                                             if (g.isIndispensable() && g.isItemCorrectlyAdded()) {
-                                                continueGame ++;
+                                                continueGame++;
                                             }
                                         }
 
@@ -316,19 +312,15 @@ public class TheLostHotel extends GameManager {
                                                     + "Controlla di aver tutto con te, non si potrà più tornare indietro!\n");
                                         }
                                     }
-                                } else if(gameItem.getName().equals("pianoforte"))
-                                {
+                                } else if (gameItem.getName().equals("pianoforte")) {
                                     this.getMusic().getClip().stop();
                                     this.getMusic().playSound("resources//music//soundtrackPiano.wav");
                                     output.append("Ah, sei anche un pianista? Complimenti!\n");
-                                }
-                                else if(gameItem.getName().equals("chitarra"))
-                                {
+                                } else if (gameItem.getName().equals("chitarra")) {
                                     this.getMusic().getClip().stop();
                                     this.getMusic().playSound("resources//music//soundtrackGuitar.wav");
                                     output.append("Hai avuto un passato da chitarrista?\n");
-                                }
-                                else {
+                                } else {
                                     output.append("Non puoi usare questo oggetto (ora/così).\n");
                                 }
                             } else {
@@ -359,20 +351,17 @@ public class TheLostHotel extends GameManager {
                                         + "Adesso dipende solo da te!\n"); //oppure "Buona fortuna!"
                             }
 
-                        } else if(gameItem.getName().equals("cellulare") && this.getGame().getCurrentRoom().getName().equals("CCTV"))
-                        {
+                        } else if (gameItem.getName().equals("cellulare") && this.getGame().getCurrentRoom().getName().equals("CCTV")) {
                             boolean continua = false;
-                            //da vedere se hai inserito la chiavetta nel fisso
+
                             for (GameItem g : this.getGame().getCurrentRoom().getItemList().getInventoryList()) {
-                                if(g instanceof GameItemContainer)
-                                {
+                                if (g instanceof GameItemContainer) {
                                     if (g.getName().equals("fisso") && !((GameItemContainer) g).getcItemList().getInventoryList().isEmpty()) {
                                         continua = true;
                                     }
                                 }
                             }
-                            if(continua)
-                            {
+                            if (continua) {
                                 for (GameItem g : this.getGame().getInventory().getInventoryList()) {
                                     if (g.getName().equals("foto")) {
                                         g.setItemCorrectlyAdded(true);
@@ -381,14 +370,10 @@ public class TheLostHotel extends GameManager {
 
                                 output.append("Hai scattato la foto allo schermo!\n");
 
-                            }
-                            else
-                            {
+                            } else {
                                 output.append("Non puoi usare questo oggetto ora/così!\n");
                             }
-                        }
-                        else if(this.getGame().getCurrentRoom().getName().equals("Stanza 13") && pOutput.getString(WordType.INVENTORY_OBJ).equals("fucile"))
-                        {
+                        } else if (this.getGame().getCurrentRoom().getName().equals("Stanza 13") && pOutput.getString(WordType.INVENTORY_OBJ).equals("fucile")) {
                             this.getGame().getCurrentRoom().setRoomImage(new ImageIcon(
                                     Description.PATH_ROOM13_WIN));
                             output.append("Hai sparato in aria e hai fatto scappare due dei tre uomini che tenevano in ostaggio Ethan. "
@@ -396,8 +381,7 @@ public class TheLostHotel extends GameManager {
                                     + "Non potevano delle pistoline avere la meglio su un fucile del genere.\n\n");
                             //fine gioco.
                             output.append(endGame());
-                        }
-                        else if (gameItem.isGIPassword()) {
+                        } else if (gameItem.isGIPassword()) {
                             output.append("Specifica correttamente l'oggetto che vuoi usare.\n");
                         } else {
                             output.append("Non puoi usare questo oggetto ora/così!\n");
@@ -498,7 +482,7 @@ public class TheLostHotel extends GameManager {
                                         } else {
 
                                             if (!((GameItemContainer) iC).isiCNotOpenable()) {
-                                                if(!((GameItemContainer) iC).isPasswordLocked()) {
+                                                if (!((GameItemContainer) iC).isPasswordLocked()) {
                                                     if (((GameItemContainer) iC).isClosed()) {
                                                         output.append("Hai aperto l'oggetto " + iC.getName()
                                                                 + "! Ecco il suo contenuto:" + iC.toString() + "\n");
@@ -749,17 +733,16 @@ public class TheLostHotel extends GameManager {
                             output.append("Specifica correttamente l'oggetto che vuoi lasciare.\n");
                         }
                     } else if (pOutput.containsWordType(WordType.INVENTORY_OBJ) && gameItem.isGIPassword() && pOutput.size() == 2) {
-                        if(gameItem.getName().equals("foto"))
-                        {
+                        if (gameItem.getName().equals("foto")) {
                             this.getGame().getInventory().remove(gameItem);
                             this.getGame().getCurrentRoom().addItem(gameItem);
 
                             gameItem.setPickupable(true);
 
                             output.append("Hai lasciato l'oggetto " + gameItem.getName() + ".\n");
-                        }
-                        else
+                        } else {
                             output.append("Specifica correttamente l'oggetto che vuoi lasciare.\n");
+                        }
                     } else if (pOutput.containsWordType(WordType.ROOM_OBJ) && pOutput.size() == 2) {
 
                         if (gameItem instanceof GameItemContainer) {
@@ -778,7 +761,7 @@ public class TheLostHotel extends GameManager {
                     break;
 
                 case INSERT:
-                    if (pOutput.containsWordType(WordType.ROOM_OBJ) && pOutput.containsWordType(WordType.INVENTORY_OBJ) && pOutput.size() == 5) {
+                    if (pOutput.containsWordType(WordType.ROOM_OBJ) && pOutput.containsWordType(WordType.INVENTORY_OBJ) && pOutput.size() == Description.POUTPUT_SIZE_INSERT) {
 
                         GameItem iC = null; //contenitore
                         gameItem = null;
@@ -858,8 +841,7 @@ public class TheLostHotel extends GameManager {
                                                 output.append("\nL'oggetto " + gameItem.getName() + " è stato rimosso.\n");
                                             }
 
-                                            //CONTINUARE DA QUI PER ALTRI OGGETTI
-                                        } else if(gameItem.isGIPassword()) {
+                                        } else if (gameItem.isGIPassword()) {
                                             output.append("Specifica correttamente l'oggetto da inserire.\n");
                                         } else {
                                             output.append("Non puoi inserire questo oggetto qui!\n");
@@ -910,8 +892,8 @@ public class TheLostHotel extends GameManager {
 
                                                 if (gameItem.getName().equals("gettone")) {
                                                     output.append("Hai inserito l'oggetto " + gameItem.getName()
-                                                            + " nel " + iC.getName() + ".\n È caduto l'oggetto: \n" +
-                                                            "- tessera2\n");
+                                                            + " nel " + iC.getName() + ".\n È caduto l'oggetto: \n"
+                                                            + "- tessera2\n");
 
                                                     for (GameItem g : ((GameItemContainer) iC).getcItemList().getInventoryList()) {
                                                         g.setPickupable(true);
@@ -926,7 +908,7 @@ public class TheLostHotel extends GameManager {
                                             } else {
                                                 output.append("Non puoi inserire qualcosa qui!\n");
                                             }
-                                        } else if(gameItem.isGIPassword()) {
+                                        } else if (gameItem.isGIPassword()) {
                                             output.append("Specifica correttamente l'oggetto da inserire.\n");
                                         } else {
                                             output.append("Impossibile inserire questo oggetto qui\n"
@@ -943,7 +925,7 @@ public class TheLostHotel extends GameManager {
                         } else {
                             output.append("Non puoi inserire qualcosa qui!\n");
                         }
-                    } else if (pOutput.containsWordType(WordType.ROOM_OBJ) && pOutput.size() > 1 && pOutput.size() < 5) {
+                    } else if (pOutput.containsWordType(WordType.ROOM_OBJ) && pOutput.size() > 1 && pOutput.size() < Description.POUTPUT_SIZE_INSERT) {
                         GameItem iC = null; //contenitore
                         gameItem = null;
                         byte index = 0;
@@ -955,13 +937,13 @@ public class TheLostHotel extends GameManager {
                         // Salva gli oggetti che devono interagire nell'ordine prestabilito (e.g. "Apri baule con chiave")
                         while (it.hasNext()) {
                             //itemContainer, obbligatoriamente un oggetto della Room.
-                            if (index == 3 && it.next().equals(WordType.ROOM_OBJ)) {
+                            if (index == Description.INDEX_IC_INSERT && it.next().equals(WordType.ROOM_OBJ)) {
                                 iC = this.getGame().getCurrentRoom().getItemList().searchItem(pOutput.getString(WordType.ROOM_OBJ));
                             }
                             index++;
                         }
 
-                        if(pOutput.size() == 4) {
+                        if (pOutput.size() == Description.POUTPUT_SIZE_INSERT_PASS) {
                             if (iC instanceof GameItemContainer) {
                                 if (((GameItemContainer) iC).isPasswordLocked()) {
                                     if (!((GameItemContainer) iC).isPasswordUnlocked()) {
@@ -975,10 +957,9 @@ public class TheLostHotel extends GameManager {
                             } else {
                                 output.append("Specifica correttamente l'oggetto da inserire.\n");
                             }
-                        }
-                        else {
+                        } else {
                             if (iC instanceof GameItemContainer) {
-                                if(((GameItemContainer) iC).isPasswordLocked()) {
+                                if (((GameItemContainer) iC).isPasswordLocked()) {
                                     output.append("Specifica correttamente la password e/o la sintassi del comando.\n"); //CAMBIARE
                                 } else {
                                     output.append("Specifica correttamente l'oggetto da inserire.\n");
@@ -990,7 +971,7 @@ public class TheLostHotel extends GameManager {
 
                     } else if (pOutput.size() == 1) {
                         output.append("Specifica che oggetto vuoi inserire e dove!\n");
-                    } else if (pOutput.size() > 1 && pOutput.size() < 5 && pOutput.containsWordType(WordType.INVENTORY_OBJ) && !gameItem.isGIPassword()) {
+                    } else if (pOutput.size() > 1 && pOutput.size() < Description.POUTPUT_SIZE_INSERT && pOutput.containsWordType(WordType.INVENTORY_OBJ) && !gameItem.isGIPassword()) {
                         output.append("Specifica correttamente dove vuoi inserire l'oggetto!\n");
                     } else {
                         output.append("Specifica correttamente l'oggetto da inserire.\n");
