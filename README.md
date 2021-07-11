@@ -27,8 +27,8 @@
 
 6. [Riepilogo dei test](#Riepilogo-dei-test)
     - [Analisi statica del codice](#Analisi-statica-del-codice)
-        - [Spotbugs](#Spotbugs) <br>
-        - [Checkstyle](#Checkstyle)
+        - [Checkstyle](#Checkstyle) <br>
+        - [Spotbugs](#Spotbugs)
     
 7. [Processo di sviluppo e organizzazione del lavoro](#Processo-di-sviluppo-e-organizzazione-del-lavoro)
     - [Product backlog](#Product-backlog) <br>
@@ -122,4 +122,24 @@ alla precedente a <b>Nord</b> da cui poi si può proseguire.</p>
 in possesso della spada e la si sta usando, altrimenti incontrarlo sarà letale e il gioco finirà.</p>
 <p>A <b>Sud</b> dell'<em>Ala del grande passo</em> c'è l'<em>Ala finale</em>.
 
-[Torna all'indice](#Indice)
+[Torna all'indice](#Indice) <br><br>
+
+# Riepilogo dei test
+Questa sezione evidenzia i risultati e le modalità con cui è stato testato il software. <br>
+
+## Analisi statica del codice
+Si è deciso di utilizzare l’Analisi statica del codice poichè permette di analizzare il codice sorgente e di mettere in evidenza le problematiche riscontrate.<br>
+
+Tra i principali strumenti per svolgere l'Analisi statica del codice è stato scelto di utilizzare [Checkstyle](https://checkstyle.org) e [Spotbugs](https://spotbugs.github.io).<br>
+
+- ## Checkstyle
+    - <b>Checkstyle</b> è uno strumento di analisi del codice statico, utilizzato per scoprire eventuali violazioni dello stile di programmazione e verificare se il codice sorgente è conforme alle regole di codifica specificate.<br>
+    Di seguito ne riportiamo brevemente il risultato:<br>
+    >![checkstyle](./img/checkstyle.PNG)
+
+- ## Spotbugs
+    - Relativamente invece all'altro analizzatore statico del codice, <b>Spotbugs</b> si occupa di inviduare potenziali difetti che possono comportare malfunzionamenti nel codice.<br>
+    Ne riportiamo brevemente l'output:<br>
+    >![spotbugs](./img/spotbugs.PNG)
+
+[Torna all'indice](#Indice) <br><br>
