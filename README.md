@@ -108,19 +108,25 @@ Il gioco si presenta con una descrizione della trama, che mostra all'utente una 
                 potrebbero esserti utili...
 
 
+
 ## Mappa del gioco  
 //inserire immagine mappa di gioco
-<p>Il gioco inizia con il protagonista che si sveglia all'interno di una stanza d, dirigendosi verso <b>Sud</b> si avrà modo di entrare nell'
-<em>Ala d'ingresso</em> in cui possiamo osservare un <b>gomitolo</b>. Raccogliere ed usare il gomitolo permetterà di 
-uscire automaticamente dal labirinto una volta sconfitto il Minotauro inserendo il comando <code>home</code>.</p>
-<p>Dirigendosi verso <b>Est</b> si entra nell'<em>Ala del bivio</em>.</p>
-<p>Andando verso <b>Sud</b> si entra nell'<em>Ala della Spada</em> dove è appunto possibile raccogliere la <b>spada</b> 
-che servirà in seguito quando si incontrerà il Minotauro per sconfiggerlo. Da questa stanza è possibile soltanto tornare 
-alla precedente a <b>Nord</b> da cui poi si può proseguire.</p>
-<p>Proseguendo quindi verso <b>Est</b> si entra nell'<em>Ala del grande passo</em>.</p>
-<p>Verso <b>Nord</b> si entra nella <em>Stanza della Battaglia</em> dove si dovrà affrontare il <b>Minotauro</b> se si è 
-in possesso della spada e la si sta usando, altrimenti incontrarlo sarà letale e il gioco finirà.</p>
-<p>A <b>Sud</b> dell'<em>Ala del grande passo</em> c'è l'<em>Ala finale</em>.
+<p>Il gioco inizia con il protagonista che si sveglia all'interno della <b><i>Stanza 79</b></i>.<br>
+ Dirigendosi verso <b>Nord</b> si avrà modo di entrare nel primo <b><i>Corridoio</i></b> dell'hotel. Per accedere ad esso, l'utente dovrà essere in grado di trovare la chiave per sbloccare l'accesso ad esso. <br>
+Nel <b><i>Corridoio</i></b> vi saranno altre stanze in cui sarà possibile scovare segreti e oggetti al fine di completare il gioco.
+<p>Ad <b>Ovest</b> vi è il <b><i>Corridoio Columbus</i></b>, il cui accesso è libero. <br>
+Qui l'utente potrà accedere a varie stanze per prendere gli oggetti necessari per il proseguio dell'avventura.
+Andando a <b>Sud</b> entrerà nella <b><i>Stanza 53</b></i> dove sarà possibile raccogliere il gancio per aprire la ventola della <b><i>Lavanderia</b></i>.<br>
+Dalla <b><i>Stanza 53</b></i> attraverso il comando <code>apri finestra</code> sarà possibile avere accesso al <b><i>Giardino</i></b> e successivamente alla <b><i>Stanza 63</b></i> dove si potrà raccogliere il fucile che sarà indispensabile per la vittoria del gioco. </p>
+<p>Spostandosi verso <b>Nord</b> del <b><i>Corridoio Columbus</b></i> sarà possibile accedere al <b><i>Corridoio Clippings</i></b>, l'ultimo prima delle stanze finali.<br>
+Qui sono presenti la <b><i>Cucina</i></b>, la <b><i>CCTV</i></b> e la <b><i>Lavanderia</i></b>. <br>
+Dalla <b><i>Lavanderia</i></b> sarà possibile aver accesso alla <b><i>Hall</i></b> aprendo la ventola con il comando <code>apri ventola con gancio</code>. 
+Successivamente, tramite il comando <code>usa ventola</code>, si potrà entrare nella <b><i>Hall</b></i> solamente nel caso in cui l'utente abbia nell'inventario 2 oggetti fondamentali (<u><i>Mappa della cassaforte della hall</u></i> e <u><i>Foto rappresentate una delle due combinazioni per aprire questa</i></u>) per il continuo del gioco.</p> 
+Qui è presente una cassaforte. <br> 
+Se l'utente è stato in grado di raccogliere tutti gli elementi fondamentali per arrivare sin qui, sarà in grado di sbloccare la cassaforte usando il comando <code>inserisci [combinazione] in cassaforte</code>, la quale conterrà la chiave per sbloccare la <b><i>Stanza 13</b></i>, dove si concluderà l'avventura.
+
+<p>Una volta aperta la cassaforte potrà raccogliere la chiave e dirigersi ad <b>Ovest</b> per completare il gioco. <br>
+Gli verrà assegnato un punteggio in base al tempo impiegato per completare il tutto e soprattuto potrebbe essere soggetto ad una penalità in caso non abbia raccolto l'elemento principale per la vittoria, il <b>fucile</b>.</p>
 
 [Torna all'indice](#Indice) <br><br>
 
@@ -130,16 +136,16 @@ Questa sezione evidenzia i risultati e le modalità con cui è stato testato il 
 ## Analisi statica del codice
 Si è deciso di utilizzare l’Analisi statica del codice poichè permette di analizzare il codice sorgente e di mettere in evidenza le problematiche riscontrate.<br>
 
-Tra i principali strumenti per svolgere l'Analisi statica del codice è stato scelto di utilizzare [Checkstyle](https://checkstyle.org) e [Spotbugs](https://spotbugs.github.io).<br>
+Tra i principali strumenti per svolgere il testing del codice è stato scelto di utilizzare [Checkstyle](https://checkstyle.org) e [Spotbugs](https://spotbugs.github.io).<br>
 
 - ## Checkstyle
     - <b>Checkstyle</b> è uno strumento di analisi del codice statico, utilizzato per scoprire eventuali violazioni dello stile di programmazione e verificare se il codice sorgente è conforme alle regole di codifica specificate.<br>
-    Di seguito ne riportiamo brevemente il risultato:<br>
+    Di seguito ne riportiamo brevemente il risultato:<br><br>
     >![checkstyle](./img/checkstyle.PNG)
 
 - ## Spotbugs
     - Relativamente invece all'altro analizzatore statico del codice, <b>Spotbugs</b> si occupa di inviduare potenziali difetti che possono comportare malfunzionamenti nel codice.<br>
-    Ne riportiamo brevemente l'output:<br>
+    Ne riportiamo brevemente l'output:<br><br>
     >![spotbugs](./img/spotbugs.PNG)
 
 [Torna all'indice](#Indice) <br><br>
