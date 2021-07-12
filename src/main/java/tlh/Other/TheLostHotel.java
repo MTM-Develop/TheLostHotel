@@ -328,7 +328,18 @@ public class TheLostHotel extends GameManager {
                             }
 
                         } else if (gameItem.isPickupable()) {
-                            output.append("Devi prendere l'oggetto prima di poterlo usare!\n");
+                            boolean isInInventory = false;
+                            for (GameItem g : this.getGame().getInventory().getInventoryList()) {
+                                if (g.getName().equals(gameItem.getName())) {
+                                    isInInventory = true;
+                                    break;
+                                }
+                            }
+                            if (isInInventory) {
+                                output.append("Non puoi usare questo oggetto (ora/così).\n");
+                            } else {
+                                output.append("Devi prendere l'oggetto prima di poterlo usare!\n");
+                            }
                         } else {
                             output.append("Specifica correttamente l'oggetto che vuoi usare.\n");
                         }
@@ -346,9 +357,9 @@ public class TheLostHotel extends GameManager {
                                 output.append("\nL'oggetto " + gameItem.getName() + " è stato rimosso.\n");
                             }
 
-                            if (gameItem.getName().equals("chiave")) {
+                            if (gameItem.getName().equals("chiave79")) {
                                 output.append("\nN.B: Il tutorial è terminato.\n"
-                                        + "Adesso dipende solo da te!\n"); //oppure "Buona fortuna!"
+                                        + "Adesso dipende solo da te!\n");
                             }
 
                         } else if (gameItem.getName().equals("cellulare") && this.getGame().getCurrentRoom().getName().equals("CCTV")) {

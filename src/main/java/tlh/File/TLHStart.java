@@ -503,7 +503,7 @@ public class TLHStart {
                 Description.DESCRIPTION_COMPUTER);
         computer.setAlias(new String[]{"pc", "notebook", "portatile",
                 "calcolatore", "elaboratore"});
-        computer.setUsableWithItem(true);
+        computer.setiCNotInsertable(true);
         computer.setiCNotOpenable(true);
         computer.add(usb);
 
