@@ -11,13 +11,19 @@ import javax.swing.ImageIcon;
 import java.util.Iterator;
 import java.util.Objects;
 
+/**
+ * Classe principale del progetto che estende
+ * la classe GameManager.
+ *
+ * @author MTM-Develop.
+ */
 @SuppressWarnings({"checkstyle:linelength", "checkstyle:methodlength"})
 public class TheLostHotel extends GameManager {
 
     /**
      * Costruttore.
      *
-     * @param game
+     * @param game gestore di gioco.
      * @param url per caricare la musica.
      */
     public TheLostHotel(final GameDescription game, final String url) {

@@ -22,8 +22,13 @@
     - [Connessione a database](#Connessione-a-database) <br>
     - [GUI mediante SWING](#GUI-mediante-SWING) <br>
     - [Thread](#Thread) <br>
-    - [Lambda expression](#Lambda-expression) <br>
-    - [Javadoc](#Javadoc) 
+    - [Javadoc](#Javadoc) <br>
+        - [Package Database](#Package-Database) <br>
+        - [Package File](#Package-File) <br>
+        - [Package GUI](#Package-GUI) <br>
+        - [Package Other](#Package-Other) <br>
+        - [Package Parser](#Package-Parser) <br>
+        - [Package Type](#Package-Type) <br>
 
 6. [Riepilogo dei test](#Riepilogo-dei-test)
     - [Analisi statica del codice](#Analisi-statica-del-codice)
@@ -222,6 +227,45 @@ Cliccando l'icona in alto a destra, relativa all'inventario, verrà visualizzata
  - 1 <code>JLabel</code> contenente l'immagine di ciascuno oggetto.
 
 --- 
+
+## Thread
+Nella classe <b>Music</b> è stata gestita la riproduzione della musica mediante il metodo <i><b>playSound</i></b> che fa partire un <b>Thread</b> il quale riproduce la musica, caricandola da un URL passato come parametro. <br>
+Va sottolineato che tale metodo è di tipo <i><b>synchronized</b></i> poichè garantisce che tutto quello che viene fatto qui viene portato a compimento prima che un altro thread chiami lo stesso metodo.
+
+## Javadoc
+Riportiamo di seguito la panoramica dei package coperti da <b>Javadoc</b> e, successivamente, le rispettive classi:
+>![package_javadoc](./imgRelazione/javadoc_TheLostHotel.PNG)
+
+<br>
+
+## Package Database
+>![package_javadoc](./imgRelazione/javadoc_package_db.PNG)
+
+<br>
+
+## Package File
+>![package_javadoc](./imgRelazione/javadoc_package_file.PNG)
+
+<br>
+
+## Package GUI
+>![package_javadoc](./imgRelazione/javadoc_package_GUI.PNG)
+
+<br>
+
+## Package Other
+>![package_javadoc](./imgRelazione/javadoc_package_other.PNG)
+
+<br>
+
+## Package Parser
+>![package_javadoc](./imgRelazione/javadoc_package_parser.PNG)
+
+<br>
+
+## Package Type
+>![package_javadoc](./imgRelazione/javadoc_package_type.PNG)
+
 [Torna all'indice](#Indice) <br><br>
 
 # Riepilogo dei test

@@ -4,6 +4,12 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**
+ * Classe che memorizza e controlla le parole
+ * contenute nella stringa inserita dall'utente.
+ *
+ * @author MTM-Develop.
+ */
 public class ParserOutput implements Iterable<WordType> {
     /**
      * Formato da coppie di tipi di parola e stringa che lo identifica
@@ -52,18 +58,6 @@ public class ParserOutput implements Iterable<WordType> {
      */
     public boolean containsWordType(final WordType w) {
         return parsedData.containsKey(w);
-    }
-
-    /**
-     * Rimuove chiave e valore dalla lista se sono presenti
-     * in un'unica entry.
-     *
-     * @param w WordType, chiave da eliminare.
-     * @param s Stringa, valore associato alla chiave.
-     * @return booleano, true se è stato rimosso, false altrimenti.
-     */
-    public boolean remove(final WordType w, final String s) {
-        return parsedData.remove(w, s);
     }
 
     /**

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tlh.Other;
 
 import java.io.Serializable;
@@ -12,6 +7,8 @@ import java.util.TimerTask;
 /**
  * Classe realizzata per calcolare il tempo
  * impiegato dal giocatore per concludere il gioco.
+ *
+ * @author MTM-Develop.
  */
 public class GameTime implements Serializable {
 
@@ -79,7 +76,9 @@ public class GameTime implements Serializable {
     }
 
     /**
-     * @return tempo calcolato in secondi.
+     * Restituisce il tempo calcolato in secondi.
+     *
+     * @return secondPassed.
      */
     public int getSecondPassed() {
         return secondPassed;
@@ -88,42 +87,10 @@ public class GameTime implements Serializable {
     /**
      * Imposta il tempo calcolato in secondi.
      *
-     * @param sPassed
+     * @param sPassed tempo calcolato in secondi.
      */
     public void setSecondPassed(final int sPassed) {
         this.secondPassed = sPassed;
-    }
-
-    /**
-     * @return Timer per lo scorrere del tempo.
-     */
-    public Timer getTimer() {
-        return time;
-    }
-
-    /**
-     * Imposta il Timer per lo scorrere del tempo.
-     *
-     * @param t
-     */
-    public void setTimer(final Timer t) {
-        this.time = t;
-    }
-
-    /**
-     * @return Task che fa avanzare il Timer.
-     */
-    public TimerTask getTask() {
-        return task;
-    }
-
-    /**
-     * Imposta il task che fa avanzare il Timer.
-     *
-     * @param t
-     */
-    public void setTask(final TimerTask t) {
-        this.task = t;
     }
 
     /**
@@ -137,7 +104,8 @@ public class GameTime implements Serializable {
     /**
      * Imposta il timer (se attivo o meno).
      *
-     * @param tActive
+     * @param tActive booleano (vero se il timer è attivo,
+     * falso altrimenti).
      */
     public void setActive(final boolean tActive) {
         this.active = tActive;

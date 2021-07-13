@@ -1,5 +1,11 @@
 package tlh.Other;
 
+/**
+ * Classe che gestisce tutte
+ * le costanti del gioco.
+ *
+ * @author MTM-Develop.
+ */
 public final class Description {
 
     /**
@@ -443,8 +449,8 @@ public final class Description {
      */
     public static final String DESCRIPTION_WARDROBE_79 =
             "Un armadio imponente che occupa mezza stanza!\n"
-                    + "Sembra essere bloccato da qualcosa <<oggetto>> ";
-                                                            //agg ogg
+                    + "Sembra essere bloccato dall'oggetto "
+                    + "fermacappelli";
 
     /**
      * Descrizione dell'oggetto "quadro".
@@ -644,10 +650,6 @@ public final class Description {
     public static final String DESCRIPTION_CASH_DESK =
             "Una cassa di ferro un po' antiquata. Chissà cosa possa contenere.";
 
-    /*public static final String DESCRIPTION_BOX =
-    "Una scatola di cartone chiusa con dello scotch.\n" +
-            "Difficile aprirla a mano.";*/
-
     /**
      * Descrizione dell'oggetto "gettone".
      */
@@ -692,7 +694,7 @@ public final class Description {
      * Descrizione dell'oggetto contenitore "tv" della stanza 53.
      */
     public static final String DESCRIPTION_TV_53 =
-            "Una televisione accesa, è in onda il tg della notte."; //cambiare
+            "Una televisione accesa, è in onda il tg della notte.";
 
     /**
      * Descrizione dell'oggetto contenitore "scarpiera".
@@ -1099,27 +1101,12 @@ public final class Description {
             "Hai già rotto la slot, non ti basta?";
 
     /**
-     * Descrizione dell'oggetto contenitore "cambiamonete"
-     * non appena viene utilizzato.
-     */
-    public static final String DESCRIPTION_CHANGE_MACHINE_USABLE_WITH_DROPS =
-            "Grazie alle tue elevate capacità informatiche "
-                    + "hai estratto la tessera... hai solo premuto un tasto!";
-
-    /**
-     * Descrizione dell'oggetto contenitore "cambiamonete" già utilizzato.
-     */
-    public static final String
-            DESCRIPTION_CHANGE_MACHINE_ALREADY_USED_WITH_DROPS =
-            "Una macchinetta cambiamonete vuota.";
-
-    /**
      * Descrizione dell'oggetto contenitore "telecomando"
      * non appena viene utilizzato.
      */
     public static final String DESCRIPTION_REMOTE_CONTROL_USABLE_WITH_DROPS =
             "Sei riuscito ad accendere la TV "
-            + "e sono comparse delle scritte poco chiare! " //forse cambiare
+            + "e sono comparse delle scritte poco chiare! "
             + "Per oggi niente film...";
 
     /**
@@ -1389,11 +1376,6 @@ public final class Description {
      * ID dell'oggetto "foglio" del "corridoio Columbus".
      */
     public static final int ID_PAPER_HALLWAY_COLUMBUS = 11;
-
-    /**
-     * ID dell'oggetto "chiave33".
-     */
-    public static final int ID_KEY33 = 12;
 
     /**
      * ID dell'oggetto "token".

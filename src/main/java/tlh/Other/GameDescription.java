@@ -10,6 +10,11 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Classe che gestisce le fondamenta del gioco.
+ *
+ * @author MTM-Develop.
+ */
 public class GameDescription {
 
     /**
@@ -46,22 +51,9 @@ public class GameDescription {
     }
 
     /**
-     * Costruttore.
+     * Restituisce l'inventario del giocatore.
      *
-     * @param gCommands
-     * @param gInventory
-     * @param gCurrentRoom
-     */
-    public GameDescription(final Set<Command> gCommands,
-                           final Inventory gInventory,
-                           final Room gCurrentRoom) {
-        this.commands = gCommands;
-        this.inventory = gInventory;
-        this.currentRoom = gCurrentRoom;
-    }
-
-    /**
-     * @return inventario del giocatore.
+     * @return inventory.
      */
     public Inventory getInventory() {
         return inventory;
@@ -70,14 +62,16 @@ public class GameDescription {
     /**
      * Imposta l'inventario del giocatore.
      *
-     * @param inv
+     * @param inv inventario del giocatore.
      */
     public void setInventory(final Inventory inv) {
         this.inventory = inv;
     }
 
     /**
-     * @return stanza corrente del giocatore.
+     * Restituisce la stanza corrente del giocatore.
+     *
+     * @return currentRoom.
      */
     public Room getCurrentRoom() {
         return currentRoom;
@@ -86,14 +80,16 @@ public class GameDescription {
     /**
      * Imposta la stanza corrente del giocatore.
      *
-     * @param currRoom
+     * @param currRoom stanza corrente.
      */
     public void setCurrentRoom(final Room currRoom) {
         this.currentRoom = currRoom;
     }
 
     /**
-     * @return comandi del gioco.
+     * Restituisce i comandi del gioco.
+     *
+     * @return commands.
      */
     public Set<Command> getCommands() {
         return commands;
@@ -102,14 +98,16 @@ public class GameDescription {
     /**
      * Imposta i comandi del gioco.
      *
-     * @param gCommands
+     * @param gCommands comandi di gioco.
      */
     public void setCommands(final Set<Command> gCommands) {
         this.commands = gCommands;
     }
 
     /**
-     * @return nome del giocatore.
+     * Restituisce il nome del giocatore.
+     *
+     * @return player.
      */
     public String getPlayer() {
         return player;
@@ -118,32 +116,25 @@ public class GameDescription {
     /**
      * Imposta il nome del giocatore.
      *
-     * @param p
+     * @param p nome del giocatore.
      */
     public void setPlayer(final String p) {
         this.player = p;
     }
 
     /**
-     * @return tempo di gioco.
+     * Restituisce il tempo di gioco.
+     *
+     * @return gTime.
      */
     public GameTime getgTime() {
         return gTime;
     }
 
     /**
-     * Imposta il tempo di gioco.
-     *
-     * @param time
-     */
-    public void setgTime(final GameTime time) {
-        this.gTime = time;
-    }
-
-    /**
      * Avvia una nuova partita da file.
      *
-     * @param filePath
+     * @param filePath percorso del file.
      * @throws IOException
      * @throws ClassNotFoundException
      */
@@ -158,7 +149,7 @@ public class GameDescription {
     /**
      * Carica una partita esistente da file.
      *
-     * @param dirPath
+     * @param dirPath percorso del file.
      * @throws IOException
      */
     public void saveGame(final String dirPath) throws IOException {

@@ -6,6 +6,8 @@ package tlh.Parser;
  * errore e parole chiave ('con' e 'in').
  *
  * È di supporto per il Parser, ParserOutput e per la gestione del gioco.
+ *
+ * @author MTM-Develop.
  */
 public enum WordType {
     /**

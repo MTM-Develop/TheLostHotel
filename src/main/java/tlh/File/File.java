@@ -13,6 +13,12 @@ import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 import java.util.HashSet;
 
+/**
+ * Classe che gestisce il salvataggio
+ * e caricamento su file.
+ *
+ * @author MTM-Develop.
+ */
 public class File {
 
     /**

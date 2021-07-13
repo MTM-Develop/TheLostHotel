@@ -3,6 +3,12 @@ package tlh.Other;
 import tlh.Parser.Parser;
 import tlh.Parser.ParserOutput;
 
+/**
+ * Classe che gestisce l'interazione
+ * del gioco con il parser.
+ *
+ * @author MTM-Develop.
+ */
 public class GameInteraction {
 
     /**
@@ -22,7 +28,9 @@ public class GameInteraction {
     }
 
     /**
-     * @return gestore del gioco.
+     * Restituisce il gestore del gioco.
+     *
+     * @return g.
      */
     public GameManager getGameManager() {
         return g;

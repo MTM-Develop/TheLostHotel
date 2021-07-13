@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tlh.GUI;
 
 import tlh.Database.DB;
@@ -40,8 +35,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
+ * Classe che gestisce l'interfaccia
+ * grafica dell'avventura.
  *
- * @author gaetano
+ * @author MTM-Develop.
  */
 @SuppressWarnings({"checkstyle:methodlength"})
 public class GameGUI extends javax.swing.JFrame {
@@ -141,7 +138,7 @@ public class GameGUI extends javax.swing.JFrame {
     /**
      * Creates new form GameGUI.
      *
-     * @param gInt
+     * @param gInt gestore di interazione con il parser.
      */
     public GameGUI(final GameInteraction gInt) {
         initComponents();
@@ -525,7 +522,7 @@ public class GameGUI extends javax.swing.JFrame {
         jMenuBar1.add(jmCommands);
 
         jmMusic.setText("Musica");
-        jmiMusic.setText("Abilita musica"); //CAMBIARE
+        jmiMusic.setText("Abilita musica");
         KeyStroke keyStrokeMusic = KeyStroke.getKeyStroke(
                 KeyEvent.VK_M, KeyEvent.CTRL_DOWN_MASK);
         jmiMusic.setAccelerator(keyStrokeMusic);
@@ -636,7 +633,6 @@ public class GameGUI extends javax.swing.JFrame {
         appendToPane(jtpReadingArea, "\nSUGGERIMENTO: "
                 + "\nDigita \"osserva\" per guardarti intorno "
                 + "ed esaminare la stanza.\n\n", Color.white);
-        //Provare a rimuoverlo se si carica una partita
 
         gInteraction.getGameManager().getGame().
                 getCurrentRoom().setVisited(true);
@@ -895,7 +891,6 @@ public class GameGUI extends javax.swing.JFrame {
             // Prende il testo scritto dall'utente e lo stampa sul jTextPane.
             String command = jtCommand.getText().
                     toLowerCase().replaceAll("\\s+", " ");
-            //SISTEMARE
 
             appendToPane(jtpReadingArea, "\n>> " + command
                     + "\n", Color.red);
@@ -1255,7 +1250,9 @@ public class GameGUI extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     /**
-     * @return JTextPane (non modificabile).
+     * Restituisce il JTextPane (non modificabile).
+     *
+     * @return jtpReadingArea.
      */
     public JTextPane getJtpReadingArea() {
         return jtpReadingArea;

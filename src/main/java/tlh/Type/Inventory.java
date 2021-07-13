@@ -14,6 +14,7 @@ import java.util.Objects;
  *
  * È una collezione di GameItem.
  *
+ * @author MTM-Develop.
  */
 public class Inventory implements Serializable {
 
@@ -30,19 +31,12 @@ public class Inventory implements Serializable {
     }
 
     /**
-     * @return lista di GameItem.
+     * Restituisce la lista di GameItem.
+     *
+     * @return inventoryList.
      */
     public List<GameItem> getInventoryList() {
         return inventoryList;
-    }
-
-    /**
-     * Imposta la lista di gameItem.
-     *
-     * @param iList
-     */
-    public void setInventoryList(final List<GameItem> iList) {
-        this.inventoryList = iList;
     }
 
     /**
@@ -112,15 +106,14 @@ public class Inventory implements Serializable {
     }
 
     /**
-     * Controlla se l'inventario è pieno (ovvero se contiene già 6 oggetti).
-     * //DA CAMBIARE
+     * Controlla se l'inventario è pieno (ovvero se contiene già 10 oggetti).
      *
      * @return booleano in base alla capienza dell'inventario
      * (vero se è pieno, falso altrimenti).
      */
     public boolean isFull() {
         return (this.inventoryList.size() >= Description.MAX_INV_CAPACITY);
-    } //CAMBIARE
+    }
 
     /**
      * Metodo generato automaticamente per confrontare
@@ -139,7 +132,7 @@ public class Inventory implements Serializable {
      * Permette di confrontare se due inventari sono uguali,
      * ovvero se hanno gli stessi gameItem.
      *
-     * @param o
+     * @param o oggetto da confrontare.
      * @return booleano (vero se i due inventari sono uguali, falso altrimenti).
      */
     @Override

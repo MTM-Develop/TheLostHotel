@@ -9,6 +9,12 @@ import tlh.Type.GameItemContainer;
 
 import java.util.Set;
 
+/**
+ * Classe che controlla la stringa dell'utente
+ * e la trasforma in un possibile comando.
+ *
+ * @author MTM-Develop.
+ */
 public class Parser {
     /**
      * Prende la stringa dell'utente e le diverse entità che compongono il
@@ -90,7 +96,6 @@ public class Parser {
 
             if (tokens.length != pOutput.size()) {
 
-                //Meglio rimuoverlo
                 if (!tokens[1].equals(currentRoom.getName())) {
                     pOutput.add(WordType.ERROR, tokens[1]);
                 }

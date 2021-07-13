@@ -7,6 +7,11 @@ import java.util.Iterator;
 import java.util.Objects;
 import javax.swing.ImageIcon;
 
+/**
+ * Classe che gestisce ciascuna stanza dell'avventura.
+ *
+ * @author MTM-Develop.
+ */
 public class Room implements Serializable {
 
     /**
@@ -90,9 +95,9 @@ public class Room implements Serializable {
     /**
      * Costruttore.
      *
-     * @param rId
-     * @param rName
-     * @param rDescription
+     * @param rId ID della stanza.
+     * @param rName nome della stanza.
+     * @param rDescription descrizione della stanza.
      */
     public Room(final int rId, final String rName, final String rDescription) {
         this.id = rId;
@@ -102,7 +107,9 @@ public class Room implements Serializable {
     }
 
     /**
-     * @return nome della stanza.
+     * Restituisce il nome della stanza.
+     *
+     * @return name.
      */
     public String getName() {
         return name;
@@ -111,14 +118,16 @@ public class Room implements Serializable {
     /**
      * Imposta il nome della stanza.
      *
-     * @param n
+     * @param n nome della stanza.
      */
     public void setName(final String n) {
         this.name = n;
     }
 
     /**
-     * @return descrizione base della stanza.
+     * Restituisce la descrizione base della stanza.
+     *
+     * @return description.
      */
     public String getDescription() {
         return description;
@@ -127,14 +136,16 @@ public class Room implements Serializable {
     /**
      * Imposta la descrizione base della stanza.
      *
-     * @param desc
+     * @param desc descrizione base della stanza.
      */
     public void setDescription(final String desc) {
         this.description = desc;
     }
 
     /**
-     * @return descrizione più dettagliata della stanza.
+     * Restituisce la descrizione più dettagliata della stanza.
+     *
+     * @return lookDescription.
      */
     public String getLookDescription() {
         return lookDescription;
@@ -143,14 +154,16 @@ public class Room implements Serializable {
     /**
      * Imposta una descrizione più dettagliata della stanza.
      *
-     * @param lookDesc
+     * @param lookDesc descrizione più dettagliata della stanza.
      */
     public void setLookDescription(final String lookDesc) {
         this.lookDescription = lookDesc;
     }
 
     /**
-     * @return descrizione della stanza (se è stata già visitata).
+     * Restituisce la descrizione della stanza (se è stata già visitata).
+     *
+     * @return visitedDescription.
      */
     public String getVisitedDescription() {
         return visitedDescription;
@@ -159,15 +172,17 @@ public class Room implements Serializable {
     /**
      * Imposta la descrizione della stanza (se è stata già visitata).
      *
-     * @param visitedDesc
+     * @param visitedDesc descrizione della stanza.
      */
     public void setVisitedDescription(final String visitedDesc) {
         this.visitedDescription = visitedDesc;
     }
 
     /**
-     * @return Stringa che rappresenta il nome dell'oggetto
+     * Restituisce la Stringa che rappresenta il nome dell'oggetto
      * che permette di sbloccare la stanza.
+     *
+     * @return lockedBy.
      */
     public String getLockedBy() {
         return lockedBy;
@@ -176,14 +191,17 @@ public class Room implements Serializable {
     /**
      * Indica quale oggetto (nome) permette di sbloccare la stanza.
      *
-     * @param lBy
+     * @param lBy nome dell'oggetto.
      */
     public void setLockedBy(final String lBy) {
         this.lockedBy = lBy;
     }
 
     /**
-     * @return booleano (vero se la stanza è stata visitata, falso altrimenti).
+     * Restituisce booleano (vero se la stanza è stata visitata,
+     * falso altrimenti).
+     *
+     * @return visited.
      */
     public boolean isVisited() {
         return visited;
@@ -192,14 +210,16 @@ public class Room implements Serializable {
     /**
      * Indica se la stanza è stata visitata.
      *
-     * @param v
+     * @param v booleano (vero / falso).
      */
     public void setVisited(final boolean v) {
         this.visited = v;
     }
 
     /**
-     * @return stanza che si trova a nord.
+     * Restituisce la stanza che si trova a nord.
+     *
+     * @return north.
      */
     public Room getNorth() {
         return north;
@@ -208,14 +228,16 @@ public class Room implements Serializable {
     /**
      * Imposta la stanza che si trova a nord.
      *
-     * @param rNorth
+     * @param rNorth stanza che si trova a nord.
      */
     public void setNorth(final Room rNorth) {
         this.north = rNorth;
     }
 
     /**
-     * @return stanza che si trova a sud.
+     * Restituisce la stanza che si trova a sud.
+     *
+     * @return south.
      */
     public Room getSouth() {
         return south;
@@ -224,14 +246,16 @@ public class Room implements Serializable {
     /**
      * Imposta la stanza che si trova a sud.
      *
-     * @param rSouth
+     * @param rSouth stanza che si trova a sud.
      */
     public void setSouth(final Room rSouth) {
         this.south = rSouth;
     }
 
     /**
-     * @return stanza che si trova a ovest.
+     * Restituisce la stanza che si trova a ovest.
+     *
+     * @return west.
      */
     public Room getWest() {
         return west;
@@ -240,14 +264,16 @@ public class Room implements Serializable {
     /**
      * Imposta la stanza che si trova a ovest.
      *
-     * @param rWest
+     * @param rWest stanza che si trova ad ovest.
      */
     public void setWest(final Room rWest) {
         this.west = rWest;
     }
 
     /**
-     * @return stanza che si trova a est.
+     * Restituisce la stanza che si trova a est.
+     *
+     * @return east.
      */
     public Room getEast() {
         return east;
@@ -256,15 +282,17 @@ public class Room implements Serializable {
     /**
      * Imposta la stanza che si trova a est.
      *
-     * @param rEast
+     * @param rEast stanza che si trova ad est.
      */
     public void setEast(final Room rEast) {
         this.east = rEast;
     }
 
     /**
-     * @return booleano (vero se è impossibile
+     * Restituisce booleano (vero se è impossibile
      * accedere direttamente alla stanza, falso altrimenti).
+     *
+     * @return impossibleToAccessDirectly.
      */
     public boolean isImpossibleToAccessDirectly() {
         return impossibleToAccessDirectly;
@@ -273,16 +301,17 @@ public class Room implements Serializable {
     /**
      * Imposta lo stato della stanza (impossibile da accedere direttamente).
      *
-     * @param impossibleToAD
+     * @param impossibleToAD booleano (vero / falso).
      */
     public void setImpossibleToAccessDirectly(final boolean impossibleToAD) {
         this.impossibleToAccessDirectly = impossibleToAD;
     }
 
     /**
-     *
-     * @return booleano (vero se si può accedere alla stanza bloccata
+     * Restituisce booleano (vero se si può accedere alla stanza bloccata
      * tramite una porta sbloccata, falso altrimenti).
+     *
+     * @return anOpenDoor.
      */
     public boolean isAnOpenDoor() {
         return anOpenDoor;
@@ -292,26 +321,19 @@ public class Room implements Serializable {
      * Imposta lo stato della stanza (bloccata, se si può accedere
      * tramite una porta sbloccata).
      *
-     * @param anODoor
+     * @param anODoor booleano (vero / falso).
      */
     public void setAnOpenDoor(final boolean anODoor) {
         this.anOpenDoor = anODoor;
     }
 
     /**
-     * @return lista di oggetti presenti nella stanza.
+     * Restituisce la lista di oggetti presenti nella stanza.
+     *
+     * @return itemList.
      */
     public Inventory getItemList() {
         return itemList;
-    }
-
-    /**
-     * Imposta la lista di oggetti presenti nella stanza.
-     *
-     * @param iList
-     */
-    public void setItemList(final Inventory iList) {
-        this.itemList = iList;
     }
 
     /**
@@ -357,7 +379,9 @@ public class Room implements Serializable {
     }
 
     /**
-     * @return immagine della stanza.
+     * Restituisce l'immagine della stanza.
+     *
+     * @return roomImage.
      */
     public ImageIcon getRoomImage() {
         return roomImage;
@@ -366,7 +390,7 @@ public class Room implements Serializable {
     /**
      * Imposta l'immagine della stanza.
      *
-     * @param rImage
+     * @param rImage immagine della stanza.
      */
     public void setRoomImage(final ImageIcon rImage) {
         this.roomImage = rImage;
@@ -388,7 +412,7 @@ public class Room implements Serializable {
     /**
      *  Permette di confrontare se due stanze sono uguali.
      *
-     * @param o
+     * @param o oggetto da confrontare.
      * @return booleano (vero se le due stanze sono uguali, falso altrimenti).
      */
     @Override

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tlh.Database;
 
 import tlh.Other.Description;
@@ -23,6 +18,8 @@ import java.time.LocalTime;
 /**
  * Classe che gestisce il jdbc per
  * tenere traccia dei giocatori e i loro punteggi.
+ *
+ * @author MTM-Develop.
  */
 public class DB {
 
@@ -58,7 +55,6 @@ public class DB {
 
     /**
      * Si connette al db locale.
-     *
      */
     public void connect() throws SQLException {
 
@@ -207,8 +203,10 @@ public class DB {
     }
 
     /**
-     * @return voto del giocatore in base al
+     * Restituisce voto del giocatore in base al
      * tempo di completamento del gioco.
+     *
+     * @return vote.
      */
     public String getVote() {
         return vote;

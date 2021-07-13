@@ -10,6 +10,12 @@ import tlh.Type.CommandType;
 
 import javax.swing.ImageIcon;
 
+/**
+ * Classe che carica sul file NewGame.dat
+ * tutti gli oggetti e le stanze presenti nel gioco.
+ *
+ * @author MTM-Develop.
+ */
 @SuppressWarnings("checkstyle:methodlength")
 public class TLHStart {
 
@@ -19,7 +25,9 @@ public class TLHStart {
     private GameDescription g = new GameDescription();
 
     /**
-     * @return entità in cui è caricato il gioco.
+     * Restituisce l'entità in cui è caricato il gioco.
+     *
+     * @return g
      */
     public GameDescription getGame() {
         return g;
@@ -261,7 +269,6 @@ public class TLHStart {
                 "note47", "appunti47"});
         ImageIcon imgPaperRoomBar = new ImageIcon(
                 "resources//img//gameItem//paperHallwayColumbus.png");
-        //CAMBIARE IMMAGINE NEL CASO
         paperRoomBar.setItemImage(imgPaperRoomBar);
         paperRoomBar.setIndispensable(true);
 
@@ -837,7 +844,6 @@ public class TLHStart {
         cops.setAlias(new String[]{"polizia", "poliziotti"});
         cops.setPerson(true);
 
-
         //Stanze
         Room room79 = new Room(Description.ID_ROOM_79, "Stanza 79",
                 Description.DESCRIPTION_ROOM_79);
@@ -1123,7 +1129,7 @@ public class TLHStart {
     /**
      * Rende eseguibile la classe, in modo da ricreare i file di gioco.
      *
-     * @param args
+     * @param args the command line arguments.
      */
     public static void main(final String[] args) {
 

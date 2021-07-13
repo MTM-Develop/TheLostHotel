@@ -2,6 +2,11 @@ package tlh.Other;
 
 import java.io.IOException;
 
+/**
+ * Classe che gestisce il menu principale di gioco.
+ *
+ * @author MTM-Develop.
+ */
 public class MenuManager {
 
     /**
@@ -12,7 +17,7 @@ public class MenuManager {
     /**
      * Costruttore.
      *
-     * @param g
+     * @param g gestore di gioco.
      */
     public MenuManager(final GameManager g) {
         this.gInteraction = new GameInteraction(g);
@@ -49,18 +54,12 @@ public class MenuManager {
     }
 
     /**
-     * @return gestore di interazione di gioco.
+     * Restituisce il gestore di interazione di gioco.
+     *
+     * @return gInteraction.
      */
     public GameInteraction getgInteraction() {
         return gInteraction;
     }
 
-    /**
-     * Imposta il gestore di interazione di gioco.
-     *
-     * @param gameInteraction
-     */
-    public void setgInteraction(final GameInteraction gameInteraction) {
-        this.gInteraction = gameInteraction;
-    }
 }

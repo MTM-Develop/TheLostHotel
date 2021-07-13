@@ -2,6 +2,11 @@ package tlh.Other;
 
 import tlh.GUI.MenuGUI;
 
+/**
+ * Classe principale che avvia il programma.
+ *
+ * @author MTM-Develop.
+ */
 @SuppressWarnings({"checkstyle:HideUtilityClassConstructor"})
 public class Main {
 

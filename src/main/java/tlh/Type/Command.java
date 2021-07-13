@@ -9,6 +9,8 @@ import java.util.Objects;
 import java.util.Set;
 /**
  * Classe che rappresenta l'entità di Comando.
+ *
+ * @author MTM-Develop.
  */
 public class Command implements Serializable {
 
@@ -30,8 +32,8 @@ public class Command implements Serializable {
     /**
      * Costruttore.
      *
-     * @param name
-     * @param type
+     * @param name nome del comando.
+     * @param type tipo del comando.
      */
     public Command(final String name, final CommandType type) {
         this.cName = name;
@@ -42,9 +44,9 @@ public class Command implements Serializable {
     /**
      * Costruttore.
      *
-     * @param name
-     * @param type
-     * @param alias
+     * @param name nome del comando.
+     * @param type tipo del comando.
+     * @param alias alias del comando.
      */
     public Command(final String name, final CommandType type,
                    final Set<String> alias) {
@@ -54,39 +56,36 @@ public class Command implements Serializable {
     }
 
     /**
-     * @return nome del comando.
+     * Restituisce il nome del comando.
+     *
+     * @return cName.
      */
     public String getName() {
         return cName;
     }
 
     /**
-     * @return sinonimi del comando.
+     * Restituisce i sinonimi del comando.
+     *
+     * @return cAlias.
      */
     public Set<String> getAlias() {
         return cAlias;
     }
 
     /**
-     * Imposta i sinonimi del comando.
-     *
-     * @param alias
-     */
-    public void setAlias(final Set<String> alias) {
-        this.cAlias = alias;
-    }
-
-    /**
      * Imposta gli alias del comando.
      *
-     * @param alias
+     * @param alias alias del comando.
      */
     public void setAlias(final String[] alias) {
         this.cAlias = new HashSet<>(Arrays.asList(alias));
     }
 
     /**
-     * @return tipo del comando.
+     * Restituisce il tipo del comando.
+     *
+     * @return cType.
      */
     public CommandType getcType() {
         return cType;
@@ -108,7 +107,7 @@ public class Command implements Serializable {
     /**
      *  Permette di confrontare se due comandi sono uguali.
      *
-     * @param o
+     * @param o oggetto da confrontare.
      * @return booleano (vero se i due comandi sono uguali, falso altrimenti).
      */
     @Override

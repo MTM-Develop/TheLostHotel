@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tlh.GUI;
 
 import tlh.Other.Description;
@@ -26,8 +21,10 @@ import java.io.IOException;
 import java.io.File;
 
 /**
+ * Classe che gestisce l'interfaccia
+ * grafica del menu principale.
  *
- * @author gaetano
+ * @author MTM-Develop.
  */
 public class MenuGUI extends javax.swing.JFrame {
 
@@ -54,7 +51,7 @@ public class MenuGUI extends javax.swing.JFrame {
     /**
      * Creates new form Menu.
      *
-     * @param gameManager
+     * @param gameManager gestore di gioco.
      */
     public MenuGUI(final GameManager gameManager) {
         initComponents();
@@ -223,7 +220,6 @@ public class MenuGUI extends javax.swing.JFrame {
             fontMenuBar = font.deriveFont(Font.PLAIN,
                     Description.MENU_GUI_SIZE_FONT_JM);
 
-            //this.setFont(fontMenuButton);
             jbNewGame.setFont(fontMenuButton);
             jbLoadGame.setFont(fontMenuButton);
             jbQuitGame.setFont(fontMenuButton);

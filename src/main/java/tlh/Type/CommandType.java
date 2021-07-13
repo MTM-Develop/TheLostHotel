@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 /**
  * Classe enumerativa per definire i vari tipi di comandi presenti nel gioco.
+ *
+ * @author MTM-Develop.
  */
 public enum CommandType implements Serializable {
     /**

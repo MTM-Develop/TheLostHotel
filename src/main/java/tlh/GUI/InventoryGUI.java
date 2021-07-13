@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tlh.GUI;
 
 import tlh.Other.Description;
@@ -16,6 +11,12 @@ import javax.swing.JOptionPane;
 import java.awt.ComponentOrientation;
 import java.awt.Color;
 
+/**
+ * Classe che gestisce l'interfaccia
+ * grafica dell'inventario di gioco.
+ *
+ * @author MTM-Develop.
+ */
 public class InventoryGUI extends javax.swing.JDialog {
 
     /**
@@ -26,7 +27,7 @@ public class InventoryGUI extends javax.swing.JDialog {
     /**
      * Costruttore.
      *
-     * @param inv
+     * @param inv inventario del giocatore.
      */
     public InventoryGUI(final Inventory inv) {
         initComponents();

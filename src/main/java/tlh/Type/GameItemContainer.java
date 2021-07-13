@@ -2,7 +2,6 @@ package tlh.Type;
 
 import java.io.Serializable;
 import java.util.Objects;
-import java.util.Set;
 
 /**
  * Classe utilizzata per rappresentare oggetti che contengono altri oggetti,
@@ -10,6 +9,7 @@ import java.util.Set;
  *
  * ItemContainer estende Item, poiché sono anch'essi oggetti.
  *
+ * @author MTM-Develop.
  */
 public class GameItemContainer extends GameItem implements Serializable {
 
@@ -105,9 +105,9 @@ public class GameItemContainer extends GameItem implements Serializable {
     /**
      * Costruttore.
      *
-     * @param id
-     * @param name
-     * @param desc
+     * @param id ID del contenitore.
+     * @param name nome del contenitore.
+     * @param desc descrizione del contenitore.
      */
     public GameItemContainer(final int id, final String name,
                              final String desc) {
@@ -116,54 +116,19 @@ public class GameItemContainer extends GameItem implements Serializable {
     }
 
     /**
-     * Costruttore.
+     * Restituisce il contenuto del contenitore.
      *
-     * @param cIList
-     * @param id
-     * @param name
-     * @param desc
-     */
-    public GameItemContainer(final Inventory cIList, final int id,
-                             final String name, final String desc) {
-        super(id, name, desc);
-        this.cItemList = cIList;
-    }
-
-    /**
-     * Costruttore.
-     *
-     * @param cIList
-     * @param id
-     * @param name
-     * @param desc
-     * @param alias
-     */
-    public GameItemContainer(final Inventory cIList, final int id,
-                             final String name, final String desc,
-                             final Set<String> alias) {
-        super(id, name, desc, alias);
-        this.cItemList = cIList;
-    }
-
-    /**
-     * @return contenuto del contenitore.
+     * @return cItemList.
      */
     public Inventory getcItemList() {
         return cItemList;
     }
 
     /**
-     * Imposta il contenuto del contenitore.
-     *
-     * @param cIList
-     */
-    public void setcItemList(final Inventory cIList) {
-        this.cItemList = cIList;
-    }
-
-    /**
-     * @return Stringa che rappresenta il nome dell'oggetto
+     * Restituisce la Stringa che rappresenta il nome dell'oggetto
      * che blocca il contenitore.
+     *
+     * @return lockedBy.
      */
     public String getLockedBy() {
         return lockedBy;
@@ -172,32 +137,27 @@ public class GameItemContainer extends GameItem implements Serializable {
     /**
      * Indica con quale oggetto (nome) il contenitore è chiuso.
      *
-     * @param lBy
+     * @param lBy nome dell'oggetto.
      */
     public void setLockedBy(final String lBy) {
         this.lockedBy = lBy;
     }
 
     /**
-     * @return Stringa che rappresenta la combinazione
-     * che blocca il contenitore.
-     */
-    public String getPasswordLockedBy() {
-        return passwordLockedBy;
-    }
-
-    /**
      * Indica quale combinazione blocca il contenitore.
      *
-     * @param pswLockedBy
+     * @param pswLockedBy stringa che rappresenta
+     * la combinazione che blocca il contenitore.
      */
     public void setPasswordLockedBy(final String pswLockedBy) {
         this.passwordLockedBy = pswLockedBy;
     }
 
     /**
-     * @return booleano (vero se se il contenitore è stato già chiuso,
+     * Restituisce booleano (vero se se il contenitore è stato già chiuso,
      * falso altrimenti).
+     *
+     * @return closed.
      */
     public boolean isClosed() {
         return closed;
@@ -206,15 +166,17 @@ public class GameItemContainer extends GameItem implements Serializable {
     /**
      * Indica se il contenitore è stato già chiuso.
      *
-     * @param c
+     * @param c booleano (vero / falso).
      */
     public void setClosed(final boolean c) {
         this.closed = c;
     }
 
     /**
-     * @return booleano (vero se se il contenitore è stato già spostato,
+     * Restituisce booleano (vero se se il contenitore è stato già spostato,
      * falso altrimenti).
+     *
+     * @return moved.
      */
     public boolean isMoved() {
         return moved;
@@ -223,15 +185,17 @@ public class GameItemContainer extends GameItem implements Serializable {
     /**
      * Indica se il contenitore è stato già spostato.
      *
-     * @param m
+     * @param m booleano (vero / falso).
      */
     public void setMoved(final boolean m) {
         this.moved = m;
     }
 
     /**
-     * @return booleano (vero se se il contenitore si può spostare,
+     * Restituisce booleano (vero se se il contenitore si può spostare,
      * falso altrimenti).
+     *
+     * @return movable.
      */
     public boolean isMovable() {
         return movable;
@@ -240,15 +204,17 @@ public class GameItemContainer extends GameItem implements Serializable {
     /**
      * Indica se il contenitore si può spostare.
      *
-     * @param m
+     * @param m booleano (vero / falso).
      */
     public void setMovable(final boolean m) {
         this.movable = m;
     }
 
     /**
-     * @return booleano (vero se è possibile usare il contenitore
+     * Restituisce booleano (vero se è possibile usare il contenitore
      * con determinati gameItem, falso altrimenti).
+     *
+     * @return usableWithItem.
      */
     public boolean isUsableWithItem() {
         return usableWithItem;
@@ -258,15 +224,17 @@ public class GameItemContainer extends GameItem implements Serializable {
      * Imposta lo stato del contenitore
      * (se è possibile usarlo con determinati gameItem o meno).
      *
-     * @param uWithItem
+     * @param uWithItem booleano (vero / falso).
      */
     public void setUsableWithItem(final boolean uWithItem) {
         this.usableWithItem = uWithItem;
     }
 
     /**
-     * @return booleano (vero se è possibile aprire il contenitore,
+     * Restituisce booleano (vero se non è possibile aprire il contenitore,
      * falso altrimenti.
+     *
+     * @return iCNotOpenable.
      */
     public boolean isiCNotOpenable() {
         return iCNotOpenable;
@@ -275,15 +243,17 @@ public class GameItemContainer extends GameItem implements Serializable {
     /**
      * Imposta lo stato del contenitore (se è possibile aprirlo o meno).
      *
-     * @param iCNOpenable
+     * @param iCNOpenable booleano (vero / falso).
      */
     public void setiCNotOpenable(final boolean iCNOpenable) {
         this.iCNotOpenable = iCNOpenable;
     }
 
     /**
-     * @return booleano (vero se non è possibile inserire
+     * Restituisce booleano (vero se non è possibile inserire
      * oggetti qui dentro, falso altrimenti).
+     *
+     * @return iCNotInsertable.
      */
     public boolean isiCNotInsertable() {
         return iCNotInsertable;
@@ -293,15 +263,17 @@ public class GameItemContainer extends GameItem implements Serializable {
      * Imposta lo stato del contenitore (se è possibile
      * inserire oggetti qui dentro o meno).
      *
-     * @param iCNInsertable
+     * @param iCNInsertable booleano (vero / falso).
      */
     public void setiCNotInsertable(final boolean iCNInsertable) {
         this.iCNotInsertable = iCNInsertable;
     }
 
     /**
-     * @return booleano (vero se è bloccato da una password,
+     * Restituisce booleano (vero se è bloccato da una password,
      * falso altrimenti).
+     *
+     * @return passwordLocked.
      */
     public boolean isPasswordLocked() {
         return passwordLocked;
@@ -311,15 +283,17 @@ public class GameItemContainer extends GameItem implements Serializable {
      * Imposta lo stato del contenitore (se è bloccato
      * da una password o meno).
      *
-     * @param passLocked
+     * @param passLocked booleano (vero / falso).
      */
     public void setPasswordLocked(final boolean passLocked) {
         this.passwordLocked = passLocked;
     }
 
     /**
-     * @return booleano (vero se è sbloccato da una password,
+     * Restituisce booleano (vero se è sbloccato da una password,
      * falso altrimenti).
+     *
+     * @return passwordUnlocked.
      */
     public boolean isPasswordUnlocked() {
         return passwordUnlocked;
@@ -329,15 +303,17 @@ public class GameItemContainer extends GameItem implements Serializable {
      * Imposta lo stato del contenitore (se è sbloccato
      * da una password o meno).
      *
-     * @param pswUnlocked
+     * @param pswUnlocked booleano (vero / falso).
      */
     public void setPasswordUnlocked(final boolean pswUnlocked) {
         this.passwordUnlocked = pswUnlocked;
     }
 
     /**
-     * @return booleano (vero se ha un accesso segreto,
+     * Restituisce booleano (vero se ha un accesso segreto,
      * falso altrimenti).
+     *
+     * @return secretAccess.
      */
     public boolean isSecretAccess() {
         return secretAccess;
@@ -347,15 +323,17 @@ public class GameItemContainer extends GameItem implements Serializable {
      * Imposta lo stato del contenitore (se prevede un
      * accesso segreto o meno).
      *
-     * @param secrAccess
+     * @param secrAccess booleano (vero / falso).
      */
     public void setSecretAccess(final boolean secrAccess) {
         this.secretAccess = secrAccess;
     }
 
     /**
-     * @return booleano (vero se è stato già inserito
+     * Restituisce booleano (vero se è stato già inserito
      * qualcosa nel contenitore, falso altrimenti).
+     *
+     * @return itemAlreadyIntoIC.
      */
     public boolean isItemAlreadyIntoIC() {
         return itemAlreadyIntoIC;
@@ -365,14 +343,16 @@ public class GameItemContainer extends GameItem implements Serializable {
      * Imposta lo stato del contenitore
      * (se è stato già inserito qualcosa o meno).
      *
-     * @param iAlreadyIntoIC
+     * @param iAlreadyIntoIC booleano (vero / falso).
      */
     public void setItemAlreadyIntoIC(final boolean iAlreadyIntoIC) {
         this.itemAlreadyIntoIC = iAlreadyIntoIC;
     }
 
     /**
-     * @return descrizione del contenitore (quando è stato aperto).
+     * Restituisce la descrizione del contenitore (quando è stato aperto).
+     *
+     * @return openedDescription.
      */
     public String getOpenedDescription() {
         return openedDescription;
@@ -381,14 +361,16 @@ public class GameItemContainer extends GameItem implements Serializable {
     /**
      * Imposta la descrizione del contenitore (quando è stato aperto).
      *
-     * @param oDescription
+     * @param oDescription descrizione del contenitore.
      */
     public void setOpenedDescription(final String oDescription) {
         this.openedDescription = oDescription;
     }
 
     /**
-     * @return descrizione del contenitore (quando è stato spostato).
+     * Restituisce la descrizione del contenitore (quando è stato spostato).
+     *
+     * @return movedDescription.
      */
     public String getMovedDescription() {
         return movedDescription;
@@ -397,15 +379,17 @@ public class GameItemContainer extends GameItem implements Serializable {
     /**
      * Imposta la descrizione del contenitore (quando è stato spostato).
      *
-     * @param mDescription
+     * @param mDescription descrizione del contenitore.
      */
     public void setMovedDescription(final String mDescription) {
         this.movedDescription = mDescription;
     }
 
     /**
-     * @return descrizione del contenitore
+     * Restituisce la descrizione del contenitore
      * (quando è stato sbloccato da una password).
+     *
+     * @return passwordUnlockedDescription.
      */
     public String getPasswordUnlockedDescription() {
         return passwordUnlockedDescription;
@@ -415,7 +399,7 @@ public class GameItemContainer extends GameItem implements Serializable {
      * Imposta la descrizione del contenitore
      * (quando è stato sbloccato da una password).
      *
-     * @param pswUDescription
+     * @param pswUDescription descrizione del contenitore.
      */
     public void setPasswordUnlockedDescription(final String pswUDescription) {
         this.passwordUnlockedDescription = pswUDescription;
@@ -489,7 +473,7 @@ public class GameItemContainer extends GameItem implements Serializable {
     /**
      * Permette di confrontare se due contenitori sono uguali.
      *
-     * @param o
+     * @param o oggetto da confrontare.
      * @return booleano (vero se i due contenitori sono uguali,
      * falso altrimenti).
      */

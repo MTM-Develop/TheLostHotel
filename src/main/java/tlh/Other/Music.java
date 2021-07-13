@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tlh.Other;
 
 import java.io.BufferedInputStream;
@@ -19,6 +14,8 @@ import javax.swing.JOptionPane;
 
 /**
  * Classe per inserire la musica.
+ *
+ * @author MTM-Develop.
  */
 public class Music {
 
@@ -115,18 +112,12 @@ public class Music {
     }
 
     /**
-     * @return clip per la musica del gioco.
+     * Restituisce la clip per la musica del gioco.
+     *
+     * @return clip.
      */
     public Clip getClip() {
         return clip;
     }
 
-    /**
-     * Imposta la clip per la musica del gioco.
-     *
-     * @param c
-     */
-    public void setClip(final Clip c) {
-        this.clip = c;
-    }
 }

@@ -12,6 +12,8 @@ import javax.swing.ImageIcon;
 /**
  * Classe utilizzata per rappresentare gli oggetti
  * che saranno presenti nel gioco.
+ *
+ * @author MTM-Develop.
  */
 public class GameItem implements Serializable {
 
@@ -73,7 +75,7 @@ public class GameItem implements Serializable {
     /**
      * Indica se droppa oggetti dopo il suo utilizzo.
      */
-    private boolean usableWithDrops = false; //METTERE IN GameItemContainer?
+    private boolean usableWithDrops = false;
 
     /**
      * Indica se è stato usato.
@@ -117,9 +119,9 @@ public class GameItem implements Serializable {
     /**
      * Costruttore.
      *
-     * @param gId
-     * @param gIName
-     * @param gIDescription
+     * @param gId ID del gameItem.
+     * @param gIName nome del gameItem.
+     * @param gIDescription descrizione del gameItem.
      */
     public GameItem(final int gId, final String gIName,
                     final String gIDescription) {
@@ -132,10 +134,10 @@ public class GameItem implements Serializable {
     /**
      * Costruttore.
      *
-     * @param gId
-     * @param gIName
-     * @param gIDescription
-     * @param gIAlias
+     * @param gId ID del gameItem.
+     * @param gIName nome del gameItem.
+     * @param gIDescription descrizione del gameItem.
+     * @param gIAlias alias del gameItem.
      */
     public GameItem(final int gId, final String gIName,
                     final String gIDescription,
@@ -147,7 +149,9 @@ public class GameItem implements Serializable {
     }
 
     /**
-     * @return nome del gameItem.
+     * Restituisce il nome del gameItem.
+     *
+     * @return name.
      */
     public String getName() {
         return name;
@@ -156,14 +160,16 @@ public class GameItem implements Serializable {
     /**
      * Imposta il nome del gameItem.
      *
-     * @param gIName
+     * @param gIName nome del gameItem.
      */
     public void setName(final String gIName) {
         this.name = gIName;
     }
 
     /**
-     * @return descrizione base del gameItem.
+     * Restituisce la descrizione base del gameItem.
+     *
+     * @return description.
      */
     public String getDescription() {
         return description;
@@ -172,14 +178,16 @@ public class GameItem implements Serializable {
     /**
      * Imposta la descrizione base del gameItem.
      *
-     * @param desc
+     * @param desc descrizione del GameItem.
      */
     public void setDescription(final String desc) {
         this.description = desc;
     }
 
     /**
-     * @return sinonimi del gameItem.
+     * Restituisce i sinonimi del gameItem.
+     *
+     * @return alias.
      */
     public Set<String> getAlias() {
         return alias;
@@ -188,24 +196,17 @@ public class GameItem implements Serializable {
     /**
      * Imposta i sinonimi del gameItem.
      *
-     * @param gIAlias
-     */
-    public void setAlias(final Set<String> gIAlias) {
-        this.alias = gIAlias;
-    }
-
-    /**
-     * Imposta i sinonimi del gameItem.
-     *
-     * @param gIAlias
+     * @param gIAlias sinonimi del gameItem.
      */
     public void setAlias(final String[] gIAlias) {
         this.alias = new HashSet<>(Arrays.asList(gIAlias));
     }
 
     /**
-     * @return descrizione del gameItem (se è utilizzabile e,
+     * Restituisce la descrizione del gameItem (se è utilizzabile e,
      * dopo l'utilizzo, droppa altri gameItem).
+     *
+     * @return descriptionUsableWithDrops.
      */
     public String getDescriptionUsableWithDrops() {
         return descriptionUsableWithDrops;
@@ -215,15 +216,17 @@ public class GameItem implements Serializable {
      * Imposta la descrizione del gameItem (se è utilizzabile e,
      * dopo l'utilizzo, droppa altri gameItem).
      *
-     * @param descriptionUWD
+     * @param descriptionUWD descrizione del GameItem.
      */
     public void setDescriptionUsableWithDrops(final String descriptionUWD) {
         this.descriptionUsableWithDrops = descriptionUWD;
     }
 
     /**
-     * @return descrizione del gameItem (se è stato già utilizzato
+     * Restituisce la descrizione del gameItem (se è stato già utilizzato
      * e ha droppato altri gameItem).
+     *
+     * @return descriptionAlreadyUsedWithDrops.
      */
     public String getDescriptionAlreadyUsedWithDrops() {
         return descriptionAlreadyUsedWithDrops;
@@ -233,7 +236,7 @@ public class GameItem implements Serializable {
      * Imposta la descrizione del gameItem (se è stato già utilizzato
      * e ha droppato altri gameItem).
      *
-     * @param descriptionAUWD
+     * @param descriptionAUWD descrizione del GameItem.
      */
     public void setDescriptionAlreadyUsedWithDrops(
             final String descriptionAUWD) {
@@ -241,8 +244,10 @@ public class GameItem implements Serializable {
     }
 
     /**
-     * @return descrizione del gameItem (se è utilizzabile
+     * Restituisce la descrizione del gameItem (se è utilizzabile
      * ma non ci sono oggetti dentro necessari per il suo funzionamento).
+     *
+     * @return descriptionUsableButItemRemoved.
      */
     public String getDescriptionUsableButItemRemoved() {
         return descriptionUsableButItemRemoved;
@@ -252,7 +257,7 @@ public class GameItem implements Serializable {
      * Imposta la descrizione del gameItem (se è utilizzabile
      * ma non ci sono oggetti dentro necessari per il suo funzionamento).
      *
-     * @param descriptionUBIR
+     * @param descriptionUBIR descrizione del GameItem.
      */
     public void setDescriptionUsableButItemRemoved(
             final String descriptionUBIR) {
@@ -260,7 +265,9 @@ public class GameItem implements Serializable {
     }
 
     /**
-     * @return numero di usi possibili del gameItem.
+     * Restituisce il numero di usi possibili del gameItem.
+     *
+     * @return consumable.
      */
     public byte getConsumable() {
         return consumable;
@@ -269,7 +276,7 @@ public class GameItem implements Serializable {
     /**
      * Imposta il numero di usi possibili del gameItem.
      *
-     * @param gIConsumable
+     * @param gIConsumable numero di usi possibili del gameItem.
      */
     public void setConsumable(final byte gIConsumable) {
         this.consumable = gIConsumable;
@@ -296,8 +303,10 @@ public class GameItem implements Serializable {
     }
 
     /**
-     * @return booleano (vero se è possibile prendere il gameItem,
+     * Restituisce booleano (vero se è possibile prendere il gameItem,
      * falso altrimenti).
+     *
+     * @return pickupable.
      */
     public boolean isPickupable() {
         return pickupable;
@@ -306,14 +315,17 @@ public class GameItem implements Serializable {
     /**
      * Imposta lo stato del gameItem (se è possibile prenderlo o meno).
      *
-     * @param p
+     * @param p booleano (vero / falso).
      */
     public void setPickupable(final boolean p) {
         this.pickupable = p;
     }
 
     /**
-     * @return booleano (vero se il gameItem è stato preso, falso altrimenti).
+     * Restituisce booleano (vero se il gameItem è stato preso,
+     * falso altrimenti).
+     *
+     * @return picked.
      */
     public boolean isPicked() {
         return picked;
@@ -322,16 +334,18 @@ public class GameItem implements Serializable {
     /**
      * Imposta lo stato del gameItem (se è stato preso o meno).
      *
-     * @param p
+     * @param p booleano (vero / falso).
      */
     public void setPicked(final boolean p) {
         this.picked = p;
     }
 
     /**
-     * @return booleano (vero se il gameItem è usabile e,
+     * Restituisce booleano (vero se il gameItem è usabile e,
      * non appena viene utilizzato, droppa uno o più gameItem,
      * falso altrimenti).
+     *
+     * @return usableWithDrops.
      */
     public boolean isUsableWithDrops() {
         return usableWithDrops;
@@ -341,14 +355,17 @@ public class GameItem implements Serializable {
      * Imposta lo stato del gameItem (se è usabile e,
      * non appena viene utilizzato, droppa uno o più gameItem, o meno).
      *
-     * @param uWithDrops
+     * @param uWithDrops booleano (vero / falso).
      */
     public void setUsableWithDrops(final boolean uWithDrops) {
         this.usableWithDrops = uWithDrops;
     }
 
     /**
-     * @return booleano (vero se il gameItem è stato usato, falso altrimenti).
+     * Restituisce booleano (vero se il gameItem è stato usato,
+     * falso altrimenti).
+     *
+     * @return used.
      */
     public boolean isUsed() {
         return used;
@@ -357,15 +374,17 @@ public class GameItem implements Serializable {
     /**
      * Imposta lo stato del gameItem (se è stato usato o meno).
      *
-     * @param u
+     * @param u booleano (vero / falso).
      */
     public void setUsed(final boolean u) {
         this.used = u;
     }
 
     /**
-     * @return booleano (vero se il gameItem
+     * Restituisce booleano (vero se il gameItem
      * rappresenta una password, falso altrimenti).
+     *
+     * @return isGIPassword.
      */
     public boolean isGIPassword() {
         return isGIPassword;
@@ -374,15 +393,17 @@ public class GameItem implements Serializable {
     /**
      * Imposta lo stato del gameItem (se è una password o meno).
      *
-     * @param gIPassword
+     * @param gIPassword booleano (vero / falso).
      */
     public void setGIPassword(final boolean gIPassword) {
         isGIPassword = gIPassword;
     }
 
     /**
-     * @return booleano (vero se il gameItem è indispensabile
+     * Restituisce booleano (vero se il gameItem è indispensabile
      * al fine del proseguio del gioco, falso altrimenti).
+     *
+     * @return indispensable.
      */
     public boolean isIndispensable() {
         return indispensable;
@@ -392,15 +413,17 @@ public class GameItem implements Serializable {
      * Imposta lo stato del gameItem (se è indispensabile
      * al fine del proseguio del gioco o meno).
      *
-     * @param gIndispensable
+     * @param gIndispensable booleano (vero / falso).
      */
     public void setIndispensable(final boolean gIndispensable) {
         this.indispensable = gIndispensable;
     }
 
     /**
-     * @return booleano (vero se il gameItem è stato correttamente
+     * Restituisce booleano (vero se il gameItem è stato correttamente
      * inserito nell'inventario, falso altrimenti).
+     *
+     * @return itemCorrectlyAdded.
      */
     public boolean isItemCorrectlyAdded() {
         return itemCorrectlyAdded;
@@ -410,15 +433,17 @@ public class GameItem implements Serializable {
      * Imposta lo stato del gameItem (se è stato
      * correttamente inserito nell'inventario o meno).
      *
-     * @param iCorrectlyAdded
+     * @param iCorrectlyAdded booleano (vero / falso).
      */
     public void setItemCorrectlyAdded(final boolean iCorrectlyAdded) {
         this.itemCorrectlyAdded = iCorrectlyAdded;
     }
 
     /**
-     * @return booleano (vero se il gameItem rappresenta
+     * Restituisce booleano (vero se il gameItem rappresenta
      * una persona, falso altrimenti).
+     *
+     * @return isPerson.
      */
     public boolean isPerson() {
         return isPerson;
@@ -428,15 +453,17 @@ public class GameItem implements Serializable {
      * Imposta lo stato del gameItem (se rappresenta
      * una persona o meno).
      *
-     * @param p
+     * @param p booleano (vero / falso).
      */
     public void setPerson(final boolean p) {
         isPerson = p;
     }
 
     /**
-     * @return booleano (vero se il gameItem rappresenta
+     * Restituisce booleano (vero se il gameItem rappresenta
      * un oggetto fondamentale per la vittoria del gioco, falso altrimenti).
+     *
+     * @return isKeyToWin.
      */
     public boolean isKeyToWin() {
         return isKeyToWin;
@@ -446,14 +473,16 @@ public class GameItem implements Serializable {
      * Imposta lo stato del gameItem (se rappresenta
      * un oggetto fondamentale per la vittoria del gioco o meno).
      *
-     * @param kToWin
+     * @param kToWin booleano (vero / falso).
      */
     public void setKeyToWin(final boolean kToWin) {
         isKeyToWin = kToWin;
     }
 
     /**
-     * @return immagine del gameItem.
+     * Restituisce l'immagine del gameItem.
+     *
+     * @return itemImage.
      */
     public ImageIcon getItemImage() {
         return itemImage;
@@ -462,15 +491,15 @@ public class GameItem implements Serializable {
     /**
      * Imposta l'immagine del gameItem.
      *
-     * @param iImage
+     * @param iImage immagine del gameItem.
      */
     public void setItemImage(final ImageIcon iImage) {
         this.itemImage = iImage;
     }
 
     /**
-     *  Metodo generato automaticamente per confrontare
-     *  se due oggetti di questa classe sono uguali.
+     * Metodo generato automaticamente per confrontare
+     * se due oggetti di questa classe sono uguali.
      *
      * @return codice hash dell'oggetto.
      */
@@ -484,7 +513,7 @@ public class GameItem implements Serializable {
     /**
      * Permette di confrontare se due gameItem sono uguali.
      *
-     * @param o
+     * @param o oggetto da confrontare.
      * @return booleano (vero se i due gameItem sono uguali, falso altrimenti).
      */
     @Override

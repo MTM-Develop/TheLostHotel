@@ -6,6 +6,8 @@ import tlh.Parser.ParserOutput;
  * Classe astratta che definisce il gestore di gioco.
  * A seconda del gioco che si vuole implementare e della differente
  * gestione dei comandi, si possono implementare i metodi.
+ *
+ * @author MTM-Develop.
  */
 public abstract class GameManager {
 
@@ -22,7 +24,7 @@ public abstract class GameManager {
     /**
      * Costruttore.
      *
-     * @param g
+     * @param g gestore di gioco.
      */
     public GameManager(final GameDescription g) {
         this.game = g;
@@ -31,8 +33,8 @@ public abstract class GameManager {
     /**
      * Costruttore.
      *
-     * @param g
-     * @param url
+     * @param g gestore di gioco.
+     * @param url percorso per riprodurre la musica di gioco.
      */
     public GameManager(final GameDescription g, final String url) {
         this.game = g;
@@ -42,35 +44,21 @@ public abstract class GameManager {
     }
 
     /**
-     * @return entità di gioco.
+     * Restituisce l'entità di gioco.
+     *
+     * @return game.
      */
     public GameDescription getGame() {
         return game;
     }
 
     /**
-     * Imposta l'entità di gioco.
+     * Restituisce la musica del gioco.
      *
-     * @param g
-     */
-    public void setGame(final GameDescription g) {
-        this.game = g;
-    }
-
-    /**
-     * @return musica del gioco.
+     * @return music.
      */
     public Music getMusic() {
         return music;
-    }
-
-    /**
-     * Imposta la musica del gioco.
-     *
-     * @param gMusic
-     */
-    public void setMusic(final Music gMusic) {
-        this.music = gMusic;
     }
 
     /**
