@@ -52,6 +52,8 @@ una minima conoscenza di questa tipologia di applicazione.<br> Inoltre, si tende
 
 ---
 
+[Torna all'indice](#Indice) <br><br>
+
 ## Trama del gioco
 
 L'avventura ha inizio nel gennaio del 2000: il protagonista, insieme ai suoi due amici inseparabili (<b>John</b> e <b>Ethan</b>), decidono di passare una settimana assieme in America.<br>
@@ -87,9 +89,10 @@ Se l'utente è stato in grado di raccogliere tutti gli elementi fondamentali per
 <p>Una volta aperta la cassaforte potrà raccogliere la chiave e dirigersi ad <b>Ovest</b> per completare il gioco. <br>
 Gli verrà assegnato un punteggio in base al tempo impiegato per completare il tutto e, soprattuto, potrebbe essere soggetto ad una penalità nel caso in cui non abbia raccolto l'elemento principale per la vittoria, il <b>fucile</b>.</p>
 
-Il gioco al primo avvio si presenta così:
-//aggiungere immagine inizio gioco
-Aggiungere descrizione delle  immagini  di planner5d
+Il gioco al primo avvio si presenta così:<br>
+>![app](./imgRelazione/app.PNG)
+
+Aggiungere descrizione delle immagini di [planner5d](https://planner5d.com/it/)
 
 
 [Torna all'indice](#Indice) <br><br>
@@ -194,11 +197,11 @@ Un'altra cosa, per la quale siamo fieri, è sicuramente l'aver gestito e risolto
 ## Cosa ci ha fatto impazzire
 
 Abbiamo riscontrato parecchie difficoltà man mano che aumentavano il numero di oggetti da inserire nell'avventura.
-È capitato che inconsciamente due oggetti distinti avessero lo stesso ID.
+È capitato che, inconsciamente, due oggetti distinti avessero lo stesso ID.
 Questo ha portato errori a cui non riuscivamo a dare una spiegazione e ci ha portato a perdere abbastanza tempo.
 
-Un'altra cosa per il quale abbiamo riscontrato diversi rallentamenti è stato sicuramente inserire per <b>ogni</b> costante, e non solo, il relativo commento Javadoc.
-Inoltre Spotbugs ci ha segnalato un errore riguardo il codice di serializzazione della classe, poichè alcuni oggetti di essa non dovevano essere serializzati, infatti a questi è stata aggiunta la parola chiave <b>transient</b>. Di seguito riportiamo la riga di codice introdotta per risolvere tale problema:<br>
+Un'altra cosa per il quale abbiamo riscontrato diversi rallentamenti è stato sicuramente inserire per <b>ogni</b> costante, e non solo, il relativo commento Javadoc.<br>
+Inoltre, Spotbugs ci ha segnalato un errore riguardo il codice di serializzazione della classe, poichè alcuni oggetti di essa non dovevano essere serializzati (infatti a questi è stata aggiunta la parola chiave <b>transient</b>). Di seguito riportiamo la riga di codice introdotta per risolvere tale problema:<br>
 <i><b>static final long serialVersionUID = 42L</i></b>.
  
 [Torna all'indice](#Indice)
