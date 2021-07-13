@@ -35,7 +35,7 @@
 
 8. [Analisi retrospettiva](#Analisi-retrospettiva)
     - [Soddisfazioni](#Soddisfazioni) <br>
-    - [Cosa ci ha fatti impazzire](#Cosa-ci-ha-fatto-impazzire)
+    - [Cosa ci ha fatto impazzire](#Cosa-ci-ha-fatto-impazzire)
 
 <br>
 
@@ -89,10 +89,10 @@ Se l'utente è stato in grado di raccogliere tutti gli elementi fondamentali per
 <p>Una volta aperta la cassaforte potrà raccogliere la chiave e dirigersi ad <b>Ovest</b> per completare il gioco. <br>
 Gli verrà assegnato un punteggio in base al tempo impiegato per completare il tutto e, soprattuto, potrebbe essere soggetto ad una penalità nel caso in cui non abbia raccolto l'elemento principale per la vittoria, il <b>fucile</b>.</p>
 
-Il gioco al primo avvio si presenta così:<br>
+Il gioco al primo avvio si presenta così, mostrando l'immagine della stanza inziale e, a sinistra, la trama completa dell'avventura.<br>
 >![app](./imgRelazione/app.PNG)
 
-Aggiungere descrizione delle immagini di [planner5d](https://planner5d.com/it/)
+Per la realizzazione delle immagini delle singole stanze è stato utilizzato il software online [Planner5d](https://planner5d.com/it/).
 
 
 [Torna all'indice](#Indice) <br><br>
@@ -147,6 +147,81 @@ Riportiamo i requisiti non funzionali dell'applicazione:
 | Modularità  / <br>Riusabilità / <br>Manutenibilità |Il software è ideato utilizzando i fondamenti del linguaggio OO Java ed è suddiviso secondo l'architettura MVC (<i>Model View Controller</i>) in modo da separare la logica di business da quella di visualizzazione. <br> L'applicazione è progettata in modo da poter essere utilizzata per l'implementazione di altri giochi simili aggiungendo nuovi comandi e azioni, in quanto prevede la classe astratta <b>GameManager</b>.<br> La classe <b>TLHStart</b> è provvista di un proprio main per poter essere eseguita e caricare sul file <i>NewGame.dat</i> i vari oggetti e stanze relativi all'avventura.<br> Infine, è stata creata una classe <b>Description</b> contenente tutte le costanti riconosciute dal programma, in modo da poter semplificare la lettura e l'eventuale scrittura di nuove.|
 | Portabilità | L'applicazione è eseguibile sui seguenti sistemi operativi aventi la JDK 11:<br><li> Windows NT;<br><li>macOS;<br><li>Linux;<br><li>Oracle Solaris.|
 
+[Torna all'indice](#Indice) <br><br>
+
+# Contenuti rilevanti
+
+## Lettura/scrittura su File
+
+Per quanto riguarda l'utilizzo di <b>file</b> è stato creato il file <b><i>NewGame.dat </b></i>per la memorizzazione di tutti gli oggetti e le stanze dell'avventura.
+Tale file viene creato eseguendo il main della classe <b>TLHStart</b>.<br>
+Un altro utilizzo del file è relativo al salvataggio e caricamento della partita: <br>
+ - Nel primo caso vengono salvati (nel file <b><i>TheLostHotel.dat</b></i>) l'inventario del giocatore, la stanza dove si trova attualmente e tiene traccia di tutti gli stati degli oggetti con cui ha interagito (Ex: oggetto spostato, usato, aperto, ...);
+ - Nel secondo, invece, l'applicazione recupera i dati risalenti all'ultimo salvataggio effettuato dallo stesso file. 
+---
+
+## Connessione a database
+Questa sezione descrive l'uso dello standard <b>JDBC</b> (<i>Java Data Base Connectivity</i>).
+
+Abbiamo scelto lo standard JDBC poiche è stato progettato in modo da semplificare tutte le normali operazioni di
+interfacciamento con un database: connessione, creazione di tabelle, interrogazione e visualizzazione dei risultati. <br>
+Per far ciò è stato necessario il <b>Database Engine H2</b> sfruttando la possibilità di non dover installare un apposito server.
+Per utilizzarlo abbiamo aggiunto la corrispondente dipendenza nel <b><i>pom.xml</b></i>.
+
+Il <code>create</code> della tabella <i><b>scores</b></i> del database <i><b>scores.mv</b></i> è composto da tre colonne:
+
+| Name | Time | Vote |
+|--|--|--|
+|Di tipo <code>VARCHAR(25)</code>| Di tipo <code>TIME</code>| Di tipo <code>VARCHAR(2)</code>|
+
+Il <b>database</b> viene utilizzato per tener traccia del tempo di completamento di gioco e, in base a questo, di dare un voto (compreso tra A+ ed F) al giocatore quando ha completato l'avventura. <br>
+Il giocatore stesso può essere soggetto ad una penalità nel caso in cui termini il gioco senza aver equipaggiato l'oggetto <b>fucile</b>. <br>
+Non appena il protagonista conclude l'avventura, vengono stampati testualmente i primi 3 giocatori che hanno ottenuto il voto migliore in ordine decrescente.
+
+---
+
+## GUI mediante SWING
+Questa sezione descrive l'uso del framework di JAVA che permette la realizzazione di interfacce grafiche.
+
+Il frame della classe <b>MenuGUI</b> presenta:
+ - 3 <code>JButton</code> che permettono di avviare una nuova partita, caricare una partita esistente e uscire dall'applicazione;
+ - 1 <code>JLabel</code> rappresentante l'immagine di sfondo;
+ - 1 <code>JMenuBar</code> contenenti vari <code>JMenuItem</code> (Nuova partita e Carica partita).
+
+Avviando una nuova partita dalla classe MenuGUI, verrà chiesto sottoforma di <code>InputDialog</code> del <code>JOptionPane</code> il nome con cui il giocatore vuole inziare l'avventura.
+
+Il frame della classe <b>GameGUI</b> presenta:
+ - 8 <code>JButton</code>:
+    - 4 che permettono al giocatore di spostarsi (Nord, Sud, Est, Ovest);
+    - 2 per salvare o caricare una partita;
+    - 1 per effettuare l'invio del comando;
+    - 1 per visualizzare graficamente gli oggetti presenti nell'inventario.
+ - 4 <code>JLabel</code>:
+    - 2 che riportano "Stanza Corrente: " e "Inserisci un comando: " ;
+    - 1 rappresentante l'immagine di sfondo;
+    - 1 per indicare la stanza corrente.
+ - 2 <code>JScrollPane</code>:
+    - 1 relativa alla <code>JTextPane</code>;
+    - 1 relativa alla <code>JTextField</code>.
+ - 1 <code>JTextPane</code> non editabile in cui vengono visualizzati i messaggi relativi al proseguio del gioco.
+ - 1 <code>JTextField</code> in cui l'utente può inserire i comandi.
+ - 1 <code>JMenuBar</code> contenente 4 scelte:
+    - <b>Opzioni</b>: Per salvare la partita corrente o tornare al menu principale;
+    - <b>Text</b>: Per abilitare o meno il <b>FastText</b>;
+    - <b>Comandi</b>: Per visualizzare tramite <code>MessageDialog</code> la lista dei comandi;
+    - <b>Musica</b>: Per abilitare o meno la musica di gioco.
+
+Con le frecce direzionali l'utente potrà comunicare i comandi: <b>Nord</b>, <b>Sud</b>, <b>Est</b>, <b>Ovest</b>.<br> Nella <code>JTextField</code> l'utente inserirà i comandi.
+Per facilitare il flow nell'utilizzo dell'applicazione, ogni comando potrà essere inviato premendo direttamente il tasto <b>"invio"</b> che genererà un evento <i>actionPerformed</i> che a sua volta gestirà l'invio del comando. <br>
+Ad ogni input dell'utente, il <code>JTextPane</code> "scrollerà" in automatico in base alla lunghezza del testo da visualizzare, e verranno disabilitati tutte le componenti grafiche sopra citate (nel caso in cui l'utente non abbia abilitato l'opzione <b>FastText</b>).<br>
+Questa scelta progettuale punta ad influenzare in positivo la <b><i>User experience</b></i>.
+
+Cliccando l'icona in alto a destra, relativa all'inventario, verrà visualizzata il frame della classe <b>InventoryGUI</b> che presenta:
+ - 1 <code>JPanel</code> contenente tutti gli oggetti presenti nell'inventario;
+ - 1 <code>JScrollPane</code> al fine di scorrere tutti i GameItem dello zaino;
+ - 1 <code>JLabel</code> contenente l'immagine di ciascuno oggetto.
+
+--- 
 [Torna all'indice](#Indice) <br><br>
 
 # Riepilogo dei test
