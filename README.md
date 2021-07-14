@@ -7,17 +7,16 @@
 1. [Introduzione](#Introduzione)
     - [Trama del gioco](#Trama-del-gioco) <br>
     - [Mappa di gioco](#Mappa-di-gioco) <br>
-    
-2. [Modello di dominio (da valutare)](#Modello-di-dominio)
+    - [Come completare l'avventura](#Come-completare-l'-avventura)
 
-3. [Requisiti specifici](#Requisiti-specifici)
+2. [Requisiti specifici](#Requisiti-specifici)
     - [Requisiti funzionali](#Requisiti-funzionali) <br>
     - [Requisiti non funzionali](#Requisiti-non-funzionali)
 
-4. [O.O. Design](#OO-Design)
+3. [O.O. Design](#OO-Design)
     - [Diagrammi delle classi](#Diagrammi-delle-classi)
 
-5. [Contenuti rilevanti](#Contenuti-rilevanti)
+4. [Contenuti rilevanti](#Contenuti-rilevanti)
     - [Lettura/scrittura su File](#Lettura-scrittura-su-File) <br>
     - [Connessione a database](#Connessione-a-database) <br>
     - [GUI mediante SWING](#GUI-mediante-SWING) <br>
@@ -30,15 +29,15 @@
         - [Package Parser](#Package-Parser) <br>
         - [Package Type](#Package-Type) <br>
 
-6. [Riepilogo dei test](#Riepilogo-dei-test)
+5. [Riepilogo dei test](#Riepilogo-dei-test)
     - [Analisi statica del codice](#Analisi-statica-del-codice)
         - [Checkstyle](#Checkstyle) <br>
         - [Spotbugs](#Spotbugs)
     
-7. [Processo di sviluppo e organizzazione del lavoro](#Processo-di-sviluppo-e-organizzazione-del-lavoro)
+6. [Processo di sviluppo e organizzazione del lavoro](#Processo-di-sviluppo-e-organizzazione-del-lavoro)
     - [Piattaforma di comunicazione adottata](#Piattaforma-di-comunicazione-adottata)
 
-8. [Analisi retrospettiva](#Analisi-retrospettiva)
+7. [Analisi retrospettiva](#Analisi-retrospettiva)
     - [Soddisfazioni](#Soddisfazioni) <br>
     - [Cosa ci ha fatto impazzire](#Cosa-ci-ha-fatto-impazzire)
 
@@ -99,7 +98,92 @@ Il gioco al primo avvio si presenta così, mostrando l'immagine della stanza inz
 
 Per la realizzazione delle immagini delle singole stanze è stato utilizzato il software online [Planner5d](https://planner5d.com/it/).
 
+---
 
+## Come completare l'avventura
+Di seguito riportiamo i vari passaggi per completare con successo l'avventura:
+
+<b>STANZA 79</b>:<br>
+<code>apri mobile</code><br>
+<code>prendi fermacapelli</code><br>
+<code>apri armadio con fermacapelli</code><br>
+<code>prendi chiave17</code><br>
+<code>sposta quadro</code><br>
+<code>prendi chiave79</code><br>
+<code>usa chiave79</code><br>
+
+<b>CORRIDOIO</b>:<br>
+<code>usa chiave17</code><br>
+
+<b>SALA GIOCHI</b>:<br>
+<code>usa slot</code><br>
+<code>prendi maniglia</code><br>
+
+<b>STANZA RELAX</b>:<br>
+<code>sposta cuscino</code><br>
+<code>prendi tessera1</code><br>
+
+<b>STANZA 53</b>:<br>
+<code>apri como</code><br>
+<code>prendi chiave47</code><br>
+<code>sposta attaccapanni</code><br>
+<code>prendi gancio</code><br>
+<code>prendi usb</code><br>
+<code>apri finestra</code><br>
+
+<b>GIARDINO</b>:<br>
+<code>sposta sdraio</code><br>
+<code>prendi chiave63</code><br>
+
+<b>STANZA 63</b>:<br>
+<code>prendi fucile</code><br>
+<code>usa chiave63</code><br>
+
+<b>CORRIDOIO COLUMBUS</b>:<br>
+<code>usa chiave47</code><br>
+
+<b>BAR COLUMBUS</b>:<br>
+<code>apri cassa con chiave47</code><br>
+<code>prendi tessera3</code><br>
+<code>sposta tazza</code><br>
+<code>prendi gettone</code><br>
+
+<b>SALA GIOCHI</b>:<br>
+<code>inserisci gettone in cambiamonete</code><br>
+<code>prendi tessera2</code><br>
+
+<b>CORRIDOIO COLUMBUS</b>:<br>
+<code>usa tessera2</code><br>
+
+<b>CORRIDOIO CLIPPINGS</b>:<br>
+<code>usa tessera3</code><br>
+
+<b>CCTV</b>:<br>
+<code>apri vetrina</code><br>
+<code>prendi foglio47</code><br>
+<code>inserisci usb in fisso</code><br>
+<code>usa cellulare</code><br>
+<code>inserisci 522727 in cassaforte</code><br>
+<code>apri cassaforte</code><br>
+<code>prendi chiave77</code><br>
+
+<b>CORRIDOIO CLIPPINGS</b>:<br>
+<code>usa chiave77</code><br>
+
+<b>LAVANDERIA</b>:<br>
+<code>apri ventola con gancio</code><br>
+<code>usa ventola</code><br>
+
+<b>HALL</b>:<br>
+<code>inserisci 573874 in cassaforte</code><br>
+<code>apri cassaforte</code><br>
+<code>prendi chiave13</code><br>
+<code>usa chiave13</code><br>
+
+<b>STANZA 13</b>:<br>
+<code>usa fucile</code><br>
+
+---
 [Torna all'indice](#Indice) <br><br>
 
 # Requisiti specifici
