@@ -708,7 +708,7 @@ public class GameGUI extends javax.swing.JFrame {
         Font timesNewRoman = new Font("Times New Roman",
                 Font.PLAIN, Description.GAME_GUI_SIZE_NEW_FONT_JTP);
 
-        //Utilizzato per cambiare dinamicamente il font nella jtp
+        //Utilizzato per cambiare dinamicamente il font nella jtp.
         StyledDocument doc = jtpReadingArea.getStyledDocument();
         SimpleAttributeSet aSet = new SimpleAttributeSet();
 
@@ -746,12 +746,12 @@ public class GameGUI extends javax.swing.JFrame {
     }
 
     private void saveGame() {
-        // Inizializza il jFileChooser per scegliere la cartella dove salvare
+        // Inizializza il jFileChooser per scegliere la cartella dove salvare.
         JFileChooser fChooser = new JFileChooser();
         fChooser.setMultiSelectionEnabled(false);
         fChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         fChooser.setCurrentDirectory(new File("."));
-        // Parte dalla cartella del progetto
+        // Parte dalla cartella del progetto.
 
         try {
             if (fChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
@@ -925,8 +925,8 @@ public class GameGUI extends javax.swing.JFrame {
             addCommand(command);
             countKeyDown = 0;
 
-            //Se il comando ha fatto terminare il gioco
-            // (ovvero se il tempo di completamento si è bloccato)
+            // Se il comando ha fatto terminare il gioco
+            // (ovvero se il tempo di completamento si è bloccato).
             if (!gInteraction.getGameManager().getGame().
                     getgTime().isActive()) {
                 this.insertScore();
@@ -973,8 +973,8 @@ public class GameGUI extends javax.swing.JFrame {
         jlRoomName.setText("  " + gInteraction.getGameManager().
                 getGame().getCurrentRoom().getName() + "        ");
 
-        //Se il comando ha fatto terminare il gioco
-        // (ovvero se il tempo di completamento si è bloccato)
+        // Se il comando ha fatto terminare il gioco
+        // (ovvero se il tempo di completamento si è bloccato).
         if (!gInteraction.getGameManager().getGame().
                 getgTime().isActive()) {
             this.insertScore();
@@ -1013,11 +1013,11 @@ public class GameGUI extends javax.swing.JFrame {
         try {
             StyledDocument sDoc = tp.getStyledDocument();
 
-            // Aggiungo come attributo il colore desiderato c
+            // Aggiungo come attributo il colore desiderato c.
             SimpleAttributeSet sAttrSet = new SimpleAttributeSet();
             StyleConstants.setForeground(sAttrSet, c);
 
-            // Inserisco la stringa in coda, con gli attributi desiderati
+            // Inserisco la stringa in coda, con gli attributi desiderati.
             sDoc.insertString(sDoc.getLength(), msg, sAttrSet);
 
         } catch (Exception e) {
@@ -1042,9 +1042,9 @@ public class GameGUI extends javax.swing.JFrame {
     }
 
     private void commandHistory() {
-        //Verifico che sia stato inserito almeno un comando
+        //Verifico che sia stato inserito almeno un comando.
         if (!commandHistory.isEmpty()) {
-            //Verranno visualizzati, in ordine temporale, i comandi eseguiti
+            //Verranno visualizzati, in ordine temporale, i comandi eseguiti.
             countKeyDown++;
 
             if (countKeyDown <= commandHistory.size()) {

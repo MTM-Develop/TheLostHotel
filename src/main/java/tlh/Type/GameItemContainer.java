@@ -435,10 +435,10 @@ public class GameItemContainer extends GameItem implements Serializable {
 
         boolean flag = false;
 
-        // Se cName è la chiave del contenitore
+        // Se cName è la chiave del contenitore.
         if (getLockedBy().equals(cName)) {
 
-            // Sblocca il contenitore
+            // Sblocca il contenitore.
             this.setLockedBy("");
             flag = true;
 

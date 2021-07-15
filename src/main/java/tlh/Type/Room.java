@@ -353,7 +353,7 @@ public class Room implements Serializable {
      */
     public boolean removeItem(final GameItem i) {
 
-        // Se prova a rimuovere l'oggetto dalla stanza ma non lo trova
+        // Se prova a rimuovere l'oggetto dalla stanza ma non lo trova.
         if (!itemList.remove(i)) {
 
             // Cerca in un ItemContainer della stanza
@@ -364,7 +364,7 @@ public class Room implements Serializable {
 
                 item = it.next();
 
-                // Se il contenitore contiene quell'elemento lo rimuove
+                // Se il contenitore contiene quell'elemento lo rimuove.
                 if (item instanceof GameItemContainer
                         && ((GameItemContainer) item).remove(i)) {
                     return true;
@@ -372,7 +372,7 @@ public class Room implements Serializable {
             }
 
         } else {
-            // Se l'ha trovato nella stanza allora l'ha rimosso
+            // Se l'ha trovato nella stanza allora l'ha rimosso.
             return true;
         }
         return false;

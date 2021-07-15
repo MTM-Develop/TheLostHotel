@@ -25,7 +25,7 @@ public class Parser {
      * oppure parole chiave ('con', 'in').
      *
      * Il Parser salta gli articoli, gli aggettivi e gli avverbi non rilevanti e
-     * rimuove qualunque carattere speciale o numero.
+     * rimuove qualunque carattere speciale.
      *
      * @param phrase comando preso in input dall'utente.
      * @param currentRoom stanza attuale in cui si trova il giocatore.
@@ -44,21 +44,21 @@ public class Parser {
 
         ParserOutput pOutput = new ParserOutput();
 
-        // Rimuove punteggiatura, caratteri speciali e cifre
+        // Rimuove punteggiatura, caratteri speciali
         // e tokenizza la stringa in base agli spazi.
         String[] tokens = phrase.replaceAll("[^0-9a-zA-Zùìèéàò]", " ")
                 .toLowerCase().split("\\s+");
 
-        // Cerca un comando
+        // Cerca un comando.
         for (String t : tokens) {
 
-            // Se è il primo e unico comando che trova, lo salva
+            // Se è il primo e unico comando che trova, lo salva.
             if (this.isCommand(t, commands) && pOutput.isEmpty()) {
                 pOutput.add(WordType.COMMAND, t);
             } else if (this.isCommand(t, commands) && !pOutput.isEmpty()) {
-                // Se trova un secondo comando, la stringa non è valida
+                // Se trova un secondo comando, la stringa non è valida.
 
-                throw new InvalidStringException(); //"Stringa non valida"
+                throw new InvalidStringException();
 
             }
 
@@ -70,7 +70,6 @@ public class Parser {
 
             String s = null;
 
-            // Ciclo con indice poiché serve mantenere il contatore
             for (short i = 0; i < tokens.length; i++) {
 
                 // Controlla se il token corrispondente
@@ -109,7 +108,7 @@ public class Parser {
                 }
             }
 
-        } else { // Se non ha trovato nemmeno un comando
+        } else { // Se non ha trovato nemmeno un comando.
             throw new InvalidStringException();
         }
 
@@ -142,9 +141,6 @@ public class Parser {
      * Controlla se il token passato è un oggetto dell'inventario (dell'utente,
      * della stanza o di un contenitore).
      *
-     * Riconosce oggetti formati da una o due parole, ad esempio anche "chiave
-     * rossa".
-     *
      * @param s token.
      * @param inv inventario.
      * @param tokens insieme di tokens della stringa scritta dall'utente.
@@ -173,12 +169,11 @@ public class Parser {
                     // Altrimenti se il nome di i inizia con il token,
                     // controlla se anche il successivo combacia.
 
-                    // Controlla il token successivo
+                    // Controlla il token successivo.
                     if (i.getName().contains(tokens[counter + 1])) {
 
                         // Ritorna la stringa formata dalla
-                        // parte inziale del nome e dalla seconda
-                        // (e.g. "chiave" + " " + "rossa")
+                        // parte inziale del nome e dalla seconda.
                         return s + " " + tokens[counter + 1];
 
                     }

@@ -95,7 +95,7 @@ public class Inventory implements Serializable {
 
         for (GameItem i : inventoryList) {
 
-            // Controlla se combacia con il nome o con un alias degli oggetti
+            // Controlla se combacia con il nome o con un alias degli oggetti.
             if (i.getName().equals(gIName) || i.getAlias().contains(gIName)) {
                 return i;
             }

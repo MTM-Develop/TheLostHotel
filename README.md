@@ -7,7 +7,7 @@
 1. [Introduzione](#Introduzione)
     - [Trama del gioco](#Trama-del-gioco) <br>
     - [Mappa di gioco](#Mappa-di-gioco) <br>
-    - [Come completare l'avventura](#Come-completare-l'-avventura)
+    - [Come completare l'avventura](#Come-completare-lavventura)
 
 2. [Requisiti specifici](#Requisiti-specifici)
     - [Requisiti funzionali](#Requisiti-funzionali) <br>
@@ -52,7 +52,7 @@ La seguente relazione è stata sviluppata per il progetto che implementa il gioc
   
 <p>L'interfaccia dell'applicazione consente all'utente sia di digitare testualmente i comandi di gioco, sia di poter interagire tramite i bottoni presenti nel programma.</p>   
 <p>Lo scopo di questo progetto è quello di creare un'avventura grafico/testuale che possa essere utilizzata da utenti che abbiano 
-una minima conoscenza di questa tipologia di applicazione.<br> Inoltre, si tende a precisare che l'obiettivo di questo progetto è quello di dimostrare le competenze acquisite durante il corso di <i>Metodi Avanzati di Programmazione</i>.</p>  //aggiungere
+una minima conoscenza di questa tipologia di applicazione.<br> Inoltre, si tende a precisare che l'obiettivo di questo progetto è quello di dimostrare le competenze acquisite durante il corso di <i>Metodi Avanzati di Programmazione</i>.</p>
 
 ---
 
@@ -99,6 +99,8 @@ Il gioco al primo avvio si presenta così, mostrando l'immagine della stanza inz
 Per la realizzazione delle immagini delle singole stanze è stato utilizzato il software online [Planner5d](https://planner5d.com/it/).
 
 ---
+
+[Torna all'indice](#Indice) <br><br>
 
 ## Come completare l'avventura
 Di seguito riportiamo i vari passaggi per completare con successo l'avventura:
@@ -225,6 +227,8 @@ Riportiamo i requisiti funzionali dell'applicazione:
 
 ---
 
+[Torna all'indice](#Indice) <br><br>
+
 ## Requisiti non funzionali
 I NFR <i>(Non Functional Requirement)</i> rappresentano i vincoli e le caratteristiche relative ad un sistema, le tecnologie e gli standard che il software deve adottare. <br>
 
@@ -236,6 +240,8 @@ Riportiamo i requisiti non funzionali dell'applicazione:
 | Modularità  / <br>Riusabilità / <br>Manutenibilità |Il software è ideato utilizzando i fondamenti del linguaggio OO Java ed è suddiviso secondo l'architettura MVC (<i>Model View Controller</i>) in modo da separare la logica di business da quella di visualizzazione. <br> L'applicazione è progettata in modo da poter essere utilizzata per l'implementazione di altri giochi simili aggiungendo nuovi comandi e azioni, in quanto prevede la classe astratta <b>GameManager</b>.<br> La classe <b>TLHStart</b> è provvista di un proprio main per poter essere eseguita e caricare sul file <i>NewGame.dat</i> i vari oggetti e stanze relativi all'avventura.<br> Infine, è stata creata una classe <b>Description</b> contenente tutte le costanti riconosciute dal programma, in modo da poter semplificare la lettura e l'eventuale scrittura di nuove.|
 | Portabilità | L'applicazione è eseguibile sui seguenti sistemi operativi aventi la JDK 11:<br><li> Windows NT;<br><li>macOS;<br><li>Linux;<br><li>Oracle Solaris.|
 
+---
+
 [Torna all'indice](#Indice) <br><br>
 
 # Contenuti rilevanti
@@ -246,8 +252,11 @@ Per quanto riguarda l'utilizzo di <b>file</b> è stato creato il file <b><i>NewG
 Tale file viene creato eseguendo il main della classe <b>TLHStart</b>.<br>
 Un altro utilizzo del file è relativo al salvataggio e caricamento della partita: <br>
  - Nel primo caso vengono salvati (nel file <b><i>TheLostHotel.dat</b></i>) l'inventario del giocatore, la stanza dove si trova attualmente e tiene traccia di tutti gli stati degli oggetti con cui ha interagito (Ex: oggetto spostato, usato, aperto, ...);
- - Nel secondo, invece, l'applicazione recupera i dati risalenti all'ultimo salvataggio effettuato dallo stesso file. 
+ - Nel secondo, invece, l'applicazione recupera i dati risalenti all'ultimo salvataggio effettuato dallo stesso file.
+
 ---
+
+[Torna all'indice](#Indice) <br><br>
 
 ## Connessione a database
 Questa sezione descrive l'uso dello standard <b>JDBC</b> (<i>Java Data Base Connectivity</i>).
@@ -268,6 +277,8 @@ Il giocatore stesso può essere soggetto ad una penalità nel caso in cui termin
 Non appena il protagonista conclude l'avventura, vengono stampati testualmente i primi 3 giocatori che hanno ottenuto il voto migliore in ordine decrescente.
 
 ---
+
+[Torna all'indice](#Indice) <br><br>
 
 ## GUI mediante SWING
 Questa sezione descrive l'uso del framework di JAVA che permette la realizzazione di interfacce grafiche.
@@ -310,11 +321,17 @@ Cliccando l'icona in alto a destra, relativa all'inventario, verrà visualizzata
  - 1 <code>JScrollPane</code> al fine di scorrere tutti i GameItem dello zaino;
  - 1 <code>JLabel</code> contenente l'immagine di ciascuno oggetto.
 
---- 
+---
+
+[Torna all'indice](#Indice) <br><br>
 
 ## Thread
 Nella classe <b>Music</b> è stata gestita la riproduzione della musica mediante il metodo <i><b>playSound</i></b> che fa partire un <b>Thread</b> il quale riproduce la musica, caricandola da un URL passato come parametro. <br>
 Va sottolineato che tale metodo è di tipo <i><b>synchronized</b></i> poichè garantisce che tutto quello che viene fatto qui viene portato a compimento prima che un altro thread chiami lo stesso metodo.
+
+---
+
+[Torna all'indice](#Indice) <br><br>
 
 ## Javadoc
 Riportiamo di seguito la panoramica dei package coperti da <b>Javadoc</b> e, successivamente, le rispettive classi:
@@ -350,6 +367,8 @@ Riportiamo di seguito la panoramica dei package coperti da <b>Javadoc</b> e, suc
 ## Package Type
 >![package_javadoc](./imgRelazione/javadoc_package_type.PNG)
 
+---
+
 [Torna all'indice](#Indice) <br><br>
 
 # Riepilogo dei test
@@ -362,21 +381,31 @@ Si è deciso di utilizzare l’Analisi statica del codice poichè permette di an
 
 Tra i principali strumenti per svolgere il testing del codice è stato scelto di utilizzare [Checkstyle](https://checkstyle.org) e [Spotbugs](https://spotbugs.github.io).<br>
 
-- ## Checkstyle
-    - <b>Checkstyle</b> è uno strumento di analisi del codice statico, utilizzato per scoprire eventuali violazioni dello stile di programmazione e verificare se il codice sorgente è conforme alle regole di codifica specificate.<br>
-    Di seguito ne riportiamo brevemente il risultato:<br><br>
-    >![checkstyle](./imgRelazione/checkstyle.PNG)
+---
 
-- ## Spotbugs
-    - Relativamente invece all'altro analizzatore statico del codice, <b>Spotbugs</b> si occupa di inviduare potenziali difetti che possono comportare malfunzionamenti nel codice.<br>
-    Ne riportiamo brevemente l'output:<br><br>
-    >![spotbugs](./imgRelazione/spotbugs.PNG)
+## Checkstyle
+<b>Checkstyle</b> è uno strumento di analisi del codice statico, utilizzato per scoprire eventuali violazioni dello stile di programmazione e verificare se il codice sorgente è conforme alle regole di codifica specificate.<br>
+Di seguito ne riportiamo brevemente il risultato:<br><br>
+>![checkstyle](./imgRelazione/checkstyle.PNG)
+
+---
+
+[Torna all'indice](#Indice) <br><br>
+
+## Spotbugs
+Relativamente invece all'altro analizzatore statico del codice, <b>Spotbugs</b> si occupa di inviduare potenziali difetti che possono comportare malfunzionamenti nel codice.<br>
+Ne riportiamo brevemente l'output:<br><br>
+>![spotbugs](./imgRelazione/spotbugs.PNG)
+
+---
 
 [Torna all'indice](#Indice) <br><br>
 
 # Processo di sviluppo e organizzazione del lavoro
 
 Questa sezione descrive gli strumenti adoperati dal gruppo per lo sviluppo dell'applicazione.
+
+---
 
 ## Piattaforma di comunicazione adottata
 Il nostro gruppo ha utilizzato, per riunioni e condivisione dello schermo, la piattaforma
@@ -390,12 +419,18 @@ coordinazione, cercando di distribuire nel migliore dei modi le diverse attivit�
 Naturalmente, per comunicazione tempestive, avvisi generali e altre cose simili, si sono utilizzate le più comuni app di messaggistica, quali per esempio <i>WhatsApp</i>, mediante la creazione di un apposito gruppo, che ci consentisse di rimanere aggiornati. <br>
 Tutti i membri del gruppo hanno utilizzato l'ambiente di sviluppo [IntelliJ IDEA](https://www.jetbrains.com/idea/).
 
+---
+
 [Torna all'indice](#Indice) <br><br>
 
 # Analisi retrospettiva
 ## Soddisfazioni
 Come gruppo, siamo stati molto soddisfatti e soprattutto stimolati dalla modalità di gestione del lavoro. Il modo in cui il lavoro è stato suddiviso e successivamente svolto, ci ha resi molto grati e soddisfatti per quello che stavamo creando, dato che si avvicina molto al mondo del lavoro. <br>Anche il progetto in sè andava oltre un banale esame di programmazione, ma mirava alla collaborazione tra ogni membro del gruppo e all'instaurazione di un rapporto di "complicità lavorativa" l'uno con l'altro. <br> <br>
 Un'altra cosa, per la quale siamo fieri, è sicuramente l'aver gestito e risolto tutti gli errori segnalati da [Checkstyle](#Checkstyle) e [Spotbugs](#Spotbugs).
+
+---
+
+[Torna all'indice](#Indice) <br><br>
 
 ## Cosa ci ha fatto impazzire
 
@@ -404,7 +439,9 @@ Abbiamo riscontrato parecchie difficoltà man mano che aumentavano il numero di 
 Questo ha portato errori a cui non riuscivamo a dare una spiegazione e ci ha portato a perdere abbastanza tempo.
 
 Un'altra cosa per il quale abbiamo riscontrato diversi rallentamenti è stato sicuramente inserire per <b>ogni</b> costante, e non solo, il relativo commento Javadoc.<br>
-Inoltre, Spotbugs ci ha segnalato un errore riguardo il codice di serializzazione della classe, poichè alcuni oggetti di essa non dovevano essere serializzati (infatti a questi è stata aggiunta la parola chiave <b>transient</b>). Di seguito riportiamo la riga di codice introdotta per risolvere tale problema:<br>
+Inoltre, Spotbugs ci ha segnalato un errore riguardo il codice di serializzazione della classe, poichè alcuni oggetti di essa non dovevano essere serializzati (infatti a questi è stata aggiunta la parola chiave <b>transient</b>).<br>Di seguito riportiamo la riga di codice introdotta per risolvere tale problema:<br>
 <i><b>static final long serialVersionUID = 42L</i></b>.
+
+---
  
 [Torna all'indice](#Indice)

@@ -93,12 +93,7 @@ public class MenuGUI extends javax.swing.JFrame {
         jbNewGame.setMnemonic(KeyEvent.VK_A);
         jbNewGame.setToolTipText("Inizia una nuova partita");
         jbNewGame.setBorder(new javax.swing.border.MatteBorder(null));
-        jbNewGame.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(final ActionEvent e) {
-                jbNewGameActionPerformed(e);
-            }
-        });
+        jbNewGame.addActionListener(e -> jbNewGameActionPerformed(e));
         jpMenu.add(jbNewGame);
         jbNewGame.setBounds(Description.MENU_GUI_X_JB_NEW,
                 Description.MENU_GUI_Y_JB_NEW,
@@ -109,12 +104,7 @@ public class MenuGUI extends javax.swing.JFrame {
         jbLoadGame.setToolTipText("Riprendi una partita salvata");
         jbLoadGame.setBorderPainted(true);
         jbLoadGame.setMnemonic(KeyEvent.VK_C);
-        jbLoadGame.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(final ActionEvent e) {
-                loadGame();
-            }
-        });
+        jbLoadGame.addActionListener(e -> loadGame());
         jpMenu.add(jbLoadGame);
         jbLoadGame.setBounds(Description.MENU_GUI_X_JB_LOAD,
                 Description.MENU_GUI_Y_JB_LOAD,
@@ -125,12 +115,7 @@ public class MenuGUI extends javax.swing.JFrame {
         jbQuitGame.setToolTipText("Chiudi il gioco");
         jbQuitGame.setBorderPainted(true);
         jbQuitGame.setMnemonic(KeyEvent.VK_E);
-        jbQuitGame.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(final ActionEvent e) {
-                jbEsciActionPerformed(e);
-            }
-        });
+        jbQuitGame.addActionListener(e -> jbEsciActionPerformed(e));
         jpMenu.add(jbQuitGame);
         jbQuitGame.setBounds(Description.MENU_GUI_X_JB_QUIT,
                 Description.MENU_GUI_Y_JB_QUIT,
@@ -152,23 +137,13 @@ public class MenuGUI extends javax.swing.JFrame {
         KeyStroke keyStrokeNew = KeyStroke.getKeyStroke(KeyEvent.VK_N,
                 KeyEvent.CTRL_DOWN_MASK);
         jmiNewGame.setAccelerator(keyStrokeNew);
-        jmiNewGame.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(final ActionEvent e) {
-                jbNewGameActionPerformed(e);
-            }
-        });
+        jmiNewGame.addActionListener(e -> jbNewGameActionPerformed(e));
 
         jmiLoadGame.setText("Carica partita");
         KeyStroke keyStrokeLoad = KeyStroke.getKeyStroke(KeyEvent.VK_C,
                 KeyEvent.CTRL_DOWN_MASK);
         jmiLoadGame.setAccelerator(keyStrokeLoad);
-        jmiLoadGame.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(final ActionEvent e) {
-                loadGame();
-            }
-        });
+        jmiLoadGame.addActionListener(e -> loadGame());
 
         jmOptions.add(jmiNewGame);
         jmOptions.addSeparator();
@@ -271,21 +246,21 @@ public class MenuGUI extends javax.swing.JFrame {
      * Carica una partita esistente da file.
      */
     public void loadGame() {
-        // Creazione del JFileChooser per selezionare il file
+        // Creazione del JFileChooser per selezionare il file.
         JFileChooser chooser = new JFileChooser();
         chooser.setMultiSelectionEnabled(false);
         chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
         chooser.setCurrentDirectory(new File("."));
-        // Parte dalla cartella del progetto
+        // Parte dalla cartella del progetto.
 
         try {
 
             if (chooser.showOpenDialog(this) == (JFileChooser.APPROVE_OPTION)) {
 
-                // Carica il gioco con il file di partita selezionato
+                // Carica il gioco con il file di partita selezionato.
                 menu.loadGame(chooser.getSelectedFile().getAbsolutePath());
 
-                //Per iniziare il gioco si passa al GameGUI
+                //Per iniziare il gioco si passa al GameGUI.
                 GameGUI g = new GameGUI(menu.getgInteraction());
                 g.setVisible(true);
                 this.dispose();

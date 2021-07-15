@@ -33,7 +33,7 @@ public class File {
     public void saveFile(final String path, final GameDescription gDescription)
             throws FileNotFoundException, IOException {
 
-        // Crea l'output stream per salvare gli oggetti
+        // Crea l'output stream per salvare gli oggetti.
         FileOutputStream fOut = new FileOutputStream(path);
         ObjectOutputStream objOut = new ObjectOutputStream(fOut);
 
@@ -59,7 +59,7 @@ public class File {
     public void readFile(final String path, final GameDescription gDescription)
             throws IOException, ClassNotFoundException {
 
-        // Crea l'input stream per leggere gli oggetti
+        // Crea l'input stream per leggere gli oggetti.
         FileInputStream fIn = new FileInputStream(path);
         ObjectInputStream objIn = new ObjectInputStream(fIn);
 

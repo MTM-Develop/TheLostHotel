@@ -57,7 +57,7 @@ public class InventoryGUI extends javax.swing.JDialog {
         try {
             for (GameItem i : inventory.getInventoryList()) {
 
-                // Inizializza il bottone
+                // Inizializza il bottone.
                 JButton jbImage = new JButton();
                 jbImage.setBackground(Color.black);
                 jbImage.setFocusable(false);
@@ -70,9 +70,8 @@ public class InventoryGUI extends javax.swing.JDialog {
                             Description.INV_GUI_HEIGHT_JB_IMG);
                     jbImage.setToolTipText(i.getName());
 
-                    /* Aggiunge l'ActionListener per il click sul bottone
-                     * che permette di visualizzare nome e descrizione dell'Item
-                     */
+                    // Aggiunge l'ActionListener per il click sul bottone
+                    // che permette di visualizzare nome e descrizione dell'Item.
                     jbImage.addActionListener(evt -> jbImageActionPerformed(evt,
                             i.getDescription(), i.getName()));
 
