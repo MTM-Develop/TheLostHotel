@@ -14,7 +14,8 @@
     - [Requisiti non funzionali](#Requisiti-non-funzionali)
 
 3. [O.O. Design](#OO-Design)
-    - [Diagrammi delle classi](#Diagrammi-delle-classi)
+    - [Diagrammi delle classi](#Diagrammi-delle-classi) <br>
+    - [Specifica algebrica dell'Inventario](#Specifica-algebrica-dellinventario)
 
 4. [Contenuti rilevanti](#Contenuti-rilevanti)
     - [Lettura/scrittura su File](#Lettura-scrittura-su-File) <br>
@@ -239,6 +240,93 @@ Riportiamo i requisiti non funzionali dell'applicazione:
 ---
 
 [Torna all'indice](#Indice) <br><br>
+
+# O.O. Design
+
+## Diagramma delle classi
+
+Di seguito riportiamo il diagramma delle classi più significative:
+
+>![diagrammaClassi](./imgRelazione/diagrammaClassi_UML.PNG)
+
+Descriviamo le varie relazioni tra le classi:
+
+- La classe <b><i>GameItemContainer</b></i> presenta:
+    - una <b>relazione di generalizzazione</b> con la classe <b><i>GameItem</b></i>, in quanto la prima estende la seconda;
+    - una <b>relazione di associazione</b> con la classe <b><i>Inventory</b></i>, in quanto la prima presenta un'istanza della seconda;
+    - una <b>relazione di aggregazione</b> con la classe <b><i>TLHStart</b></i>, avente molteplicità "zero o più" in quanto la seconda può istanziare più di un oggetto della prima. <br><br>
+
+- La classe <b><i>GameItem</b></i> presenta:
+    - una <b>relazione di aggregazione</b> con la classe <b><i>TLHStart</b></i>, avente molteplicità "zero o più" in quanto la seconda può istanziare più di un oggetto della prima. <br><br>
+
+- La classe <b><i>Inventory</b></i> presenta:
+    - una <b>relazione di associazione</b> con la classe <b><i>GameItem</b></i>, in quanto la prima presenta un'istanza della seconda. <br><br>
+
+- La classe <b><i>Room</b></i> presenta:
+    - una <b>relazione di dipendenza</b> con la classe <b><i>GameItem</b></i>, in quanto la prima utilizza o dipende da un elemento della seconda;
+    - una <b>relazione di associazione</b> con la classe <b><i>Inventory</b></i>, in quanto la prima presenta un'istanza della seconda;
+    - una <b>relazione riflessiva</b>, in quanto oggetti di questa classe possono avere collegamenti con oggetti della stessa classe. <br><br>
+
+- La classe <b><i>Description</b></i> presenta:
+    - una <b>relazione di aggregazione</b> con la classe <b><i>TLHStart</b></i>, avente molteplicità "zero o più" in quanto la seconda può istanziare più di un oggetto della prima. <br><br>
+
+- La classe <b><i>Command</b></i> presenta:
+    - una <b>relazione di aggregazione</b> con la classe <b><i>TLHStart</b></i>, avente molteplicità "zero o più" in quanto la seconda può istanziare più di un oggetto della prima. <br><br>   
+
+- La classe <b><i>TLHStart</b></i> presenta:
+    - una <b>relazione di associazione</b> con la classe <b><i>GameDescription</b></i>, in quanto la prima presenta un'istanza della seconda. <br><br>     
+
+- La classe <b><i>Main</b></i> presenta:
+    - una <b>relazione di dipendenza</b> con la classe astratta <b><i>GameManager</b></i>, in quanto la prima utilizza o dipende da un elemento della seconda. <br><br>     
+
+- La classe astratta <b><i>GameManager</b></i> presenta:
+    - una <b>relazione di associazione</b> con la classe <b><i>GameDescription</b></i>, in quanto la prima presenta un'istanza della seconda. <br><br>   
+
+- La classe <b><i>TheLostHotel</b></i> presenta:
+    - una <b>relazione di generalizzazione</b> con la classe astratta <b><i>GameManager</b></i>, in quanto la prima estende la seconda;
+    - una <b>relazione di dipendenza</b> con la classe <b><i>GameDescription</b></i>, in quanto la prima utilizza o dipende da un elemento della seconda;
+    - una <b>relazione di dipendenza</b> con la classe <b><i>ParserOutput</b></i>, in quanto la prima utilizza o dipende da un elemento della seconda. <br><br>
+
+- La classe <b><i>GameInteraction</b></i> presenta:
+    - una <b>relazione di associazione</b> con la classe astratta <b><i>GameManager</b></i>, in quanto la prima presenta un'istanza della seconda;
+    - una <b>relazione di associazione</b> con la classe <b><i>Parser</b></i>, in quanto la prima presenta un'istanza della seconda. <br><br>
+
+- La classe <b><i>Parser</b></i> presenta:
+    - una <b>relazione di dipendenza</b> con la classe <b><i>ParserOutput</b></i>, in quanto la prima utilizza o dipende da un elemento della seconda. <br><br> 
+
+- La classe <b><i>ParserOutput</b></i> presenta:
+    - una <b>relazione di dipendenza</b> con la classe enumerativa <b><i>WordType</b></i>, in quanto la prima utilizza o dipende da un elemento della seconda. <br>
+
+---
+
+[Torna all'indice](#Indice) <br><br>
+
+## Specifica algebrica dell'Inventario
+Riportiamo di seguito la specifica algebrica dell'Inventario:
+
+---
+
+## Specifica Sintattica:
+- TIPI: 
+    - <b>GameItem</b>
+    - <b>String</b>
+    - <b>Int</b>
+    - <b>Boolean</b> <br><br>
+
+- OPERATORI:
+    - Inventory() 
+    - getInventoryList() -> List<<b>GameItem</b>>
+    - add(<b>GameItem</b>)
+    - remove(<b>GameItem</b>) -> <b>Boolean</b>
+    - toString() -> <b>String</b>
+    - searchItem(<b>String</b>) -> <b>GameItem</b>
+    - isFull() -> <b>Boolean</b>
+    - hashCode() -> <b>Int</b>
+    - equals(<i>Object</i>) -> <b>Boolean</b> <br><br>
+
+<b>Inventory</b>: lista di n elementi <a1,a2,...an> di tipo <b>GameItem</b>.<br>
+<b>Boolean</b>: insieme dei valori di verità {true, false}.
+
 
 # Contenuti rilevanti
 
