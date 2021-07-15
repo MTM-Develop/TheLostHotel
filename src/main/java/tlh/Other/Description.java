@@ -14,7 +14,7 @@ public final class Description {
     private Description() {
     }
 
-    //Descrizioni relative a stanze/luoghi dell'hotel
+    //Descrizioni relative a stanze/luoghi dell'hotel.
     /**
      * Descrizione della stanza "stanza 79".
      */
@@ -146,7 +146,7 @@ public final class Description {
                     + "Fa caldissimo qui dentro, sembra che l'apparato "
                     + "di ventilazione sia guasto...";
 
-    //Descrizioni relative a stanze/luoghi già visitati
+    //Descrizioni relative a stanze/luoghi già visitati.
     /**
      * Descrizione della stanza "stanza 79" già visitata.
      */
@@ -233,7 +233,7 @@ public final class Description {
     public static final String DESCRIPTION_VISITED_HALLWAY_CLIPPINGS =
             "Il corridoio finale, lo senti a pelle...";
 
-    //Descrizione più dettagliata per ogni stanza/luogo
+    //Descrizione più dettagliata per ogni stanza/luogo.
     /**
      * Descrizione più dettagliata della stanza "stanza 79".
      */
@@ -378,7 +378,7 @@ public final class Description {
                     + "lo si nota dalle poltrone situate su entrambi i lati e "
                     + "dal pianoforte sulla destra. ";
 
-    //Descrizione relativa agli oggetti
+    //Descrizione relativa agli oggetti.
     /**
      * Descrizione dell'oggetto "cellulare".
      */
@@ -1172,7 +1172,7 @@ public final class Description {
             DESCRIPTION_COMPUTER_CCTV_USABLE_BUT_ITEM_REMOVED =
             "Ti siedi, cosa vuoi farci con un computer senza internet?";
 
-    //Descrizione relativa ai gameItemContainer già aperti
+    //Descrizione relativa ai gameItemContainer già aperti.
     /**
      * Descrizione dell'oggetto contenitore "mobile" già aperto.
      */
@@ -1263,7 +1263,7 @@ public final class Description {
     public static final String OPENED_DESCRIPTION_BOOK =
             "Il libro con la copertina arancione aperto.";
 
-    //Descrizione relativa ai gameItemContainer già spostati
+    //Descrizione relativa ai gameItemContainer già spostati.
     /**
      * Descrizione dell'oggetto contenitore "quadro" già spostato.
      */
@@ -1321,7 +1321,7 @@ public final class Description {
     public static final String MOVED_DESCRIPTION_MIRROR =
             "Lo specchio che hai spostato poco fa.";
 
-    //ID oggetti
+    //ID oggetti.
     /**
      * ID dell'oggetto "cellulare".
      */
@@ -1504,7 +1504,7 @@ public final class Description {
      */
     public static final int ID_KEY_GAMEROOM = 37;
 
-    //ID oggetti contenitori
+    //ID oggetti contenitori.
     /**
      * ID dell'oggetto contenitore "mobile".
      */
@@ -1822,7 +1822,7 @@ public final class Description {
      */
     public static final int ID_PILLOW = 162;
 
-    //ID stanze
+    //ID stanze.
     /**
      * ID della stanza "stanza 79".
      */
@@ -1917,7 +1917,14 @@ public final class Description {
     public static final String PATH_ROOM13_LOSE =
             "resources//img//room//room13Lose.png";
 
-    //Magic Number
+    /**
+     * Percorso dell'immagine di congratulazioni
+     * per aver scoperto il finale alternativo.
+     */
+    public static final String PATH_IMG_CONGRATS =
+            "resources//img//other//finaleAlt.PNG";
+
+    //Magic Number.
     /**
      * Indica la capacità massima dell'inventario del giocatore.
      */
@@ -2711,4 +2718,11 @@ public final class Description {
      * di completamento del gioco) per non aver preso il fucile.
      */
     public static final int PENALTY_ONE_HOUR = 3600;
+
+    /**
+     * Rappresenta la penalità (di 3 ore sul tempo
+     * di completamento del gioco) per aver scoperto
+     * il finale alternativo.
+     */
+    public static final int PENALTY_THREE_HOURS = 10800;
 }

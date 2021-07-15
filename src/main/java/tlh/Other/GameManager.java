@@ -39,7 +39,7 @@ public abstract class GameManager {
     public GameManager(final GameDescription g, final String url) {
         this.game = g;
 
-        // Caricamento della musica
+        // Caricamento della musica.
         music.playSound(url);
     }
 

@@ -42,12 +42,12 @@ public class Music {
                         new BufferedInputStream(new FileInputStream(url)))) {
 
                     clip.open(inputStream);
-                    //acquisizione della risorsa di input
+                    //acquisizione della risorsa di input.
                     Thread.sleep(Description.MUSIC_THREAD_SLEEP);
-                    //thread fermo per 3 secondi
+                    //thread fermo per 3 secondi.
 
-                    clip.start();        //parte la musica
-                    clip.loop(Clip.LOOP_CONTINUOUSLY); //musica in loop
+                    clip.start(); //parte la musica.
+                    clip.loop(Clip.LOOP_CONTINUOUSLY); //musica in loop.
 
                 } catch (IOException e) {
                     JOptionPane.showMessageDialog(null,
@@ -96,7 +96,7 @@ public class Music {
 
                 Double volumeToCut = valueToPlusMinus;
                 // se volumeToCut è 0.0 allora la musica verrà mutata,
-                // se è 1.0 la musica verrà aumentata al massimo.
+                // se è 0.1 la musica verrà aumentata.
                 float changedCalc = (float) ((double) volumeToCut);
                 volControl.setValue(changedCalc);
                 //imposta il volume della musica.

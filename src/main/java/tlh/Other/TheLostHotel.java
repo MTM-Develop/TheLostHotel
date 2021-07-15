@@ -41,7 +41,7 @@ public class TheLostHotel extends GameManager {
     @Override
     protected String executeCommand(final ParserOutput pOutput) {
 
-        // Prende il tipo di comando in modo da gestire la richiesta
+        // Prende il tipo di comando in modo da gestire la richiesta.
         CommandType command = this.getGame().getCommandType(pOutput.getString(WordType.COMMAND));
 
         Room room = null;
@@ -97,7 +97,7 @@ public class TheLostHotel extends GameManager {
                                                     + "Con un fucile sarebbe andata diversamente...\n"
                                                     + "Venite portati via e arrestati dagli uomini in bianco.\n\n"
                                                     + "RICEVERAI UNA PENALIZZAZIONE (1 ora).");
-                                            //fine gioco
+                                            //fine gioco.
 
                                             endGame = true;
                                             //penalità di 1 ora.
@@ -186,7 +186,7 @@ public class TheLostHotel extends GameManager {
                     }
                     break;
 
-                // Se si vuole guardare un oggetto.
+                // Comando per guardare un oggetto.
                 case LOOK:
 
                     if (!pOutput.containsWordType(WordType.ERROR)) {
@@ -269,7 +269,7 @@ public class TheLostHotel extends GameManager {
                     }
                     break;
 
-                // Comandi per usare oggetti / oggetti contenitori.
+                // Comando per usare oggetti / oggetti contenitori.
                 case USE:
 
                     if (pOutput.containsWordType(WordType.ROOM_OBJ) && !gameItem.isUsableWithDrops()) {
@@ -293,7 +293,7 @@ public class TheLostHotel extends GameManager {
                                     if (((GameItemContainer) gameItem).isClosed()) {
                                         output.append("Non puoi usare questo oggetto (ora/così).\n");
                                     } else {
-                                        int continueGame = 0; //verifica se ha i due oggetti principali per proseguire
+                                        int continueGame = 0; //verifica se ha i due oggetti principali per proseguire.
 
                                         for (GameItem g : this.getGame().getInventory().getInventoryList()) {
                                             if (g.isIndispensable() && g.isItemCorrectlyAdded()) {
@@ -301,7 +301,7 @@ public class TheLostHotel extends GameManager {
                                             }
                                         }
 
-                                        if (continueGame == 2) { //MAPPA DELLA CASSAFORTE DELLA HALL E FOTO DEL FISSO DELLA CCTV
+                                        if (continueGame == 2) { //MAPPA DELLA CASSAFORTE DELLA HALL E FOTO DEL FISSO DELLA CCTV.
                                             this.getGame().setCurrentRoom(this.getGame().getCurrentRoom().getNorth());
 
                                             output.append("-- " + this.getGame().getCurrentRoom().getName() + " --" + "\n\n");
@@ -349,7 +349,7 @@ public class TheLostHotel extends GameManager {
                         } else {
                             output.append("Specifica correttamente l'oggetto che vuoi usare.\n");
                         }
-                    } else if (pOutput.size() == 2 && pOutput.containsWordType(WordType.INVENTORY_OBJ)) { // Se si vuole aprire una stanza con un oggetto dell'inventario
+                    } else if (pOutput.size() == 2 && pOutput.containsWordType(WordType.INVENTORY_OBJ)) { // Se si vuole aprire una stanza con un oggetto dell'inventario.
 
                         //Apertura stanza.
                         if (!gameItem.isConsumed() && this.unlockRoom(gameItem.getName())) {
@@ -431,25 +431,25 @@ public class TheLostHotel extends GameManager {
                     }
                     break;
 
-                // Apertura di un contenitore da sbloccare.
+                // Comando per aprire un contenitore.
                 case OPEN:
 
                     if (pOutput.containsWordType(WordType.ROOM_OBJ)) {
 
-                        GameItem iC = null; //contenitore
+                        GameItem iC = null;
                         gameItem = null;
                         byte index = 0;
 
-                        // Iteratore per ciclare sul ParserOutput
+                        // Iteratore per ciclare sul ParserOutput.
                         Iterator<WordType> it = pOutput.iterator();
-                        it.next(); // Salta il comando iniziale, già conosciuto
+                        it.next(); // Salta il comando iniziale, già conosciuto.
 
-                        // Salva gli oggetti che devono interagire nell'ordine prestabilito (e.g. "Apri baule con chiave")
+                        // Salva gli oggetti che devono interagire nell'ordine prestabilito (e.g. "Apri armadio con fermacapelli").
                         while (it.hasNext()) {
-                            //itemContainer. obbligatoriamente un oggetto della Room
+                            //itemContainer, obbligatoriamente un oggetto della Room.
                             if (index == 1 && it.next().equals(WordType.ROOM_OBJ)) {
                                 iC = this.getGame().getCurrentRoom().getItemList().searchItem(pOutput.getString(WordType.ROOM_OBJ));
-                            } else if (index == 2 && it.next().equals(WordType.INVENTORY_OBJ)) { //Chiave. obbligatoriamente un oggetto dell'inv.
+                            } else if (index == 2 && it.next().equals(WordType.INVENTORY_OBJ)) { //Chiave, obbligatoriamente un oggetto dell'inv.
                                 gameItem = this.getGame().getInventory().searchItem(pOutput.getString(WordType.INVENTORY_OBJ));
                             }
                             index++;
@@ -617,17 +617,17 @@ public class TheLostHotel extends GameManager {
                 case MOVE:
                     if (pOutput.containsWordType(WordType.ROOM_OBJ)) {
 
-                        GameItem iC = null; //contenitore
+                        GameItem iC = null;
                         gameItem = null;
                         byte index = 0;
 
-                        // Iteratore per ciclare sul ParserOutput
+                        // Iteratore per ciclare sul ParserOutput.
                         Iterator<WordType> it = pOutput.iterator();
-                        it.next(); // Salta il comando iniziale, già conosciuto
+                        it.next(); // Salta il comando iniziale, già conosciuto.
 
-                        // Salva gli oggetti che devono interagire nell'ordine prestabilito (e.g. "Apri baule con chiave").
+                        // Salva l'oggetto con cui si interagisce (e.g. "Sposta quadro").
                         while (it.hasNext()) {
-                            //itemContainer. obbligatoriamente un oggetto della Room.
+                            //itemContainer, obbligatoriamente un oggetto della Room.
                             if (index == 1 && it.next().equals(WordType.ROOM_OBJ)) {
                                 iC = this.getGame().getCurrentRoom().getItemList().searchItem(pOutput.getString(WordType.ROOM_OBJ));
                             }
@@ -635,7 +635,7 @@ public class TheLostHotel extends GameManager {
                         }
                         if (iC instanceof GameItemContainer) {
 
-                            // Se trova l'oggetto per aprirlo ed è corretto oppure se il contenitore non è bloccato lo apre.
+                            // Controlla che l'oggetto si possa spostare.
                             if (((GameItemContainer) iC).isMovable() && pOutput.size() == 2) {
                                 if (!pOutput.containsWordType(WordType.ERROR) && !pOutput.containsWordType(WordType.INVENTORY_OBJ)) {
                                     if (((GameItemContainer) iC).getcItemList().getInventoryList().isEmpty()) {
@@ -679,7 +679,7 @@ public class TheLostHotel extends GameManager {
                     }
                     break;
 
-                // Comando per raccogliere oggetti
+                // Comando per raccogliere oggetti.
                 case PICK_UP:
 
                     // Controlla che l'oggetto sia della stanza e non presente nell'inventario.
@@ -731,6 +731,7 @@ public class TheLostHotel extends GameManager {
                     }
                     break;
 
+                // Comando per lasciare oggetti.
                 case DROP:
                     // Controlla che l'oggetto sia presente nell'inventario.
                     if (pOutput.containsWordType(WordType.INVENTORY_OBJ) && !gameItem.isGIPassword() && pOutput.size() == 2) {
@@ -738,7 +739,7 @@ public class TheLostHotel extends GameManager {
                         // Controlla che l'oggetto si possa lasciare.
                         if (!Objects.isNull(gameItem)) {
 
-                            // Aggiunge l'oggetto all'inventario e lo rimuove dalla stanza.
+                            // Aggiunge l'oggetto alla stanza e lo rimuove dall'inventario.
                             this.getGame().getInventory().remove(gameItem);
                             this.getGame().getCurrentRoom().addItem(gameItem);
 
@@ -777,18 +778,19 @@ public class TheLostHotel extends GameManager {
                     }
                     break;
 
+                // Comando per inserire oggetti in un contenitore.
                 case INSERT:
                     if (pOutput.containsWordType(WordType.ROOM_OBJ) && pOutput.containsWordType(WordType.INVENTORY_OBJ) && pOutput.size() == Description.POUTPUT_SIZE_INSERT) {
 
-                        GameItem iC = null; //contenitore
+                        GameItem iC = null;
                         gameItem = null;
                         byte index = 0;
 
-                        // Iteratore per ciclare sul ParserOutput
+                        // Iteratore per ciclare sul ParserOutput.
                         Iterator<WordType> it = pOutput.iterator();
-                        it.next(); // Salta il comando iniziale, già conosciuto
+                        it.next(); // Salta il comando iniziale, già conosciuto.
 
-                        // Salva gli oggetti che devono interagire nell'ordine prestabilito (e.g. "Apri baule con chiave")
+                        // Salva gli oggetti che devono interagire nell'ordine prestabilito (e.g. "Inserisci usb in fisso").
                         while (it.hasNext()) {
                             //itemContainer, obbligatoriamente un oggetto della Room.
                             if (index == 1 && it.next().equals(WordType.INVENTORY_OBJ)) {
@@ -799,8 +801,8 @@ public class TheLostHotel extends GameManager {
                             index++;
                         }
                         if (iC instanceof GameItemContainer) {
-                            // Se trova l'oggetto per aprirlo ed è corretto
-                            // oppure se il contenitore non è bloccato lo apre.
+                            // Se trova l'oggetto per inserirlo in un contenitore
+                            // e il contenitore non è bloccato, lo inserisce.
                             if (((GameItemContainer) iC).isUsableWithItem()) {
                                 if (pOutput.containsWordType(WordType.ERROR)) {
                                     if (pOutput.containsWordType(WordType.IN)) {
@@ -828,7 +830,7 @@ public class TheLostHotel extends GameManager {
 
                                             gameItem.consume();
 
-                                            // Se l'oggetto è stato consumato, lo rimuove dall'inventario
+                                            // Se l'oggetto è stato consumato, lo rimuove dall'inventario.
                                             if (gameItem.isConsumed()) {
                                                 this.getGame().getInventory().remove(gameItem);
                                                 output.append("\nL'oggetto " + gameItem.getName() + " è stato rimosso.\n");
@@ -943,15 +945,14 @@ public class TheLostHotel extends GameManager {
                             output.append("Non puoi inserire qualcosa qui!\n");
                         }
                     } else if (pOutput.containsWordType(WordType.ROOM_OBJ) && pOutput.size() > 1 && pOutput.size() < Description.POUTPUT_SIZE_INSERT) {
-                        GameItem iC = null; //contenitore
+                        GameItem iC = null;
                         gameItem = null;
                         byte index = 0;
 
-                        // Iteratore per ciclare sul ParserOutput
+                        // Iteratore per ciclare sul ParserOutput.
                         Iterator<WordType> it = pOutput.iterator();
-                        it.next(); // Salta il comando iniziale, già conosciuto
+                        it.next(); // Salta il comando iniziale, già conosciuto.
 
-                        // Salva gli oggetti che devono interagire nell'ordine prestabilito (e.g. "Apri baule con chiave")
                         while (it.hasNext()) {
                             //itemContainer, obbligatoriamente un oggetto della Room.
                             if (index == Description.INDEX_IC_INSERT && it.next().equals(WordType.ROOM_OBJ)) {
@@ -995,28 +996,27 @@ public class TheLostHotel extends GameManager {
                     }
                     break;
 
-                // Comando per "svegliarsi", fa partire un finale nascosto
-                /*case WAKE_UP:
+                // Comando per terminare l'avventura e far partire un finale nascosto.
+                case SOCKEND:
 
-                    output.append("Ti guardi intorno e controlli l'orario: sono le 12! Non è suonata la sveglia... \n"
-                            + "L'esame era alle 9. Ti sei giocato l'ultimo appello della sessione...\n"
-                            + "Ora dovrai farlo a settembre... Ti sei rovinato le vacanze! "
-                            + "\n \n HAI SCOPERTO IL FINALE ALTERNATIVO DEL GIOCO IN : "
-                            + this.getGame().getGameTime().getTime()
-                            + "\nNon avendo concluso il gioco portando a termine gli obiettivi, "
-                            + "nella scoreboard avrai una penitenza. ");
+                    output.append("Sei davvero perspicace. Non ci avrei scommesso nulla su di te! "
+                            + "L'unica persona da cui mi aspettavo tale comando è sicuramente "
+                            + "il Prof, dato che, non avendo utilizzato le 'Socket' nel progetto, "
+                            + "era l'unico modo per menzionarli.\nSpero che il Prof stesso "
+                            + "abbia apprezzato il tentativo =D\n"
+                            + "Nonostante ciò, non è così che vogliamo venga portata a termine "
+                            + "l'avventura. Per questo:\n"
+                            + "RICEVERAI UNA PENALIZZAZIONE (3 ore).\n\n");
 
-                    // Ferma il timer che tiene traccia del tempo di completamento del gioco
-                    this.getGame().getGameTime().cancel();
 
-                    // La penitenza è pari al tempo di completamento + 3 ore (10800 secondi)
-                    this.getGame().getGameTime().setSecondPassed(this.getGame().getGameTime().getSecondPassed() + 10800);
+                    // La penitenza è pari al tempo di completamento + 3 ore (10800 secondi).
+                    this.getGame().getgTime().setSecondPassed(this.getGame().getgTime().getSecondPassed() + Description.PENALTY_THREE_HOURS);
 
-                    // Mostra all'utente una immagine di congratulazioni
-                    r = this.getGame().getCurrentRoom();
-                    r.setRoomImage(new ImageIcon("resources//img//stanze//congratulations.jpg"));
+                    output.append(endGame());
+                    // Mostra all'utente una immagine di congratulazioni.
+                    this.getGame().getCurrentRoom().setRoomImage(new ImageIcon(Description.PATH_IMG_CONGRATS));
 
-                    break;*/
+                    break;
 
                 default:
                     break;
@@ -1030,7 +1030,7 @@ public class TheLostHotel extends GameManager {
     }
 
     private String endGame() {
-        //JOptionPane.showMessageDialog();
+        // Ferma il timer che tiene traccia del tempo di completamento del gioco.
         this.getGame().getgTime().cancel();
         return "TEMPO COMPLETAMENTO GIOCO: " + this.getGame().getgTime().getTime();
     }

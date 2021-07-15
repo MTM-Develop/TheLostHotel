@@ -35,7 +35,7 @@ public class TLHStart {
 
     private void init() {
 
-        //Items dell'inventario
+        //Items dell'inventario.
         GameItem cellphone = new GameItem(Description.ID_CELLPHONE, "cellulare",
                 Description.DESCRIPTION_CELLPHONE);
         cellphone.setAlias(new String[]{"telefonino", "telefono"});
@@ -309,7 +309,7 @@ public class TLHStart {
         keyLaundry.setItemImage(imgKey77);
         keyLaundry.setConsumable((byte) 1);
 
-        //ItemContainer e oggetti della stanza
+        //ItemContainer e oggetti della stanza.
         GameItemContainer furniture79 = new GameItemContainer(
                 Description.ID_FURNITURE_79, "mobile",
                 Description.DESCRIPTION_FURNITURE_79);
@@ -844,7 +844,7 @@ public class TLHStart {
         cops.setAlias(new String[]{"polizia", "poliziotti"});
         cops.setPerson(true);
 
-        //Stanze
+        //Stanze.
         Room room79 = new Room(Description.ID_ROOM_79, "Stanza 79",
                 Description.DESCRIPTION_ROOM_79);
         room79.setLookDescription(Description.LOOK_ROOM_79);
@@ -1073,7 +1073,7 @@ public class TLHStart {
         laundry.setNorth(hall);
         hall.setWest(room13);
 
-        //Comandi
+        //Comandi.
         Command north = new Command("nord", CommandType.NORD);
         g.getCommands().add(north);
 
@@ -1124,6 +1124,9 @@ public class TLHStart {
                 "introduci", "metti"});
         g.getCommands().add(insert);
 
+        Command sockend = new Command("sockend", CommandType.SOCKEND);
+        g.getCommands().add(sockend);
+
     }
 
     /**
@@ -1136,12 +1139,12 @@ public class TLHStart {
         File fs = new File();
         TLHStart tlhStart = new TLHStart();
 
-        // Inizializza il gioco
+        // Inizializza il gioco.
         tlhStart.init();
 
         try {
 
-            // Scrive il file di "nuova partita" con il gioco creato
+            // Scrive il file "NewGame.dat" con il gioco creato.
             fs.saveFile("NewGame//NewGame.dat", tlhStart.getGame());
 
         } catch (Exception e) {

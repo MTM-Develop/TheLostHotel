@@ -66,9 +66,9 @@ public class GameTime implements Serializable {
      */
     public boolean cancel() {
 
-        // Se l'ha fermato correttamente
+        // Se l'ha fermato correttamente.
         if (task.cancel()) {
-            this.setActive(false); // lo stato non è più attivo
+            this.setActive(false); // lo stato non è più attivo.
             return true;
         }
 

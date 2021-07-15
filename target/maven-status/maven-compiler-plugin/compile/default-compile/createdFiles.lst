@@ -3,9 +3,7 @@ tlh\Other\Main.class
 tlh\Other\Music.class
 tlh\GUI\GameGUI$1.class
 tlh\Type\CommandType.class
-tlh\GUI\MenuGUI$4.class
 tlh\GUI\InventoryGUI.class
-tlh\GUI\MenuGUI$1.class
 tlh\Other\GameDescription.class
 tlh\Other\TheLostHotel$1.class
 tlh\Type\Command.class
@@ -13,7 +11,6 @@ tlh\Other\MenuManager.class
 tlh\Parser\InvalidStringException.class
 tlh\Type\Inventory.class
 tlh\Other\Description.class
-tlh\GUI\MenuGUI$3.class
 tlh\Database\DB.class
 tlh\Other\GameTime.class
 tlh\Parser\ParserOutput.class
@@ -21,11 +18,9 @@ tlh\Other\GameManager.class
 tlh\Other\GameInteraction.class
 tlh\Other\TheLostHotel.class
 tlh\Type\GameItemContainer.class
-tlh\GUI\MenuGUI$5.class
 tlh\Type\GameItem.class
 tlh\File\File.class
 tlh\GUI\GameGUI.class
-tlh\GUI\MenuGUI$2.class
 tlh\GUI\MenuGUI.class
 tlh\Parser\WordType.class
 tlh\Parser\Parser.class

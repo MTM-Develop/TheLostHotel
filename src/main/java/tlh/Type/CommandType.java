@@ -59,5 +59,9 @@ public enum CommandType implements Serializable {
     /**
      * Comando 'inserisci'.
      */
-    INSERT
+    INSERT,
+    /**
+     * Comando 'sockend'.
+     */
+    SOCKEND
 }

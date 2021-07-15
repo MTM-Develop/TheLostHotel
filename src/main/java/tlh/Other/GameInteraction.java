@@ -21,7 +21,6 @@ public class GameInteraction {
      */
     private Parser p;
 
-    // Costruttore
     GameInteraction(final GameManager gM) {
         this.g = gM;
         p = new Parser();
@@ -48,11 +47,13 @@ public class GameInteraction {
         String sOutput = "";
 
         try {
-            //Consegna la stringa in input al parser e la salva nel ParserOutput
+            //Consegna la stringa in input al parser
+            //e la salva nel ParserOutput.
             pOutput = p.parse(sInput, g.getGame().getCurrentRoom(),
                     g.getGame().getInventory(), g.getGame().getCommands());
 
-            //Salva in una stringa di output la risposta ricevuta dal gestore
+            //Salva in una stringa di output
+            //la risposta ricevuta dal gestore di gioco.
             sOutput = g.executeCommand(pOutput);
         } catch (Exception e) {
             sOutput = "Idea interessante... ma no.\n";

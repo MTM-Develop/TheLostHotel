@@ -121,10 +121,6 @@ Di seguito riportiamo i vari passaggi per completare con successo l'avventura:
 <code>usa slot</code><br>
 <code>prendi maniglia</code><br>
 
-<b>STANZA RELAX</b>:<br>
-<code>sposta cuscino</code><br>
-<code>prendi tessera1</code><br>
-
 <b>STANZA 53</b>:<br>
 <code>apri como</code><br>
 <code>prendi chiave47</code><br>
