@@ -51,8 +51,6 @@ public class DB {
      */
     private String vote = null;
 
-    //private static final String QUERY_DROP = "DROP TABLE IF EXISTS scores";
-
     /**
      * Si connette al db locale.
      */

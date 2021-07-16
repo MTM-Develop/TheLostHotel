@@ -890,7 +890,8 @@ public class GameGUI extends javax.swing.JFrame {
 
             // Prende il testo scritto dall'utente e lo stampa sul jTextPane.
             String command = jtCommand.getText().
-                    toLowerCase().replaceAll("\\s+", " ");
+                    toLowerCase().replaceAll("\\s+", " ").
+                    trim();
 
             appendToPane(jtpReadingArea, "\n>> " + command
                     + "\n", Color.red);

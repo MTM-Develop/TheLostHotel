@@ -1,9 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="8.29">
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Database\DB.java">
+</file>
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\File\File.java">
+</file>
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\File\TLHStart.java">
+</file>
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\GUI\GameGUI.java">
+</file>
 <file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\GUI\InventoryGUI.java">
 </file>
 <file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\GUI\MenuGUI.java">
 </file>
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Other\Description.java">
+</file>
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Other\GameDescription.java">
+</file>
 <file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Other\GameInteraction.java">
+</file>
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Other\GameManager.java">
+</file>
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Other\GameTime.java">
+</file>
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Other\Main.java">
+</file>
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Other\MenuManager.java">
+</file>
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Other\Music.java">
+</file>
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Other\TheLostHotel.java">
+</file>
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Parser\InvalidStringException.java">
+</file>
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Parser\Parser.java">
+</file>
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Parser\ParserOutput.java">
+</file>
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Parser\WordType.java">
+</file>
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Type\Command.java">
+</file>
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Type\CommandType.java">
+</file>
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Type\GameItem.java">
+</file>
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Type\GameItemContainer.java">
+</file>
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Type\Inventory.java">
+</file>
+<file name="C:\Users\Giovanni\Desktop\MAP2\TheLostHotel\src\main\java\tlh\Type\Room.java">
 </file>
 </checkstyle>

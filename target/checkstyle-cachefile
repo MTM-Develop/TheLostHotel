@@ -1,4 +1,4 @@
-#Thu Jul 15 13:18:14 CEST 2021
+#Fri Jul 16 12:50:27 CEST 2021
 C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\File\\File.java=1626343464662
 C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\Other\\GameDescription.java=1626343464670
 C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\GUI\\MenuGUI.java=1626347811705
@@ -6,21 +6,21 @@ C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\Parser\
 C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\Other\\Description.java=1626347576298
 C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\Other\\TheLostHotel.java=1626347576261
 C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\Other\\MenuManager.java=1626343464673
-C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\Type\\Room.java=1626343464682
+C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\Type\\Room.java=1626432540060
 C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\Other\\Music.java=1626345014708
 configuration*?=C66F9977E58B154F65BF6033F71E738512A1D971
-C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\GUI\\GameGUI.java=1626343464665
+C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\GUI\\GameGUI.java=1626431861897
 C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\File\\TLHStart.java=1626345384492
 C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\Type\\Command.java=1626343464679
-C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\Other\\GameTime.java=1626345014728
 C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\GUI\\InventoryGUI.java=1626347849639
-C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\Database\\DB.java=1626343464661
+C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\Other\\GameTime.java=1626345014728
+C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\Database\\DB.java=1626432410618
 C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\Parser\\Parser.java=1626343464676
 C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\Type\\Inventory.java=1626343464681
 C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\Parser\\InvalidStringException.java=1626343464676
+C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\Other\\GameInteraction.java=1626347866400
 C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\Type\\CommandType.java=1626345384517
 C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\Type\\GameItem.java=1626343464680
-C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\Other\\GameInteraction.java=1626347866400
 C\:\\Users\\Giovanni\\Desktop\\MAP2\\TheLostHotel\\src\\main\\java\\tlh\\Parser\\ParserOutput.java=1626343464677
 module-resource*?\:checkstyle-xpath-suppressions.xml=C48C47E54FFC81943B9125A01460CF3A2CC7F6AC
 module-resource*?\:checkstyle-suppressions.xml=966C3CB906354799EC434BA83DA2321596D8879C

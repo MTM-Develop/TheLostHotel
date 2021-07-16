@@ -15,7 +15,11 @@
 
 3. [O.O. Design](#OO-Design)
     - [Diagrammi delle classi](#Diagrammi-delle-classi) <br>
-    - [Specifica algebrica dell'Inventario](#Specifica-algebrica-dellinventario)
+    - [Specifica algebrica della classe Room](#Specifica-algebrica-della-classe-Room)
+        - [Specifica sintattica](#Specifica-sintattica)
+        - [Specifica semantica](#Specifica-semantica)
+        - [Osservazione binaria](#Osservazione-binaria)
+        - [Specifica di restrizione](#Specifica-di-restrizione)
 
 4. [Contenuti rilevanti](#Contenuti-rilevanti)
     - [Lettura/scrittura su File](#Lettura-scrittura-su-File) <br>
@@ -301,32 +305,52 @@ Descriviamo le varie relazioni tra le classi:
 
 [Torna all'indice](#Indice) <br><br>
 
-## Specifica algebrica dell'Inventario
-Riportiamo di seguito la specifica algebrica dell'Inventario:
+## Specifica algebrica della classe Room
+Riportiamo di seguito la specifica algebrica della classe Room:
 
 ---
 
-## Specifica Sintattica:
+## Specifica sintattica
 - TIPI: 
+    - <b>Room</b>
     - <b>GameItem</b>
-    - <b>String</b>
-    - <b>Int</b>
+    - <b>Inventory</b>
+    - <b>Integer</b>
     - <b>Boolean</b> <br><br>
 
 - OPERATORI:
-    - Inventory() 
-    - getInventoryList() -> List<<b>GameItem</b>>
-    - add(<b>GameItem</b>)
-    - remove(<b>GameItem</b>) -> <b>Boolean</b>
-    - toString() -> <b>String</b>
-    - searchItem(<b>String</b>) -> <b>GameItem</b>
-    - isFull() -> <b>Boolean</b>
-    - hashCode() -> <b>Int</b>
-    - equals(<i>Object</i>) -> <b>Boolean</b> <br><br>
+    - new() -> <b>Room</b>
+    - getItemList(<b>Room</b>) -> <b>Inventory</b>
+    - addItem(<b>Room</b>, <b>GameItem</b>) -> <b>Room</b>
+    - removeItem(<b>Room</b>, <b>GameItem</b>) -> <b>Boolean</b>
+    - dimension(<b>Room</b>) -> <b>Integer</b>
+    - clear(<b>Room</b>) -> <b>Room</b>
+    - isEmpty(<b>Room</b>) -> <b>Boolean</b>
+    - equals(<b>Room</b>, <b>Room</b>) -> <b>Boolean</b> <br><br>
 
-<b>Inventory</b>: lista di n elementi <a1,a2,...an> di tipo <b>GameItem</b>.<br>
-<b>Boolean</b>: insieme dei valori di verità {true, false}.
+---
 
+## Specifica semantica
+Di seguito riportiamo la specifica semantica:
+>![semantica](./imgRelazione/specifica_semantica.PNG)
+
+---
+
+## Osservazione binaria
+Riportiamo adesso l'osservazione binaria del metodo equals(a, b):
+>![osservazioneBinaria](./imgRelazione/osservazione_binaria_equals.PNG)
+
+---
+
+## Specifica di restrizione
+<b>RESTRICTION:</b><br>
+getItemList(new()) = <b><i>error</i></b>;
+
+Alcuni metodi <i>getter</i> e <i>setter</i> sono stati omessi.
+
+---
+
+[Torna all'indice](#Indice) <br><br>
 
 # Contenuti rilevanti
 
