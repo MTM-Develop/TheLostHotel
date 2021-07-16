@@ -14,7 +14,7 @@
     - [Requisiti non funzionali](#Requisiti-non-funzionali)
 
 3. [O.O. Design](#OO-Design)
-    - [Diagrammi delle classi](#Diagrammi-delle-classi) <br>
+    - [Diagramma delle classi](#Diagramma-delle-classi) <br>
     - [Specifica algebrica della classe Room](#Specifica-algebrica-della-classe-Room)
         - [Specifica sintattica](#Specifica-sintattica)
         - [Specifica semantica](#Specifica-semantica)
@@ -22,7 +22,7 @@
         - [Specifica di restrizione](#Specifica-di-restrizione)
 
 4. [Contenuti rilevanti](#Contenuti-rilevanti)
-    - [Lettura/scrittura su File](#Lettura-scrittura-su-File) <br>
+    - [Lettura/scrittura su File](#Letturascrittura-su-File) <br>
     - [Connessione a database](#Connessione-a-database) <br>
     - [GUI mediante SWING](#GUI-mediante-SWING) <br>
     - [Thread](#Thread) <br>
